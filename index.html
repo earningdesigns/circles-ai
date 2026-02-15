@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circles</title>
+  <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+  <div class="cs-page">
+    <header class="cs-header">
+      <div class="cs-header-inner">
+        <div class="cs-header-brand">
+
+        </div>
+      </div>
+    </header>
+    <main class="cs-main">
+      <div class="cs-main-inner">
+        <div class="cs-liner cs-liner-1">
+          <svg id="liner1" width="282" height="904" viewBox="0 0 282 904" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="liner1-track"
+              d="M277.043 3.1767C210.21 85.1767 181.343 119.477 104.543 210.677C8.5434 324.677 -133.957 682.677 277.043 903.177"
+              stroke="black" />
+              <rect class="liner1-line" width="150" height="7" fill="dodgerblue" />
+            <!-- <path class="liner1-line" d="M277.5 3.1767L96.5 223.177" stroke="#00F2A1" stroke-width="10" /> -->
+          </svg>
+        </div>
+      </div>
+      <section class="cs-section">
+        <div class="cs-section-inner">
+
+        </div>
+      </section>
+    </main>
+    <footer class="cs-footer"></footer>
+  </div>
+  <script src="./gsap/gsap.min.js"></script>
+  <script src="./gsap/ScrollTrigger.min.js"></script>
+  <script src="./gsap/MotionPathPlugin.min.js"></script>
+  <script>
+    gsap.registerPlugin("ScrollTrigger", "MotionPathPlugin");
+
+    document.addEventListener("DOMContentLoaded", init)
+    
+    function init() {
+      liner1();
+    }
+    
+    function liner1() {
+      const linerLineWidthRange = {min: 50, max: 150};
+      const liner1 = document.getElementById("liner1");
+      const linerTrack = liner1.querySelector('.liner1-track');
+      const linerLine = liner1.querySelector('.liner1-line');
+
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5],
+
+        },
+        transformOrigin: "50% 50%",
+        scrollTrigger: {
+          trigger: '.cs-liner',
+          scrub: true,
+          start: "top top",
+          // onUpdate: (self) => {
+          //   // self.progress is a value between 0 and 1
+          //   const minWidth = 50; // Percent
+          //   const maxWidth = 150; // Percent
+
+          //   // Calculate current width based on progress
+          //   const currentWidth = minWidth + (maxWidth - minWidth) * self.progress;
+
+          //   // Apply width to the element
+          //   gsap.set(linerLine, {width: currentWidth});
+          // }
+          onUpdate: (self) => {
+            // Clamp progress to 30%-60% range (0.3 - 0.6)
+            const startTrigger = 0.3;
+            const endTrigger = 0.6;
+
+            // Map the 0.3-0.6 range to 0-1 (for interpolation)
+            let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
+            // Clamp values outside 0-1
+            mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
+
+            // Calculate width (e.g., between 200px and 500px)
+            const minWidth = 50;
+            const maxWidth = 150;
+            const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
+
+            gsap.set(linerLine, {width: newWidth});
+          }
+
+        }
+      })
+    }
+  </script>
+</body>
+</html>

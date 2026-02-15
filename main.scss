@@ -1,0 +1,43 @@
+$app: '.cs-';
+
+*, *:before, *:after {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+:root {
+
+}
+body {
+  height: 100%;
+}
+
+
+#{$app} {
+  &page {
+    position: relative;
+  }
+  &main {
+    position: relative;
+    min-height: 400vh;
+
+    &-inner {
+      // position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &liner {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+  }
+
+  &section {
+    position: relative;
+    min-height: 100vh;
+  }
+}
