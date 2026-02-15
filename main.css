@@ -7,6 +7,7 @@
 :root {
   --cs-base-f-size: 1.6rem;
   --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
+  --cs-head-f-family: "Red Hat Display", sans-serif;
   --cs-color-green: #00F2A1;
   --cs-color-black: #000;
   --cs-color-blue: #194AB8;
@@ -56,6 +57,9 @@ img {
   width: 100%;
   top: 0;
   left: 0;
+}
+.cs-header .cs-stripes {
+  border-width: 0;
 }
 .cs-header__container {
   width: var(--cs-header-container-width);
@@ -115,14 +119,16 @@ img {
   background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+  color: transparent;
   margin-bottom: 0.8rem;
 }
 .cs-title__sub {
   display: block;
   font-size: var(--cs-title-sub-f-size);
-  font-weight: var(--cs-title-sub-line-height);
+  font-weight: var(--cs-title-sub-f-weight);
   line-height: var(--cs-title-sub-line-height);
 }
 .cs-sub-title {
@@ -164,7 +170,9 @@ img {
   background: #dfdfdf;
 }
 .cs-grid {
+  --cs-grid-cols: 2;
   display: grid;
+  grid-template-columns: repeat(var(--cs-grid-cols), minmax(0, 1fr));
 }
 .cs-ccircles {
   position: relative;
@@ -240,6 +248,7 @@ img {
   grid-template-columns: repeat(4, 1fr);
 }
 .cs-article {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 3rem;
@@ -259,6 +268,35 @@ img {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
+.cs-article:nth-child(even):before, .cs-article:nth-child(even):after {
+  content: "";
+  position: absolute;
+  filter: blur(137.75px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.cs-article:nth-child(even):before {
+  width: 16.8rem;
+  height: 16.8rem;
+  top: 22rem;
+  left: 3rem;
+  background: rgba(35, 99, 221, 0.6);
+}
+.cs-article:nth-child(even):after {
+  top: 16rem;
+  left: 1rem;
+  width: 13.6rem;
+  height: 13.6rem;
+  background: rgba(0, 242, 161, 0.44);
+}
+.cs-article:nth-child(2):before {
+  top: 20rem;
+  left: 8rem;
+}
+.cs-article:nth-child(2):after {
+  top: 14rem;
+  left: 2rem;
+}
 .cs-article__image {
   width: 7rem;
   height: 7rem;
@@ -267,20 +305,24 @@ img {
   margin-bottom: 3rem;
 }
 .cs-article__title {
+  position: relative;
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 150%;
   letter-spacing: -0.011em;
   color: #FFFFFF;
   margin-bottom: 1.6rem;
+  z-index: 1;
 }
 .cs-article__description {
+  position: relative;
   font-weight: 500;
   line-height: 156%;
   /* or 25px */
   letter-spacing: -0.01em;
   color: #FFFFFF;
   opacity: 0.7;
+  z-index: 1;
 }
 .cs-join-steps {
   display: flex;
@@ -345,6 +387,33 @@ img {
   min-height: 100vh;
   background: url("./images/section-1-bg.png") 0 0 no-repeat;
   background-position: center right;
+  padding-top: 11.2rem;
+}
+.cs-section--ix-hero .cs-section__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cs-section--ix-hero .cs-grid {
+  --cs-grid-cols: 12;
+}
+.cs-section--ix-hero .cs-grid--title {
+  margin-bottom: 8rem;
+}
+.cs-section--ix-hero .cs-grid--title .cs-grid__item {
+  grid-column: 6/12;
+}
+.cs-section--ix-hero .cs-grid--companies .cs-grid__item {
+  grid-column: 4/12;
+}
+.cs-section--ix-hero .cs-title {
+  font-family: var(--cs-head-f-family);
+  --cs-title-sub-f-size: 4.8rem;
+  --cs-title-sub-f-weight: 300;
+  --cs-title-sub-line-height: 100%;
+  --cs-title-f-size: 10rem;
+  --cs-title-f-weight: 900;
+  --cs-title-line-height: 100%;
 }
 .cs-section--ix-sdmo {
   min-height: 100vh;
