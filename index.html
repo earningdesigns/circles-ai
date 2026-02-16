@@ -54,6 +54,7 @@
         </div>
         <div class="cs-section__container">
           <div class="cs-meet-circles">Meet <img src="./images/section-logo.svg" alt="Circles"></div>
+
           <div class="cs-grid cs-grid--title">
             <div class="cs-grid__item">
               <h1 class="cs-title">
@@ -67,7 +68,7 @@
           <div class="cs-grid cs-grid--companies">
             <div class="cs-grid__item">
               <div class="cs-companies">
-                Trusted by
+                <p class="cs-companies__text">Trusted by</p>
                 <div class="cs-companies__list">
                   <div class="cs-company"><img src="./images/companies/kddi.png" alt="KDDI" class="cs-company__img"></div>
                   <div class="cs-company"><img src="./images/companies/telkomsel.png" alt="Telkomsel" class="cs-company__img"></div>
@@ -77,7 +78,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </section>
       <!-- Hero: End -->
@@ -89,6 +89,11 @@
             <span class="cs-title__sub">AI-native telco SAAS platform for smarter digital mobile operations</span>
           </h2>
 
+          <div class="cs-ctexts">
+            <div class="cs-ctext cs-ctext--1">Retention</div>
+            <div class="cs-ctext cs-ctext--2">Monetization</div>
+            <div class="cs-ctext cs-ctext--3">Acquisition</div>
+          </div>
           <div class="cs-ccircles">
             <div class="cs-ccircle cs-ccircle--1"></div>
             <div class="cs-ccircle cs-ccircle--2"></div>
@@ -111,6 +116,14 @@
 
             </div>
             <div class="cs-grid__item">
+              <div class="cs-hlt-title">
+                <h4 class="cs-hlt-title__text">CUSTOMER RELATIONSHIP</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
               <h2 class="cs-title">
                 <span class="cs-title__highlight">CareX</span>
                 AI-Native Conversational OS
@@ -131,6 +144,14 @@
         <div class="cs-section__container">
           <div class="cs-grid">
             <div class="cs-grid__item">
+              <div class="cs-hlt-title cs-hlt-title--align-right">
+                <h4 class="cs-hlt-title__text">CUSTOMER INSIGHTS</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
               <h2 class="cs-title">
                 <span class="cs-title__highlight">NOVA</span>
                 AI-Native Decision Layer
@@ -156,6 +177,14 @@
           
             </div>
             <div class="cs-grid__item">
+              <div class="cs-hlt-title">
+                <h4 class="cs-hlt-title__text">CUSTOMER LOYALTY</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Monetization</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
               <h2 class="cs-title">
                 <span class="cs-title__highlight">zerofyX</span>
                 AI-Powered Lifestyle Marketplace Engine
@@ -247,7 +276,7 @@
         <div class="cs-section__container">
           <img class="cs-brand" src="./images/brand-symbol.png" alt="Circles">
           
-          <h2 class="cs-title t-center">join the AI-DMO revolution</h2>
+          <h2 class="cs-title t-center">Join the AI-DMO revolution</h2>
 
           <div class="cs-join-steps">
             <article class="cs-join-step">
@@ -286,20 +315,131 @@
     <!-- Footer: End -->
   </div>
   <!-- Page: End -->
+  <!-- Body Scripts -->
   <script src="./gsap/gsap.min.js"></script>
   <script src="./gsap/ScrollTrigger.min.js"></script>
   <script src="./gsap/MotionPathPlugin.min.js"></script>
-  <!-- <script>
-    gsap.registerPlugin("ScrollTrigger", "MotionPathPlugin");
+  <script src="./gsap/SplitText.min.js"></script>
+  <!-- Main Script -->
+  <script>
+    gsap.registerPlugin("SplitText", "ScrollTrigger", "MotionPathPlugin");
 
     document.addEventListener("DOMContentLoaded", init)
+
+    // Split All Headlines
+    const splitTextToChars = () => {
+      let splitTexts = SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++'});
+
+      return splitTexts;
+    }
+
+
+    function blobsAnim() {
+        const blobs = document.querySelectorAll('.cs-section--ix-hero .cs-bcircles .cs-bcircle');
+
+        const blobsTl = gsap.timeline({
+          // paused: true, // Start paused
+          // scrollTrigger: {
+          //   trigger: '.cs-section--ix-hero', // The section containing blobs
+          //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
+          //   end: 'bottom top',           // Animation stops when the section leaves the viewport
+          //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
+          // },
+        })
+        const animDefaults = {
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        }
+
+        // Randomize initial positions
+        blobs.forEach(blob => {
+          const x = Math.random() * (window.innerWidth / 2) + window.innerWidth / 2;
+          const y = Math.random() * (window.innerHeight - 300);
+          gsap.set(blob, {x: x, y: y});
+        });
+
+
+        // Add floating animation with GSAP
+        blobs.forEach((blob, index) => {
+          const delay = -index * 5;
+          blobsTl.add(
+            gsap.to(blob, {
+              x: () => Math.random() * (window.innerWidth / 2) + window.innerWidth / 2,
+              y: () => Math.random() * (window.innerHeight - 300),
+              duration: 20,
+              ...animDefaults
+            }),
+            delay
+          )
+        });
+
+        // Add subtle pulsing animation
+        blobsTl.add(
+          gsap.to(blobs, {
+            scale: '+=0.05',
+            duration: 1,
+            ...animDefaults
+          })
+        )
+      }
+
+
+
+    function heroAnim() {
+      const sectionHero = document.querySelector('.cs-section--ix-hero');
+      
+      const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
+      const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
+
+      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -40})
+
+      blobsAnim();
+
+      function companiesAnim() {
+        const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
+
+        if (!sectionHeroCompanies) return gsap.timeline();
+
+        const sectionHeroCompanyTitle = sectionHero?.querySelector('.cs-companies .cs-companies__text');
+        const sectionHeroCompaniesList = sectionHeroCompanies?.querySelectorAll('.cs-company');
+
+        gsap.set([sectionHeroCompanyTitle, sectionHeroCompaniesList], {autoAlpha: 0, x: -20})
+
+        const tl = gsap.timeline();
+
+        tl
+          .to(sectionHeroCompanyTitle, {autoAlpha: 1, x: 0, duration: .48})
+          .to(sectionHeroCompaniesList, {autoAlpha: 1, x: 0, stagger: 0.25, duration: .48}, '-=0.3')
+
+        return tl;
+      }
+
+      const heroTl = gsap.timeline();
+
+      heroTl
+        .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .48})
+        .add(companiesAnim(), '+=1');
+
+
+
+      
+    }
     
     function init() {
-      liner1();
+      let splitTexts = splitTextToChars();
+      
+      heroAnim();
     }
+
+    
+
+
+    
     
     function liner1() {
       const linerLineWidthRange = {min: 50, max: 150};
+    
       const liner1 = document.getElementById("liner1");
       const linerTrack = liner1.querySelector('.liner1-track');
       const linerLine = liner1.querySelector('.liner1-line');
@@ -349,6 +489,59 @@
         }
       })
     }
-  </script> -->
+
+    // const min = 1;
+    // const max = 1.5;
+    // let shapes;
+
+    // class Shape {
+    //   constructor(el) {
+    //     this.el = el;
+    //     this.size = el.offsetWidth;
+    //     this.x = random(0, window.innerWidth - this.size);
+    //     this.y = random(0, window.innerHeight - this.size);
+    //     this.vx = random(min, max);
+    //     this.vy = random(min, max);
+    //   }
+    //   boundary() {
+    //     if (this.x >= window.innerWidth - this.size) {
+    //       this.vx *= -1;
+    //       this.x = window.innerWidth - this.size;
+    //     }
+    //     if (this.y >= window.innerHeight - this.size) {
+    //       this.vy *= -1;
+    //       this.y = window.innerHeight - this.size;
+    //     }
+    //     if (this.x <= 0) {
+    //       this.vx *= -1;
+    //       this.x = 0;
+    //     }
+    //     if (this.y <= 0) {
+    //       this.vy *= -1;
+    //       this.y = 0;
+    //     }
+    //   }
+    //   animate() {
+    //     this.x += this.vx;
+    //     this.y += this.vy;
+    //     this.el.style.transform = `translate(${this.x}px,${this.y}px)`;
+    //     this.boundary();
+    //   }
+    // }
+
+    // const random = (min, max) => Math.random() * (max - min) + min;
+
+    // function update() {
+    //   shapes.forEach((shape) => shape.animate());
+    //   requestAnimationFrame(update);
+    // }
+
+    // function initHero() {
+    //   shapes = Array.from(heroBlurCircles, (el) => new Shape(el));
+    //   update();
+    // }
+
+    // window.addEventListener('load', initHero, false);
+  </script>
 </body>
 </html>
