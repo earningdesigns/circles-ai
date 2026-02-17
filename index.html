@@ -436,7 +436,7 @@
             gsap.to(blob, {
               x: () => Math.random() * (window.innerWidth / 2) + window.innerWidth / 2,
               y: () => Math.random() * (window.innerHeight - 300),
-              duration: 20,
+              duration: 15,
               ...animDefaults
             }),
             delay
@@ -663,15 +663,15 @@
       const title = sectionJoin?.querySelectorAll('.cs-title .word');
       const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
 
-      gsap.set(brand, {opacity: 0, scale: 0.1})
+      gsap.set(brand, {opacity: 0, scale: 0.5})
       gsap.set(joinSteps, {autoAlpha: 0, y: 25});
       gsap.set(title, {y: 20, opacity: 0})
 
       const joinTl = gsap.timeline();
       joinTl
-        .to(brand, {opacity: 1, scale: 1, rotataion: 360, duration: 1.2})
-        .to(title, {y: 0, opacity: 1, stagger: 0.2, duration: 0.8}, '-=1')
-        .to(joinSteps, {y: 0, autoAlpha: 1, stagger: 0.36, duration: 0.8}, '-=15%')
+        .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
+        .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
+        .to(joinSteps, {y: 0, autoAlpha: 1, stagger: 0.24, duration: 0.8}, '-=15%')
 
     }
     

@@ -781,7 +781,6 @@ img {
           }
 
           &grid {
-
             &__item:last-child {
               grid-column-start: 7;
               grid-column-end: 11;
@@ -790,6 +789,10 @@ img {
         }
       }
       // CareX: End
+      &zerofyx {
+
+      }
+      // zerofyx: End
       &circles-collab {
         #{$app} {
           &description {
