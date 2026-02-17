@@ -527,6 +527,22 @@ img {
 }
 .cs-section--ix-sdmo {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cs-section--ix-sdmo .cs-concentric-circles {
+  display: block;
+  width: 75dvw;
+  margin: auto;
+}
+.cs-section--ix-sdmo .cs-section__container {
+  position: absolute;
+  inset-block: 0;
+  margin-block: auto;
+  display: flex;
+  align-items: center;
 }
 .cs-section--ix-sdmo .cs-title {
   font-size: 3.2rem;

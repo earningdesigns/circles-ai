@@ -714,12 +714,28 @@ img {
       // Hero: End
       &sdmo {
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         
+        #{$app} {
+          &concentric-circles {
+            display: block;
+            width: 75dvw;
+            margin: auto;
+          }
+        }
 
 
         #{$section} {
           &__ {
-            & {
+            &container {
+              position: absolute;
+              inset-block: 0;
+              margin-block: auto;
+              display: flex;
+              align-items: center;
             }
           }
         }

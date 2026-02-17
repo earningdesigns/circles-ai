@@ -91,6 +91,44 @@
       </section>
       <!-- Hero: End -->
       <section class="cs-section cs-section--ix-sdmo">
+        <div class="cs-concentric">
+          <svg class="cs-concentric-circles" viewBox="0 0 1166 1166" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5" stroke="url(#paint1_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5" stroke="url(#paint0_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25" stroke="url(#paint2_linear_2005_3610)" stroke-width="1.5" />
+            <circle class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582" stroke="url(#paint3_linear_2005_3610)" stroke-width="2" />
+            <defs>
+              <linearGradient id="paint0_linear_2005_3610" x1="690" y1="769.5" x2="468.303" y2="375.679"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00BC83" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="paint1_linear_2005_3610" x1="635.284" y1="674.131" x2="526.955" y2="481.696"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00BC83" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="paint2_linear_2005_3610" x1="772.169" y1="1116.72" x2="257.404" y2="407.818"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9D13FF" stop-opacity="0" />
+                <stop offset="0.5" stop-color="#CE89FF" />
+                <stop offset="1" stop-color="white" />
+              </linearGradient>
+              <linearGradient id="paint3_linear_2005_3610" x1="99.5837" y1="15.3724" x2="200.642" y2="1302.64"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0091FF" />
+                <stop offset="0.5" stop-color="white" stop-opacity="0.5" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <div class="cs-ctexts">
+            <div class="cs-ctext cs-ctext--1">Retention</div>
+            <div class="cs-ctext cs-ctext--2">Monetization</div>
+            <div class="cs-ctext cs-ctext--3">Acquisition</div>
+          </div>
+        </div>
         <div class="cs-section__container">
           <h2 class="cs-title t-center">
             <span class="cs-title__sub">The world’s first</span>
@@ -98,17 +136,13 @@
             <span class="cs-title__sub">AI-native telco SAAS platform for smarter digital mobile operations</span>
           </h2>
 
-          <div class="cs-ctexts">
-            <div class="cs-ctext cs-ctext--1">Retention</div>
-            <div class="cs-ctext cs-ctext--2">Monetization</div>
-            <div class="cs-ctext cs-ctext--3">Acquisition</div>
-          </div>
-          <div class="cs-ccircles">
+          
+          <!-- <div class="cs-ccircles">
             <div class="cs-ccircle cs-ccircle--1"></div>
             <div class="cs-ccircle cs-ccircle--2"></div>
             <div class="cs-ccircle cs-ccircle--3"></div>
             <div class="cs-ccircle cs-ccircle--4"></div>
-          </div>
+          </div> -->
         </div>
       </section>
       <!-- SDMO: End -->
@@ -366,7 +400,7 @@
     document.addEventListener("DOMContentLoaded", init)
 
     // Split All Headlines
-    const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++'}); }
+    const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++', wordsClass: 'word++'}); }
 
 
     function blobsAnim() {
@@ -502,17 +536,49 @@
       heroTl
         .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .48})
         .add(companiesAnim(), '+=1')
-        .add(liner())
+        .add(liner())   
+    }
+
+    function sdmoAnim() {
+      const sectionSdmo = document.querySelector('.cs-section--ix-sdmo');
+      const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
+
+      gsap.set(sectionTitle, {opacity: 0, y: 25})
+
+      function ccirclesBackdrop () {
+        const ccircles = gsap.utils.toArray(sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle'));
+
+        gsap.set(ccircles, {opacity: 0, scale: 0.1, transformOrigin: '50% 50%'})
+
+        const tl = gsap.timeline()
+
+        .to(ccircles, {opacity: 1, scale: 1, rotation: 360, duration: 1.5, stagger: 0.3})
+        
+        ccircles.forEach((circle, i) => {
+          tl.add(gsap.to(circle, {
+            rotation: "+=360",
+            duration: 16 - i * 2.5, // different speeds
+            repeat: -1,
+            ease: "none"
+          }), `-=${i+1}`);
+        });
+
+        return tl;
+      }
+
+      const sdmoTl = gsap.timeline()
 
 
-
-      
+      sdmoTl
+        .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1})
+        .add(ccirclesBackdrop(), "-=2.2")
     }
     
     function init() {
       let splitTexts = splitTextToChars();
       
       heroAnim();
+      sdmoAnim();
     }
 
     
