@@ -122,12 +122,19 @@
               </linearGradient>
             </defs>
           </svg>
+          
+          <!-- <div class="cs-ccircles">
+            <div class="cs-ccircle cs-ccircle--1"></div>
+            <div class="cs-ccircle cs-ccircle--2"></div>
+            <div class="cs-ccircle cs-ccircle--3"></div>
+            <div class="cs-ccircle cs-ccircle--4"></div>
+          </div> -->
 
-          <div class="cs-ctexts">
+          <!-- <div class="cs-ctexts">
             <div class="cs-ctext cs-ctext--1">Retention</div>
             <div class="cs-ctext cs-ctext--2">Monetization</div>
             <div class="cs-ctext cs-ctext--3">Acquisition</div>
-          </div>
+          </div> -->
         </div>
         <div class="cs-section__container">
           <h2 class="cs-title t-center">
@@ -137,12 +144,6 @@
           </h2>
 
           
-          <!-- <div class="cs-ccircles">
-            <div class="cs-ccircle cs-ccircle--1"></div>
-            <div class="cs-ccircle cs-ccircle--2"></div>
-            <div class="cs-ccircle cs-ccircle--3"></div>
-            <div class="cs-ccircle cs-ccircle--4"></div>
-          </div> -->
         </div>
       </section>
       <!-- SDMO: End -->
@@ -459,7 +460,7 @@
       const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
       const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
 
-      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -75})
+      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -5})
 
       blobsAnim();
 
@@ -534,8 +535,8 @@
       const heroTl = gsap.timeline();
 
       heroTl
-        .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .48})
-        .add(companiesAnim(), '+=1')
+        .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .8})
+        .add(companiesAnim(), '-=0.6')
         .add(liner())   
     }
 
@@ -546,32 +547,76 @@
       gsap.set(sectionTitle, {opacity: 0, y: 25})
 
       function ccirclesBackdrop () {
-        const ccircles = gsap.utils.toArray(sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle'));
+        const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
+        const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
+
+        const getCirclePathArrays = () => {
+          let pathArrays = [];
+
+          ccircles.forEach((circle, i) => {
+            if (i > 0) {
+               pathArrays.push(MotionPathPlugin.convertToPath(circle));
+            }
+          })
+          return pathArrays;
+        }
+        
+        // const circlePathArrays = getCirclePathArrays();
+
+        // circlePathArrays?.forEach((item, i) => {
+        //   gsap.set(ctexts[i], {
+        //     autoAlpha: 0,
+        //     motionPath: {
+        //       path: item[0],
+        //       align: item[0],
+        //       alignOrigin: [0.5, 0.5]
+        //     }
+        //   })
+        // })
 
         gsap.set(ccircles, {opacity: 0, scale: 0.1, transformOrigin: '50% 50%'})
 
         const tl = gsap.timeline()
 
-        .to(ccircles, {opacity: 1, scale: 1, rotation: 360, duration: 1.5, stagger: 0.3})
+        tl.to(ccircles, {opacity: 1, scale: 1, rotation: 360,  duration: 1.5, stagger: 0.3})
         
         ccircles.forEach((circle, i) => {
-          tl.add(gsap.to(circle, {
-            rotation: "+=360",
-            duration: 16 - i * 2.5, // different speeds
-            repeat: -1,
-            ease: "none"
-          }), `-=${i+1}`);
+          let textIndex = i-1;
+
+          console.log(textIndex)
+          // tl.to(circle, {
+          //   rotation: "+=360",
+          //   duration: 16 - i * 2.5, // different speeds
+          //   repeat: -1,
+          //   ease: "none"
+          // }, '<');
+          // if (i > 0) {
+          //   tl.to(ctexts[textIndex], {
+          //     autoAlpha: 1,
+          //     duration: 0.6,
+          //     // motionPath: {
+          //     //   path: circlePathArrays[textIndex][0],
+          //     //   align: circlePathArrays[textIndex][0],
+          //     //   alignOrigin: [0.5, 0.5],
+          //     // }
+          //   },'<')
+          // }
         });
 
-        return tl;
+        // return tl;
       }
 
       const sdmoTl = gsap.timeline()
 
-
       sdmoTl
         .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1})
-        .add(ccirclesBackdrop(), "-=2.2")
+        .add(ccirclesBackdrop())
+
+      ScrollTrigger.create({
+        animation: sdmoTl,
+        trigger: sectionSdmo,
+        start: "top center"
+      })
     }
     
     function init() {
