@@ -30,6 +30,15 @@
     </header>
     <!-- Header: End -->
     <main class="cs-main">
+      <div class="cs-main__backdrop">
+        <div class="cs-bcircles">
+          <div class="cs-bcircle cs-bcircle--1"></div>
+          <div class="cs-bcircle cs-bcircle--2"></div>
+          <div class="cs-bcircle cs-bcircle--3"></div>
+          <div class="cs-bcircle cs-bcircle--4"></div>
+          <div class="cs-bcircle cs-bcircle--5"></div>
+        </div>
+      </div>
       <!-- <div class="cs-main__inner">
         <div class="cs-liner cs-liner--1">
           <svg id="liner1" width="282" height="904" viewBox="0 0 282 904" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,13 +53,13 @@
       <!-- Main Inner: End -->
       <section class="cs-section cs-section--ix-hero">
         <div class="cs-section__backdrop">
-          <div class="cs-bcircles">
-            <div class="cs-bcircle cs-bcircle--1"></div>
-            <div class="cs-bcircle cs-bcircle--2"></div>
-            <div class="cs-bcircle cs-bcircle--3"></div>
-            <div class="cs-bcircle cs-bcircle--4"></div>
-            <div class="cs-bcircle cs-bcircle--5"></div>
-          </div>
+          <svg class="cs-liner" width="480" height="916" viewBox="0 0 480 916" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M473.24 5.00015C338.292 170.822 280.005 240.185 124.931 424.611C44.0322 520.824 -53.2212 702.981 -78.7598 915"
+              stroke="black" />
+            <!-- <path class="cs-liner__line" d="M474.074 5.00015L415.074 77.0002" stroke="#00F2A1" stroke-width="10" stroke-linecap="round" /> -->
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+          </svg>
         </div>
         <div class="cs-section__container">
           <div class="cs-meet-circles">Meet <img src="./images/section-logo.svg" alt="Circles"></div>
@@ -59,7 +68,7 @@
             <div class="cs-grid__item">
               <h1 class="cs-title">
                 <span class="cs-title__sub">AI AT CORE.</span>
-                TECHCO<br/>REIMAGINED
+                TECHCO<br/>REIMAGINED.
               </h1>
 
             </div>
@@ -108,6 +117,12 @@
           <div class="cs-bcircles">
             <div class="cs-bcircle"></div>
           </div>
+
+          <svg width="398" height="824" viewBox="0 0 398 824" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
+            <path d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="#FFA860" stroke-width="10" />
+            <path d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
+          </svg>
         </div>
         <div class="cs-section__container">
           <h3 class="cs-sub-title"></h4>
@@ -141,6 +156,15 @@
       </section>
       <!-- CareX: End -->
       <section class="cs-section cs-section--ix-nova">
+        <div class="cs-section__backdrop">
+          <svg width="324" height="888" viewBox="0 0 324 888" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M322.123 761.485C200.623 719.985 126.311 651.34 82.8974 593.485C-65.8393 395.273 37.8561 163.228 112.166 74.9851C134.998 47.8724 153.593 25.7885 170.209 5.98511"
+              stroke="black" />
+            <path d="M173.197 3.22583L116.197 70.7258" stroke="#33DEF5" stroke-width="10" />
+            <path d="M0.430495 638.17C0.430495 638.17 98.4038 804.743 323.197 857.877" stroke="black" />
+          </svg>
+        </div>
         <div class="cs-section__container">
           <div class="cs-grid">
             <div class="cs-grid__item">
@@ -171,6 +195,14 @@
       </section>
       <!-- Nova: End -->
       <section class="cs-section cs-section--ix-zerofyx">
+        <div class="cs-section__backdrop">
+          <svg width="403" height="822" viewBox="0 0 403 822" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.48633 5C224.743 5 402.486 182.743 402.486 402C402.486 540.308 329.071 663.092 201.945 821.5"
+              stroke="black" />
+            <path d="M100 18C56 5 20.5 5 0 5" stroke="#00F2A1" stroke-width="10" />
+          </svg>
+        </div>
+
         <div class="cs-section__container">
           <div class="cs-grid">
             <div class="cs-grid__item">
@@ -273,6 +305,13 @@
       </section>
       <!-- Circles & Openai: End -->
       <section class="cs-section cs-section--ix-join-revolution">
+        <div class="cs-section__backdrop">
+          <svg width="309" height="252" viewBox="0 0 309 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M146.895 248.416C65.7675 183.248 72.5173 72.1689 161.971 0.312988" stroke="black" />
+            <path d="M92.1141 166.719C118.571 223.427 147.614 248.617 147.614 248.617" stroke="#00F2A1" stroke-width="10" />
+          </svg>
+        </div>
+
         <div class="cs-section__container">
           <img class="cs-brand" src="./images/brand-symbol.png" alt="Circles">
           
@@ -327,15 +366,11 @@
     document.addEventListener("DOMContentLoaded", init)
 
     // Split All Headlines
-    const splitTextToChars = () => {
-      let splitTexts = SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++'});
-
-      return splitTexts;
-    }
+    const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++'}); }
 
 
     function blobsAnim() {
-        const blobs = document.querySelectorAll('.cs-section--ix-hero .cs-bcircles .cs-bcircle');
+        const blobs = document.querySelectorAll('.cs-main .cs-bcircles .cs-bcircle');
 
         const blobsTl = gsap.timeline({
           // paused: true, // Start paused
@@ -384,15 +419,13 @@
         )
       }
 
-
-
     function heroAnim() {
       const sectionHero = document.querySelector('.cs-section--ix-hero');
       
       const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
       const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
 
-      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -40})
+      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -75})
 
       blobsAnim();
 
@@ -415,11 +448,61 @@
         return tl;
       }
 
+      function liner() {
+        const linerLineWidthRange = {min: 50, max: 80};
+
+        const liner = sectionHero?.querySelector(".cs-liner");
+        const linerTrack = liner?.querySelector('.cs-liner__track');
+        const linerLine = liner?.querySelector('.cs-liner__line');
+        gsap.set([linerTrack, linerLine], {opacity:0})
+
+        const tl = gsap.timeline();
+
+        tl.to([linerTrack, linerLine], {opacity: 1})
+        tl.to(linerLine, {
+          motionPath: {
+            path: linerTrack,
+            align: linerTrack,
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5],
+            start: 0.036
+
+          },
+          transformOrigin: "50% 50%",
+          scrollTrigger: {
+            trigger: sectionHero,
+            scrub: true,
+            start: "top top",
+            onUpdate: (self) => {
+              // Clamp progress to 30%-60% range (0.3 - 0.6)
+              const startTrigger = 0.3;
+              const endTrigger = 0.6;
+
+              // Map the 0.3-0.6 range to 0-1 (for interpolation)
+              let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
+              // Clamp values outside 0-1
+              mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
+
+              // Calculate width (e.g., between 200px and 500px)
+              const minWidth = 50;
+              const maxWidth = 150;
+              const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
+
+              gsap.set(linerLine, {width: newWidth});
+            }
+
+          }
+        })
+
+        return tl;
+      }
+      
       const heroTl = gsap.timeline();
 
       heroTl
         .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .48})
-        .add(companiesAnim(), '+=1');
+        .add(companiesAnim(), '+=1')
+        .add(liner())
 
 
 
@@ -437,58 +520,7 @@
 
     
     
-    function liner1() {
-      const linerLineWidthRange = {min: 50, max: 150};
     
-      const liner1 = document.getElementById("liner1");
-      const linerTrack = liner1.querySelector('.liner1-track');
-      const linerLine = liner1.querySelector('.liner1-line');
-
-      gsap.to(linerLine, {
-        motionPath: {
-          path: linerTrack,
-          align: linerTrack,
-          autoRotate: true,
-          alignOrigin: [0.5, 0.5],
-
-        },
-        transformOrigin: "50% 50%",
-        scrollTrigger: {
-          trigger: '.cs-liner',
-          scrub: true,
-          start: "top top",
-          // onUpdate: (self) => {
-          //   // self.progress is a value between 0 and 1
-          //   const minWidth = 50; // Percent
-          //   const maxWidth = 150; // Percent
-
-          //   // Calculate current width based on progress
-          //   const currentWidth = minWidth + (maxWidth - minWidth) * self.progress;
-
-          //   // Apply width to the element
-          //   gsap.set(linerLine, {width: currentWidth});
-          // }
-          onUpdate: (self) => {
-            // Clamp progress to 30%-60% range (0.3 - 0.6)
-            const startTrigger = 0.3;
-            const endTrigger = 0.6;
-
-            // Map the 0.3-0.6 range to 0-1 (for interpolation)
-            let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
-            // Clamp values outside 0-1
-            mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
-
-            // Calculate width (e.g., between 200px and 500px)
-            const minWidth = 50;
-            const maxWidth = 150;
-            const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
-
-            gsap.set(linerLine, {width: newWidth});
-          }
-
-        }
-      })
-    }
 
     // const min = 1;
     // const max = 1.5;

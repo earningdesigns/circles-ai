@@ -89,16 +89,25 @@ img {
   position: relative;
   min-height: 400vh;
 }
-.cs-main__inner {
+.cs-main__backdrop {
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 }
-.cs-liner {
+.cs-main__backdrop:after {
+  content: "";
   position: absolute;
-  top: 100vh;
+  top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6rem);
+  -webkit-backdrop-filter: blur(6rem);
+  z-index: 5;
 }
 .cs-title {
   --cs-title-f-size: 3.6rem;
@@ -265,24 +274,13 @@ img {
   --cs-ccircle-size: 13.3rem;
 }
 .cs-bcircles {
+  --cs-bcircles-width: 100%;
+  --cs-bcircles-height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-}
-.cs-bcircles:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: 5;
+  width: var(--cs-bcircles-width);
+  height: var(--cs-bcircles-height);
 }
 .cs-bcircle {
   position: absolute;
@@ -473,6 +471,7 @@ img {
   --cs-section-container-width: 88%;
   position: relative;
   min-height: 100vh;
+  z-index: 10;
 }
 .cs-section__backdrop {
   position: absolute;
@@ -511,6 +510,11 @@ img {
 }
 .cs-section--ix-hero .cs-grid--companies .cs-grid__item {
   grid-column: 4/12;
+}
+.cs-section--ix-hero .cs-liner {
+  position: absolute;
+  top: 35.5%;
+  left: 0;
 }
 .cs-section--ix-hero .cs-title {
   font-family: var(--cs-head-f-family);
