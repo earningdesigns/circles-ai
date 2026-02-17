@@ -152,11 +152,10 @@
           <div class="cs-bcircles">
             <div class="cs-bcircle"></div>
           </div>
-
-          <svg width="398" height="824" viewBox="0 0 398 824" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
-            <path d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="#FFA860" stroke-width="10" />
-            <path d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
+          <svg class="cs-liner" width="398" height="824" viewBox="0 0 398 824" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track" d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
+            <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" />
+            <path class="cs-liner__small" d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
           </svg>
         </div>
         <div class="cs-section__container">
@@ -618,12 +617,31 @@
         start: "top center"
       })
     }
+
+    function joinAnim () {
+      const sectionJoin = document.querySelector('.cs-section--ix-join-revolution');
+      const brand = sectionJoin?.querySelector('.cs-brand');
+      const title = sectionJoin?.querySelectorAll('.cs-title .word');
+      const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
+
+      gsap.set(brand, {opacity: 0, scale: 0.1})
+      gsap.set(joinSteps, {autoAlpha: 0, y: 25});
+      gsap.set(title, {y: 20, opacity: 0})
+
+      const joinTl = gsap.timeline();
+      joinTl
+        .to(brand, {opacity: 1, scale: 1, rotataion: 360, duration: 1.2})
+        .to(title, {y: 0, opacity: 1, stagger: 0.2, duration: 0.8}, '-=1')
+        .to(joinSteps, {y: 0, autoAlpha: 1, stagger: 0.36, duration: 0.8}, '-=15%')
+
+    }
     
     function init() {
       let splitTexts = splitTextToChars();
       
-      heroAnim();
-      sdmoAnim();
+      heroAnim(); // Hero Animation
+      sdmoAnim(); // Sdmo Second Section Animation
+      joinAnim(); // Join Revolution - Last Section Animation
     }
 
     

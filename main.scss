@@ -273,7 +273,7 @@ img {
   // Dot Line: End
 
   &grid {
-    --cs-grid-cols: 2;
+    --cs-grid-cols: 12;
 
     display: grid;
     grid-template-columns: repeat(var(--cs-grid-cols), (minmax(0, 1fr)));
@@ -754,6 +754,42 @@ img {
         }
       }
       // SDMO: End
+      &carex {
+        &:after {
+          content: '';
+          display: table;
+          clear: both;
+        }
+        // min-height: 824px;
+        #{$section} {
+          &__ {
+            &backdrop {
+              position: relative;
+            }
+            &container {
+              position: absolute;
+              top: -5.8%;
+              inset-inline: 0;
+            }
+          }
+        }
+        #{$app} {
+          &liner {
+            // position: absolute;
+            float: right;
+            margin-right: 11.4%;
+          }
+
+          &grid {
+
+            &__item:last-child {
+              grid-column-start: 7;
+              grid-column-end: 11;
+            }
+          }
+        }
+      }
+      // CareX: End
       &circles-collab {
         #{$app} {
           &description {

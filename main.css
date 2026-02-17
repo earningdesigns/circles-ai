@@ -219,7 +219,7 @@ img {
   background: #dfdfdf;
 }
 .cs-grid {
-  --cs-grid-cols: 2;
+  --cs-grid-cols: 12;
   display: grid;
   grid-template-columns: repeat(var(--cs-grid-cols), minmax(0, 1fr));
 }
@@ -554,6 +554,27 @@ img {
   font-weight: 300;
   font-size: 2rem;
   display: block;
+}
+.cs-section--ix-carex:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cs-section--ix-carex .cs-section__backdrop {
+  position: relative;
+}
+.cs-section--ix-carex .cs-section__container {
+  position: absolute;
+  top: -5.8%;
+  inset-inline: 0;
+}
+.cs-section--ix-carex .cs-liner {
+  float: right;
+  margin-right: 11.4%;
+}
+.cs-section--ix-carex .cs-grid__item:last-child {
+  grid-column-start: 7;
+  grid-column-end: 11;
 }
 .cs-section--ix-circles-collab .cs-description {
   width: 25%;
