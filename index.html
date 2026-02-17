@@ -269,7 +269,7 @@
       <section class="cs-section cs-section--ix-circles-collab">
         <div class="cs-section__container">
           <div class="cs-circles-collab">
-            <div class="cs-brand">
+            <div class="cs-brand cs-brand--circles">
               <img src="./images/circles-logo-big.svg" alt="Circles">
             </div>
 
@@ -618,6 +618,45 @@
       })
     }
 
+    function collabAnim() {
+      const sectionCollab = document.querySelector('.cs-section--ix-circles-collab');
+      const title = sectionCollab?.querySelectorAll('.cs-title .word');
+      
+      const description = sectionCollab.querySelector('.cs-description');
+      const articles = sectionCollab?.querySelectorAll('.cs-article');
+
+      function collabConnect () {
+        const collab = sectionCollab.querySelector('.cs-circles-collab');
+        const collabConnect = collab.querySelector('.cs-circles-collab__connect');
+        const bcircles = collab.querySelector('.cs-brand--circles');
+        const bopenai = collab.querySelector('.cs-brand--openai');
+
+        gsap.set(collabConnect, {opacity: 0, scale: 0.1});
+        gsap.set(bcircles, {opacity: 0, x: -30})
+        gsap.set(bopenai, {opacity: 0, x: 30})
+
+        const tl = gsap.timeline();
+        tl
+          .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duraiton: 0.8})
+          .to(bcircles, {opacity: 1, x: 0, duraiton: 0.6})
+          .to(bopenai, {opacity: 1, x: 0, duraiton: 0.6}, '<')
+
+        return tl;
+      }
+
+
+      gsap.set(title, {opacity: 0, y: 20})
+      gsap.set(description, {opacity: 0, y: 10})
+      gsap.set(articles, {opacity: 0, x: -30})
+
+      const collabTl = gsap.timeline();
+      collabTl
+        .add(collabConnect())
+        .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
+        .to(description, {y: 0, opacity: 1, duration: 0.6})
+        .to(articles, {x: 0, opacity: 1, stagger: 0.3, duration: 0.6})
+    }
+
     function joinAnim () {
       const sectionJoin = document.querySelector('.cs-section--ix-join-revolution');
       const brand = sectionJoin?.querySelector('.cs-brand');
@@ -641,6 +680,7 @@
       
       heroAnim(); // Hero Animation
       sdmoAnim(); // Sdmo Second Section Animation
+      collabAnim(); // Collab Animation
       joinAnim(); // Join Revolution - Last Section Animation
     }
 
