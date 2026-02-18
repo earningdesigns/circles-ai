@@ -789,8 +789,69 @@ img {
         }
       }
       // CareX: End
+      &nova {
+         #{$section} {
+          &__ {
+            &backdrop {
+              position: relative;
+              &:after {
+                content: '';
+                display: table;
+                clear: both;
+              }
+            }
+            &container {
+              position: absolute;
+              top: 0;
+              inset-inline: 0;
+            }
+          }
+        }
+        #{$app} {
+          &liner {
+            margin-left: 2%
+          }
+          &grid {
+            &__ {
+              &item:first-child {
+                grid-column: 2 / 6;
+              }
+            }
+          }
+        }
+      }
+      //  NOva: End
       &zerofyx {
-
+        #{$section} {
+          &__ {
+            &backdrop {
+              position: relative;
+              &:after {
+                content: '';
+                display: table;
+                clear: both;
+              }
+            }
+            &container {
+              position: absolute;
+              top: -6%;
+              inset-inline: 0;
+            }
+          }
+        }
+        #{$app} {
+          &liner {
+            float: right;
+            margin-right: 15.2%;
+          }
+          &grid {
+            &__ {
+              &item:last-child {
+                grid-column: 7 / 11;
+              }
+            }
+          }
+        }
       }
       // zerofyx: End
       &circles-collab {

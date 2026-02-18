@@ -576,6 +576,45 @@ img {
   grid-column-start: 7;
   grid-column-end: 11;
 }
+.cs-section--ix-nova .cs-section__backdrop {
+  position: relative;
+}
+.cs-section--ix-nova .cs-section__backdrop:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cs-section--ix-nova .cs-section__container {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+}
+.cs-section--ix-nova .cs-liner {
+  margin-left: 2%;
+}
+.cs-section--ix-nova .cs-grid__item:first-child {
+  grid-column: 2/6;
+}
+.cs-section--ix-zerofyx .cs-section__backdrop {
+  position: relative;
+}
+.cs-section--ix-zerofyx .cs-section__backdrop:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cs-section--ix-zerofyx .cs-section__container {
+  position: absolute;
+  top: -6%;
+  inset-inline: 0;
+}
+.cs-section--ix-zerofyx .cs-liner {
+  float: right;
+  margin-right: 15.2%;
+}
+.cs-section--ix-zerofyx .cs-grid__item:last-child {
+  grid-column: 7/11;
+}
 .cs-section--ix-circles-collab .cs-description {
   width: 25%;
   margin-inline: auto;
