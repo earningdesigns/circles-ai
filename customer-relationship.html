@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CareX – Customer Relationship</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=Red+Hat+Display:wght@300..900&display=swap" rel="stylesheet">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<style>
+
+/* ===============================
+   RESET & ROOT
+================================ */
+*, *:before, *:after {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root {
+  --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
+  --cs-head-f-family: "Red Hat Display", sans-serif;
+  --cs-color-green:#00F2A1;
+  --cs-color-blue:#194AB8;
+  --cs-color-black:#000;
+}
+
+html { font-size:62.5%; }
+body {
+  font-family:var(--cs-base-f-family);
+  font-size:1.6rem;
+  color:#000;
+}
+
+img { max-width:100%; height:auto; display:block; }
+a { text-decoration:none; color:inherit; }
+
+/* ===============================
+   HEADER
+================================ */
+.cs-header {
+  width:100%;
+  padding:2rem 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cs-header__nav {
+  display:flex;
+  gap:4rem;
+  font-size:1.4rem;
+  text-transform:uppercase;
+}
+
+.cs-header__brand img {
+  height:3rem;
+}
+
+/* ===============================
+   HERO
+================================ */
+.cs-carex-hero {
+  min-height:100dvh;
+  background:linear-gradient(135deg,#e9f6ff 0%,#d7ffe6 50%,#ffffff 100%);
+  padding:8rem 6% 6rem;
+  display:flex;
+  align-items:center;
+}
+
+.cs-carex-grid {
+  display:grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap:8rem;
+  width:100%;
+  align-items:center;
+}
+
+/* LEFT SIDE */
+.cs-carex-left h1 {
+  font-family:var(--cs-head-f-family);
+  font-size:8rem;
+  background:linear-gradient(90deg,var(--cs-color-green),var(--cs-color-blue));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:4rem;
+}
+
+.cs-carex-left .ai-label {
+  font-size:2.4rem;
+  line-height:140%;
+}
+
+.cs-carex-left .ai-label strong {
+  display:block;
+  font-weight:800;
+}
+
+/* RIGHT SIDE SLIDER */
+.cs-carex-swiper {
+  width:100%;
+}
+
+.cs-carex-slide {
+  display:flex;
+  align-items:center;
+  gap:6rem;
+}
+
+.cs-carex-content {
+  max-width:40rem;
+}
+
+.cs-carex-content h3 {
+  font-family:var(--cs-head-f-family);
+  font-size:3.2rem;
+  margin-bottom:2rem;
+}
+
+.cs-carex-content p {
+  font-size:1.8rem;
+  line-height:150%;
+}
+
+.cs-carex-visual {
+  position:relative;
+}
+
+.cs-carex-chat {
+  width:42rem;
+  border-radius:3rem;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.08);
+  position:relative;
+  z-index:3;
+}
+
+.cs-carex-glow {
+  position:absolute;
+  width:35rem;
+  height:35rem;
+  background:radial-gradient(circle,
+    rgba(0,242,161,0.6) 0%,
+    rgba(255,0,140,0.4) 40%,
+    transparent 70%);
+  filter:blur(90px);
+  top:6rem;
+  right:-6rem;
+  z-index:1;
+}
+
+.cs-carex-girl {
+  position:absolute;
+  bottom:-3rem;
+  right:-8rem;
+  width:28rem;
+  z-index:2;
+}
+
+/* Pagination */
+.swiper-pagination {
+  margin-top:4rem;
+}
+
+.swiper-pagination-bullet {
+  background:#ccc;
+  opacity:1;
+}
+
+.swiper-pagination-bullet-active {
+  background:var(--cs-color-green);
+}
+
+/* Arrows */
+.cs-carex-prev,
+.cs-carex-next {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:3rem;
+  cursor:pointer;
+  z-index:5;
+}
+
+.cs-carex-prev { left:-5rem; }
+.cs-carex-next { right:-5rem; }
+
+/* ===============================
+   FOOTER
+================================ */
+.cs-footer {
+  padding:4rem 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:1.4rem;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media(max-width:1024px){
+
+  .cs-carex-grid {
+    grid-template-columns:1fr;
+    gap:6rem;
+  }
+
+  .cs-carex-left h1 {
+    font-size:6rem;
+  }
+
+  .cs-carex-slide {
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .cs-carex-chat {
+    width:100%;
+  }
+
+  .cs-carex-girl {
+    position:relative;
+    right:0;
+    margin-top:3rem;
+  }
+
+  .cs-carex-prev,
+  .cs-carex-next {
+    display:none;
+  }
+}
+
+@media(max-width:768px){
+  .cs-carex-left h1 { font-size:4.8rem; }
+  .cs-carex-content h3 { font-size:2.4rem; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cs-header">
+  <nav class="cs-header__nav">
+    <a href="#">Customer Relationship</a>
+    <a href="#">Customer Insights</a>
+    <a href="#">Customer Loyalty</a>
+  </nav>
+  <div class="cs-header__brand">
+    <img src="https://dummyimage.com/120x30/000/fff&text=CIRCLES" alt="">
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="cs-carex-hero">
+  <div class="cs-carex-grid">
+
+    <!-- LEFT -->
+    <div class="cs-carex-left">
+      <h1>CareX</h1>
+      <div class="ai-label">
+        AI-NATIVE <strong>CONVERSATIONAL OS</strong>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+
+      <div class="swiper cs-carex-swiper">
+        <div class="swiper-wrapper">
+
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="cs-carex-slide">
+
+              <div class="cs-carex-content">
+                <h3>Automate Support. Elevate Experience.</h3>
+                <p>
+                  Resolve <strong>up to 70% of subscriber queries instantly</strong>
+                  with AI-powered self-service — and hand over to agents seamlessly.
+                </p>
+              </div>
+
+              <div class="cs-carex-visual">
+                <div class="cs-carex-chat">
+                  <img src="https://dummyimage.com/600x600/eeeeee/000&text=Chat+UI" alt="">
+                </div>
+                <div class="cs-carex-glow"></div>
+                <div class="cs-carex-girl">
+                  <img src="https://dummyimage.com/400x500/cccccc/000&text=Girl" alt="">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="cs-carex-slide">
+
+              <div class="cs-carex-content">
+                <h3>Smart Agent Handover</h3>
+                <p>
+                  Full conversation context transfers instantly to agents for faster resolution.
+                </p>
+              </div>
+
+              <div class="cs-carex-visual">
+                <div class="cs-carex-chat">
+                  <img src="https://dummyimage.com/600x600/eeeeee/000&text=Chat+UI+2" alt="">
+                </div>
+                <div class="cs-carex-glow"></div>
+                <div class="cs-carex-girl">
+                  <img src="https://dummyimage.com/400x500/cccccc/000&text=User+2" alt="">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Arrows -->
+        <div class="cs-carex-prev">‹</div>
+        <div class="cs-carex-next">›</div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cs-footer">
+  <div>CIRCLES</div>
+  <div>© 2026 circles.co</div>
+</footer>
+
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+new Swiper(".cs-carex-swiper",{
+  loop:true,
+  speed:900,
+  effect:"fade",
+  autoplay:{
+    delay:4000,
+    disableOnInteraction:false
+  },
+  pagination:{
+    el:".swiper-pagination",
+    clickable:true
+  },
+  navigation:{
+    nextEl:".cs-carex-next",
+    prevEl:".cs-carex-prev"
+  }
+});
+</script>
+
+</body>
+</html>

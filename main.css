@@ -473,22 +473,31 @@ img {
   border-radius: 0.6rem;
 }
 .cs-join-step__count {
-  margin-bottom: 2.6rem;
-  font-size: 2.4rem;
-  font-weight: 800;
+  margin: 0 auto 2.6rem auto;
+  width: 6.4rem;
+  height: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cs-color-blue);
   color: var(--cs-color-green);
+  font-size: 2.6rem;
+  font-weight: 800;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(25,74,184,0.12);
 }
 .cs-join-step__title {
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 150%;
-  margin-bottom: 1.4rem;
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 140%;
+  margin-bottom: 1.2rem;
+  text-transform: none;
 }
 .cs-join-step__description {
   font-weight: 400;
   line-height: 150%;
   margin-bottom: 2.6rem;
-  /* or 24px */
+  color: rgba(0,0,0,0.8);
 }
 .cs-section {
   --cs-section-container-width: 88%;
@@ -643,6 +652,104 @@ img {
   margin-inline: auto;
   margin-bottom: 4.8rem;
 }
+
+/* ==========================
+   TRUST / SECURITY SECTION
+   ========================== */
+.cs-section--ix-trust .cs-trust-card {
+  /* pulled up slightly to reduce large whitespace above */
+  margin-top: -6rem;
+  padding: 5.2rem 5rem;
+  border-radius: 2.4rem;
+  /* layered background: white inner + thin gradient border */
+  background-image: linear-gradient(180deg, rgba(250,250,255,1) 0%, rgba(246,246,255,0.96) 100%), linear-gradient(90deg, var(--cs-color-blue) 0%, var(--cs-color-green) 92%);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  border: 1px solid transparent;
+  box-shadow: 0 8px 30px rgba(25,74,184,0.05);
+  margin-inline: auto;
+}
+.cs-section--ix-trust .cs-title {
+  --cs-title-f-size: 3.6rem;
+  margin-bottom: 3.6rem;
+  /* gradient headline like brand */
+  background: linear-gradient(272.41deg, var(--cs-color-blue) -10%, var(--cs-color-green) 120%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  color: transparent;
+}
+.cs-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4.8rem 4rem;
+  align-items: start;
+}
+.cs-trust-item {
+  text-align: left;
+  padding: 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.cs-trust-icon {
+  width: 6.8rem;
+  height: 6.8rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  color: var(--cs-color-blue);
+  border: 2px solid rgba(25,74,184,0.08);
+  background: linear-gradient(180deg, rgba(25,74,184,0.02), rgba(238,241,255,0.6));
+  position: relative;
+}
+.cs-trust-icon::before {
+  /* inner glyph placeholder (square) to emulate icon shape — replace with SVG for production */
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--cs-color-blue);
+  border-radius: 0.5rem;
+  opacity: 0.92;
+}
+.cs-trust-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.4rem 0;
+}
+.cs-trust-desc {
+  color: rgba(0,0,0,0.65);
+  line-height: 1.7;
+  max-width: 20rem;
+}
+
+/* Responsive grid */
+@media (max-width: 1024px) {
+  .cs-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .cs-trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .cs-section--ix-trust .cs-trust-card {
+    padding: 3.2rem 2.4rem;
+  }
+  .cs-section--ix-trust .cs-title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  .cs-trust-item {
+    padding: 0;
+    text-align: left;
+  }
+}
 .cs-section--ix-join-revolution .cs-brand {
   display: block;
   width: 27rem;
@@ -666,4 +773,88 @@ img {
 }
 .cs-footer .cs-stripes {
   --cs-stripes-height: 7rem;
+}
+/* ==========================
+   TABLET FIX (768–1024)
+========================== */
+
+@media (max-width: 1024px) {
+
+  .cs-section {
+    min-height: 100dvh;
+  }
+
+  .cs-bcircle {
+    --cs-bcircle-size: 80rem;
+  }
+
+  .cs-main__backdrop:after {
+    backdrop-filter: blur(1.5rem);
+    -webkit-backdrop-filter: blur(1.5rem);
+  }
+
+  .cs-section--ix-hero .cs-grid__item,
+  .cs-section--ix-carex .cs-grid__item,
+  .cs-section--ix-nova .cs-grid__item,
+  .cs-section--ix-zerofyx .cs-grid__item {
+    grid-column: 1 / -1 !important;
+  }
+
+  .cs-articles {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .cs-article {
+    width: 45%;
+  }
+
+  .cs-join-steps {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .cs-join-step {
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+  }
+  .cs-join-step__count {
+    width: 5.2rem;
+    height: 5.2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.6rem;
+  }
+
+}
+
+/* ==========================
+   MOBILE FIX (<768)
+========================== */
+
+@media (max-width: 767px) {
+
+  .cs-bcircle {
+    --cs-bcircle-size: 50rem;
+  }
+
+  .cs-article {
+    width: 100%;
+  }
+
+  .cs-section__container {
+    width: 92%;
+  }
+
+  .cs-title {
+    font-size: 3rem;
+  }
+  .cs-join-steps {
+    gap: 2.4rem;
+  }
+  .cs-join-step__count {
+    width: 4.4rem;
+    height: 4.4rem;
+    font-size: 1.8rem;
+  }
+
 }
