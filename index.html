@@ -210,9 +210,10 @@
           <div class="cs-bcircles">
             <div class="cs-bcircle"></div>
           </div>
-          <svg class="cs-liner" width="398" height="824" viewBox="0 0 398 824" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="cs-liner" width="410" height="834" viewBox="0 0 410 834" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="cs-liner__track" d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
-            <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" />
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <!-- <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
             <path class="cs-liner__small" d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
           </svg>
         </div>
@@ -537,8 +538,8 @@
         const tl = gsap.timeline();
 
         tl
-          .to(brandXO, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24})
-          .to(brandLetters, {x: 0, duration: 0.4, opacity: 1, stagger: 0.22})
+          .to(brandXO, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24 })
+          .to(brandLetters, {x: 0, duration: 0.4, opacity: 1, stagger: 0.16})
           .to(meetText, {opacity: 1, x: 0}, '<')
 
         return tl;
@@ -612,7 +613,7 @@
         return tl;
       }
       
-      const heroTl = gsap.timeline();
+      const heroTl = gsap.timeline({ease: "power4.in", });
 
       heroTl
         .add(brandLetters())
@@ -654,8 +655,9 @@
         //     }
         //   })
         // })
-
-        gsap.set(ccircles, {opacity: 0, scale: 0.1, transformOrigin: '50% 50%'})
+        gsap.set(ccircles, {opacity: 0, scale: (i, el, list) => {
+          return (i * 0.2) + 0.1
+        }, transformOrigin: '50% 50%'})
 
         const tl = gsap.timeline()
 
@@ -699,12 +701,45 @@
         start: "top center"
       })
     }
+    
     function carexAnim() {
+      const carexSection = document.querySelector('.cs-section--ix-carex');
+      const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
 
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: carexSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
     }
 
     function novaAnim () {
+      const novaSection = document.querySelector('.cs-section--ix-nova');
+      const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
 
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: novaSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
     }
 
     function zerofyxAnim() {
@@ -765,6 +800,12 @@
         .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
         .to(description, {y: 0, opacity: 1, duration: 0.6})
         .to(articles, {x: 0, opacity: 1, stagger: 0.3, duration: 0.6})
+
+      ScrollTrigger.create({
+        trigger: sectionCollab,
+        animation: collabTl,
+        start: "top center"
+      })
     }
 
     function joinAnim () {
@@ -774,15 +815,20 @@
       const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
 
       gsap.set(brand, {opacity: 0, scale: 0.5})
-      gsap.set(joinSteps, {autoAlpha: 0, y: 25});
+      gsap.set(joinSteps, {opacity: 0, y: 40});
       gsap.set(title, {y: 20, opacity: 0})
 
       const joinTl = gsap.timeline();
       joinTl
         .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
         .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
-        .to(joinSteps, {y: 0, autoAlpha: 1, stagger: 0.24, duration: 0.8}, '-=15%')
+        .to(joinSteps, {y: 0, opacity: 1, stagger: 0.22, duration: 0.8}, '-=15%')
 
+      ScrollTrigger.create({
+        trigger: sectionJoin,
+        animation: joinTl,
+        start: "top center",
+      })
     }
     
     function init() {
@@ -790,6 +836,8 @@
       
       heroAnim(); // Hero Animation
       sdmoAnim(); // Sdmo Second Section Animation
+      carexAnim(); // CareX Animation
+      novaAnim(); // Nova Animation
       zerofyxAnim(); // Zerofyx Animation
       collabAnim(); // Collab Animation
       joinAnim(); // Join Revolution - Last Section Animation
