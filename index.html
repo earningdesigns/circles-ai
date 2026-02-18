@@ -195,7 +195,8 @@
             <path class="cs-liner__track"
               d="M322.123 761.485C200.623 719.985 126.311 651.34 82.8974 593.485C-65.8393 395.273 37.8561 163.228 112.166 74.9851C134.998 47.8724 153.593 25.7885 170.209 5.98511"
               stroke="black" />
-            <path class="cs-liner__line" d="M173.197 3.22583L116.197 70.7258" stroke="var(--cs-color-green)" stroke-width="10" />
+              <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <!-- <path class="cs-liner__line" d="M173.197 3.22583L116.197 70.7258" stroke="var(--cs-color-green)" stroke-width="10" /> -->
             <path class="cs-liner__sub" d="M0.430495 638.17C0.430495 638.17 98.4038 804.743 323.197 857.877" stroke="black" />
           </svg>
         </div>
@@ -230,10 +231,11 @@
       <!-- Nova: End -->
       <section class="cs-section cs-section--ix-zerofyx">
         <div class="cs-section__backdrop">
-          <svg class="cs-liner" width="403" height="822" viewBox="0 0 403 822" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="cs-liner" width="410" height="822" viewBox="0 0 410 822" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="cs-liner__track" d="M5.48633 5C224.743 5 402.486 182.743 402.486 402C402.486 540.308 329.071 663.092 201.945 821.5"
               stroke="black" />
-            <path class="cs-liner__line" d="M100 18C56 5 20.5 5 0 5" stroke="var(--cs-color-green)" stroke-width="10" />
+            <!-- <path class="cs-liner__line" d="M100 18C56 5 20.5 5 0 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
           </svg>
         </div>
 
@@ -617,6 +619,34 @@
         start: "top center"
       })
     }
+    function carexAnim() {
+
+    }
+
+    function novaAnim () {
+
+    }
+
+    function zerofyxAnim() {
+      const zerofyxSection = document.querySelector('.cs-section--ix-zerofyx');
+      const linerTrack = zerofyxSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = zerofyxSection?.querySelector('.cs-liner .cs-liner__line')
+
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: zerofyxSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
+    }
+
 
     function collabAnim() {
       const sectionCollab = document.querySelector('.cs-section--ix-circles-collab');
@@ -680,6 +710,7 @@
       
       heroAnim(); // Hero Animation
       sdmoAnim(); // Sdmo Second Section Animation
+      zerofyxAnim(); // Zerofyx Animation
       collabAnim(); // Collab Animation
       joinAnim(); // Join Revolution - Last Section Animation
     }
