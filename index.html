@@ -636,16 +636,16 @@
         const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
         const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
 
-        const getCirclePathArrays = () => {
-          let pathArrays = [];
+        // const getCirclePathArrays = () => {
+        //   let pathArrays = [];
 
-          ccircles.forEach((circle, i) => {
-            if (i > 0) {
-               pathArrays.push(MotionPathPlugin.convertToPath(circle));
-            }
-          })
-          return pathArrays;
-        }
+        //   ccircles.forEach((circle, i) => {
+        //     if (i > 0) {
+        //        pathArrays.push(MotionPathPlugin.convertToPath(circle));
+        //     }
+        //   })
+        //   return pathArrays;
+        // }
         
         // const circlePathArrays = getCirclePathArrays();
 
@@ -659,6 +659,7 @@
         //     }
         //   })
         // })
+
         gsap.set(ccircles, {opacity: 0, scale: (i, el, list) => {
           return (i * 0.2) + 0.1
         }, transformOrigin: '50% 50%'})
@@ -690,7 +691,7 @@
           // }
         });
 
-        // return tl;
+        return tl;
       }
 
       const sdmoTl = gsap.timeline()
