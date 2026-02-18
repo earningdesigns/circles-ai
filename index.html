@@ -38,6 +38,16 @@
           <div class="cs-bcircle cs-bcircle--4"></div>
           <div class="cs-bcircle cs-bcircle--5"></div>
         </div>
+
+        <div id="gradMotion" class="cs-gradmotion">
+          <svg class="cs-gradmotion__svg" width="1140" height="4894" viewBox="0 0 1140 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-gradmotion__track"
+              d="M688.273 0.313782L362.272 404.814C316.771 451.814 235.271 580.314 296.272 741.814C353.66 893.748 509.35 926.814 561.273 926.814C617.773 926.814 798.273 865.814 798.273 677.314C798.273 484.001 677.273 417.314 537.773 417.314C429.773 417.314 219.485 524.143 305.773 834.314C398.273 1166.81 1110.27 1096.31 1130.27 1599.31C1141.81 1889.58 777.026 2066.56 581.773 2107.31C363.771 2152.81 -45.7289 2218.81 4.77287 2595.31C34.8084 2819.23 355.341 3021.81 602.271 3021.81C926.771 3021.81 1149.27 3259.81 1138.27 3463.81C1127.27 3667.81 1042.77 3843.31 539.272 4047.31C357.271 4121.05 -50.7286 4366.81 12.2714 4893.81"
+              stroke="transparent" />
+          </svg>
+          <div id="gradCircle" class="cs-gradmotion__circle"></div>
+        </div>
+
       </div>
       <!-- <div class="cs-main__inner">
         <div class="cs-liner cs-liner--1">
@@ -762,7 +772,6 @@
       })
     }
 
-
     function collabAnim() {
       const sectionCollab = document.querySelector('.cs-section--ix-circles-collab');
       const title = sectionCollab?.querySelectorAll('.cs-title .word');
@@ -833,6 +842,44 @@
     
     function init() {
       let splitTexts = splitTextToChars();
+
+      const gradMotion = document.getElementById('gradMotion');
+      const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
+      const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
+
+      gsap.set(gradMotionCircle, {
+        motionPath: {
+          path: gradMotionTrack,
+          align: gradMotionTrack,
+        }
+      })
+
+      const sections = gsap.utils.toArray([
+        '.cs-section--ix-hero',
+        '.cs-section--ix-sdmo',
+        '.cs-section--ix-carex',
+        '.cs-section--ix-nova',
+        '.cs-section--ix-zerofyx'
+      ]);
+
+      const totalProgress = 1; // how far along the path you want to go
+
+      gsap.to(gradMotionCircle, {
+        motionPath: {
+          path: gradMotionTrack,
+          align: gradMotionTrack,
+          start: 0,
+          end: totalProgress
+        },
+        ease: "none",
+        scrollTrigger: {
+          trigger: sections[0],
+          start: "top top",
+          endTrigger: sections[sections.length - 1],
+          end: "bottom bottom",
+          scrub: true
+        }
+      });
       
       heroAnim(); // Hero Animation
       sdmoAnim(); // Sdmo Second Section Animation

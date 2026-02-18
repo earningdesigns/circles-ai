@@ -109,6 +109,29 @@ img {
   -webkit-backdrop-filter: blur(6rem);
   z-index: 5;
 }
+.cs-gradmotion {
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cs-gradmotion__svg {
+  display: block;
+  margin: 0 auto;
+}
+.cs-gradmotion__circle {
+  --cs-gradcircle-top: 0;
+  --cs-gradcircle-left: 0;
+  --cs-gradcircle-size: 59.8rem;
+  --cs-gradcircle-grad-bg: radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%);
+  position: absolute;
+  width: var(--cs-gradcircle-size);
+  height: var(--cs-gradcircle-size);
+  top: var(--cs-gradcircle-top);
+  left: --cs-gradcircle-left;
+  background: var(--cs-gradcircle-grad-bg);
+}
 .cs-title {
   --cs-title-f-size: 3.6rem;
   --cs-title-f-weight: 400;
