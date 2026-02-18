@@ -40,6 +40,12 @@
         </div>
 
         <div id="gradMotion" class="cs-gradmotion">
+          <!-- <svg width="1135" height="4894" viewBox="0 0 1135 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M684 0.313782L357.999 404.814C312.499 451.814 230.999 580.314 291.999 741.814C349.387 893.748 505.077 926.814 557 926.814C613.5 926.814 794 865.814 794 677.314C794 484.001 673 417.314 533.5 417.314C425.5 417.314 215.212 524.143 301.5 834.314C394 1166.81 1106 1096.31 1126 1599.31C1137.54 1889.58 961.5 1992.31 577.5 2107.31C364.162 2171.2 0.498358 2215.44 0.5 2595.31C0.50139 2916.81 351.068 3021.81 597.999 3021.81C922.499 3021.81 1145 3259.81 1134 3463.81C1123 3667.81 1038.5 3843.31 534.999 4047.31C352.999 4121.05 -55.0015 4366.81 7.99857 4893.81"
+              stroke="black" />
+          </svg> -->
+
           <svg class="cs-gradmotion__svg" width="1140" height="4894" viewBox="0 0 1140 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="cs-gradmotion__track"
               d="M688.273 0.313782L362.272 404.814C316.771 451.814 235.271 580.314 296.272 741.814C353.66 893.748 509.35 926.814 561.273 926.814C617.773 926.814 798.273 865.814 798.273 677.314C798.273 484.001 677.273 417.314 537.773 417.314C429.773 417.314 219.485 524.143 305.773 834.314C398.273 1166.81 1110.27 1096.31 1130.27 1599.31C1141.81 1889.58 777.026 2066.56 581.773 2107.31C363.771 2152.81 -45.7289 2218.81 4.77287 2595.31C34.8084 2819.23 355.341 3021.81 602.271 3021.81C926.771 3021.81 1149.27 3259.81 1138.27 3463.81C1127.27 3667.81 1042.77 3843.31 539.272 4047.31C357.271 4121.05 -50.7286 4366.81 12.2714 4893.81"
@@ -49,18 +55,7 @@
         </div>
 
       </div>
-      <!-- <div class="cs-main__inner">
-        <div class="cs-liner cs-liner--1">
-          <svg id="liner1" width="282" height="904" viewBox="0 0 282 904" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="liner1-track"
-              d="M277.043 3.1767C210.21 85.1767 181.343 119.477 104.543 210.677C8.5434 324.677 -133.957 682.677 277.043 903.177"
-              stroke="black" />
-              <rect class="liner1-line" width="150" height="7" fill="dodgerblue" />
-            
-          </svg>
-        </div>
-      </div> -->
-      <!-- Main Inner: End -->
+      <!-- Main Backdrop: End -->
       <section class="cs-section cs-section--ix-hero">
         <div class="cs-section__backdrop">
           <svg class="cs-liner" width="480" height="916" viewBox="0 0 480 916" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +133,6 @@
                 <span class="cs-title__sub">AI AT CORE.</span>
                 TECHCO<br/>REIMAGINED.
               </h1>
-
             </div>
           </div>
 
@@ -854,6 +848,29 @@
         }
       })
 
+      const gradCircleSettings = [
+        {
+          size: 59.8,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+        },
+        {
+          size: 59.8,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+        }
+      ]
+
       const sections = gsap.utils.toArray([
         '.cs-section--ix-hero',
         '.cs-section--ix-sdmo',
@@ -864,12 +881,36 @@
 
       const totalProgress = 1; // how far along the path you want to go
 
+      // gsap.to(gradMotionCircle, {
+      //   motionPath: {
+      //     path: gradMotionTrack,
+      //     align: gradMotionTrack,
+      //     start: 0,
+      //     end: totalProgress
+      //   },
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: sections[0],
+      //     start: "top top",
+      //     onUpdate: (self) => {
+      //       console.log("Trigger:", self.trigger);
+      //       console.log("EndTrigger:", self.vars.endTrigger);
+      //       console.log("Progress:", self.progress);
+      //     },
+      //     endTrigger: sections[sections.length - 1],
+      //     end: "bottom bottom",
+      //     scrub: true
+      //   }
+      // });
+
       gsap.to(gradMotionCircle, {
         motionPath: {
           path: gradMotionTrack,
           align: gradMotionTrack,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false,
           start: 0,
-          end: totalProgress
+          end: 1
         },
         ease: "none",
         scrollTrigger: {
@@ -877,8 +918,26 @@
           start: "top top",
           endTrigger: sections[sections.length - 1],
           end: "bottom bottom",
-          scrub: true
+          scrub: true,
+          // markers: true
         }
+      });
+
+      sections.forEach((section, index) => {
+        const settings = gradCircleSettings[index];
+
+        gsap.to(gradMotionCircle, {
+          width: `${settings.size}rem`,
+          height: `${settings.size}rem`,
+          background: settings.gradient,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            scrub: true
+          }
+        });
       });
       
       heroAnim(); // Hero Animation
