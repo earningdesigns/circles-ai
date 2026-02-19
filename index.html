@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circles</title>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+  <div class="cs-page">
+    <header class="cs-header">
+      <div class="cs-header__container">
+        <div class="cs-header__brand">
+          <img src="./images/header-logo.svg" alt="Circles" class="">
+        </div>
+      </div>
+    </header>
+    <!-- Header: End -->
+    <main class="cs-main">
+      <div class="cs-main__backdrop">
+        <div class="cs-bcircles">
+          <div class="cs-bcircle cs-bcircle--1"></div>
+          <div class="cs-bcircle cs-bcircle--2"></div>
+          <div class="cs-bcircle cs-bcircle--3"></div>
+          <div class="cs-bcircle cs-bcircle--4"></div>
+          <div class="cs-bcircle cs-bcircle--5"></div>
+        </div>
+
+        <div id="gradMotion" class="cs-gradmotion">
+          <!-- <svg width="1135" height="4894" viewBox="0 0 1135 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M684 0.313782L357.999 404.814C312.499 451.814 230.999 580.314 291.999 741.814C349.387 893.748 505.077 926.814 557 926.814C613.5 926.814 794 865.814 794 677.314C794 484.001 673 417.314 533.5 417.314C425.5 417.314 215.212 524.143 301.5 834.314C394 1166.81 1106 1096.31 1126 1599.31C1137.54 1889.58 961.5 1992.31 577.5 2107.31C364.162 2171.2 0.498358 2215.44 0.5 2595.31C0.50139 2916.81 351.068 3021.81 597.999 3021.81C922.499 3021.81 1145 3259.81 1134 3463.81C1123 3667.81 1038.5 3843.31 534.999 4047.31C352.999 4121.05 -55.0015 4366.81 7.99857 4893.81"
+              stroke="black" />
+          </svg> -->
+
+          <svg class="cs-gradmotion__svg" width="1140" height="4894" viewBox="0 0 1140 4894" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-gradmotion__track"
+              d="M688.273 0.313782L362.272 404.814C316.771 451.814 235.271 580.314 296.272 741.814C353.66 893.748 509.35 926.814 561.273 926.814C617.773 926.814 798.273 865.814 798.273 677.314C798.273 484.001 677.273 417.314 537.773 417.314C429.773 417.314 219.485 524.143 305.773 834.314C398.273 1166.81 1110.27 1096.31 1130.27 1599.31C1141.81 1889.58 777.026 2066.56 581.773 2107.31C363.771 2152.81 -45.7289 2218.81 4.77287 2595.31C34.8084 2819.23 355.341 3021.81 602.271 3021.81C926.771 3021.81 1149.27 3259.81 1138.27 3463.81C1127.27 3667.81 1042.77 3843.31 539.272 4047.31C357.271 4121.05 -50.7286 4366.81 12.2714 4893.81"
+              stroke="transparent" />
+          </svg>
+          <div id="gradCircle" class="cs-gradmotion__circle"></div>
+        </div>
+
+      </div>
+      <!-- Main Backdrop: End -->
+      <section class="cs-section cs-section--ix-hero">
+        <div class="cs-section__backdrop">
+          <svg class="cs-liner" width="480" height="916" viewBox="0 0 480 916" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M473.24 5.00015C338.292 170.822 280.005 240.185 124.931 424.611C44.0322 520.824 -53.2212 702.981 -78.7598 915"
+              stroke="black" />
+            <!-- <path class="cs-liner__line" d="M474.074 5.00015L415.074 77.0002" stroke="#00F2A1" stroke-width="10" stroke-linecap="round" /> -->
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+          </svg>
+        </div>
+        <div class="cs-section__container">
+
+          <div class="cs-meet-circles">
+            <span class="cs-meet-circles__brand">
+              <svg width="456" height="102" viewBox="0 0 456 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="cs-brand__path"
+                  d="M387.287 38.1204C392.677 38.1204 397.065 33.4583 397.065 27.708C397.065 21.9578 392.677 17.2957 387.287 17.2957C381.898 17.2957 377.51 21.9578 377.51 27.708C377.51 33.4583 381.898 38.1204 387.287 38.1204Z"
+                  fill="url(#paint1_linear_870_4848)" />
+                <path class="cs-brand__path"
+                  d="M419.29 18.3716L369.783 79.1513C368.016 81.2412 369.4 84.5924 372.058 84.5924H386.743C387.608 84.5924 388.449 84.1967 389.042 83.4918L402.491 65.2146C403.715 63.7431 405.878 63.7554 407.102 65.2517L421.848 83.5908C422.442 84.308 423.282 84.7284 424.172 84.7284H435.211C437.844 84.7284 439.241 81.4019 437.485 79.3121L415.655 53.0834C414.667 51.8839 414.617 50.0908 415.569 48.8418L435.755 22.6008C437.399 20.4738 435.965 17.271 433.394 17.271H421.552C420.686 17.2463 419.871 17.6296 419.277 18.3221V18.3592H419.29V18.3716Z"
+                  fill="url(#paint0_linear_870_4848)" />
+                <path class="cs-brand__path cs-brand__letter--c"
+                  d="M61.9516 48.6785C60.9904 57.9146 65.6617 66.9017 75.5617 67.9364C81.9439 68.6071 87.7301 65.407 89.9601 59.1793L93.9393 61.1147L99.7832 63.9315C98.7259 67.0741 96.9381 69.4886 94.6121 71.6347C90.4983 75.4289 85.2503 77.5367 79.6371 77.9199C71.2173 78.514 63.3164 75.8121 57.6071 69.4886C53.724 65.1963 51.4172 59.7734 50.9174 53.9864C50.1484 45.1143 52.6475 36.568 59.3757 30.5702C64.9697 25.5689 72.0631 23.576 79.4833 24.0742C88.1723 24.6683 96.842 29.6121 99.764 38.0818C98.3415 38.7716 97.1112 39.404 95.804 40.0172L89.9408 42.7765C88.1146 37.5836 83.3857 34.2302 78.0031 34.0194C68.9105 33.6745 62.8743 39.8639 61.9516 48.6785Z"
+                  fill="black" />
+                <path class="cs-brand__path cs-brand__letter--i" d="M116.783 77.9802L105.783 78V24H116.783V77.9802Z"
+                  fill="black" />
+                <path class="cs-brand__path cs-brand__letter--r"
+                  d="M155.077 56.396L166.783 77.9209L154.568 78L144.106 58.4122H136.717V77.9802H125.783V24L148.328 24.0395C152.099 24.5139 155.567 25.6406 158.451 28.0915C160.299 29.5542 162.014 32.1633 162.806 34.4363C163.654 37.1837 164.088 40.0103 163.786 42.9158C163.484 48.7467 160.393 53.8858 155.058 56.4158L155.077 56.396ZM152.966 41.7101C153.286 37.6186 150.647 34.041 146.802 33.9817L136.754 33.8433V48.5095L146.481 48.4107C149.95 48.3712 152.853 45.4261 152.966 41.6903V41.7101Z"
+                  fill="black" />
+                <path class="cs-brand__path cs-brand__letter--c"
+                  d="M194.242 67.9462C200.631 68.5211 205.814 65.3779 208.114 59.1489L212.449 61.2763L217.783 63.9213C216.709 67.0645 214.994 69.5369 212.656 71.7219C207.473 76.5326 200.593 78.4492 193.62 77.9125C186.646 77.3759 182.518 75.2676 178.239 71.3577C175.469 68.8278 173.037 65.4354 171.718 61.8897C170.775 59.3789 170.097 56.8682 169.908 54.1657C169.512 48.4926 169.984 43.6435 172.377 38.392C176.204 29.9973 184.535 24.6691 193.544 24.075C201.555 23.5383 208.755 25.8574 214.221 31.8564C215.748 33.7922 217.086 35.6896 217.783 38.1237L208.095 42.8194C206.286 37.5487 201.668 34.0988 196.315 34.0413C190.962 33.9838 195.467 33.6963 194.995 34.0605C189.793 34.0797 185.119 37.0696 182.65 41.8036C180.181 46.5376 179.841 57.539 184.553 62.9821C187.098 65.9337 190.378 67.6012 194.223 67.9462H194.242Z"
+                  fill="black" />
+                <path class="cs-brand__path cs-brand__letter--l"
+                  d="M257.764 67.9121L257.783 78H224.783V24H235.719V67.9121H257.764Z" fill="black" />
+                <path class="cs-brand__path cs-brand__letter--e"
+                  d="M297.444 55.8462H274.685V67.9121H298.783V78H263.783V24H298.783V33.8901H274.685V45.956H297.444V55.8462Z"
+                  fill="black" />
+                <path class="cs-brand__path cs-brand__letter--s"
+                  d="M340.177 72.171C334.414 78.686 323.781 79.395 316.178 76.0034C310.713 73.5506 306.624 68.9709 304.783 63.2031L313.65 59.16C314.691 61.2678 315.825 63.1457 317.461 64.6786C319.562 66.5948 322.034 67.9361 324.804 68.2619C327.629 68.5877 330.957 68.0703 332.481 65.4068C334.005 62.7432 332.853 59.524 330.046 58.3743C327.332 57.2629 324.581 56.4198 321.755 55.4809C317.182 53.9479 313.26 52.7598 309.877 48.9083C306.493 45.0567 306.233 41.895 306.679 37.871C307.59 29.2672 314.505 24.7259 322.387 24.0743C326.049 23.7678 330.548 24.4001 333.857 26.1438C338.541 28.3283 342.11 32.314 343.783 37.4111L334.953 41.5309C333.355 37.0662 329.6 33.9236 325.027 33.7128C322.833 33.617 320.788 33.9236 319.115 35.3033C317.442 36.6829 316.624 40.2279 318.483 42.3932C320.342 44.5585 320.677 44.0411 321.997 44.501L332.648 48.0652C334.563 48.6975 336.236 49.6173 337.872 50.7287C342.352 53.8138 344.267 58.7576 343.634 64.2187C343.281 67.2272 342.147 69.9098 340.121 72.1901L340.177 72.171Z"
+                  fill="black" />
+                <defs>
+                  <linearGradient id="paint0_linear_870_4848" x1="403.628" y1="84.7284" x2="403.628" y2="17.271"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4D83DB" />
+                    <stop offset="1" stop-color="#00F2A1" />
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_870_4848" x1="387.287" y1="38.1204" x2="387.287" y2="17.2957"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4D83DB" />
+                    <stop offset="1" stop-color="#00F2A1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+          </div>
+
+          <div class="cs-grid cs-grid--title">
+            <div class="cs-grid__item">
+              <h1 class="cs-title">
+                AI AT CORE.<br />
+                TECHCO<br />REIMAGINED.
+              </h1>
+            </div>
+          </div>
+
+          <div class="cs-grid cs-grid--companies">
+            <div class="cs-grid__item">
+              <div class="cs-companies">
+                <p class="cs-companies__text">Trusted by</p>
+                <div class="cs-companies__list">
+                  <div class="cs-company"><img src="./images/companies/kddi.png" alt="KDDI" class="cs-company__img">
+                  </div>
+                  <div class="cs-company"><img src="./images/companies/telkomsel.png" alt="Telkomsel"
+                      class="cs-company__img"></div>
+                  <div class="cs-company"><img src="./images/companies/at-and-t.png" alt="AT&T" class="cs-company__img">
+                  </div>
+                  <div class="cs-company"><img src="./images/companies/e-international.png" alt="E - International"
+                      class="cs-company__img"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- Hero: End -->
+      <section class="cs-section cs-section--ix-sdmo">
+        <div class="cs-concentric">
+          <svg class="cs-concentric-circles" viewBox="0 0 1166 1166" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5"
+              stroke="url(#paint1_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5"
+              stroke="url(#paint0_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25"
+              stroke="url(#paint2_linear_2005_3610)" stroke-width="1.5" />
+            <circle class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582"
+              stroke="url(#paint3_linear_2005_3610)" stroke-width="2" />
+            <defs>
+              <linearGradient id="paint0_linear_2005_3610" x1="690" y1="769.5" x2="468.303" y2="375.679"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00BC83" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="paint1_linear_2005_3610" x1="635.284" y1="674.131" x2="526.955" y2="481.696"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00BC83" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="paint2_linear_2005_3610" x1="772.169" y1="1116.72" x2="257.404" y2="407.818"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#9D13FF" stop-opacity="0" />
+                <stop offset="0.5" stop-color="#CE89FF" />
+                <stop offset="1" stop-color="white" />
+              </linearGradient>
+              <linearGradient id="paint3_linear_2005_3610" x1="99.5837" y1="15.3724" x2="200.642" y2="1302.64"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0091FF" />
+                <stop offset="0.5" stop-color="white" stop-opacity="0.5" />
+                <stop offset="1" stop-color="white" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- <div class="cs-ccircles">
+            <div class="cs-ccircle cs-ccircle--1"></div>
+            <div class="cs-ccircle cs-ccircle--2"></div>
+            <div class="cs-ccircle cs-ccircle--3"></div>
+            <div class="cs-ccircle cs-ccircle--4"></div>
+          </div> -->
+
+          <!-- <div class="cs-ctexts">
+            <div class="cs-ctext cs-ctext--1">Retention</div>
+            <div class="cs-ctext cs-ctext--2">Monetization</div>
+            <div class="cs-ctext cs-ctext--3">Acquisition</div>
+          </div> -->
+        </div>
+        <div class="cs-section__container">
+          <h2 class="cs-title t-center">
+            <span class="cs-title__sub">The world’s first</span>
+            AI-native telco SAAS platform for smarter digital mobile operations
+            <span class="cs-title__sub">AI-native telco SAAS platform for smarter digital mobile operations</span>
+          </h2>
+
+
+        </div>
+      </section>
+      <!-- SDMO: End -->
+      <section class="cs-section cs-section--ix-carex">
+        <div class="cs-section__backdrop">
+          <div class="cs-bcircles">
+            <div class="cs-bcircle"></div>
+          </div>
+          <svg class="cs-liner" width="410" height="834" viewBox="0 0 410 834" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5"
+              stroke="black" />
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <!-- <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
+            <path class="cs-liner__small" d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823"
+              stroke="black" />
+          </svg>
+        </div>
+        <div class="cs-section__container">
+          <h3 class="cs-sub-title">
+            </h4>
+            <div class="cs-grid">
+              <div class="cs-grid__item">
+
+              </div>
+              <div class="cs-grid__item">
+                <div class="cs-hlt-title">
+                  <h4 class="cs-hlt-title__text">CUSTOMER RELATIONSHIP</h4>
+                  <div class="cs-hlt-title__sub">
+                    <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
+                    <span class="cs-hlt-title__sub-line"></span>
+                  </div>
+                </div>
+
+                <h2 class="cs-title">
+                  <span class="cs-title__highlight">CareX</span>
+                  AI-Native Conversational OS
+                  <span class="cs-title__sub">for Customer Relationship</span>
+                </h2>
+                <div class="cs-dotline"></div>
+
+                <p class="cs-description">Embeds directly into your BSS stack to unify customer relationship into one
+                  seamless experience</p>
+
+                <a href="" class="cs-link">Explore</a>
+              </div>
+            </div>
+
+        </div>
+      </section>
+      <!-- CareX: End -->
+      <section class="cs-section cs-section--ix-nova">
+        <div class="cs-section__backdrop">
+          <svg class="cs-liner" width="324" height="888" viewBox="0 0 324 888" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M322.123 761.485C200.623 719.985 126.311 651.34 82.8974 593.485C-65.8393 395.273 37.8561 163.228 112.166 74.9851C134.998 47.8724 153.593 25.7885 170.209 5.98511"
+              stroke="black" />
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <!-- <path class="cs-liner__line" d="M173.197 3.22583L116.197 70.7258" stroke="var(--cs-color-green)" stroke-width="10" /> -->
+            <path class="cs-liner__sub" d="M0.430495 638.17C0.430495 638.17 98.4038 804.743 323.197 857.877"
+              stroke="black" />
+          </svg>
+        </div>
+        <div class="cs-section__container">
+          <div class="cs-grid">
+            <div class="cs-grid__item">
+              <div class="cs-hlt-title cs-hlt-title--align-right">
+                <h4 class="cs-hlt-title__text">CUSTOMER INSIGHTS</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
+              <h2 class="cs-title">
+                <span class="cs-title__highlight">NOVA</span>
+                AI-Native Decision Layer
+                <span class="cs-title__sub">for Telco-Scale Analytics</span>
+              </h2>
+              <div class="cs-dotline"></div>
+
+              <p class="cs-description">Enables faster, trusted decisions through natural-language insights and guided
+                diagnostics.</p>
+
+              <a href="" class="cs-link">Explore</a>
+            </div>
+            <div class="cs-grid__item">
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Nova: End -->
+      <section class="cs-section cs-section--ix-zerofyx">
+        <div class="cs-section__backdrop">
+          <svg class="cs-liner" width="410" height="822" viewBox="0 0 410 822" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M5.48633 5C224.743 5 402.486 182.743 402.486 402C402.486 540.308 329.071 663.092 201.945 821.5"
+              stroke="black" />
+            <!-- <path class="cs-liner__line" d="M100 18C56 5 20.5 5 0 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+          </svg>
+        </div>
+
+        <div class="cs-section__container">
+          <div class="cs-grid">
+            <div class="cs-grid__item">
+
+            </div>
+            <div class="cs-grid__item">
+              <div class="cs-hlt-title">
+                <h4 class="cs-hlt-title__text">CUSTOMER LOYALTY</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Monetization</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
+              <h2 class="cs-title">
+                <span class="cs-title__highlight">zerofyX</span>
+                AI-Powered Lifestyle Marketplace Engine
+                <span class="cs-title__sub">for Telco Affinity</span>
+              </h2>
+              <div class="cs-dotline"></div>
+
+              <p class="cs-description">Merges connectivity, commerce, & services into a daily engagement experience.
+              </p>
+
+              <a href="" class="cs-link">Explore</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Zerofyx: End -->
+      <section class="cs-section cs-section--ix-circles-collab">
+        <div class="cs-section__container">
+          <div class="cs-circles-collab">
+            <div class="cs-brand cs-brand--circles">
+              <img src="./images/circles-logo-big.svg" alt="Circles">
+            </div>
+
+            <div class="cs-circles-collab__connect">
+              <img src="./images/collab-connect.svg" alt="Connect">
+            </div>
+
+            <div class="cs-brand cs-brand--openai">
+              <img src="./images/open-ai.png" alt="Open AI">
+            </div>
+
+          </div>
+          <div class="t-center">
+            <h2 class="cs-title">Co-developing a fully AI-native telco platform​</h2>
+            <p class="cs-description">
+              A multi-year technical collaboration to embed AI natively across the telco stack.
+            </p>
+          </div>
+
+          <div class="cs-articles">
+            <figure class="cs-article">
+              <div class="cs-article__image">
+                <img src="./images/circles-open-ai/img-1.png" alt="Co-Developed AI-Native Architecture">
+              </div>
+              <figcaption class="cs-article__content">
+                <h4 class="cs-article__title">Co-Developed AI-Native Architecture</h4>
+                <p class="cs-article__description">Circles and OpenAI jointly
+                  design the core AI architecture from the ground up, optimized
+                  for telco performance, scale, and operational complexity​</p>
+              </figcaption>
+            </figure>
+
+            <figure class="cs-article">
+              <div class="cs-article__image">
+                <img src="./images/circles-open-ai/img-2.png" alt="AI Embedded End-to-End, Not Layered On">
+              </div>
+              <figcaption class="cs-article__content">
+                <h4 class="cs-article__title">AI Embedded End-to-End, Not Layered On</h4>
+                <p class="cs-article__description">AI is integrated natively across customer service, CRM, operations,
+                  and analytics to ensure reliability, performance,
+                  and long-term extensibility​​</p>
+              </figcaption>
+            </figure>
+
+            <figure class="cs-article">
+              <div class="cs-article__image">
+                <img src="./images/circles-open-ai/img-3.png" alt="Built for Enterprise  Deployment at Global Scale">
+              </div>
+              <figcaption class="cs-article__content">
+                <h4 class="cs-article__title">Built for Enterprise  Deployment at Global Scale</h4>
+                <p class="cs-article__description">Production-grade foundations enable global deployment to operator
+                  partners, shaped through hands-on technical
+                  co-development</p>
+              </figcaption>
+            </figure>
+
+            <figure class="cs-article">
+              <div class="cs-article__image">
+                <img src="./images/circles-open-ai/img-4.png" alt="Designed for First-Mover Telco Innovation">
+              </div>
+              <figcaption class="cs-article__content">
+                <h4 class="cs-article__title">Designed for First-Mover Telco Innovation</h4>
+                <p class="cs-article__description">Early insight into OpenAI’s
+                  technology direction supports faster development of new, telco-specific AI capabilities​</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <!-- Circles & Openai: End -->
+      <section class="cs-section cs-section--ix-join-revolution">
+        <div class="cs-section__backdrop">
+          <svg width="309" height="252" viewBox="0 0 309 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M146.895 248.416C65.7675 183.248 72.5173 72.1689 161.971 0.312988" stroke="black" />
+            <path d="M92.1141 166.719C118.571 223.427 147.614 248.617 147.614 248.617" stroke="#00F2A1"
+              stroke-width="10" />
+          </svg>
+        </div>
+
+        <div class="cs-section__container">
+          <img class="cs-brand" src="./images/brand-symbol.png" alt="Circles">
+
+          <h2 class="cs-title t-center">Join the AI-DMO revolution</h2>
+
+          <div class="cs-join-steps">
+            <article class="cs-join-step">
+              <div class="cs-join-step__count">1</div>
+              <h4 class="cs-join-step__title">AI-Driven Growth</h4>
+              <p class="cs-join-step__description">Identify high-value opportunities, personalize offers, and activate
+                the right action at the right moment automatically.</p>
+            </article>
+
+            <article class="cs-join-step">
+              <div class="cs-join-step__count">2</div>
+              <h4 class="cs-join-step__title">Connected intelligence</h4>
+              <p class="cs-join-step__description">Break silos by unifying insights acrosssystems, channels, and teams
+                turning fragmented data into a single source of
+                decision truth.​</p>
+            </article>
+
+            <article class="cs-join-step">
+              <div class="cs-join-step__count">3</div>
+              <h4 class="cs-join-step__title">Revenue Acceleration</h4>
+              <p class="cs-join-step__description">Move from insight to action faster, reducing cost to insight while
+                increasing conversion, retention, and lifetime value.​</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Join Revolution: End -->
+    </main>
+    <!-- Main: End -->
+    <footer class="cs-footer">
+      <div class="cs-footer__container">
+        <div class="cs-footer__brand">
+          <img src="./images/footer-logo.svg" lazy alt="Circles">
+        </div>
+        <p class="cs-footer__copyright">&copy; 2026 circles.co</p>
+      </div>
+      <div class="cs-stripes"></div>
+    </footer>
+    <!-- Footer: End -->
+  </div>
+  <!-- Page: End -->
+  <!-- Body Scripts -->
+  <script src="./gsap/gsap.min.js"></script>
+  <script src="./gsap/ScrollTrigger.min.js"></script>
+  <script src="./gsap/MotionPathPlugin.min.js"></script>
+  <script src="./gsap/SplitText.min.js"></script>
+  <!-- Main Script -->
+  <script>
+    gsap.registerPlugin("SplitText", "ScrollTrigger", "MotionPathPlugin");
+
+    document.addEventListener("DOMContentLoaded", init)
+
+    // Split All Headlines
+    const splitTextToChars = () => { return SplitText.create(".cs-title", { type: "words,chars", charsClass: 'char++', wordsClass: 'word++' }); }
+
+
+    function blobsAnim() {
+      const blobs = document.querySelectorAll('.cs-main .cs-bcircles .cs-bcircle');
+
+      const blobsTl = gsap.timeline({
+        // paused: true, // Start paused
+        // scrollTrigger: {
+        //   trigger: '.cs-section--ix-hero', // The section containing blobs
+        //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
+        //   end: 'bottom top',           // Animation stops when the section leaves the viewport
+        //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
+        // },
+      })
+      const animDefaults = {
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      }
+
+      // Randomize initial positions
+      blobs.forEach(blob => {
+        const x = Math.random() * (window.innerWidth / 2) + window.innerWidth / 2;
+        const y = Math.random() * (window.innerHeight - 300);
+        gsap.set(blob, { x: x, y: y });
+      });
+
+
+      // Add floating animation with GSAP
+      blobs.forEach((blob, index) => {
+        const delay = -index * 5;
+        blobsTl.add(
+          gsap.to(blob, {
+            x: () => Math.random() * (window.innerWidth / 2) + window.innerWidth / 2,
+            y: () => Math.random() * (window.innerHeight - 300),
+            duration: 15,
+            ...animDefaults
+          }),
+          delay
+        )
+      });
+
+      // Add subtle pulsing animation
+      blobsTl.add(
+        gsap.to(blobs, {
+          scale: '+=0.05',
+          duration: 1,
+          ...animDefaults
+        })
+      )
+    }
+
+    function heroAnim() {
+      const sectionHero = document.querySelector('.cs-section--ix-hero');
+
+      const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
+      const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
+
+      gsap.set(sectionHeroTitleChar, { autoAlpha: 0, x: -5 })
+
+      blobsAnim();
+
+      function brandLetters() {
+        const meetCirclesContainer = sectionHero.querySelector('.cs-meet-circles');
+        const brandPaths = meetCirclesContainer.querySelectorAll('.cs-brand__path');
+
+        gsap.set(brandPaths, { x: -5, autoAlpha: 0 })
+
+        const tl = gsap.timeline();
+
+        tl.to(brandPaths, { x: 0, duration: 0.8, autoAlpha: 1, stagger: 0.08 });
+
+        return tl;
+      }
+
+
+      function companiesAnim() {
+        const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
+
+        if (!sectionHeroCompanies) return gsap.timeline();
+
+        const sectionHeroCompanyTitle = sectionHero?.querySelector('.cs-companies .cs-companies__text');
+        const sectionHeroCompaniesList = sectionHeroCompanies?.querySelectorAll('.cs-company');
+
+        gsap.set([sectionHeroCompanyTitle, sectionHeroCompaniesList], { autoAlpha: 0, x: -20 })
+
+        const tl = gsap.timeline();
+
+        tl
+          .to(sectionHeroCompanyTitle, { autoAlpha: 1, x: 0, duration: .48 })
+          .to(sectionHeroCompaniesList, { autoAlpha: 1, x: 0, stagger: 0.25, duration: .48 }, '-=0.3')
+
+        return tl;
+      }
+
+      function liner() {
+        const linerLineWidthRange = { min: 50, max: 80 };
+
+        const liner = sectionHero?.querySelector(".cs-liner");
+        const linerTrack = liner?.querySelector('.cs-liner__track');
+        const linerLine = liner?.querySelector('.cs-liner__line');
+        gsap.set([linerTrack, linerLine], { opacity: 0 })
+
+        const tl = gsap.timeline();
+
+        tl.to([linerTrack, linerLine], { opacity: 1 })
+        tl.to(linerLine, {
+          motionPath: {
+            path: linerTrack,
+            align: linerTrack,
+            autoRotate: true,
+            alignOrigin: [0.5, 0.5],
+            start: 0.036
+
+          },
+          transformOrigin: "50% 50%",
+          scrollTrigger: {
+            trigger: sectionHero,
+            scrub: true,
+            start: "top top",
+            onUpdate: (self) => {
+              // Clamp progress to 30%-60% range (0.3 - 0.6)
+              const startTrigger = 0.3;
+              const endTrigger = 0.6;
+
+              // Map the 0.3-0.6 range to 0-1 (for interpolation)
+              let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
+              // Clamp values outside 0-1
+              mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
+
+              // Calculate width (e.g., between 200px and 500px)
+              const minWidth = 50;
+              const maxWidth = 150;
+              const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
+
+              gsap.set(linerLine, { width: newWidth });
+            }
+
+          }
+        })
+
+        return tl;
+      }
+
+      const heroTl = gsap.timeline({ ease: "power4.in", });
+
+      heroTl
+        .add(brandLetters())
+        .to(sectionHeroTitleChar, { x: 0, autoAlpha: 1, stagger: 0.08, duration: .8 })
+        .add(liner())
+        .add(companiesAnim())
+    }
+
+    function sdmoAnim() {
+      const sectionSdmo = document.querySelector('.cs-section--ix-sdmo');
+      const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
+
+      gsap.set(sectionTitle, { opacity: 0, y: 25 })
+
+      function ccirclesBackdrop() {
+        const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
+        const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
+
+        // const getCirclePathArrays = () => {
+        //   let pathArrays = [];
+
+        //   ccircles.forEach((circle, i) => {
+        //     if (i > 0) {
+        //        pathArrays.push(MotionPathPlugin.convertToPath(circle));
+        //     }
+        //   })
+        //   return pathArrays;
+        // }
+
+        // const circlePathArrays = getCirclePathArrays();
+
+        // circlePathArrays?.forEach((item, i) => {
+        //   gsap.set(ctexts[i], {
+        //     autoAlpha: 0,
+        //     motionPath: {
+        //       path: item[0],
+        //       align: item[0],
+        //       alignOrigin: [0.5, 0.5]
+        //     }
+        //   })
+        // })
+
+        gsap.set(ccircles, {
+          opacity: 0, scale: (i, el, list) => {
+            return (i * 0.2) + 0.1
+          }, transformOrigin: '50% 50%'
+        })
+
+        const tl = gsap.timeline()
+
+        tl.to(ccircles, { opacity: 1, scale: 1, rotation: 360, duration: 1.5, stagger: 0.3 })
+
+        ccircles.forEach((circle, i) => {
+          let textIndex = i - 1;
+
+          console.log(textIndex)
+          // tl.to(circle, {
+          //   rotation: "+=360",
+          //   duration: 16 - i * 2.5, // different speeds
+          //   repeat: -1,
+          //   ease: "none"
+          // }, '<');
+          // if (i > 0) {
+          //   tl.to(ctexts[textIndex], {
+          //     autoAlpha: 1,
+          //     duration: 0.6,
+          //     // motionPath: {
+          //     //   path: circlePathArrays[textIndex][0],
+          //     //   align: circlePathArrays[textIndex][0],
+          //     //   alignOrigin: [0.5, 0.5],
+          //     // }
+          //   },'<')
+          // }
+        });
+
+        return tl;
+      }
+
+      const sdmoTl = gsap.timeline()
+
+      sdmoTl
+        .to(sectionTitle, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 })
+        .add(ccirclesBackdrop())
+
+      ScrollTrigger.create({
+        animation: sdmoTl,
+        trigger: sectionSdmo,
+        start: "top center"
+      })
+    }
+
+    function carexAnim() {
+      const carexSection = document.querySelector('.cs-section--ix-carex');
+      const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
+
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: carexSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
+    }
+
+    function novaAnim() {
+      const novaSection = document.querySelector('.cs-section--ix-nova');
+      const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
+
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: novaSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
+    }
+
+    function zerofyxAnim() {
+      const zerofyxSection = document.querySelector('.cs-section--ix-zerofyx');
+      const linerTrack = zerofyxSection?.querySelector('.cs-liner .cs-liner__track')
+      const linerLine = zerofyxSection?.querySelector('.cs-liner .cs-liner__line')
+
+      gsap.to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: zerofyxSection,
+          start: 'top top',
+          scrub: true,
+        }
+      })
+    }
+
+    function collabAnim() {
+      const sectionCollab = document.querySelector('.cs-section--ix-circles-collab');
+      const title = sectionCollab?.querySelectorAll('.cs-title .word');
+
+      const description = sectionCollab.querySelector('.cs-description');
+      const articles = sectionCollab?.querySelectorAll('.cs-article');
+
+      function collabConnect() {
+        const collab = sectionCollab.querySelector('.cs-circles-collab');
+        const collabConnect = collab.querySelector('.cs-circles-collab__connect');
+        const bcircles = collab.querySelector('.cs-brand--circles');
+        const bopenai = collab.querySelector('.cs-brand--openai');
+
+        gsap.set(collabConnect, { opacity: 0, scale: 0.1 });
+        gsap.set(bcircles, { opacity: 0, x: -30 })
+        gsap.set(bopenai, { opacity: 0, x: 30 })
+
+        const tl = gsap.timeline();
+        tl
+          .to(collabConnect, { opacity: 1, scale: 1, rotation: 360, duraiton: 0.8 })
+          .to(bcircles, { opacity: 1, x: 0, duraiton: 0.6 })
+          .to(bopenai, { opacity: 1, x: 0, duraiton: 0.6 }, '<')
+
+        return tl;
+      }
+
+
+      gsap.set(title, { opacity: 0, y: 20 })
+      gsap.set(description, { opacity: 0, y: 10 })
+      gsap.set(articles, { opacity: 0, x: -30 })
+
+      const collabTl = gsap.timeline();
+      collabTl
+        .add(collabConnect())
+        .to(title, { y: 0, opacity: 1, stagger: 0.16, duration: 0.6 })
+        .to(description, { y: 0, opacity: 1, duration: 0.6 })
+        .to(articles, { x: 0, opacity: 1, stagger: 0.3, duration: 0.6 })
+
+      ScrollTrigger.create({
+        trigger: sectionCollab,
+        animation: collabTl,
+        start: "top center"
+      })
+    }
+
+    function joinAnim() {
+      const sectionJoin = document.querySelector('.cs-section--ix-join-revolution');
+      const brand = sectionJoin?.querySelector('.cs-brand');
+      const title = sectionJoin?.querySelectorAll('.cs-title .word');
+      const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
+
+      gsap.set(brand, { opacity: 0, scale: 0.5 })
+      gsap.set(joinSteps, { opacity: 0, y: 40 });
+      gsap.set(title, { y: 20, opacity: 0 })
+
+      const joinTl = gsap.timeline();
+      joinTl
+        .to(brand, { opacity: 1, scale: 1, rotation: 180, duration: 1.2 })
+        .to(title, { y: 0, opacity: 1, stagger: 0.16, duration: 0.8 }, '-=0.6')
+        .to(joinSteps, { y: 0, opacity: 1, stagger: 0.22, duration: 0.8 }, '-=15%')
+
+      ScrollTrigger.create({
+        trigger: sectionJoin,
+        animation: joinTl,
+        start: "top center",
+      })
+    }
+
+    function init() {
+      let splitTexts = splitTextToChars();
+
+      const gradMotion = document.getElementById('gradMotion');
+      const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
+      const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
+
+      gsap.set(gradMotionCircle, {
+        motionPath: {
+          path: gradMotionTrack,
+          align: gradMotionTrack,
+        }
+      })
+
+      const gradCircleSettings = [
+        {
+          size: 59.8,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+        },
+        {
+          size: 59.8,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
+        },
+        {
+          size: 135.9,
+          gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+        }
+      ]
+
+      const sections = gsap.utils.toArray([
+        '.cs-section--ix-hero',
+        '.cs-section--ix-sdmo',
+        '.cs-section--ix-carex',
+        '.cs-section--ix-nova',
+        '.cs-section--ix-zerofyx'
+      ]);
+
+      const totalProgress = 1; // how far along the path you want to go
+
+      // gsap.to(gradMotionCircle, {
+      //   motionPath: {
+      //     path: gradMotionTrack,
+      //     align: gradMotionTrack,
+      //     start: 0,
+      //     end: totalProgress
+      //   },
+      //   ease: "none",
+      //   scrollTrigger: {
+      //     trigger: sections[0],
+      //     start: "top top",
+      //     onUpdate: (self) => {
+      //       console.log("Trigger:", self.trigger);
+      //       console.log("EndTrigger:", self.vars.endTrigger);
+      //       console.log("Progress:", self.progress);
+      //     },
+      //     endTrigger: sections[sections.length - 1],
+      //     end: "bottom bottom",
+      //     scrub: true
+      //   }
+      // });
+
+      gsap.to(gradMotionCircle, {
+        motionPath: {
+          path: gradMotionTrack,
+          align: gradMotionTrack,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false,
+          start: 0,
+          end: 1
+        },
+        ease: "none",
+        scrollTrigger: {
+          trigger: sections[0],
+          start: "top top",
+          endTrigger: sections[sections.length - 1],
+          end: "bottom bottom",
+          scrub: true,
+          // markers: true
+        }
+      });
+
+      sections.forEach((section, index) => {
+        const settings = gradCircleSettings[index];
+
+        gsap.to(gradMotionCircle, {
+          width: `${settings.size}rem`,
+          height: `${settings.size}rem`,
+          background: settings.gradient,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            scrub: true
+          }
+        });
+      });
+
+      heroAnim(); // Hero Animation
+      sdmoAnim(); // Sdmo Second Section Animation
+      carexAnim(); // CareX Animation
+      novaAnim(); // Nova Animation
+      zerofyxAnim(); // Zerofyx Animation
+      collabAnim(); // Collab Animation
+      joinAnim(); // Join Revolution - Last Section Animation
+    }
+
+
+
+
+
+
+
+
+    // const min = 1;
+    // const max = 1.5;
+    // let shapes;
+
+    // class Shape {
+    //   constructor(el) {
+    //     this.el = el;
+    //     this.size = el.offsetWidth;
+    //     this.x = random(0, window.innerWidth - this.size);
+    //     this.y = random(0, window.innerHeight - this.size);
+    //     this.vx = random(min, max);
+    //     this.vy = random(min, max);
+    //   }
+    //   boundary() {
+    //     if (this.x >= window.innerWidth - this.size) {
+    //       this.vx *= -1;
+    //       this.x = window.innerWidth - this.size;
+    //     }
+    //     if (this.y >= window.innerHeight - this.size) {
+    //       this.vy *= -1;
+    //       this.y = window.innerHeight - this.size;
+    //     }
+    //     if (this.x <= 0) {
+    //       this.vx *= -1;
+    //       this.x = 0;
+    //     }
+    //     if (this.y <= 0) {
+    //       this.vy *= -1;
+    //       this.y = 0;
+    //     }
+    //   }
+    //   animate() {
+    //     this.x += this.vx;
+    //     this.y += this.vy;
+    //     this.el.style.transform = `translate(${this.x}px,${this.y}px)`;
+    //     this.boundary();
+    //   }
+    // }
+
+    // const random = (min, max) => Math.random() * (max - min) + min;
+
+    // function update() {
+    //   shapes.forEach((shape) => shape.animate());
+    //   requestAnimationFrame(update);
+    // }
+
+    // function initHero() {
+    //   shapes = Array.from(heroBlurCircles, (el) => new Shape(el));
+    //   update();
+    // }
+
+    // window.addEventListener('load', initHero, false);
+  </script>
+</body>
+
+</html>
