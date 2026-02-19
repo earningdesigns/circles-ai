@@ -143,13 +143,13 @@
       <section class="cs-section cs-section--ix-sdmo">
         <div class="cs-concentric">
           <svg class="cs-concentric-circles" viewBox="0 0 1166 1166" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5"
+            <circle id="sdmoCircle1" class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5"
               stroke="url(#paint1_linear_2005_3610)" />
-            <circle class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5"
+            <circle id="sdmoCircle2" class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5"
               stroke="url(#paint0_linear_2005_3610)" />
-            <circle class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25"
+            <circle id="sdmoCircle3" class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25"
               stroke="url(#paint2_linear_2005_3610)" stroke-width="1.5" />
-            <circle class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582"
+            <circle id="sdmoCircle4" class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582"
               stroke="url(#paint3_linear_2005_3610)" stroke-width="2" />
             <defs>
               <linearGradient id="paint0_linear_2005_3610" x1="690" y1="769.5" x2="468.303" y2="375.679"
@@ -177,27 +177,56 @@
             </defs>
           </svg>
 
-          <!-- <div class="cs-ccircles">
-            <div class="cs-ccircle cs-ccircle--1"></div>
-            <div class="cs-ccircle cs-ccircle--2"></div>
-            <div class="cs-ccircle cs-ccircle--3"></div>
-            <div class="cs-ccircle cs-ccircle--4"></div>
-          </div> -->
-
-          <!-- <div class="cs-ctexts">
-            <div class="cs-ctext cs-ctext--1">Retention</div>
-            <div class="cs-ctext cs-ctext--2">Monetization</div>
-            <div class="cs-ctext cs-ctext--3">Acquisition</div>
-          </div> -->
+          <div class="cs-badges">
+            <div class="cs-badge cs-badge--acquisition">Acquisition</div>
+            <div class="cs-badge cs-badge--monetization">Monetization</div>
+            <div class="cs-badge cs-badge--retention">Retention</div>
+          </div>
         </div>
-        <div class="cs-section__container">
-          <h2 class="cs-title t-center">
-            <span class="cs-title__sub">The world’s first</span>
-            AI-native telco SAAS platform for smarter digital mobile operations
-            <span class="cs-title__sub">AI-native telco SAAS platform for smarter digital mobile operations</span>
+        <div class="cs-section__container t-center">
+          <div class="cs-sdmo-brand">
+            <svg width="255" height="63" viewBox="0 0 255 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M231.947 11.2253L201.496 48.6102C200.409 49.8957 201.261 51.957 202.895 51.957H211.928C212.46 51.957 212.977 51.7136 213.342 51.28L221.614 40.0379C222.367 39.1327 223.698 39.1404 224.45 40.0607L233.521 51.3408C233.886 51.782 234.403 52.0406 234.95 52.0406H241.74C243.36 52.0406 244.219 49.9945 243.139 48.7091L229.712 32.5761C229.104 31.8383 229.073 30.7354 229.659 29.9672L242.075 13.8266C243.086 12.5183 242.204 10.5483 240.622 10.5483H233.339C232.806 10.5331 232.305 10.7689 231.94 11.1948V11.2177H231.947V11.2253Z"
+                fill="url(#paint0_sdmo_logo_new)" />
+              <path
+                d="M212.262 23.3722C215.577 23.3722 218.276 20.5047 218.276 16.9677C218.276 13.4308 215.577 10.5632 212.262 10.5632C208.947 10.5632 206.248 13.4308 206.248 16.9677C206.248 20.5047 208.947 23.3722 212.262 23.3722Z"
+                fill="url(#paint1_sdmo_logo_new)" />
+              <path
+                d="M69.4323 34.6138L76.6327 47.8535L69.1193 47.9022L62.6842 35.8539H58.139V47.89H51.4141V14.6874L65.2814 14.7117C67.6004 15.0035 69.7338 15.6965 71.5078 17.204C72.6441 18.1037 73.6992 19.7085 74.1862 21.1066C74.708 22.7966 74.9746 24.5351 74.7891 26.3223C74.6036 29.9088 72.7021 33.0698 69.4207 34.626L69.4323 34.6138ZM68.1337 25.5807C68.3308 23.064 66.7076 20.8635 64.3422 20.827L58.1622 20.7419V29.7629L64.1451 29.7021C66.2786 29.6778 68.0642 27.8663 68.1337 25.5685V25.5807Z"
+                fill="black" />
+              <path
+                d="M157.002 34.2756H143.002V41.6972H157.825V47.9022H136.297V14.6874H157.825V20.7707H143.002V28.1923H157.002V34.2756Z"
+                fill="black" />
+              <path
+                d="M183.286 44.3168C179.741 48.3241 173.201 48.7602 168.525 46.6741C165.163 45.1654 162.648 42.3485 161.516 38.8008L166.97 36.3139C167.61 37.6104 168.307 38.7654 169.314 39.7083C170.606 40.887 172.126 41.712 173.83 41.9124C175.568 42.1127 177.615 41.7945 178.552 40.1562C179.49 38.5179 178.781 36.5378 177.054 35.8306C175.385 35.147 173.693 34.6284 171.955 34.0509C169.142 33.108 166.73 32.3772 164.649 30.0082C162.568 27.6391 162.407 25.6944 162.682 23.2193C163.242 17.9272 167.496 15.1338 172.344 14.7331C174.596 14.5445 177.363 14.9335 179.398 16.006C182.28 17.3497 184.475 19.8012 185.504 22.9364L180.073 25.4705C179.09 22.7242 176.78 20.7913 173.967 20.6616C172.618 20.6027 171.36 20.7913 170.331 21.6399C169.302 22.4885 168.799 24.669 169.942 26.0008C171.086 27.3327 171.292 27.0145 172.103 27.2973L178.655 29.4896C179.833 29.8785 180.862 30.4443 181.868 31.1279C184.624 33.0255 185.801 36.0664 185.413 39.4255C185.195 41.2759 184.498 42.926 183.252 44.3286L183.286 44.3168Z"
+                fill="black" />
+              <path
+                d="M93.5226 41.7182C97.4527 42.0718 100.641 40.1385 102.055 36.3071L104.722 37.6156L108.003 39.2425C107.342 41.1759 106.287 42.6966 104.849 44.0406C101.661 46.9996 97.4295 48.1785 93.14 47.8484C88.8504 47.5183 86.3114 46.2215 83.6797 43.8166C81.9755 42.2605 80.4799 40.1738 79.6684 37.9929C79.0887 36.4485 78.6714 34.9042 78.5554 33.242C78.312 29.7525 78.6018 26.7699 80.0742 23.5398C82.4276 18.3762 87.5519 15.0989 93.0936 14.7335C98.0208 14.4034 102.45 15.8299 105.812 19.5198C106.751 20.7104 107.574 21.8775 108.003 23.3747L102.044 26.263C100.931 23.0211 98.0904 20.8991 94.7978 20.8637C91.5053 20.8283 94.2761 20.6515 93.9863 20.8755C90.7865 20.8873 87.9113 22.7263 86.3926 25.6382C84.8738 28.55 84.6652 35.3168 87.5635 38.6649C89.1286 40.4803 91.1459 41.506 93.511 41.7182H93.5226Z"
+                fill="black" />
+              <path
+                d="M12.1528 29.8668C11.5616 35.5479 14.4348 41.0757 20.5242 41.7122C24.4498 42.1247 28.0089 40.1564 29.3804 36.3258L31.828 37.5162L35.4226 39.2488C34.7722 41.1818 33.6726 42.6669 32.2419 43.987C29.7115 46.3207 26.4835 47.6172 23.0309 47.8529C17.852 48.2183 12.9923 46.5564 9.48051 42.6669C7.09204 40.0267 5.67315 36.6912 5.36573 33.1317C4.89277 27.6745 6.4299 22.4178 10.5683 18.7286C14.0091 15.6524 18.3722 14.4266 22.9363 14.733C28.2808 15.0984 33.6135 18.1393 35.4107 23.3489C34.5357 23.7732 33.779 24.1622 32.975 24.5394L29.3686 26.2366C28.2453 23.0425 25.3366 20.9798 22.0259 20.8502C16.4331 20.638 12.7203 24.4451 12.1528 29.8668Z"
+                fill="black" />
+              <path d="M132.595 41.6972L132.607 47.9022H112.309V14.6874H119.035V41.6972H132.595Z" fill="black" />
+              <path d="M45.8793 47.89L39.1133 47.9022V14.6874H45.8793V47.89Z" fill="black" />
+              <defs>
+                <linearGradient id="paint0_sdmo_logo_new" x1="222.314" y1="52.0406" x2="222.314" y2="10.5483"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4D83DB" />
+                  <stop offset="1" stop-color="#00F2A1" />
+                </linearGradient>
+                <linearGradient id="paint1_sdmo_logo_new" x1="212.262" y1="23.3722" x2="212.262" y2="10.5632"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4D83DB" />
+                  <stop offset="1" stop-color="#00F2A1" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h2 class="cs-title">
+            AI-native TELCO SAAS platform<br />
+            <span>for smarter digital mobile operations</span>
           </h2>
-
-
         </div>
       </section>
       <!-- SDMO: End -->
@@ -218,34 +247,33 @@
           </svg>
         </div>
         <div class="cs-section__container">
-          <h3 class="cs-sub-title">
-            </h4>
-            <div class="cs-grid">
-              <div class="cs-grid__item">
+          <h3 class="cs-sub-title"></h3>
+          <div class="cs-grid">
+            <div class="cs-grid__item">
 
-              </div>
-              <div class="cs-grid__item">
-                <div class="cs-hlt-title">
-                  <h4 class="cs-hlt-title__text">CUSTOMER RELATIONSHIP</h4>
-                  <div class="cs-hlt-title__sub">
-                    <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
-                    <span class="cs-hlt-title__sub-line"></span>
-                  </div>
-                </div>
-
-                <h2 class="cs-title">
-                  <span class="cs-title__highlight">CareX</span>
-                  AI-Native Conversational OS
-                  <span class="cs-title__sub">for Customer Relationship</span>
-                </h2>
-                <div class="cs-dotline"></div>
-
-                <p class="cs-description">Embeds directly into your BSS stack to unify customer relationship into one
-                  seamless experience</p>
-
-                <a href="" class="cs-link">Explore</a>
-              </div>
             </div>
+            <div class="cs-grid__item">
+              <div class="cs-hlt-title">
+                <h4 class="cs-hlt-title__text">CUSTOMER RELATIONSHIP</h4>
+                <div class="cs-hlt-title__sub">
+                  <span class="cs-hlt-title__sub-text">Acquisition & Retention</span>
+                  <span class="cs-hlt-title__sub-line"></span>
+                </div>
+              </div>
+
+              <h2 class="cs-title">
+                <span class="cs-title__highlight">CareX</span>
+                AI-Native Conversational OS
+                <span class="cs-title__sub">for Customer Relationship</span>
+              </h2>
+              <div class="cs-dotline"></div>
+
+              <p class="cs-description">Embeds directly into your BSS stack to unify customer relationship into one
+                seamless experience</p>
+
+              <a href="" class="cs-link">Explore</a>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -269,7 +297,7 @@
               <div class="cs-hlt-title cs-hlt-title--align-right">
                 <h4 class="cs-hlt-title__text">CUSTOMER INSIGHTS</h4>
                 <div class="cs-hlt-title__sub">
-                  <span class="cs-hlt-title__sub-text">Acquistion & Retention</span>
+                  <span class="cs-hlt-title__sub-text">Acquisition & Retention</span>
                   <span class="cs-hlt-title__sub-line"></span>
                 </div>
               </div>
@@ -631,87 +659,73 @@
 
     function sdmoAnim() {
       const sectionSdmo = document.querySelector('.cs-section--ix-sdmo');
-      const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
+      const sectionLogo = sectionSdmo?.querySelector('.cs-sdmo-brand');
+      const sectionTitle = sectionSdmo?.querySelector('.cs-title');
 
-      gsap.set(sectionTitle, { opacity: 0, y: 25 })
+      gsap.set([sectionLogo, sectionTitle], { opacity: 0, y: 30 });
 
       function ccirclesBackdrop() {
         const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-        const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
+        const badgeAcquisition = sectionSdmo?.querySelector('.cs-badge--acquisition');
+        const badgeMonetization = sectionSdmo?.querySelector('.cs-badge--monetization');
+        const badgeRetention = sectionSdmo?.querySelector('.cs-badge--retention');
 
-        // const getCirclePathArrays = () => {
-        //   let pathArrays = [];
+        // Convert circles to paths for motion path
+        ccircles.forEach(circle => MotionPathPlugin.convertToPath(circle));
 
-        //   ccircles.forEach((circle, i) => {
-        //     if (i > 0) {
-        //        pathArrays.push(MotionPathPlugin.convertToPath(circle));
-        //     }
-        //   })
-        //   return pathArrays;
-        // }
-
-        // const circlePathArrays = getCirclePathArrays();
-
-        // circlePathArrays?.forEach((item, i) => {
-        //   gsap.set(ctexts[i], {
-        //     autoAlpha: 0,
-        //     motionPath: {
-        //       path: item[0],
-        //       align: item[0],
-        //       alignOrigin: [0.5, 0.5]
-        //     }
-        //   })
-        // })
+        const path2 = sectionSdmo.querySelector('#sdmoCircle2');
+        const path3 = sectionSdmo.querySelector('#sdmoCircle3');
+        const path4 = sectionSdmo.querySelector('#sdmoCircle4');
 
         gsap.set(ccircles, {
-          opacity: 0, scale: (i, el, list) => {
-            return (i * 0.2) + 0.1
-          }, transformOrigin: '50% 50%'
-        })
+          opacity: 0, scale: (i) => (i * 0.2) + 0.1, transformOrigin: '50% 50%'
+        });
 
-        const tl = gsap.timeline()
+        gsap.set([badgeAcquisition, badgeMonetization, badgeRetention], { autoAlpha: 0 });
 
-        tl.to(ccircles, { opacity: 1, scale: 1, rotation: 360, duration: 1.5, stagger: 0.3 })
+        const tl = gsap.timeline();
 
-        ccircles.forEach((circle, i) => {
-          let textIndex = i - 1;
+        // Entrance animation
+        tl.to(ccircles, { opacity: 1, scale: 1, duration: 1.2, stagger: 0.15 });
+        tl.to([badgeAcquisition, badgeMonetization, badgeRetention], { autoAlpha: 1, duration: 0.5 }, "-=0.5");
 
-          console.log(textIndex)
-          // tl.to(circle, {
-          //   rotation: "+=360",
-          //   duration: 16 - i * 2.5, // different speeds
-          //   repeat: -1,
-          //   ease: "none"
-          // }, '<');
-          // if (i > 0) {
-          //   tl.to(ctexts[textIndex], {
-          //     autoAlpha: 1,
-          //     duration: 0.6,
-          //     // motionPath: {
-          //     //   path: circlePathArrays[textIndex][0],
-          //     //   align: circlePathArrays[textIndex][0],
-          //     //   alignOrigin: [0.5, 0.5],
-          //     // }
-          //   },'<')
-          // }
+        // Infinite Rotation (Separate from entrance timeline flow)
+        tl.add(() => {
+          gsap.to(badgeAcquisition, {
+            duration: 30, repeat: -1, ease: "none",
+            xPercent: -50, yPercent: -50,
+            motionPath: { path: path4, align: path4, alignOrigin: [0.5, 0.5], start: 0.6, end: 1.6 }
+          });
+
+          gsap.to(badgeRetention, {
+            duration: 25, repeat: -1, ease: "none",
+            xPercent: -50, yPercent: -50,
+            motionPath: { path: path3, align: path3, alignOrigin: [0.5, 0.5], start: 0.0, end: 1.0 }
+          });
+
+          gsap.to(badgeMonetization, {
+            duration: 20, repeat: -1, ease: "none",
+            xPercent: -50, yPercent: -50,
+            motionPath: { path: path2, align: path2, alignOrigin: [0.5, 0.5], start: 0.25, end: 1.25 }
+          });
         });
 
         return tl;
       }
 
-      const sdmoTl = gsap.timeline()
+      const sdmoTl = gsap.timeline();
 
       sdmoTl
-        .to(sectionTitle, { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 })
         .add(ccirclesBackdrop())
+        .to(sectionLogo, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
+        .to(sectionTitle, { opacity: 1, y: 0, duration: 0.8 }, "-=0.4");
 
       ScrollTrigger.create({
         animation: sdmoTl,
         trigger: sectionSdmo,
         start: "top center"
-      })
+      });
     }
-
     function carexAnim() {
       const carexSection = document.querySelector('.cs-section--ix-carex');
       const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
