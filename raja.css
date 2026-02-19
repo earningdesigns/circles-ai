@@ -74,9 +74,12 @@ img {
   z-index: 500;
 }
 .cs-header .cs-stripes {
+  max-width: 1080px;
+  margin: 0 auto;
   border-width: 0;
 }
 .cs-header__container {
+  max-width: 1080px;
   width: var(--cs-header-container-width);
   margin-inline: auto;
   display: flex;
@@ -702,6 +705,8 @@ img {
   position: relative;
 }
 .cs-footer__container {
+  margin: 0 auto;
+  max-width: 1080px;
   width: var(--cs-footer-container-width);
   margin-inline: auto;
   display: flex;
@@ -710,6 +715,8 @@ img {
   padding-block: 4.4rem;
 }
 .cs-footer .cs-stripes {
+  margin: 0 auto;
+    max-width: 1080px;
   --cs-stripes-height: 7rem;
 }
 
@@ -718,6 +725,7 @@ img {
 ========================================= */
 
 .cs-section--loyalty-hero {
+  min-height: 0;
   position: relative;
   padding: 140px 0 120px;
   overflow: hidden;
@@ -741,6 +749,7 @@ img {
 }
 
 .cs-loyalty-hero__container {
+  max-width: 1080px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
@@ -890,15 +899,56 @@ img {
   transform: scale(1.2);
 }
 
+@media (max-width:568px){
+  .cs-loyalty-hero__container{
+    display: flex;
+    flex-direction: column;
+    gap: 50;
+    align-items: baseline;
+
+  }
+  .cs-loyalty-slider {
+    margin: 0;
+  }
+  .cs-dots{
+    position: inherit;
+  }
+  .cs-section--loyalty-experience{
+    padding:  0 !important;
+  }
+
+  .cs-experience-card{
+    border-radius: 40px !important;
+    height: 100% !important;
+  }
+  .cs-experience-bg{
+    width: 80% !important;
+  }
+  .cs-experience-demo{
+           right: 29px !important;
+        bottom: 20px !important;
+        font-size: 12px !important;
+  }
+}
 
 
 /* =========================================
    EXPERIENCE SECTION
 ========================================= */
-
+.t-center {
+    max-width: 1080px;
+}
 .cs-section--loyalty-experience {
+  min-height: 0;
   padding: 100px 0;
-  background: #f6f7fb;
+ 
+  background: radial-gradient(
+    circle at center,
+    rgba(189, 255, 163, 0.8) 0%,
+    rgba(97, 255, 218, 0) 65%
+  );
+
+
 }
 
 .cs-loyalty-section-title {
@@ -919,14 +969,14 @@ img {
 
 /* Card Container */
 .cs-experience-card {
-  margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  height: 561px;
+  margin: 70px auto;
   position: relative;
-  margin-top: 70px;
   padding: 40px 15px;
-  border-radius: 40px;
+  border-radius: 88px;
   border-color: #8e8ff9 !important;
-  background: #ffffff;
+  background: transparent;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
 
   border: 1.5px solid;
@@ -976,8 +1026,8 @@ img {
   align-items: center;
   display: flex;
   position: absolute;
-  bottom: 40px;
-  right: 200px;
+  bottom: 45px;
+  right: 75px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
@@ -1068,3 +1118,8 @@ img {
   border-top: 18px solid transparent;
   border-bottom: 18px solid transparent;
 }
+.video-container {
+    margin: 0;
+}
+
+
