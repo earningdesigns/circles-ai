@@ -223,7 +223,7 @@
           </svg>
         </div>
         <div class="cs-section__container">
-          <h3 class="cs-sub-title"></h4>
+          <h3 class="cs-sub-title"></h3>
           <div class="cs-grid">
             <div class="cs-grid__item">
 
@@ -404,6 +404,48 @@
         </div>
       </section>
       <!-- Circles & Openai: End -->
+
+
+      <section class="cs-section cs-section--ix-trust">
+        <div class="cs-section__backdrop"></div>
+
+        <div class="cs-section__container cs-trust-card">
+          <h2 class="cs-title t-center">
+            <span class="cs-title__sub">Built on a foundation of</span>
+            Trust, Security &amp; Governance
+          </h2>
+
+          <div class="cs-trust-grid">
+            <article class="cs-trust-item">
+              <div class="cs-trust-icon" aria-hidden="true"></div>
+              <h4 class="cs-trust-title">Identity &amp; Access Management</h4>
+              <p class="cs-trust-desc">Telcos can securely manage their data by adding, removing, and monitoring role-based access across all levels.</p>
+            </article>
+
+            <article class="cs-trust-item">
+              <div class="cs-trust-icon" aria-hidden="true"></div>
+              <h4 class="cs-trust-title">Data Privacy &amp; Compliance</h4>
+              <p class="cs-trust-desc">CirclesX OS ensures compliance with industry frameworks and gives full control over data retention and handling.</p>
+            </article>
+
+            <article class="cs-trust-item">
+              <div class="cs-trust-icon" aria-hidden="true"></div>
+              <h4 class="cs-trust-title">Monitoring &amp; Transparency</h4>
+              <p class="cs-trust-desc">Provides visibility into data flow, agent interactions, and customer journeys so you can audit, improve and trust outcomes.</p>
+            </article>
+
+            <article class="cs-trust-item">
+              <div class="cs-trust-icon" aria-hidden="true"></div>
+              <h4 class="cs-trust-title">Security Governance</h4>
+              <p class="cs-trust-desc">Adheres to industry-standard security frameworks to secure your data comprehensively and consistently.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Trust, Security & Governance: End -->
+
+
+      
       <section class="cs-section cs-section--ix-join-revolution">
         <div class="cs-section__backdrop">
           <svg width="309" height="252" viewBox="0 0 309 252" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -415,26 +457,25 @@
         <div class="cs-section__container">
           <img class="cs-brand" src="./images/brand-symbol.png" alt="Circles">
           
-          <h2 class="cs-title t-center">Join the AI-DMO revolution</h2>
+          <h2 class="cs-title t-center">Join the AI‑DMO Revolution</h2>
 
-          <div class="cs-join-steps">
-            <article class="cs-join-step">
-              <div class="cs-join-step__count">1</div>
-              <h4 class="cs-join-step__title">AI-Driven Growth</h4>
-              <p class="cs-join-step__description">Identify high-value opportunities, personalize offers, and activate the right action at the right moment automatically.</p>
+          <div class="cs-join-steps" role="list" aria-label="Three benefits of joining the AI-DMO revolution">
+            <article class="cs-join-step" role="listitem">
+              <div class="cs-join-step__count" aria-hidden="true">1</div>
+              <h3 class="cs-join-step__title">AI‑Driven Growth</h3>
+              <p class="cs-join-step__description">Acquire. Retain. Monetize - at scale.</p>
             </article>
 
-            <article class="cs-join-step">
-              <div class="cs-join-step__count">2</div>
-              <h4 class="cs-join-step__title">Connected intelligence</h4>
-              <p class="cs-join-step__description">Break silos by unifying insights acrosssystems, channels, and teams turning fragmented data into a single source of
-              decision truth.​</p>
+            <article class="cs-join-step" role="listitem">
+              <div class="cs-join-step__count" aria-hidden="true">2</div>
+              <h3 class="cs-join-step__title">Connected Intelligence</h3>
+              <p class="cs-join-step__description">One truth. Zero silos.</p>
             </article>
             
-            <article class="cs-join-step">
-              <div class="cs-join-step__count">3</div>
-              <h4 class="cs-join-step__title">Revenue Acceleration</h4>
-              <p class="cs-join-step__description">Move from insight to action faster, reducing cost to insight while increasing conversion, retention, and lifetime value.​</p>
+            <article class="cs-join-step" role="listitem">
+              <div class="cs-join-step__count" aria-hidden="true">3</div>
+              <h3 class="cs-join-step__title">Revenue Acceleration</h3>
+              <p class="cs-join-step__description">From insight to revenue - faster.</p>
             </article>
           </div>
         </div>
@@ -445,7 +486,7 @@
     <footer class="cs-footer">
       <div class="cs-footer__container">
         <div class="cs-footer__brand">
-          <img src="./images/footer-logo.svg" lazy alt="Circles">
+          <img src="./images/footer-logo.svg" loading="lazy" alt="Circles">
         </div>
         <p class="cs-footer__copyright">&copy; 2026 circles.co</p>
       </div>
@@ -461,7 +502,8 @@
   <script src="./gsap/SplitText.min.js"></script>
   <!-- Main Script -->
   <script>
-    gsap.registerPlugin("SplitText", "ScrollTrigger", "MotionPathPlugin");
+    // Register GSAP plugins by reference (plugin objects), not by string names
+    gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin);
 
     document.addEventListener("DOMContentLoaded", init)
 
@@ -787,9 +829,9 @@
 
         const tl = gsap.timeline();
         tl
-          .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duraiton: 0.8})
-          .to(bcircles, {opacity: 1, x: 0, duraiton: 0.6})
-          .to(bopenai, {opacity: 1, x: 0, duraiton: 0.6}, '<')
+          .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duration: 0.8})
+          .to(bcircles, {opacity: 1, x: 0, duration: 0.6})
+          .to(bopenai, {opacity: 1, x: 0, duration: 0.6}, '<')
 
         return tl;
       }
