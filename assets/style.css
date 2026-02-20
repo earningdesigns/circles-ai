@@ -1,0 +1,97 @@
+/* ===== FIX LEFT GRID ALIGNMENT ===== */
+.cs-section--ix-carex .cs-grid{
+  align-items: center;
+}
+
+/* ===== CAREX SLIDER WRAPPER ===== */
+.carex-slider{
+  position: relative;
+  max-width: 420px;
+  margin-left: 60px;   /* pushes slider inward like design */
+}
+
+/* make left column vertically centered */
+.cs-grid__item:first-child{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== TRACK ===== */
+.carex-slider__track{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+/* ===== SLIDES ===== */
+.carex-slide{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(.85);
+  transition: .7s ease;
+}
+
+.carex-slide.active{
+  opacity: 1;
+  transform: scale(1);
+  position: relative;
+}
+
+.carex-slide img{
+  width: 100%;
+  border-radius: 32px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.18);
+}
+
+/* ===== ARROWS ===== */
+.carex-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 15px 35px rgba(0,0,0,.18);
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 2;
+}
+
+.carex-prev{ left: -26px; }
+.carex-next{ right: -26px; }
+
+/* ===== DOTS ===== */
+.carex-dots{
+  text-align: center;
+  margin-top: 22px;
+}
+
+.dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#cfd6e4;
+  margin:0 6px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.dot.active{
+  background:#4cafef;
+  width:26px;
+  border-radius:8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:991px){
+  .carex-slider{
+    margin: 40px auto 0;
+    max-width: 320px;
+  }
+}
