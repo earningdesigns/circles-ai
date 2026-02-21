@@ -727,6 +727,8 @@ img {
   overflow: hidden;
 }
 
+
+
 .cs-loyalty-bg {
    position: absolute;
   width: 1359px;
@@ -742,6 +744,24 @@ img {
 
   pointer-events: none;
   z-index: -1;
+}
+
+.carex-bg{
+   background: radial-gradient(
+    50% 50% at 50% 50%,
+   rgba(189, 255, 163, 1) 0%,
+    rgba(97, 255, 218, 0) 100%
+  );
+
+}
+
+.insights-bg{
+   background: radial-gradient(
+    50% 50% at 50% 50%,
+   rgba(218, 189, 255, 1) 0%,
+    rgba(0, 242, 255, 0) 100%
+  );
+
 }
 
 .cs-loyalty-hero__container {
@@ -920,8 +940,16 @@ img {
 .cs-section--carex-experience {
     min-height: 0;
     padding: 100px 0 0;
-    background: radial-gradient(circle at left, rgba(218, 189, 255, 1) 0%, rgba(0, 242, 255, 0) 65%);
+    background:radial-gradient(circle at left, rgb(189 218 255) 0%, rgba(0, 242, 255, 0) 65%);
 }
+
+.cs-section--nova-experience {
+    min-height: 0;
+    padding: 100px 0 0;
+    background:radial-gradient(circle at left, rgba(189, 255, 163, 1) 0%, rgba(97, 255, 218, 0) 65%);
+}
+
+
 
 
 
@@ -941,7 +969,7 @@ img {
 /* Card Container */
 .cs-experience-card {
   width: 100%;
-  height: 561px;
+  height: 100%;
   margin: 70px auto;
   position: relative;
   padding: 40px 15px;
@@ -957,6 +985,7 @@ img {
 
 /* Background UI */
 .cs-experience-bg {
+  position: relative;
   width: 55%;
   opacity: 0.95;
 }
@@ -997,8 +1026,8 @@ img {
   align-items: center;
   display: flex;
   position: absolute;
-  bottom: 45px;
-  right: 75px;
+  bottom: 10px;
+  right: 440px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
@@ -1196,7 +1225,7 @@ img {
 
 /* DEMO */
 .demo-btn {
-  margin-right: 55px !important;
+  margin-right: 55px ;
   display: block;
   justify-self: end;
   margin: 25px;
@@ -1205,6 +1234,10 @@ img {
   background: linear-gradient(45deg,#4f8cff,#a855f7);
   color: #fff;
   text-decoration: none;
+}
+.loyalty-btn{
+  justify-self: center;
+  margin: 0 auto !important;
 }
 
 .divider {
@@ -1241,12 +1274,26 @@ img {
 }
 
 @media (max-width:1080px){
-  .demo-btn{
-    margin-right: 25px !important;;
-  }
+.cs-experience-demo{
+  bottom: 30px;
+  right: 400px;
+}
 }
 @media (max-width:768px){
   .dual-experience{
     flex-direction: column;
   }
+  .demo-btn{
+    margin-right: 20%;
+
+  }
 }
+
+@media (max-width:568px){
+  .demo-btn{
+    margin-right: 5%;
+  }
+
+}
+
+
