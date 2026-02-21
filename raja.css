@@ -1225,7 +1225,7 @@ img {
 
 /* DEMO */
 .demo-btn {
-  margin-right: 55px ;
+  margin-right: 55px !important ;
   display: block;
   justify-self: end;
   margin: 25px;
