@@ -44,12 +44,12 @@
 
         </div>
         
-        <h1 class="cs-loyalty-product__title">NOVA</h1>
+        <h1 class="cs-loyalty-product__title">CareX</h1>
       </div>
 
       <h3 class="cs-loyalty-product__subtitle">
         AI-NATIVE<br>
-        <strong>DECISION LAYER</strong>
+        <strong>CONVERSATIONAL OS</strong>
       </h3>
       
       <div class="cs-section cs-section--loyalty-video">
@@ -60,8 +60,8 @@
       <!-- Custom Thumbnail -->
       <div class="cs-video-thumbnail" id="thumbnail">
         <img 
-          src="./images/Screenshot 2026-02-06 140135 3.png"
-          alt="Zerofy Demo"
+          src="./images/6d0eec7ea37e9e79501396182188795d75edf45e.png"
+          alt="CareX Demo"
           class="cs-video-thumb-img"
         >
 
@@ -262,6 +262,8 @@
 
     <!-- Footer: End -->
 </section>
+
+
 
 
   </div>
@@ -881,6 +883,139 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+// Tab section animation
+document.querySelectorAll(".experience-block").forEach(section => {
+
+  const buttons = section.querySelectorAll(".inner-btn");
+  const screens = section.querySelectorAll(".screen-img");
+  const track = section.querySelector(".button-track");
+  const slider = section.querySelector(".button-slider");
+
+  let visibleStart = 0;
+  const visibleCount = 4;
+  const total = buttons.length;
+
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+
+  /* ================= IMAGE SWITCH ================= */
+  function showImage(index) {
+    buttons.forEach(b => b.classList.remove("active"));
+    screens.forEach(s => s.classList.remove("active"));
+
+    buttons[index].classList.add("active");
+    screens[index].classList.add("active");
+
+    shiftWindow(index);
+  }
+
+  /* ================= SHIFT WINDOW ================= */
+  function shiftWindow(index) {
+
+    const lastVisible = visibleStart + visibleCount - 1;
+
+    if (index >= lastVisible && index < total - 1) {
+      visibleStart++;
+    }
+
+    if (index <= visibleStart && visibleStart > 0) {
+      visibleStart--;
+    }
+
+    // LOOP FORWARD
+    if (visibleStart > total - visibleCount) {
+      visibleStart = 0;
+    }
+
+    // LOOP BACKWARD
+    if (visibleStart < 0) {
+      visibleStart = total - visibleCount;
+    }
+
+    updateSliderPosition();
+  }
+
+  function updateSliderPosition() {
+    const buttonWidth = buttons[0].offsetWidth + 12;
+    currentTranslate = -visibleStart * buttonWidth;
+    prevTranslate = currentTranslate;
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  /* ================= BUTTON CLICK ================= */
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const index = parseInt(btn.dataset.index);
+      showImage(index);
+    });
+  });
+
+  /* ================= DRAG FUNCTION ================= */
+
+  slider.addEventListener("mousedown", startDrag);
+  slider.addEventListener("touchstart", startDrag);
+
+  slider.addEventListener("mousemove", drag);
+  slider.addEventListener("touchmove", drag);
+
+  slider.addEventListener("mouseup", endDrag);
+  slider.addEventListener("mouseleave", endDrag);
+  slider.addEventListener("touchend", endDrag);
+
+  function startDrag(e) {
+    isDragging = true;
+    startX = getPositionX(e);
+    slider.style.cursor = "grabbing";
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+
+    const currentPosition = getPositionX(e);
+    const move = currentPosition - startX;
+
+    track.style.transform = `translateX(${prevTranslate + move}px)`;
+  }
+
+  function endDrag(e) {
+    if (!isDragging) return;
+
+    isDragging = false;
+    slider.style.cursor = "grab";
+
+    const endPosition = getPositionX(e);
+    const movedBy = endPosition - startX;
+
+    const buttonWidth = buttons[0].offsetWidth + 12;
+
+    if (movedBy < -50) {
+      visibleStart++;
+    } else if (movedBy > 50) {
+      visibleStart--;
+    }
+
+    // LOOP
+    if (visibleStart > total - visibleCount) {
+      visibleStart = 0;
+    }
+
+    if (visibleStart < 0) {
+      visibleStart = total - visibleCount;
+    }
+
+    updateSliderPosition();
+  }
+
+  function getPositionX(e) {
+    return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+  }
+
+  /* Initial Position */
+  updateSliderPosition();
+
+});
   </script>
 </body>
 </html>

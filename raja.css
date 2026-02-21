@@ -74,8 +74,6 @@ img {
   z-index: 500;
 }
 .cs-header .cs-stripes {
-  max-width: 1080px;
-  margin: 0 auto;
   border-width: 0;
 }
 .cs-header__container {
@@ -711,12 +709,10 @@ img {
   margin-inline: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
   padding-block: 4.4rem;
 }
 .cs-footer .cs-stripes {
-  margin: 0 auto;
-    max-width: 1080px;
   --cs-stripes-height: 7rem;
 }
 
@@ -760,6 +756,9 @@ img {
     align-items: anchor-center;
     display: flex;
 }
+.cs-loyalty-product_top{
+  max-width: 20%;
+}
 
 .cs-loyalty-product__brand {
   font-weight: 600;
@@ -769,6 +768,7 @@ img {
 }
 
 .cs-loyalty-product__title {
+  margin-top:20px ;
   font-size: 64px;
   font-weight: 400;
   background:linear-gradient(90deg, #00F2A1, #194AB8);
@@ -899,39 +899,6 @@ img {
   transform: scale(1.2);
 }
 
-@media (max-width:568px){
-  .cs-loyalty-hero__container{
-    display: flex;
-    flex-direction: column;
-    gap: 50;
-    align-items: baseline;
-
-  }
-  .cs-loyalty-slider {
-    margin: 0;
-  }
-  .cs-dots{
-    position: inherit;
-  }
-  .cs-section--loyalty-experience{
-    padding:  0 !important;
-  }
-
-  .cs-experience-card{
-    border-radius: 40px !important;
-    height: 100% !important;
-  }
-  .cs-experience-bg{
-    width: 80% !important;
-  }
-  .cs-experience-demo{
-           right: 29px !important;
-        bottom: 20px !important;
-        font-size: 12px !important;
-  }
-}
-
-
 /* =========================================
    EXPERIENCE SECTION
 ========================================= */
@@ -940,23 +907,27 @@ img {
 }
 .cs-section--loyalty-experience {
   min-height: 0;
-  padding: 100px 0;
- 
+  padding: 100px 0 0;
   background: radial-gradient(
-    circle at center,
-    rgba(189, 255, 163, 0.8) 0%,
-    rgba(97, 255, 218, 0) 65%
+    circle at left,
+   rgba(189, 255, 163, 1)0%,
+  rgba(97, 255, 218, 0) 65%
   );
 
 
 }
 
+.cs-section--carex-experience {
+    min-height: 0;
+    padding: 100px 0 0;
+    background: radial-gradient(circle at left, rgba(218, 189, 255, 1) 0%, rgba(0, 242, 255, 0) 65%);
+}
+
+
+
 .cs-loyalty-section-title {
   font-size: 36px;
   font-weight: 600;
-}
-
-.cs-loyalty-section-title span {
   background: linear-gradient(90deg, #00bc83, #4d83db);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1053,9 +1024,10 @@ img {
 }
 
 .cs-video-wrapper {
+  width: 60%;
   position: relative;
   margin-top: 50px;
-  border-radius: 28px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.15);
   aspect-ratio: 16 / 9;
@@ -1084,42 +1056,197 @@ img {
   object-fit: cover;
 }
 
-/* Glass Play Button */
 .cs-video-play {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: 0.3s ease;
-}
-
-.cs-video-play:hover {
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .cs-video-play__icon {
-  width: 0;
-  height: 0;
-  border-left: 28px solid #000;
-  border-top: 18px solid transparent;
-  border-bottom: 18px solid transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
+
+.cs-video-play__icon img {
+  width: 40px;   /* Adjust size */
+  height: auto;
+  display: block;
+}
+
+/* Smooth hover effect */
+.cs-video-play__icon:hover {
+  transform: scale(1.08);
+}
+
 .video-container {
     margin: 0;
 }
 
+@media (max-width:767px){
+  .cs-loyalty-hero__container{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ }
 
+
+
+@media (max-width:568px){
+  .cs-loyalty-hero__container{
+    display: flex;
+    flex-direction: column;
+    gap: 50;
+    align-items: baseline;
+
+  }
+  .cs-loyalty-slider {
+    margin: 0;
+  }
+  .cs-dots{
+    position: inherit;
+  }
+  .cs-section--loyalty-experience{
+    padding:  0 ;
+  }
+
+  .cs-experience-card{
+    border-radius: 40px ;
+    height: 100% ;
+  }
+  .cs-experience-bg{
+    width: 80% ;
+  }
+  .cs-experience-demo{
+           right: 29px ;
+        bottom: 20px ;
+        font-size: 12px ;
+  }
+}
+
+
+/* Tab Section ----*/
+.dual-experience {
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 60px auto;
+}
+
+.experience-block {
+  border: 1px solid #000; 
+  border-radius: 33px;
+  background: #ffffff;
+  flex: 1;
+  text-align: center;
+}
+
+/* IMAGE FADE */
+.screen-wrapper {
+  position: relative;
+  height: 300px;
+  margin-bottom: 25px;
+}
+
+.screen-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.screen-img.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* BUTTON SLIDER */
+.button-slider {
+  width: 400px;
+  overflow: hidden;
+  margin: auto;
+  cursor: grab;
+}
+
+.button-track {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.4s ease;
+}
+
+.inner-btn {
+  min-width: 90px;
+  padding: 8px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.inner-btn.active {
+  background: linear-gradient(45deg, #00F2A1 ,#2F519D);
+  color: white;
+  border: none;
+}
+
+/* DEMO */
+.demo-btn {
+  margin-right: 55px !important;
+  display: block;
+  justify-self: end;
+  margin: 25px;
+  padding: 10px 24px;
+  border-radius: 40px;
+  background: linear-gradient(45deg,#4f8cff,#a855f7);
+  color: #fff;
+  text-decoration: none;
+}
+
+.divider {
+  width: 400px;
+  border: none;
+  height: 1px;
+  background: #7C7C7C66;
+  margin: 30px auto;
+}
+.three-dots {
+      margin: 15px 20px 0 0;
+    justify-content: end;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.green {
+  background: #4CAF50;
+}
+
+.yellow {
+  background: #D4C63F;
+}
+
+.red {
+  background: #F44336;
+}
+
+@media (max-width:1080px){
+  .demo-btn{
+    margin-right: 25px !important;;
+  }
+}
+@media (max-width:768px){
+  .dual-experience{
+    flex-direction: column;
+  }
+}
