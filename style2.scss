@@ -1,4 +1,8 @@
 $app: '.cs-';
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
 
 *, *:before, *:after {
   margin: 0;
@@ -22,6 +26,8 @@ html {
 }
 
 body {
+  
+
   height: 100%;
   font-family: var(--cs-base-f-family);
   font-size: var(--cs-base-f-size);
@@ -83,8 +89,12 @@ img {
         margin-inline: auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         padding-block: .8rem;
+
+        @media (min-width: $breakpoint-md) {
+          justify-content: flex-end;
+        }
       }
 
       &nav {
@@ -125,13 +135,14 @@ img {
         height:100%;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(6rem);
-        -webkit-backdrop-filter: blur(6rem);
+        backdrop-filter: blur(5rem);
+        -webkit-backdrop-filter: blur(5rem);
         z-index: 5;
       }
     }
   }
   // Main: End
+
 
   &gradmotion {
     position: absolute;
@@ -160,15 +171,11 @@ img {
         top: var(--cs-gradcircle-top);
         left: (--cs-gradcircle-left);
         background: var(--cs-gradcircle-grad-bg);
-
-
-        
-
-
+        border-radius: 50%;
       }
     }
   }
-
+  
   &gradcircle {
   }
 
@@ -177,9 +184,9 @@ img {
     --cs-title-f-weight: 400;
     --cs-title-line-height: 150%;
 
-    --cs-title-hilight-f-size: 6.4rem;
-    --cs-title-hilight-f-weight: 400;
-    --cs-title-hilight-line-height: 124%;
+    --cs-title-hlight-f-size: 6.4rem;
+    --cs-title-hlight-f-weight: 400;
+    --cs-title-hlight-line-height: 124%;
 
     --cs-title-sub-f-size: 2.4rem;
     --cs-title-sub-f-weight: 400;
@@ -193,9 +200,9 @@ img {
     &__ {
       &highlight {
         display: block;
-        font-size: var(--cs-title-hilight-f-size);
-        font-weight: var(--cs-title-hilight-f-weight);
-        line-height: var(--cs-title-hilight-line-height);
+        font-size: var(--cs-title-hlight-f-size);
+        font-weight: var(--cs-title-hlight-f-weight);
+        line-height: var(--cs-title-hlight-line-height);
 
         background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
         -webkit-background-clip: text;
@@ -233,11 +240,11 @@ img {
 
   &description {
     --cs-desc-f-size: 1.8rem;
-    --cs-desc-line-height: 133%;
+    --cs-desc-line-height: 150%;
 
     font-size: var(--cs-desc-f-size);
     line-height: var(--cs-desc-line-height);
-    margin-bottom: 2.4rem;
+    margin-bottom: 3.6rem;
   }
   // Description: end
 
@@ -250,6 +257,7 @@ img {
     display: inline-flex;
     flex-direction: column;
     align-items: var(--cs-hlt-title-align);
+    margin-bottom: 14.6rem;;
 
     &__ {
       &text {
@@ -288,6 +296,13 @@ img {
     }
   }
 
+  &line {
+    width: 9.6rem;
+    height: 1px;
+    margin-block: 3rem 2rem;
+    background: #595959;
+  }
+
   &dotline {
     display: block;
     position: relative;
@@ -311,11 +326,83 @@ img {
   }
   // Dot Line: End
 
+  &btn {
+    $btn: &;
+
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    font-size: 1.2rem;
+    line-height: 150%;
+    text-decoration: none;
+    
+    padding-block: 0.4rem;
+    padding-inline: 2.4rem 0.4rem;
+    // border-radius: 5.2rem;
+    color: #fff;
+
+    background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6.2rem;
+
+
+    &__ {
+      &icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+    }
+
+    &--secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #000;
+  
+      #{$btn} {
+        &__icon {
+          background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border-radius: 50%;
+
+          svg {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+  // Button: End
+
+  &flex {
+    --cs-flex-gap: 2rem;
+
+    display: flex;
+    gap: var(--cs-flex-gap);
+
+    &-- {
+      &col {
+        flex-direction: column;
+      }
+      &items-center {
+        align-items: center;
+      }
+      &content-center {
+        justify-content: center;
+      }
+      &space-between {
+        justify-content: space-between;
+      }
+    }
+  }
+
   &grid {
     --cs-grid-cols: 12;
 
     display: grid;
     grid-template-columns: repeat(var(--cs-grid-cols), (minmax(0, 1fr)));
+    align-items: center;
   }
   // Grid: End
 
@@ -398,18 +485,16 @@ img {
       top: 0;
       left: 0;
       width: var(--cs-bcircles-width);
-      height: var(--cs-bcircles-height);
-
-      
+      height: var(--cs-bcircles-height); 
     }
 
     & {
+      display: block;
       position: absolute;
       --cs-bcircle-size: 135rem;
+
       width: var(--cs-bcircle-size);
       height: var(--cs-bcircle-size);
-      // top: 0;
-      // right: 0;
       border-radius: 50%;
       background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
 
@@ -418,8 +503,6 @@ img {
       &1 {
         --cs-bcircle-size: 63.6rem;
 
-        // top: 13%;
-        // right: 5%;
         background: radial-gradient(50% 50% at 50% 50%, #FFA3A3 0%, rgba(194, 200, 255, 0) 100%);
       }
       &2 {
@@ -429,8 +512,6 @@ img {
       }
       &3 {
         --cs-bcircle-size: 57.4rem;
-        // top: 28%;
-        // right: 2%;
 
         background: radial-gradient(50% 50% at 50% 50%, #00FBFF 0%, rgba(255, 198, 99, 0) 100%);
 
@@ -439,15 +520,16 @@ img {
         --cs-bcircle-size: 16.6rem;
 
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 81, 182, 0.87) 0%, rgba(255, 194, 195, 0) 100%);
-        transform: rotate(11.09deg);
       }
       &5 {
-        
         --cs-bcircle-size: 25.6rem;
 
         background: radial-gradient(50% 50% at 50% 50%, rgba(255, 237, 156, 0.6351) 0%, rgba(255, 247, 88, 0) 100%);
-        transform: rotate(33.83deg);
+      }
+      &6 {
+        --cs-bcircle-size: 100rem;
 
+        background: radial-gradient(50% 50% at 50% 50%, #00FF99 0%, rgba(255, 255, 255, 0) 100%);
       }
     }
   }
@@ -489,9 +571,27 @@ img {
       &brand {
         &--circles {
           width: 25.4rem;
+
+          @media (min-width: $breakpoint-md) {
+            width: 17.4rem;
+          }
+          @media (min-width: $breakpoint-lg) {
+            width: 25.4rem;
+          }
+          @media (min-width: $breakpoint-xl) {
+          }
         }
         &--openai {
           width: 28.4rem;
+          
+          @media (min-width: $breakpoint-md) {
+            width: 17.4rem;
+          }
+          @media (min-width: $breakpoint-lg) {
+            width: 28.4rem;
+          }
+          @media (min-width: $breakpoint-xl) {
+          }
         }
       }
     }
@@ -500,9 +600,22 @@ img {
 
   &article {
     &s {
-      display: flex;
+      --cs-articles-grid-cols: 1;
+      display: grid;
+      gap: 3rem;
       justify-content: center;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(var(--cs-articles-grid-cols), minmax(0, 1fr));
+
+      @media (min-width: $breakpoint-md) {
+        --cs-articles-grid-cols: 2;
+        // --cs-footer-container-width: 90%; 
+      }
+      @media (min-width: $breakpoint-lg) {
+        gap: 0;
+        --cs-articles-grid-cols: 4;
+      }
+      @media (min-width: $breakpoint-xl) {
+      }
     }
 
     & {
@@ -510,29 +623,30 @@ img {
       display: flex;
       flex-direction: column;
       padding: 3rem;
-      width: 30rem;
-      height: 40rem;
-      background-color: var(--cs-color-black);
-      border: 1px solid #797979;
-      &:not(:first-child) {
-        border-left-width: 0;
-      }
+      width: min(100%, 30rem);
+      height: max(100%, 40rem);
+      overflow: hidden;
+      // background-color: var(--cs-color-black);
+      // border: 1px solid #797979;
+      // &:not(:first-child) {
+      //   border-left-width: 0;
+      // }
 
-      &:first-child{
-        border-top-left-radius: 2rem;
-        border-bottom-left-radius: 2rem;
+      // &:first-child{
+      //   border-top-left-radius: 2rem;
+      //   border-bottom-left-radius: 2rem;
         
-      }
-      &:last-child {
-        border-top-right-radius: 2rem;
-        border-bottom-right-radius: 2rem;
-      }
+      // }
+      // &:last-child {
+      //   border-top-right-radius: 2rem;
+      //   border-bottom-right-radius: 2rem;
+      // }
+      
 
       &:nth-child(even) {
         &:before, &:after {
           content: '';
           position: absolute;
-
           // mix-blend-mode: ;
           filter: blur(137.75px);
           backdrop-filter: blur(10px);
@@ -579,7 +693,7 @@ img {
           font-size: 1.8rem;
           line-height: 150%;
           letter-spacing: -0.011em;
-          color: #FFFFFF;
+          // color: #FFFFFF;
           margin-bottom: 1.6rem;
           z-index: 1;
         }
@@ -589,7 +703,7 @@ img {
           line-height: 156%;
           /* or 25px */
           letter-spacing: -0.01em;
-          color: #FFFFFF;
+          // color: #FFFFFF;
           opacity: 0.7;
           z-index: 1;
         }
@@ -599,13 +713,131 @@ img {
   }
   // Articles: End
 
+  &foundation {
+
+    position: relative;
+    padding: 6rem;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+
+    &__ {
+      // &border {
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   background:  linear-gradient(10deg, #194AB8, #76FF27);
+      //   border-radius: 3.2rem;
+
+      //   &:before {
+      //     content: '';
+      //     position: absolute;
+      //     inset: 0;
+      //     width: calc(100% - 1px);
+      //     height: calc(100% - 1px);
+      //     margin: auto;
+      //     background-color: #fff;
+      //     z-index: 1;
+      //     border-radius: inherit;
+      //   }
+      // }
+      &border {
+        --cs-foundation-border-rect-width: 100%;
+        --cs-foundation-border-rect-height: 100%;
+        --cs-foundation-border-rect-x: 0;
+        --cs-foundation-border-rect-y: 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; 
+        > rect {
+          x: var(--cs-foundation-border-rect-x);
+          y: var(--cs-foundation-border-rect-y);
+          width: var(--cs-foundation-border-rect-width);
+          height: var(--cs-foundation-border-rect-height);
+        }
+      }
+
+
+      &list {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 3.8rem;
+        z-index: 5;
+        flex-direction: column;
+
+        @media (min-width: $breakpoint-md) {
+          // --cs-footer-container-width: 90%; 
+        }
+        @media (min-width: $breakpoint-lg) {
+          flex-direction: row;
+        }
+        @media (min-width: $breakpoint-xl) {
+          // --cs-footer-container-width: 94%; 
+        }
+      }
+      &item {
+        display: flex;
+        flex-direction: column;
+        flex-basis: max(100%, 36rem);
+      }
+      &icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6.4rem;
+        height: 6.4rem;
+        margin-bottom: 3.2rem;
+      }
+
+      &title {
+        font-weight: 600;
+        font-size: 1.8rem;
+        line-height: 150%;
+        /* or 27px */
+        letter-spacing: -0.011em;
+        margin-bottom: 1.6rem;
+      }
+
+      &desc {
+        font-weight: 500;
+        line-height: 156%;
+        /* or 25px */
+        letter-spacing: -0.01em;
+        opacity: 0.7;
+      }
+    }
+  }
+  // Foundation: ENd
+
   &join-step {
     &s { 
+      --cs-join-step-gap: 4.8rem;
+
       display: flex;
-      gap: 13rem;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--cs-join-step-gap);
       margin-inline: auto;
       justify-content: center;
+
+      @media screen and (min-width: $breakpoint-md) {
+        flex-direction: row;
+      }
+
+      @media screen and (min-width: $breakpoint-lg) {
+        --cs-join-step-gap: 8.6rem;
+      }
+
+      @media screen and (min-width: $breakpoint-xl) {
+        --cs-join-step-gap: 13rem;
+      }
     }
+
     & {
       position: relative;
       width: 25rem;
@@ -618,7 +850,7 @@ img {
         bottom: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+        // width: 90%;
         width: 40%;
         margin-inline: auto;
         height: .2rem;
@@ -632,6 +864,14 @@ img {
           font-size: 2.4rem;
           font-weight: 800;
           color: var(--cs-color-green);
+          width: 5rem;
+          height: 5rem;
+          background: var(--cs-color-blue);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-inline: auto;
         }
 
         &title {
@@ -644,21 +884,79 @@ img {
         &description {
           font-weight: 400;
           line-height: 150%;
-          // margin-bottom: 2.6rem;
+          margin-bottom: 2.6rem;
           /* or 24px */
         }
       }
     }
   }
   // Join Steps: End
+  &slider {
+    position: relative;
+    &__ {
+      &swiper {
+        // padding-bottom: 6rem;
+        --swiper-pagination-color: #41C44E;
+      }
+      &bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &item {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        height: auto;
+      }
+      &media {
+        display: flex;
+        justify-content: center;
+        width: 84%;
+        height: 88%;
+        margin-inline: auto;
+        > img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: auto;
+      bottom: 0;
+      color: var(--cs-color-black);
+      z-index: 15;
+
+      & svg {
+        font-size: 2rem;
+        width: 50%;
+        height: 50%;
+      }
+    }
+    .swiper-pagination {
+      &-bullet {
+        &-active {
+
+        }
+      }
+    }
+  }
+  // Slider: ENd
 
   &section {
     $section: &;
     --cs-section-container-width: 88%;
 
     position: relative;
-    min-height: 100vh;
+    // min-height: 100vh;
     z-index: 10;
+    padding-block: 8rem;
 
     &__ {
       &backdrop {
@@ -681,12 +979,9 @@ img {
     }
 
     // Section: Modifiers 
-    &--ix- {
+    &--h- {
       &hero {
-        min-height: 100vh;
-        // background: url("./images/section-1-bg.png") 0 0 no-repeat;
-        // background-position: center right;
-        // padding-top: 11.2rem;
+        min-height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -699,31 +994,29 @@ img {
             gap: 4rem;
           }
 
-          &grid {
-            $grid: &;
-            --cs-grid-cols: 12;
+          &brand {
+            --cs-brand-width: 70vw;
 
-            &--title {
-              margin-bottom: 8rem;
-
-              #{$app}grid {
-                &__item {
-                  grid-column: 6 / 12;
-
-                }
-              }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3.2rem;
+            
+            &__svg {
+              display: block;
+              width: var(--cs-brand-width);
+              height: auto;
             }
 
-            &--companies {
-              #{$app}grid { 
-                &__item {
-                  grid-column: 4 / 12;
-
-                }
-              }
+            @media (min-width: $breakpoint-md) {
+              --cs-brand-width: 50vw;
             }
-
-
+            @media (min-width: $breakpoint-lg) {
+              --cs-brand-width: 40vw;
+            }
+            @media (min-width: $breakpoint-xl) {
+              --cs-brand-width: 30vw;
+            }
           }
 
           &liner {
@@ -740,14 +1033,43 @@ img {
           }
 
           &title {
-            font-family: var(--cs-head-f-family);
-            --cs-title-sub-f-size: 4.8rem;
-            --cs-title-sub-f-weight: 300;
-            --cs-title-sub-line-height: 100%;
+            $title: &;
 
-            --cs-title-f-size: 10rem;
-            --cs-title-f-weight: 900;
+            font-family: var(--cs-head-f-family);
+            --cs-title-hlight-f-size: 5rem;
+            --cs-title-hlight-f-weight: 700;
+            --cs-title-hlight-line-height: 120%;
+
+
+            --cs-title-f-size: 3.6rem;
+            --cs-title-f-weight: 600;
             --cs-title-line-height: 100%;
+
+            text-align: center;
+
+            @media (min-width: $breakpoint-md) {
+              --cs-title-hlight-f-size: 7rem;
+
+              --cs-title-f-size: 5.6rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+              --cs-title-hlight-f-size: 9rem;
+
+              --cs-title-f-size: 7.6rem;
+            }
+            @media (min-width: $breakpoint-xl) {
+            }
+
+            #{$app}title {
+              &__highlight {
+                background: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+                margin-bottom: 1.2rem;
+              }
+            }
           }
         }
       }
@@ -765,6 +1087,26 @@ img {
             width: 75dvw;
             margin: auto;
           }
+          &brand {
+
+          }
+
+          &title {
+            --cs-title-f-size: 3.2rem;
+            --cs-title-line-height: 132%;
+            --cs-title-f-weight: 600;
+
+            --cs-title-sub-f-weight: 300;
+            --cs-title-sub-f-size: 3.2rem
+
+            margin-inline: auto;
+            text-align: center;
+            text-transform: uppercase;
+
+            &__sub {
+              display: block;
+            }
+          }
         }
 
 
@@ -776,21 +1118,13 @@ img {
               margin-block: auto;
               display: flex;
               align-items: center;
+              width: 100%;
+              justify-content: center;
             }
           }
         }
 
-        .cs-title {
-          font-size: 3.2rem;
-          line-height: 132%;
-          width: 40%;
-          margin-inline: auto;
-          &__sub {
-            font-weight: 300;
-            font-size: 2rem;
-            display: block;
-          }
-        }
+        
       }
       // SDMO: End
       &carex {
@@ -820,6 +1154,10 @@ img {
           }
 
           &grid {
+            &__item:first-child {
+              grid-column-start: 1;
+              grid-column-end: 5;
+            }
             &__item:last-child {
               grid-column-start: 7;
               grid-column-end: 11;
@@ -855,6 +1193,10 @@ img {
               &item:first-child {
                 grid-column: 2 / 6;
               }
+              &item:last-child {
+                grid-column-start: 7;
+                grid-column-end: 11;
+              }
             }
           }
         }
@@ -885,6 +1227,10 @@ img {
           }
           &grid {
             &__ {
+              &item:first-child {
+                grid-column-start: 1;
+                grid-column-end: 5;
+              }
               &item:last-child {
                 grid-column: 7 / 11;
               }
@@ -893,26 +1239,64 @@ img {
         }
       }
       // zerofyx: End
-      &circles-collab {
+      &collab {
         #{$app} {
           &description {
-            width: 25%;
             margin-inline: auto;
             margin-bottom: 4.8rem;
+
+            @media (min-width: $breakpoint-md) {
+              width: 70%;
+            }
+            @media (min-width: $breakpoint-lg) {
+              width: 50%;
+            }
+            @media (min-width: $breakpoint-xl) {
+              width: 25%;
+            }
           }
         }
       }
       // Circles Collab: End
-      &join-revolution {
+      &trust {
+        padding-top: 7.8rem;
+        #{$app} {
+          &title {
+            /* Built on a Foundation of Trust, Security & Governance */
+            --cs-title-hlight-f-size: 4rem;
+            --cs-title-hlight-f-weight: 600;
+            --cs-title-hlight-line-height: 124%;
+
+            position: relative;
+            z-index: 1;
+            margin-bottom: 6.8rem;
+          }
+        }
+      }
+      // Trust: End
+      &join {
         #{$app} {
           &brand {
             display: block;
-            width: 27rem;
+            width: 16rem;
             margin-inline: auto;
             margin-bottom: 4rem;
+
+            @media screen and (min-width: $breakpoint-lg) {
+              width: 20rem;
+            }
+            @media screen and (min-width: $breakpoint-xl) {
+              width: 27rem;
+            }
+            
           }
           &title {
             margin-bottom: 10rem;
+          }
+          &liner {
+            position: absolute;
+            top: -10%;
+            left: 25%;
           }
         }
       }
@@ -921,8 +1305,18 @@ img {
   // Section: End
 
   &footer {
-    --cs-footer-container-width: 94%; 
+    --cs-footer-container-width: 90%; 
     position: relative;
+    
+    @media (min-width: $breakpoint-md) {
+      // --cs-footer-container-width: 90%; 
+
+    }
+    @media (min-width: $breakpoint-lg) {
+    }
+    @media (min-width: $breakpoint-xl) {
+      --cs-footer-container-width: 94%; 
+    }
 
     &__ {
       &container {
@@ -930,15 +1324,17 @@ img {
         margin-inline: auto;  
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding-block: 4.4rem;
+        justify-content: center;
+        padding-block: 8.4rem 5.6rem;
+
       }
 
       &brand {
 
       }
       &copyright {
-
+        font-size: 1.2rem;
+        text-align: center;
       }
     }
     #{$app}stripes {
@@ -947,4 +1343,3 @@ img {
   }
   // Footer: End
 }
-// App: End
