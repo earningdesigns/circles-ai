@@ -1156,8 +1156,14 @@ img {
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                text-fill-color: transparent;
+                color: transparent;
                 margin-bottom: 1.2rem;
+                animation: gradientMove 4s ease infinite;
+
+                @keyframes gradientMove {
+                  0% { background-position: 0% 50%; }
+                  100% { background-position: 100% 50%; }
+                }
               }
             }
           }
