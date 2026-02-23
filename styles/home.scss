@@ -66,10 +66,23 @@ img {
   }
   // Stripes: End
 
+  &fixed-message {
+    position: fixed;
+    bottom: 1.5rem;
+    width: 100%;
+    left: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    /* identical to box height, or 16px */
+    text-align: center;
+    color: #A0A0A0;
+    z-index: 10;
+  }
+
   &header {
     --cs-header-container-width: 94%;
     
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;

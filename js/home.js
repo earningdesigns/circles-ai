@@ -250,7 +250,7 @@ function sdmoAnim() {
     tl.to(circlePaths, {
       opacity: 1,
       scale: 1,
-      rotation: 360,
+      rotation: 90,
       duration: 1.5,
       stagger: 0.3,
       ease: "power2.out"
@@ -263,7 +263,7 @@ function sdmoAnim() {
 
     tl.add(() => {
       circlePaths.forEach((circle, i) => {
-        const duration = 20 + i * 3;
+        const duration = 50 + i * 3;
         const clockwise = i % 2 === 0;
 
         // Rotate circle
@@ -689,6 +689,22 @@ function init() {
   }
   setFoundationBorder();
   window.addEventListener('resize', setFoundationBorder());
+
+  ScrollTrigger.create({
+    trigger: '.cs-footer',
+    onEnter: () => {
+      gsap.to('.cs-fixed-message', {
+        opacity: 0,
+        duration: 0.4
+      })
+    },
+    onLeaveBack: () => {
+      gsap.to('.cs-fixed-message', {
+        opacity: 1,
+        duration: 1
+      })
+    }
+  })
   
   // blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
