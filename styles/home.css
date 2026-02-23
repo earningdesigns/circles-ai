@@ -116,7 +116,7 @@ img {
 }
 .cs-gradmotion {
   position: absolute;
-  top: 45vh;
+  top: 65vh;
   left: 0;
   width: 100%;
   height: 100%;
@@ -350,10 +350,10 @@ img {
   top: 0;
   left: 0;
   transform-origin: center center;
-  padding: 1.4rem 3.6rem;
+  padding: 2rem 2.4rem;
   background: var(--cs-ctext-bg);
   border-radius: 2.6rem;
-  font-size: 2rem;
+  font-size: 1.4rem;
   line-height: 132%;
 }
 .cs-concentric-text--2 {
