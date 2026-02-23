@@ -713,11 +713,13 @@ img {
 
   &article {
     &s {
+      position: relative;
       --cs-articles-grid-cols: 1;
       display: grid;
       gap: 3rem;
       justify-content: center;
       grid-template-columns: repeat(var(--cs-articles-grid-cols), minmax(0, 1fr));
+      z-index: 5;
 
       @media (min-width: $breakpoint-md) {
         --cs-articles-grid-cols: 4;
@@ -801,7 +803,12 @@ img {
     position: relative;
     padding: 3.6rem;
     background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3.2rem;
     width: 100%;
+    // border: 2px solid transparent;
+    // background: linear-gradient(var(--cs-color-blue), var(--cs-color-green)) padding-box, linear-gradient(200deg, #dcdcdc, #ffffff, #cfcfcf) border-box;
+    // transition: 0.4s ease;
 
     @media (min-width: $breakpoint-md) {
       padding: 4rem;
@@ -823,6 +830,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
+
         > rect {
           width: var(--cs-foundation-border-rect-width);
           height: var(--cs-foundation-border-rect-height);
@@ -1597,9 +1605,9 @@ img {
 
             }
             & {
-              top: 0;
+              top: -50%;
               left: -50%;
-              background: radial-gradient(circle, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
+              background: radial-gradient(50% at 50%, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
             }
           }
           &titlesvg {

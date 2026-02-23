@@ -694,8 +694,8 @@ function init() {
 
     updateGradient();
   }
-  setFoundationBorder();
-  window.addEventListener('resize', setFoundationBorder());
+  // setFoundationBorder();
+  // window.addEventListener('resize', setFoundationBorder());
 
   ScrollTrigger.create({
     trigger: '.cs-footer',
