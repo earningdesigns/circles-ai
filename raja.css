@@ -65,6 +65,10 @@ img {
   background-size: 22px 22px;
   background-position: center;
 }
+.stripes-footer{
+  --cs-stripes-height: 7.2rem;
+
+}
 .cs-header {
   --cs-header-container-width: 94%;
   position: absolute;
@@ -74,8 +78,6 @@ img {
   z-index: 500;
 }
 .cs-header .cs-stripes {
-  max-width: 1080px;
-  margin: 0 auto;
   border-width: 0;
 }
 .cs-header__container {
@@ -711,12 +713,10 @@ img {
   margin-inline: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
   padding-block: 4.4rem;
 }
 .cs-footer .cs-stripes {
-  margin: 0 auto;
-    max-width: 1080px;
   --cs-stripes-height: 7rem;
 }
 
@@ -730,22 +730,101 @@ img {
   padding: 140px 0 120px;
   overflow: hidden;
 }
+.cs-section--loyalty-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  width: 100%;
+  height: 160px;
 
-.cs-loyalty-bg {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.8) 50%,
+    #ffffff 100%
+  );
+
+  filter: blur(20px);
+  pointer-events: none;
+}
+.insight-blob , .cs-blob {
+  position: absolute;
+  width: 350px;
+  height: 355px;
+  top: 459px;
+  left: -150px;
+  background: radial-gradient(circle at center, rgb(255 255 255) 0%, rgba(255, 0, 195, 0.4) 40%, rgba(0, 242, 255, 0) 70%);
+  filter: blur(60px);
+  border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+  z-index: -1;
+}
+
+ .carex-blob{
+    position: absolute;
+    width: 650px;
+    height: 700px;
+    top: -255px;
+    left: 752px;
+    background: radial-gradient(circle at center, rgb(255 255 255) -41%, rgb(189 255 163 / 86%) 60%, rgba(0, 242, 255, 0) 48%);
+    filter: blur(60px);
+    border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+    z-index: -1;
+
+  
+}
+
+.nova-blob{
+  position: absolute;
+    width: 750px;
+    height: 750px;
+    top: 100px;
+    left: -150px;
+    background: radial-gradient(circle at center, rgb(255 255 255) 0%, rgb(189 255 163 / 26%) 40%, rgba(0, 242, 255, 0) 70%);
+    filter: blur(60px);
+    border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+    z-index: -1;
+}
+
+.insight-blob{
+  position: absolute;
+    background: radial-gradient(circle at center, rgb(255 255 255) 8%, rgb(255 0 195 / 69%) 16%, rgb(0 242 255 / -17%) 35%);
+    width: 650px;
+    height: 700px;
+    top: -255px;
+    left: 752px;
+    filter: blur(60px);
+    border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+    z-index: -1;
+
+}
+
+
+.carex-bg , .cs-loyalty-bg {
    position: absolute;
   width: 1359px;
   height: 1359px;
   top: -545px;
-  left: -39.76px;
+  left: 304.24px;
 
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(101, 255, 242, 0.5) 0%,
-    rgba(255, 0, 196, 0) 100%
-  );
+  background:radial-gradient(50% 50% at 50% 50%, rgba(255, 0, 195, 0.145) 0%, rgba(255, 0, 196, 0) 100%);
 
   pointer-events: none;
   z-index: -1;
+}
+
+.carex-bg{
+  background:radial-gradient(50% 50% at 50% 50%, rgb(97 255 218 / 69%) 0%, rgba(255, 0, 196, 0) 100%);
+
+}
+
+
+
+
+.insights-bg{
+  left: 150px;
+   background: radial-gradient(50% 50% at 50% 50%, rgb(0 242 255 / 52%) 0%, rgba(0, 242, 255, 0) 100%);
+
 }
 
 .cs-loyalty-hero__container {
@@ -755,10 +834,19 @@ img {
   align-items: center;
   gap: 60px;
 }
+.cs-loyalty-hero__right{
+  width: 100%;
+}
+.cs-loyalty-hero__left {
+width: 100%;
+}
 
 .cs-loyalty-product_top {
     align-items: anchor-center;
     display: flex;
+}
+.cs-loyalty-product_top{
+  max-width: 20%;
 }
 
 .cs-loyalty-product__brand {
@@ -769,6 +857,7 @@ img {
 }
 
 .cs-loyalty-product__title {
+  margin-top:20px ;
   font-size: 64px;
   font-weight: 400;
   background:linear-gradient(90deg, #00F2A1, #194AB8);
@@ -814,7 +903,6 @@ img {
   position: relative;
   width: 100%;
   max-width: 520px;
-  margin-top: 40px;
 }
 
 /* WRAPPER */
@@ -822,6 +910,7 @@ img {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
+  min-height: 420px; /* FIXED HEIGHT = no jump */
 }
 
 /* SLIDE */
@@ -829,14 +918,17 @@ img {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translateX(30px);
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  visibility: hidden;
+  transition: opacity 0.6s ease;
+  transform: none;
 }
 
+/* ACTIVE SLIDE */
 .cs-slide.active {
-  position: relative;
   opacity: 1;
+  visibility: visible;
   transform: translateX(0);
+  z-index: 2;
 }
 
 /* IMAGE */
@@ -848,7 +940,7 @@ img {
 
 /* CONTENT */
 .cs-slide-content {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .cs-slide-content h3 {
@@ -899,38 +991,6 @@ img {
   transform: scale(1.2);
 }
 
-@media (max-width:568px){
-  .cs-loyalty-hero__container{
-    display: flex;
-    flex-direction: column;
-    gap: 50;
-    align-items: baseline;
-
-  }
-  .cs-loyalty-slider {
-    margin: 0;
-  }
-  .cs-dots{
-    position: inherit;
-  }
-  .cs-section--loyalty-experience{
-    padding:  0 !important;
-  }
-
-  .cs-experience-card{
-    border-radius: 40px !important;
-    height: 100% !important;
-  }
-  .cs-experience-bg{
-    width: 80% !important;
-  }
-  .cs-experience-demo{
-           right: 29px !important;
-        bottom: 20px !important;
-        font-size: 12px !important;
-  }
-}
-
 
 /* =========================================
    EXPERIENCE SECTION
@@ -940,37 +1000,38 @@ img {
 }
 .cs-section--loyalty-experience {
   min-height: 0;
-  padding: 100px 0;
- 
-  background: radial-gradient(
-    circle at center,
-    rgba(189, 255, 163, 0.8) 0%,
-    rgba(97, 255, 218, 0) 65%
-  );
-
-
+  padding: 100px 0 0;
+ background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 15%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #00f2ff26 15%, rgba(0, 242, 255, 0) 35%), radial-gradient(circle at center, #00f2ff61 12%, rgba(0, 242, 255, 0) 53%), radial-gradient(circle at center, rgba(189, 255, 163, 1) 29%, rgba(0, 242, 255, 0) 51%);
 }
 
+.cs-section--carex-experience {
+  min-height: 0;
+  padding: 100px 0 0;
+  background:linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 15%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #00f2ff61 0%, rgba(0, 242, 255, 0) 65%);
+}
+
+.cs-section--nova-experience {
+    min-height: 0;
+    padding: 100px 0 0;
+    background:linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 15%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #00f2ff3d 0%, rgba(0, 242, 255, 0) 36%);
+}
 .cs-loyalty-section-title {
   font-size: 36px;
   font-weight: 600;
-}
-
-.cs-loyalty-section-title span {
-  background: linear-gradient(90deg, #00bc83, #4d83db);
+  background: linear-gradient(270deg, #00F1A0, #194AB8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .cs-loyalty-section-desc {
-  margin-top: 15px;
+  margin-bottom: 40px;
   color: #666;
 }
 
 /* Card Container */
 .cs-experience-card {
   width: 100%;
-  height: 561px;
+  height: 100%;
   margin: 70px auto;
   position: relative;
   padding: 40px 15px;
@@ -986,6 +1047,7 @@ img {
 
 /* Background UI */
 .cs-experience-bg {
+  position: relative;
   width: 55%;
   opacity: 0.95;
 }
@@ -1026,8 +1088,8 @@ img {
   align-items: center;
   display: flex;
   position: absolute;
-  bottom: 45px;
-  right: 75px;
+  bottom: 10px;
+  right: 440px;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
@@ -1053,9 +1115,10 @@ img {
 }
 
 .cs-video-wrapper {
+  width: 60%;
   position: relative;
   margin-top: 50px;
-  border-radius: 28px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.15);
   aspect-ratio: 16 / 9;
@@ -1084,42 +1147,385 @@ img {
   object-fit: cover;
 }
 
-/* Glass Play Button */
 .cs-video-play {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: 0.3s ease;
-}
-
-.cs-video-play:hover {
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .cs-video-play__icon {
-  width: 0;
-  height: 0;
-  border-left: 28px solid #000;
-  border-top: 18px solid transparent;
-  border-bottom: 18px solid transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
+
+.cs-video-play__icon img {
+  width: 40px;   /* Adjust size */
+  height: auto;
+  display: block;
+}
+
+/* Smooth hover effect */
+.cs-video-play__icon:hover {
+  transform: scale(1.08);
+}
+
 .video-container {
     margin: 0;
 }
 
 
+
+/* Tab Section ----*/
+.dual-experience {
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 60px auto;
+}
+
+.experience-block {
+  max-width: 550px;
+  max-height: 550px;
+  border: 1px solid #000; 
+  border-radius: 33px;
+  background: #ffffff;
+  flex: 1;
+  text-align: center;
+}
+
+/* IMAGE FADE */
+.screen-wrapper {
+  position: relative;
+  height: 300px;
+  margin-bottom: 25px;
+}
+
+.screen-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.screen-img.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* BUTTON SLIDER */
+.button-slider {
+  width: 400px;
+  overflow: hidden;
+  margin: auto;
+  cursor: grab;
+}
+
+.button-track {
+  display: flex;
+  gap: 12px;
+  transition: transform 0.4s ease;
+}
+
+.inner-btn {
+  min-width: 90px;
+  padding: 8px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.inner-btn.active {
+  background: linear-gradient(45deg, #00F2A1 ,#2F519D);
+  color: white;
+  border: none;
+}
+
+/* DEMO */
+.demo-btn {
+  margin-right: 55px !important ;
+  display: block;
+  justify-self: end;
+  margin: 25px;
+  padding: 10px 24px;
+  border-radius: 40px;
+  background: linear-gradient(45deg,#4f8cff,#a855f7);
+  color: #fff;
+  text-decoration: none;
+}
+.loyalty-btn{
+  justify-self: center;
+  margin: 0 auto !important;
+}
+
+.divider {
+  width: 400px;
+  border: none;
+  height: 1px;
+  background: #7C7C7C66;
+  margin: 30px auto;
+}
+.three-dots {
+      margin: 15px 20px 0 0;
+    justify-content: end;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.green {
+  background: #4CAF50;
+}
+
+.yellow {
+  background: #D4C63F;
+}
+
+.red {
+  background: #F44336;
+}
+
+.right-mobile{
+      border-radius: 35px 35px 0 0;
+    height: 88px;
+    background: aliceblue;
+}
+
+
+/* Logo Wrapper */
+.logo {
+  margin: 5px 20px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.left-logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inner-icon {
+    gap: 20px;
+    display: flex;
+}
+
+/* Text */
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b8cff;
+  letter-spacing: 0.5px;
+}
+.logo-paragraph{
+  font-size: 16px;
+}
+
+
+@media (max-width:1440px){
+  .insight-blob, .carex-blob{
+    left: 277px;
+
+  }
+   .insight-blob .cs-loyalty-bg{
+    left: -222.76px;
+  }
+}
+
+@media (max-width:1080px){
+  .cs-section--loyalty-hero{
+    padding: 120px 0 120px;
+  }
+  .cs-section--nova-experience{
+    padding: 50px 0;
+  }
+  .insight-blob , .carex-blob{
+    left: 277px;
+
+  }
+  .cs-loyalty-bg{
+    left: -222.76px;
+  }
+.cs-experience-demo{
+  bottom: 30px;
+  right: 400px;
+}
+}
+@media (max-width:768px){
+  .dual-experience{
+    flex-direction: column;
+  }
+  .demo-btn{
+    margin-right: 20%;
+
+  }
+}
+
+
+@media (max-width:767px){
+    .insight-blob , .carex-blob {
+        width: 450px;
+        height: 450px;
+        left: 230px !important;
+        top: -72px !important;
+    }
+  .cs-loyalty-hero__container{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cs-section--carex-experience{
+  padding: 50px 0;
+}
+.cs-section--loyalty-hero{
+  padding: 140px 0 50px;
+}
+.cs-loyalty-section-desc{
+  font-size: 12px;
+}
+
+
+ }
+
+
+
+@media (max-width:568px){
+  .cs-loyalty-hero__container{
+    display: flex;
+    flex-direction: column;
+    gap: 50;
+    align-items: baseline;
+
+  }
+  .cs-loyalty-slider {
+    margin: 0;
+  }
+  .cs-dots{
+    position: inherit;
+  }
+  .cs-section--loyalty-experience{
+    padding:  0 ;
+  }
+
+  .cs-experience-card{
+    border-radius: 40px ;
+    height: 100% ;
+  }
+  .cs-experience-bg{
+    width: 80% ;
+  }
+  .cs-experience-demo{
+           right: 29px ;
+        bottom: 20px ;
+        font-size: 12px ;
+  }
+  .demo-btn{
+    margin-right: 5%;
+  }
+}
+
+
+/*---------swiper -----------*/
+
+   .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      width: 507px !important;
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+       align-content: center !important;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .mySwiper2 {
+      height: 80%;
+      width: 100%;
+    }
+
+    .mySwiper {
+      height: 13%;
+      box-sizing: border-box;
+      padding: 10px 0;
+    }
+
+    .mySwiper .swiper-slide {
+      width: 25%;
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .mySwiper .swiper-slide-thumb-active {
+      align-content: center;
+      background: linear-gradient(45deg, #00F2A1 ,#2F519D);
+      opacity: 1;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-backface-hidden .swiper-slide{
+width: 100%;
+    padding: 0 20px;
+    border-radius: 44px;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
+    }
+
+.swiper-wrapper {   
+    margin: 0 20px !important;
+}
+
+.swipper-btn {
+    width: 200px !important;
+}
+
+.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-next{
+  align-content: center !important;
+  width:200.5px !important ;
+}
