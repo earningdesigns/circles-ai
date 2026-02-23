@@ -11,7 +11,7 @@
     rel="stylesheet">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="raja.css">
+  <link rel="stylesheet" href="styles\inner-page.css">
 </head>
 <body>
   <div class="cs-page">
@@ -19,9 +19,9 @@
       <div class="cs-stripes"></div>
       <div class="cs-header__container">
         <nav class="cs-header__nav">
-          <a href="customer-relationship/index.html" class="cs-header__link">Customer Relationship</a>
-          <a href="customer-insights/index.html" class="cs-header__link">Customer insights</a>
-          <a href="customer-loyalty/index.html" class="cs-header__link">customer loyalty</a>
+          <a href="customer-relationship\index.html" class="cs-header__link">Customer Relationship</a>
+          <a href="customer-insights\index.html" class="cs-header__link">Customer insights</a>
+          <a href="customer-loyalty\index.html" class="cs-header__link">customer loyalty</a>
         </nav>
 
         <div class="cs-header__brand">
@@ -186,58 +186,23 @@
 <div class="dual-experience">
 
   <!-- LEFT SECTION -->
-  <div class="experience-block">
+  <div class="experience-block insights-block">
 
-    <div class="three-dots">
+    <div class="three-dots insights-dots">
   <span class="dot green"></span>
   <span class="dot yellow"></span>
   <span class="dot red"></span>
 </div>
 
     <div class="screen-wrapper">
-      <img src="https://via.placeholder.com/500x300/111/fff?text=L1" class="screen-img active">
-      <img src="https://via.placeholder.com/500x300/222/fff?text=L2" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/333/fff?text=L3" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/444/fff?text=L4" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/555/fff?text=L5" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/666/fff?text=L6" class="screen-img">
-    </div>
-
-    <hr class="divider"> 
-
-    <div class="button-slider">
-      <div class="button-track">
-        <button class="inner-btn active" data-index="0">1</button>
-        <button class="inner-btn" data-index="1">2</button>
-        <button class="inner-btn" data-index="2">3</button>
-        <button class="inner-btn" data-index="3">4</button>
-        <button class="inner-btn" data-index="4">5</button>
-        <button class="inner-btn" data-index="5">6</button>
+      <div class="image-container insights-container">
+      <img src="./images/Group 484011.png" class="screen-img insights-img active">
+      <img src="./images/Group 484005.png" class="screen-img insights-img">
+      <img src="./images/Group 484015.png" class="screen-img insights-img">
+      <img src="./images/Group 484007.png" class="screen-img insights-img">
+      <img src="./images/Group 484016.png" class="screen-img insights-img">
+      <img src="./images/Group 484010.png" class="screen-img insights-img">
       </div>
-    </div>
-
-    <a href="#" class="demo-btn">Demo →</a>
-
-  </div>
-
-
-
-  <!-- RIGHT SECTION -->
-  <div class="experience-block">
-
-     <div class="three-dots">
-  <span class="dot green"></span>
-  <span class="dot yellow"></span>
-  <span class="dot red"></span>
-</div>
-
-    <div class="screen-wrapper">
-      <img src="https://via.placeholder.com/500x300/990000/fff?text=R1" class="screen-img active">
-      <img src="https://via.placeholder.com/500x300/aa0000/fff?text=R2" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/bb0000/fff?text=R3" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/cc0000/fff?text=R4" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/dd0000/fff?text=R5" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/ee0000/fff?text=R6" class="screen-img">
     </div>
 
     <hr class="divider"> 
@@ -250,6 +215,43 @@
         <button class="inner-btn" data-index="3">Root Cause</button>
         <button class="inner-btn" data-index="4">Anomaly Detection</button>
         <button class="inner-btn" data-index="5">Summary</button>
+      </div>
+    </div>
+
+    <a href="#" class="demo-btn">Demo →</a>
+
+  </div>
+
+
+
+  <!-- RIGHT SECTION -->
+  <div class="experience-block insights-block">
+
+     <div class="three-dots insights-dots">
+  <span class="dot green"></span>
+  <span class="dot yellow"></span>
+  <span class="dot red"></span>
+</div>
+
+    <div class="screen-wrapper">
+        <div class="image-container">
+      <img src="./images/Group 484021.png" class="screen-img insights-img active">
+      <img src="./images/Group 484022.png" class="screen-img insights-img">
+      <img src="./images/Group 484023.png" class="screen-img insights-img">
+      <img src="./images/Group 484025.png" class="screen-img insights-img">
+      </div>
+    </div>
+
+    <hr class="divider"> 
+
+    <div class="button-slider">
+      <div class="button-track">
+        <button class="inner-btn active" data-index="0">Knowledge Graph</button>
+        <button class="inner-btn" data-index="1">Alerts</button>
+        <button class="inner-btn" data-index="2">Extensions</button>
+        <button class="inner-btn" data-index="3">Forecast</button>
+        <button class="inner-btn" data-index="0">Knowledge Graph</button>
+        
       </div>
     </div>
 
@@ -847,9 +849,9 @@ playBtn.addEventListener("click", function() {
 
 
 // hero slider section
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  const slider = document.querySelector(".cs-loyalty-slider"); // full section
   const slides = document.querySelectorAll(".cs-slide");
   const dots = document.querySelectorAll(".cs-dots span");
   const prev = document.querySelector(".cs-prev");
@@ -857,6 +859,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let current = 0;
   const total = slides.length;
+
+  let isDragging = false;
+  let startX = 0;
+  let diff = 0;
+  const threshold = 80;
 
   function updateSlider(index) {
     slides.forEach((slide, i) => {
@@ -869,21 +876,55 @@ document.addEventListener("DOMContentLoaded", () => {
     current = index;
   }
 
+  // BUTTONS
   next.addEventListener("click", () => {
-    let newIndex = (current + 1) % total; // LOOP
-    updateSlider(newIndex);
+    updateSlider((current + 1) % total);
   });
 
   prev.addEventListener("click", () => {
-    let newIndex = (current - 1 + total) % total; // LOOP
-    updateSlider(newIndex);
+    updateSlider((current - 1 + total) % total);
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      updateSlider(i);
-    });
+    dot.addEventListener("click", () => updateSlider(i));
   });
+
+  // DRAG START
+  function startDrag(x) {
+    isDragging = true;
+    startX = x;
+    slider.style.cursor = "grabbing";
+  }
+
+  function moveDrag(x) {
+    if (!isDragging) return;
+    diff = x - startX;
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+
+    if (diff > threshold) {
+      updateSlider((current - 1 + total) % total);
+    } else if (diff < -threshold) {
+      updateSlider((current + 1) % total);
+    }
+
+    isDragging = false;
+    diff = 0;
+    slider.style.cursor = "grab";
+  }
+
+  // MOUSE
+  slider.addEventListener("mousedown", (e) => startDrag(e.clientX));
+  slider.addEventListener("mousemove", (e) => moveDrag(e.clientX));
+  slider.addEventListener("mouseup", endDrag);
+  slider.addEventListener("mouseleave", endDrag);
+
+  // TOUCH
+  slider.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX));
+  slider.addEventListener("touchmove", (e) => moveDrag(e.touches[0].clientX));
+  slider.addEventListener("touchend", endDrag);
 
 });
 

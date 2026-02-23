@@ -11,7 +11,7 @@
     rel="stylesheet">
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="raja.css">
+    <link rel="stylesheet" href="styles\inner-page.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
@@ -20,9 +20,9 @@
       <div class="cs-stripes"></div>
       <div class="cs-header__container">
         <nav class="cs-header__nav">
-          <a href="customer-relationship/index.html" class="cs-header__link">Customer Relationship</a>
-          <a href="customer-insights/index.html" class="cs-header__link">Customer insights</a>
-          <a href="customer-loyalty/index.html" class="cs-header__link">customer loyalty</a>
+          <a href="customer-relationship\index.html" class="cs-header__link">Customer Relationship</a>
+          <a href="customer-insights\index.html" class="cs-header__link">Customer insights</a>
+          <a href="customer-loyalty\index.html" class="cs-header__link">customer loyalty</a>
         </nav>
 
         <div class="cs-header__brand">
@@ -111,7 +111,7 @@
         <p>Resolve <span> <strong> up to 70% of subscribers queries instantly</strong> </span> with AI-powered self-service - and hand over to agents seamlessly with full context when it matters</p>
       </div>
       <div class="cs-slide-image">
-       <img src="./images/Frame 483866 (4).png" alt="Shopping Cashback">
+       <img src="images\Frame 483866 (4).png" alt="Shopping Cashback">
        </div>
       </div>
 
@@ -210,12 +210,14 @@
 </div>
 
     <div class="screen-wrapper">
+      <div class="image-container">
       <img src="./images/Group 483998.png" class="screen-img active">
       <img src="./images/Group 484000.png" class="screen-img">
       <img src="./images/Group 484001.png" class="screen-img">
       <img src="./images/Group 484002.png" class="screen-img">
       <img src="./images/Group 483912.png" class="screen-img">
       <img src="./images/Group 483913.png" class="screen-img">
+      </div>
     </div>
 
     <hr class="divider"> 
@@ -269,24 +271,25 @@
 </div>
 
     <div class="screen-wrapper">
-      <img src="https://via.placeholder.com/500x300/990000/fff?text=R1" class="screen-img active">
-      <img src="https://via.placeholder.com/500x300/aa0000/fff?text=R2" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/bb0000/fff?text=R3" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/cc0000/fff?text=R4" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/dd0000/fff?text=R5" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/ee0000/fff?text=R6" class="screen-img">
+      <div class="image-container">
+      <img src="./images/Group 484003.png" class="screen-img active">
+      <img src="./images/Group 484012.png" class="screen-img">
+      <img src="./images/Group 484013.png" class="screen-img">
+      <img src="./images/Group 484003.png" class="screen-img">
+      <img src="./images/Group 484012.png" class="screen-img">
+      <img src="./images/Group 484013.png" class="screen-img">
+      </div>
     </div>
 
     <hr class="divider"> 
 
     <div class="button-slider">
       <div class="button-track">
-        <button class="inner-btn active" data-index="0">KPI Lookup</button>
-        <button class="inner-btn" data-index="1">KPI Comparison</button>
-        <button class="inner-btn" data-index="2">Trend Analysis</button>
-        <button class="inner-btn" data-index="3">Root Cause</button>
-        <button class="inner-btn" data-index="4">Anomaly Detection</button>
-        <button class="inner-btn" data-index="5">Summary</button>
+        <button class="inner-btn active" data-index="0">SIM Activation</button>
+        <button class="inner-btn" data-index="1">Network</button>
+        <button class="inner-btn" data-index="2">Billing</button>
+        <button class="inner-btn" data-index="3">Order tracking</button>
+        <button class="inner-btn" data-index="4">Port-In</button>
       </div>
     </div>
 
@@ -889,9 +892,9 @@ playBtn.addEventListener("click", function() {
 
 
 // hero slider section
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  const slider = document.querySelector(".cs-loyalty-slider"); // full section
   const slides = document.querySelectorAll(".cs-slide");
   const dots = document.querySelectorAll(".cs-dots span");
   const prev = document.querySelector(".cs-prev");
@@ -899,6 +902,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let current = 0;
   const total = slides.length;
+
+  let isDragging = false;
+  let startX = 0;
+  let diff = 0;
+  const threshold = 80;
 
   function updateSlider(index) {
     slides.forEach((slide, i) => {
@@ -911,24 +919,57 @@ document.addEventListener("DOMContentLoaded", () => {
     current = index;
   }
 
+  // BUTTONS
   next.addEventListener("click", () => {
-    let newIndex = (current + 1) % total; // LOOP
-    updateSlider(newIndex);
+    updateSlider((current + 1) % total);
   });
 
   prev.addEventListener("click", () => {
-    let newIndex = (current - 1 + total) % total; // LOOP
-    updateSlider(newIndex);
+    updateSlider((current - 1 + total) % total);
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      updateSlider(i);
-    });
+    dot.addEventListener("click", () => updateSlider(i));
   });
 
-});
+  // DRAG START
+  function startDrag(x) {
+    isDragging = true;
+    startX = x;
+    slider.style.cursor = "grabbing";
+  }
 
+  function moveDrag(x) {
+    if (!isDragging) return;
+    diff = x - startX;
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+
+    if (diff > threshold) {
+      updateSlider((current - 1 + total) % total);
+    } else if (diff < -threshold) {
+      updateSlider((current + 1) % total);
+    }
+
+    isDragging = false;
+    diff = 0;
+    slider.style.cursor = "grab";
+  }
+
+  // MOUSE
+  slider.addEventListener("mousedown", (e) => startDrag(e.clientX));
+  slider.addEventListener("mousemove", (e) => moveDrag(e.clientX));
+  slider.addEventListener("mouseup", endDrag);
+  slider.addEventListener("mouseleave", endDrag);
+
+  // TOUCH
+  slider.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX));
+  slider.addEventListener("touchmove", (e) => moveDrag(e.touches[0].clientX));
+  slider.addEventListener("touchend", endDrag);
+
+});
 
 // Tab section animation
 document.querySelectorAll(".experience-block").forEach(section => {
