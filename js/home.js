@@ -331,37 +331,35 @@ function carexAnim() {
   // gsap.set(carexTitle, {opacity: 0})
   gsap.set([linerTrack, linerSub], {drawSVG: 0})
 
-  ScrollTrigger.create ({
-    trigger: carexSection,
-    start: 'top top',
-    once: true,
-    onEnter: () => {
-      gsap.to(linerTrack, {
-        drawSVG: "100%", 
-        duration: 0.8,
-      })
-      gsap.to(linerSub, {
-        drawSVG: "100%", 
-        duration: 0.8,
-      })
-      // gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
+  const introTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: carexSection,
+      start: "top 80%",
+      once: true,
     }
-  })
+  });
+
+  introTl
+    .to(linerTrack, { drawSVG: "100%", duration: 1 })
+    .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+
   
-  gsap.to(linerLine, {
+
+    gsap.to(linerLine, {
     motionPath: {
       path: linerTrack,
       align: linerTrack,
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     },
+    ease: "none",
     scrollTrigger: {
       trigger: carexSection,
-      start: 'top center',
-      scrub: true,
+      start: "top center+=100", // start AFTER intro visually
+      end: "bottom center",
+      scrub: 1,
     }
-    
-  })
+  });
 
   const swiper = new Swiper('.cs-slider__swiper', {
     loop: true,
@@ -533,15 +531,15 @@ function collabAnim() {
 
 function trustAnim() {
   const sectionJoin = document.querySelector('.cs-section--h-trust');
-  const title = sectionJoin?.querySelectorAll('.cs-title .word');
+  const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
   const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
 
   gsap.set(joinSteps, {opacity: 0, y: 40});
-  gsap.set(title, {y: 20, opacity: 0})
+  gsap.set(titleSvg, {y: 20, opacity: 0})
 
   const trustTl = gsap.timeline();
   trustTl
-    .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
+    .to(titleSvg, {y: 0, opacity: 1, duration: 0.8})
     .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
 
   ScrollTrigger.create({
