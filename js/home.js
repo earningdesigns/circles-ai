@@ -209,8 +209,11 @@ function sdmoAnim() {
   gsap.set(brand, {opacity: 0, x: 5})
 
   function ccirclesBackdrop () {
+    // const vibes = sectionSdmo?.querySelectorAll('.cs-concentric-vibes .cs-concentric-vibe');
     const circles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
     const texts = sectionSdmo?.querySelectorAll('.cs-concentric-texts .cs-concentric-text');
+
+
 
     // ------------------------------------
     // INITIAL SETUP
@@ -220,9 +223,13 @@ function sdmoAnim() {
       MotionPathPlugin.convertToPath(circle)[0]
     );
 
+    // const vibePaths = Array.from(vibes).map(vibe =>
+    //   MotionPathPlugin.convertToPath(vibe)[0]
+    // );
+
     gsap.set(circlePaths, {
       opacity: 0,
-      scale: (i) => (i * 0.3),
+      scale: (i) => (i * 0.4),
       transformOrigin: "50% 50%"
     });
 
@@ -250,7 +257,7 @@ function sdmoAnim() {
     tl.to(circlePaths, {
       opacity: 1,
       scale: 1,
-      rotation: 90,
+      rotation: 60,
       duration: 1.5,
       stagger: 0.3,
       ease: "power2.out"
@@ -263,7 +270,7 @@ function sdmoAnim() {
 
     tl.add(() => {
       circlePaths.forEach((circle, i) => {
-        const duration = 50 + i * 3;
+        const duration = 200 + i * 3;
         const clockwise = i % 2 === 0;
 
         // Rotate circle
@@ -287,7 +294,7 @@ function sdmoAnim() {
       texts.forEach((text, i) => {
 
         gsap.to(text, {
-          duration: 50,
+          duration: 200,
           repeat: -1,
           ease: "none",
           motionPath: {

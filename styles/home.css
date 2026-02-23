@@ -67,7 +67,7 @@ img {
 }
 .cs-header {
   --cs-header-container-width: 94%;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
@@ -99,6 +99,9 @@ img {
   text-transform: uppercase;
 }
 .cs-header__brand {
+  position: fixed;
+  top: 4rem;
+  right: 4%;
   max-width: 12.4rem;
 }
 .cs-main {
@@ -339,6 +342,14 @@ img {
 }
 .cs-grid__item {
   position: relative;
+}
+.cs-concentric-vibes {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 75dvw;
+  max-width: 120rem;
+  margin: auto;
 }
 .cs-concentric-circle {
   fill: none;

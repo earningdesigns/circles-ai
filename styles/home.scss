@@ -82,7 +82,7 @@ img {
   &header {
     --cs-header-container-width: 94%;
     
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
@@ -121,6 +121,9 @@ img {
       }
 
       &brand {
+        position: fixed;
+        top: 4rem;
+        right: 4%;
         max-width: 12.4rem;
       }
     }
@@ -450,6 +453,14 @@ img {
   // Grid: End
 
   &concentric {
+    &-vibes {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 75dvw;
+      max-width: 120rem;
+      margin: auto;
+    }
     &-circle {
       fill: none;
       opacity: 0;
