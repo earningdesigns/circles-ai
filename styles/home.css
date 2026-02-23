@@ -357,10 +357,10 @@ img {
   line-height: 132%;
 }
 .cs-concentric-text--2 {
-  --cs-ctext-bg: #FF8F33C7;
+  --cs-ctext-bg: #00F2A1B5;
 }
 .cs-concentric-text--3 {
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: #FF8F33C7;
 }
 .cs-ccircles {
   position: relative;
