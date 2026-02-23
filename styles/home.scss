@@ -552,6 +552,7 @@ img {
     &s {
       --cs-bcircles-width: 100%;
       --cs-bcircles-height: 100%;
+      --cs-bcircle-size: 135rem;
 
       position: absolute;
       top: 0;
@@ -563,7 +564,6 @@ img {
     & {
       display: block;
       position: absolute;
-      --cs-bcircle-size: 135rem;
 
       width: var(--cs-bcircle-size);
       height: var(--cs-bcircle-size);
@@ -1592,6 +1592,16 @@ img {
         padding-top: 7.8rem;
 
         #{$app} {
+          &bcircle {
+            &s {
+
+            }
+            & {
+              top: 0;
+              left: -50%;
+              background: radial-gradient(circle, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
+            }
+          }
           &titlesvg {
             display: flex;
             align-items: center;

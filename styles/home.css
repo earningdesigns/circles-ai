@@ -417,6 +417,7 @@ img {
 .cs-bcircles {
   --cs-bcircles-width: 100%;
   --cs-bcircles-height: 100%;
+  --cs-bcircle-size: 135rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -426,7 +427,6 @@ img {
 .cs-bcircle {
   display: block;
   position: absolute;
-  --cs-bcircle-size: 135rem;
   width: var(--cs-bcircle-size);
   height: var(--cs-bcircle-size);
   border-radius: 50%;
@@ -1197,6 +1197,11 @@ img {
 }
 .cs-section--h-trust {
   padding-top: 7.8rem;
+}
+.cs-section--h-trust .cs-bcircle {
+  top: 0;
+  left: -50%;
+  background: radial-gradient(circle, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
 }
 .cs-section--h-trust .cs-titlesvg {
   display: flex;
