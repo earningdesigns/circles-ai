@@ -51,7 +51,7 @@ function blobsAnim() {
         gsap.to(blob, {
           x: () => coOrd.x,
           y: () => coOrd.y,
-          duration: 12,
+          duration: 8,
           ...animDefaults
         }),
         delay
@@ -325,8 +325,10 @@ function carexAnim() {
   const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
   const carexSlider = carexSection.querySelector('.cs-slider__swiper');
-
-  gsap.set(carexTitle, {opacity: 0})
+  const titleSvg = carexSection.querySelectorAll('.cs-titlesvg path')
+  
+  // gsap.set(titleSvg,{opacity: 0, x: -5})
+  // gsap.set(carexTitle, {opacity: 0})
   gsap.set([linerTrack, linerSub], {drawSVG: 0})
 
   ScrollTrigger.create ({
@@ -342,7 +344,7 @@ function carexAnim() {
         drawSVG: "100%", 
         duration: 0.8,
       })
-      gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
+      // gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
     }
   })
   
@@ -591,27 +593,27 @@ function init() {
   const gradCircleSettings = [
     {
       size: 59.8,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
       size: 59.8,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
       size: 90,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
+      gradient: 'linear-gradient(to top, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
     },
     {
       size: 80,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
+      gradient: 'linear-gradient(to top, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
     },
     {
       size: 80,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
     },
     {
       size: 80,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
+      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
     }
   ]
 
@@ -651,7 +653,7 @@ function init() {
     gsap.to(gradMotionCircle, {
       width: `${settings.size}rem`,
       height: `${settings.size}rem`,
-      background: settings.gradient,
+      // background: settings.gradient,
       ease: "sine.inOut",
       scrollTrigger: {
         trigger: section,
