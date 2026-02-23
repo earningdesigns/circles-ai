@@ -1381,12 +1381,17 @@ img {
             @media (min-width: $breakpoint-md) {
               // top: -2.6rem;
               // right: 6.2%;
-              top: 6.5rem;
-              right: -11.8%;
+              // top: 6.5rem;
+              // right: -11.8%;
+
+              top: 8.4rem;
+              right: -15rem;
             }
             @media (min-width: $breakpoint-lg) {
             }
             @media (min-width: $breakpoint-xl) {
+              top: 8rem;
+              right: -2.4rem;
               
             }
           }
@@ -1455,8 +1460,19 @@ img {
         #{$app} {
           &liner {
             position: absolute;
-            top: 0;
+            top: 5.3rem;
             left: -10rem;
+
+            @media (min-width: $breakpoint-md) {
+              top: 3.3rem;
+              left: -12rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+            @media (min-width: $breakpoint-xl) {
+              top: 6.3rem;
+              left: -12rem;
+            }
           }
           &hlt-title {
             position: absolute;
@@ -1510,6 +1526,16 @@ img {
           }
         }
         #{$app} {
+          &bcircle {
+            &s {
+
+            }
+            & {
+              top: 0;
+              right: -80%;
+              background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0) 100%);
+            }
+          }
           &liner {
             position: absolute;
             // top: 12.9rem;
@@ -1526,7 +1552,8 @@ img {
             @media (min-width: $breakpoint-lg) {
             }
             @media (min-width: $breakpoint-xl) {
-              
+              top: 5.3rem;
+              right: 6.4rem;
             }
           }
           &hlt-title {

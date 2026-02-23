@@ -75,9 +75,16 @@ img {
   top: 0;
   left: 0;
   z-index: 500;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+
 }
+
 .cs-header .cs-stripes {
   border-width: 0;
+}
+.cs-header.cs-header--hide {
+  transform: translateY(-5rem);
 }
 .cs-header__container {
   max-width: 1080px;
@@ -89,16 +96,26 @@ img {
   padding-block: 0.8rem;
 }
 .cs-header__nav {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 4.8rem;
+}
+
+.cs-header__nav-line {
+  position: absolute;
+  top: 0;
+  height: 1px;
+  background-color: var(--cs-color-blue);
 }
 .cs-header__link {
   text-decoration: none;
   text-transform: uppercase;
 }
 .cs-header__brand {
-  
+  position: fixed;
+  top: 2.8rem;
+  right: 5rem;
   max-width: 12.4rem;
 }
 .cs-main {
