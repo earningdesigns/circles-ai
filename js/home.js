@@ -206,7 +206,7 @@ function sdmoAnim() {
 
   function ccirclesBackdrop () {
     const circles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-    const texts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
+    const texts = sectionSdmo?.querySelectorAll('.cs-concentric-texts .cs-concentric-text');
 
     // SVG center
     const centerX = 583;
@@ -216,15 +216,20 @@ function sdmoAnim() {
     // INITIAL SETUP
     // ------------------------------------
 
-    gsap.set(circles, {
+    const circlePaths = Array.from(circles).map(circle =>
+      MotionPathPlugin.convertToPath(circle)[0]
+    );
+
+    gsap.set(circlePaths, {
       opacity: 0,
       scale: (i) => (i * 0.2) + 0.3,
       transformOrigin: "50% 50%"
     });
 
     // Position text at right edge of each circle
+    const radiusVal = [582, 416, 263];
     texts.forEach((text, i) => {
-      const radius = parseFloat(circles[i].getAttribute("r"));
+      const radius = radiusVal[i];
 
       gsap.set(text, {
         x: centerX + radius,
@@ -241,7 +246,7 @@ function sdmoAnim() {
 
     const tl = gsap.timeline();
 
-    tl.to(circles, {
+    tl.to(circlePaths, {
       opacity: 1,
       scale: 1,
       rotation: 360,
@@ -255,37 +260,48 @@ function sdmoAnim() {
       stagger: 0.2
     }, "-=1");
 
-    // ------------------------------------
-    // INFINITE ROTATION
-    // ------------------------------------
+    // --------------------------------
+    // ORBIT LOGIC
+    // --------------------------------
 
     tl.add(() => {
 
-      // circles.forEach((circle, i) => {
+      circlePaths.forEach((circle, i) => {
 
-      //   const duration = 8 + i * 3;
-      //   const direction = i % 2 === 0 ? "+=360" : "-=360";
+        const radius = radiusVal[i];
+        const duration = 8 + i * 3;
+        const clockwise = i % 2 === 0;
 
-      //   // Rotate circle
-      //   gsap.to(circle, {
-      //     rotation: direction,
-      //     duration: duration,
-      //     repeat: -1,
-      //     ease: "none",
-      //     transformOrigin: "50% 50%"
-      //   });
+        // Rotate circle
+        gsap.to(circle, {
+          rotation: clockwise ? "+=360" : "-=360",
+          duration: duration,
+          repeat: -1,
+          ease: "none",
+          transformOrigin: "50% 50%"
+        });
+      });
 
-      //   // Counter-rotate text so it stays upright
-      //   gsap.to(texts[i], {
-      //     rotation: direction === "+=360" ? "-=360" : "+=360",
-      //     duration: duration,
-      //     repeat: -1,
-      //     ease: "none"
-      //   });
+    })
+    tl.add(()=> {
+      // Animate text along circle paths
+      texts.forEach((text, i) => {
+        gsap.set(text, { autoAlpha: 1 });
 
-      // });
-
-    });
+        gsap.to(text, {
+          duration: 8 + i * 3,
+          repeat: -1,
+          ease: "none",
+          motionPath: {
+            path: circlePaths[i],
+            align: circlePaths[i],
+            alignOrigin: [0.5, 0.5],
+            autoRotate: false // keeps text upright
+          },
+          direction: i % 2 === 0 ? "normal" : "reverse"
+        });
+      });
+    })
 
     return tl;
   }
@@ -515,6 +531,26 @@ function collabAnim() {
   })
 }
 
+function trustAnim() {
+  const sectionJoin = document.querySelector('.cs-section--h-trust');
+  const title = sectionJoin?.querySelectorAll('.cs-title .word');
+  const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
+
+  gsap.set(joinSteps, {opacity: 0, y: 40});
+  gsap.set(title, {y: 20, opacity: 0})
+
+  const trustTl = gsap.timeline();
+  trustTl
+    .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
+    .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
+
+  ScrollTrigger.create({
+    trigger: sectionJoin,
+    animation: trustTl,
+    start: "top center",
+  })
+}
+
 function joinAnim () {
   const sectionJoin = document.querySelector('.cs-section--h-join');
   const brand = sectionJoin?.querySelector('.cs-brand');
@@ -537,6 +573,8 @@ function joinAnim () {
     start: "top center",
   })
 }
+
+
 
 function init() {
   let splitTexts = splitTextToChars();
@@ -679,5 +717,6 @@ function init() {
   novaAnim(); // Nova Animation
   zerofyxAnim(); // Zerofyx Animation
   collabAnim(); // Collab Animation
+  trustAnim(); // Trust ANimation
   joinAnim(); // Join Revolution - Last Section Animation
 }

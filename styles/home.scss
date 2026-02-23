@@ -435,13 +435,25 @@ img {
   }
   // Grid: End
 
-  &ctext {
+  &concentric-circles {
+    width: 100%;
+    height: auto;
+  }
+
+  &concentric-circle {
+    fill: none;
+    opacity: 0;
+    transform-origin: 50% 50%;
+  }
+
+  &concentric-text {
     &s {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      pointer-events: none;
     }
     & {
       --cs-ctext-bg: rgba(0, 214, 242, 0.8);
@@ -449,6 +461,7 @@ img {
       position: absolute;
       top: 0;
       left: 0;
+      transform-origin: center center;
       padding: 1.4rem 3.6rem;
       background: var(--cs-ctext-bg);
       border-radius: 2.6rem;
@@ -1158,6 +1171,9 @@ img {
         justify-content: center;
         
         #{$app} {
+          &concentric {
+            position: relative;
+          }
           &concentric-circles {
             display: block;
             width: 75dvw;
