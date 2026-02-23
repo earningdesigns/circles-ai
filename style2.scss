@@ -541,11 +541,48 @@ img {
     }
   }
   // Blur Circles: End
-
+  &partners-members {
+    margin-top: 16rem;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $breakpoint-md) {
+      gap: 4rem;
+    }
+    @media (min-width: $breakpoint-lg) {
+      
+      align-items: flex-start;
+      flex-direction: row;
+    }
+    @media (min-width: $breakpoint-xl) {
+    }
+  }
+  &member {
+    &s {
+      display: flex;
+      gap: 1.8rem;
+      flex-direction: column;
+      flex-shrink: 0;
+      
+      
+    }
+    & {
+      width: 12rem;
+    }
+  }
   &companies {
     display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
     align-items: center;
-    gap: 4rem;
+    @media (min-width: $breakpoint-md) {
+
+    }
+    @media (min-width: $breakpoint-lg) {
+      align-items: flex-start;
+    }
+    @media (min-width: $breakpoint-xl) {
+    }
     
     &__ {
       &text {
@@ -559,10 +596,13 @@ img {
     }
 
     #{$app}company {
+      max-width: 19rem;
+      
       &__img {
-        width: auto;
-        max-width: none;
+        // width: auto;
+        max-width: 100%;
         height: 3.8rem;
+        object-fit: contain;
       }
     }
   }
@@ -1149,6 +1189,36 @@ img {
         
       }
       // SDMO: End
+      &carex, &nova, &zerofyx {
+        #{$app} {
+          &title {
+            @media (min-width: $breakpoint-md) {
+
+              --cs-title-f-size: 3.2rem;
+              // --cs-title-sub-f-size: 2.4rem;
+              --cs-title-hlight-f-size: 5rem;
+              width: 80%
+            }
+            @media (min-width: $breakpoint-lg) {
+              width: 100%
+            }
+            @media (min-width: $breakpoint-xl) {
+              --cs-foundation-list-grid-cols: 4;
+            }
+          }
+          &description {
+            @media (min-width: $breakpoint-md) {
+              width: 70%;
+            }
+            @media (min-width: $breakpoint-lg) {
+              width: 100%
+            }
+            @media (min-width: $breakpoint-xl) {
+              --cs-foundation-list-grid-cols: 4;
+            }
+          }
+        }
+      }
       &carex {
         min-height: 90rem;
         display: flex;

@@ -98,6 +98,17 @@ function heroAnim() {
     return tl;
   }
 
+  function memberAnim() {
+    const members = sectionHero.querySelector('.cs-members');
+    const memberTitle = members?.querySelector('.cs-members__text');
+    const member = members?.querySelector('.cs-member');
+    
+    gsap.set([memberTitle, member], {autoAlpha: 0})
+    
+    return gsap.timeline()
+    .to([memberTitle, member], {duration: 0.6, stagger: 0.1,autoAlpha: 1})
+  }
+
   function companiesAnim() {
     const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
 
@@ -175,7 +186,8 @@ function heroAnim() {
   heroTl
     .add(brandLetters())
     .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .8})
-    .add(liner())   
+    .add(liner()) 
+    .add(memberAnim())
     .add(companiesAnim())
 }
 

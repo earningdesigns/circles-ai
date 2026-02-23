@@ -408,10 +408,42 @@ img {
   --cs-bcircle-size: 100rem;
   background: radial-gradient(50% 50% at 50% 50%, #00FF99 0%, rgba(255, 255, 255, 0) 100%);
 }
+.cs-partners-members {
+  margin-top: 16rem;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .cs-partners-members {
+    gap: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .cs-partners-members {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+.cs-members {
+  display: flex;
+  gap: 1.8rem;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.cs-member {
+  width: 12rem;
+}
 .cs-companies {
   display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
   align-items: center;
-  gap: 4rem;
+}
+@media (min-width: 992px) {
+  .cs-companies {
+    align-items: flex-start;
+  }
 }
 .cs-companies__text {
   flex-shrink: 0;
@@ -421,10 +453,13 @@ img {
   align-items: center;
   gap: 4rem;
 }
+.cs-companies .cs-company {
+  max-width: 19rem;
+}
 .cs-companies .cs-company__img {
-  width: auto;
-  max-width: none;
+  max-width: 100%;
   height: 3.8rem;
+  object-fit: contain;
 }
 .cs-circles-collab {
   display: flex;
@@ -883,6 +918,38 @@ img {
   align-items: center;
   width: 100%;
   justify-content: center;
+}
+@media (min-width: 768px) {
+  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+    --cs-title-f-size: 3.2rem;
+    --cs-title-hlight-f-size: 5rem;
+    width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+    --cs-foundation-list-grid-cols: 4;
+  }
+}
+@media (min-width: 768px) {
+  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+    width: 70%;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+    --cs-foundation-list-grid-cols: 4;
+  }
 }
 .cs-section--h-carex {
   min-height: 90rem;
