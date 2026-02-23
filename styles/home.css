@@ -998,6 +998,9 @@ img {
   width: 100%;
   justify-content: center;
 }
+.cs-section--h-carex .cs-section__container, .cs-section--h-zerofyx .cs-section__container {
+  margin-top: 6.8rem;
+}
 .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
   --cs-grid-cols: 1;
   --cs-grid-gap: 3.2rem;
@@ -1063,12 +1066,12 @@ img {
 }
 .cs-section--h-carex .cs-liner {
   position: absolute;
-  top: -1%;
+  top: 6.5rem;
   right: -11.8%;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
-    top: -1%;
+    top: 6.5rem;
     right: -11.8%;
   }
 }
@@ -1137,12 +1140,11 @@ img {
 }
 .cs-section--h-zerofyx .cs-liner {
   position: absolute;
-  top: 7.8rem;
   right: -4.6rem;
 }
 @media (min-width: 768px) {
   .cs-section--h-zerofyx .cs-liner {
-    top: 7.8rem;
+    top: 14.7rem;
     right: -4.6rem;
   }
 }

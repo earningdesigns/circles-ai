@@ -1267,6 +1267,11 @@ img {
       }
       // SDMO: End
       &carex, &zerofyx {
+        #{$section} {
+          &__container {
+            margin-top: 6.8rem;
+          }
+        }
         #{$app} {
           &grid {
             --cs-grid-cols: 1;
@@ -1361,13 +1366,13 @@ img {
             position: absolute;
             // top: 2rem;
             // right: 6.2%;
-            top: -1%;
+            top: 6.5rem;
             right: -11.8%;
 
             @media (min-width: $breakpoint-md) {
               // top: -2.6rem;
               // right: 6.2%;
-              top: -1%;
+              top: 6.5rem;
               right: -11.8%;
             }
             @media (min-width: $breakpoint-lg) {
@@ -1500,13 +1505,13 @@ img {
             position: absolute;
             // top: 12.9rem;
             // right: 6.2%;
-            top: 7.8rem;
+            // top: 7.8rem;
             right: -4.6rem;
 
             @media (min-width: $breakpoint-md) {
               // top: -2.6rem;
               // right: 6.2%;
-              top: 7.8rem;
+              top: 14.7rem;
               right: -4.6rem;
             }
             @media (min-width: $breakpoint-lg) {
