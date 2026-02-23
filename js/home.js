@@ -598,19 +598,19 @@ function init() {
       gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
-      size: 135.9,
+      size: 90,
       gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
     },
     {
-      size: 135.9,
+      size: 80,
       gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
     },
     {
-      size: 135.9,
+      size: 80,
       gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
     },
     {
-      size: 135.9,
+      size: 80,
       gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
     }
   ]
