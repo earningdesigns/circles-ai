@@ -12,6 +12,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="raja.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 </head>
 <body>
   <div class="cs-page">
@@ -19,9 +20,9 @@
       <div class="cs-stripes"></div>
       <div class="cs-header__container">
         <nav class="cs-header__nav">
-          <a href="customer-relationship.html" class="cs-header__link">Customer Relationship</a>
-          <a href="customer-insights.html" class="cs-header__link">Customer insights</a>
-          <a href="customer-loyalty.html" class="cs-header__link">customer loyalty</a>
+          <a href="customer-relationship/index.html" class="cs-header__link">Customer Relationship</a>
+          <a href="customer-insights/index.html" class="cs-header__link">Customer insights</a>
+          <a href="customer-loyalty/index.html" class="cs-header__link">customer loyalty</a>
         </nav>
 
         <div class="cs-header__brand">
@@ -32,8 +33,9 @@
     <!-- Header: End -->
   <!-- CUSTOMER LOYALTY HERO -->
 <section class="cs-section cs-section--loyalty-hero">
-  <div class="cs-loyalty-bg insights-bg"></div>
-  <div class="cs-blob insight-blob"></div>
+  <div class="cs-loyalty-bg carex-bg"></div>
+  <div class="cs-blob carex-blob"></div>
+ 
 
   <div class="cs-section__container cs-loyalty-hero__container">
 
@@ -45,12 +47,12 @@
 
         </div>
         
-        <h1 class="cs-loyalty-product__title">NOVA</h1>
+        <h1 class="cs-loyalty-product__title">CareX</h1>
       </div>
 
       <h3 class="cs-loyalty-product__subtitle">
         AI-NATIVE<br>
-        <strong>DECISION LAYER</strong>
+        <strong>CONVERSATIONAL OS</strong>
       </h3>
       
       <div class="cs-section cs-section--loyalty-video">
@@ -61,8 +63,8 @@
       <!-- Custom Thumbnail -->
       <div class="cs-video-thumbnail" id="thumbnail">
         <img 
-          src="./images/Screenshot 2026-02-06 140135 3.png"
-          alt="Zerofy Demo"
+          src="./images/6d0eec7ea37e9e79501396182188795d75edf45e.png"
+          alt="CareX Demo"
           class="cs-video-thumb-img"
         >
 
@@ -103,47 +105,65 @@
 
     <!-- Slide 1 -->
     <div class="cs-slide active">
-     
+      <div class="cs-slide-container">     
       <div class="cs-slide-content">
-        <h3>Make Your Telco App Part of Everyday Life</h3>
-        <p>Drive habitual engagement across commerce, dining, travel, and lifestyle that <span> <strong> pays back mobile bill </strong> </span></p>
+        <h3>Automate Support. Elevate Experience.</h3>
+        <p>Resolve <span> <strong> up to 70% of subscribers queries instantly</strong> </span> with AI-powered self-service - and hand over to agents seamlessly with full context when it matters</p>
       </div>
-       <img src="./images/Frame 483866.png" alt="Shopping Cashback">
+      <div class="cs-slide-image">
+       <img src="./images/Frame 483866 (4).png" alt="Shopping Cashback">
+       </div>
+      </div>
+
     </div>
 
     <!-- Slide 2 -->
     <div class="cs-slide">
-      
+      <div class="cs-slide-container">
       <div class="cs-slide-content">
-        <h3>Earn-as-You-Spend Experiences</h3>
-        <p>Subscribers earn on their spending (In-App and Off-App) <span> <strong> accumulating cashbacks and rewards</strong> </span></p>
+        <h3>Purpose-Built for Telco Use Cases.</h3>
+        <p>Pre-trained AI agents for <span> <strong> billing, payments, orders, and network support,</strong> </span>deployed fast with minimal configuration</p>
       </div>
-      <img src="./images/Frame 483866 (1).png" alt="Travel Rewards">
+      <div class="cs-slide-image">
+      <img src="./images/Group 483994.png" alt="Travel Rewards">
+      </div>
+    </div>
     </div>
 
     <!-- Slide 3 -->
     <div class="cs-slide">
+      <div class="cs-slide-container">
       
       <div class="cs-slide-content">
-        <h3>AI-Driven Recommendation at Scale</h3>
-        <p>Understand subscriber spending patterns and deliver <span> <strong> 1:1 conversational assistance and personalized alerts </strong> </span></p>
+        <h3>Zero Code. Context Engineered.</h3>
+        <p>Integrate securely via APIs with<span> <strong> no coding required, </strong> </span>and support customers across multiple languages from day one</p>
       </div>
-      <img src="./images/Frame 483866 (2).png" alt="Dining Offers">
+      <div class="cs-slide-image">
+      <img src="./images/Frame 483866 (6).png" alt="Dining Offers">
+      </div>
     </div>
+    </div>
+  
 
     <!-- Slide 4 -->
     <div class="cs-slide">
      
-      <div class="cs-slide-content">
-        <h3>Measurable Value for Operators </h3>
-        <p>Increase ARPU and retention with a scalable marketplace engine -  <span> <strong> without heavy development or operational complexity </strong> </span></p>
-      </div>
-       <img src="./images/Frame 483866 (3).png" alt="Lifestyle">
+      <div class="cs-slide-container">
+        <div class="cs-slide-content">
+        <h3>Enterprise-Grade Security. </h3>
+        <p>Connect safely to your<span> <strong> CRM, BSS, and app or web channels</strong> </span> with compliant, enterprise-ready APIs built to scale</p>
+        </div>
+        <div class="cs-slide-image">
+       <img src="./images/Frame 483866 (7).png" alt="Lifestyle">
     </div>
-
+      </div>
+     
   </div>
 
-  <!-- Navigation -->
+ 
+
+</div>
+ <!-- Navigation -->
   <div class="cs-slider-controls">
     <div class="cs-prev"> 
       <img src="./images/left arrow.svg" alt="">
@@ -160,8 +180,6 @@
     </div>
   </div>
 
-</div>
-
     </div>
 
   </div>
@@ -169,20 +187,17 @@
 
 
 <!-- EXPERIENCE SECTION -->
-<section class="cs-section cs-section--nova-experience">
+<section class="cs-section cs-section--carex-experience">
   <div class="cs-section__container t-center">
-    <div class="cs-blob nova-blob"></div>
-
-    <p class="cs-loyalty-section-desc">
+    <div class="cs-blob"></div>
+<p class="cs-loyalty-section-desc">
       Confidential Product Demonstration | Unauthorized Distribution Prohibited | © 2026 © Circles Global
     </p>
-
     <h2 class="cs-loyalty-section-title">
-     Dive into the Nova Experience
+      Dive Into The CareX Experience
     </h2>
 
-   
-
+    
 <div class="dual-experience">
 
   <!-- LEFT SECTION -->
@@ -195,24 +210,24 @@
 </div>
 
     <div class="screen-wrapper">
-      <img src="https://via.placeholder.com/500x300/111/fff?text=L1" class="screen-img active">
-      <img src="https://via.placeholder.com/500x300/222/fff?text=L2" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/333/fff?text=L3" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/444/fff?text=L4" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/555/fff?text=L5" class="screen-img">
-      <img src="https://via.placeholder.com/500x300/666/fff?text=L6" class="screen-img">
+      <img src="./images/Group 483998.png" class="screen-img active">
+      <img src="./images/Group 484000.png" class="screen-img">
+      <img src="./images/Group 484001.png" class="screen-img">
+      <img src="./images/Group 484002.png" class="screen-img">
+      <img src="./images/Group 483912.png" class="screen-img">
+      <img src="./images/Group 483913.png" class="screen-img">
     </div>
 
     <hr class="divider"> 
 
     <div class="button-slider">
       <div class="button-track">
-        <button class="inner-btn active" data-index="0">1</button>
-        <button class="inner-btn" data-index="1">2</button>
-        <button class="inner-btn" data-index="2">3</button>
-        <button class="inner-btn" data-index="3">4</button>
-        <button class="inner-btn" data-index="4">5</button>
-        <button class="inner-btn" data-index="5">6</button>
+        <button class="inner-btn active" data-index="0">Conversational Guidelines</button>
+        <button class="inner-btn" data-index="1">Data Config</button>
+        <button class="inner-btn" data-index="2">Versions</button>
+        <button class="inner-btn" data-index="3">AI Agent Creation</button>
+        <button class="inner-btn" data-index="4">Testing</button>
+        <button class="inner-btn" data-index="5">Integration</button>
       </div>
     </div>
 
@@ -225,10 +240,32 @@
   <!-- RIGHT SECTION -->
   <div class="experience-block">
 
-     <div class="three-dots">
-  <span class="dot green"></span>
-  <span class="dot yellow"></span>
-  <span class="dot red"></span>
+     <div class="right-mobile">
+      <img src="./images/Group 483905.svg" alt="">
+      <div class="logo">
+        <div class="left-logo">
+    <div class="logo-icon">
+     
+      <div class="inner-icon">
+         <img src="./images/back 1.svg" class="arrow" alt="">
+        <img src="./images/Component 3.svg" alt="">
+        <!-- Simple smiley icon (you can replace with SVG) -->
+      </div>
+    </div>
+    <div class="logo-content">
+    <h3 class="logo-text">CareX</h3>
+    <p class="logo-paragraph">Here to help you</p>
+    </div>
+    </div>
+    <div class="right-logo">
+
+    <div class="left-dot">
+      <img src="./images/more 1.svg" class="left-threedot" alt="">
+    </div>
+    </div>
+
+  </div>
+  
 </div>
 
     <div class="screen-wrapper">
@@ -271,13 +308,18 @@
 
     <!-- Footer: End -->
 </section>
+    <!-- Footer: End -->
 
+
+ 
   <!-- Page: End -->
   <!-- Body Scripts -->
   <script src="./gsap/gsap.min.js"></script>
   <script src="./gsap/ScrollTrigger.min.js"></script>
   <script src="./gsap/MotionPathPlugin.min.js"></script>
   <script src="./gsap/SplitText.min.js"></script>
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   
 
   <!-- Main Script -->
@@ -887,8 +929,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-// Tab Animation Section
 
+// Tab section animation
 document.querySelectorAll(".experience-block").forEach(section => {
 
   const buttons = section.querySelectorAll(".inner-btn");
@@ -1022,6 +1064,29 @@ document.querySelectorAll(".experience-block").forEach(section => {
 
 });
 
+//background gradient
+
+function loyaltyBlobAnim() {
+  const blob = document.querySelector('.cs-blob');
+
+  gsap.to(blob, {
+    x: 200,
+    y: 120,
+    scale: 1.1,
+    duration: 18,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+
+  gsap.to(blob, {
+    borderRadius: "40% 60% 30% 70% / 60% 30% 70% 40%",
+    duration: 12,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
+  });
+}
 
   </script>
 </body>

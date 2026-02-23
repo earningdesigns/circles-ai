@@ -7,57 +7,61 @@
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="./main.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./style2.css">
 </head>
 <body>
   <div class="cs-page">
     <header class="cs-header">
       <div class="cs-stripes"></div>
       <div class="cs-header__container">
-        <nav class="cs-header__nav">
-          <a href="customer-relationship.html" class="cs-header__link">Customer Relationship</a>
-          <a href="customer-insights.html" class="cs-header__link">Customer insights</a>
-          <a href="customer-loyalty.html" class="cs-header__link">customer loyalty</a>
-        </nav>
+        <!-- <nav class="cs-header__nav">
+          <a href="" class="cs-header__link">Customer Relationship</a>
+          <a href="" class="cs-header__link">Customer insights</a>
+          <a href="customer-loyalty/index.html" class="cs-header__link">customer loyalty</a>
+        </nav> -->
 
         <div class="cs-header__brand">
-          <img src="./images/header-logo.svg" alt="Circles" class="">
+          <img src="./images/circles-logo-black.svg" alt="Circles" class="">
         </div>
       </div>
     </header>
     <!-- Header: End -->
+
     <main class="cs-main">
       <div class="cs-main__backdrop">
         <div class="cs-bcircles">
-          <div class="cs-bcircle cs-bcircle--1"></div>
-          <div class="cs-bcircle cs-bcircle--2"></div>
-          <div class="cs-bcircle cs-bcircle--3"></div>
-          <div class="cs-bcircle cs-bcircle--4"></div>
-          <div class="cs-bcircle cs-bcircle--5"></div>
+          <span class="cs-bcircle cs-bcircle--1"></span>
+          <span class="cs-bcircle cs-bcircle--2"></span>
+          <span class="cs-bcircle cs-bcircle--3"></span>
+          <span class="cs-bcircle cs-bcircle--4"></span>
+          <span class="cs-bcircle cs-bcircle--5"></span>
+          <span class="cs-bcircle cs-bcircle--6"></span>
         </div>
-
+      
         <div id="gradMotion" class="cs-gradmotion">
           <!-- <svg width="1135" height="4894" viewBox="0 0 1135 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M684 0.313782L357.999 404.814C312.499 451.814 230.999 580.314 291.999 741.814C349.387 893.748 505.077 926.814 557 926.814C613.5 926.814 794 865.814 794 677.314C794 484.001 673 417.314 533.5 417.314C425.5 417.314 215.212 524.143 301.5 834.314C394 1166.81 1106 1096.31 1126 1599.31C1137.54 1889.58 961.5 1992.31 577.5 2107.31C364.162 2171.2 0.498358 2215.44 0.5 2595.31C0.50139 2916.81 351.068 3021.81 597.999 3021.81C922.499 3021.81 1145 3259.81 1134 3463.81C1123 3667.81 1038.5 3843.31 534.999 4047.31C352.999 4121.05 -55.0015 4366.81 7.99857 4893.81"
-              stroke="black" />
-          </svg> -->
-
-          <svg class="cs-gradmotion__svg" width="1140" height="4894" viewBox="0 0 1140 4894" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M684 0.313782L357.999 404.814C312.499 451.814 230.999 580.314 291.999 741.814C349.387 893.748 505.077 926.814 557 926.814C613.5 926.814 794 865.814 794 677.314C794 484.001 673 417.314 533.5 417.314C425.5 417.314 215.212 524.143 301.5 834.314C394 1166.81 1106 1096.31 1126 1599.31C1137.54 1889.58 961.5 1992.31 577.5 2107.31C364.162 2171.2 0.498358 2215.44 0.5 2595.31C0.50139 2916.81 351.068 3021.81 597.999 3021.81C922.499 3021.81 1145 3259.81 1134 3463.81C1123 3667.81 1038.5 3843.31 534.999 4047.31C352.999 4121.05 -55.0015 4366.81 7.99857 4893.81"
+                    stroke="black" />
+                </svg> -->
+      
+          <svg class="cs-gradmotion__svg" width="1140" height="4894" viewBox="0 0 1140 4894" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path class="cs-gradmotion__track"
               d="M688.273 0.313782L362.272 404.814C316.771 451.814 235.271 580.314 296.272 741.814C353.66 893.748 509.35 926.814 561.273 926.814C617.773 926.814 798.273 865.814 798.273 677.314C798.273 484.001 677.273 417.314 537.773 417.314C429.773 417.314 219.485 524.143 305.773 834.314C398.273 1166.81 1110.27 1096.31 1130.27 1599.31C1141.81 1889.58 777.026 2066.56 581.773 2107.31C363.771 2152.81 -45.7289 2218.81 4.77287 2595.31C34.8084 2819.23 355.341 3021.81 602.271 3021.81C926.771 3021.81 1149.27 3259.81 1138.27 3463.81C1127.27 3667.81 1042.77 3843.31 539.272 4047.31C357.271 4121.05 -50.7286 4366.81 12.2714 4893.81"
               stroke="transparent" />
           </svg>
           <div id="gradCircle" class="cs-gradmotion__circle"></div>
         </div>
-
+      
       </div>
       <!-- Main Backdrop: End -->
-      <section class="cs-section cs-section--ix-hero">
+      <section class="cs-section cs-section--h-hero">
         <div class="cs-section__backdrop">
           <svg class="cs-liner" width="480" height="916" viewBox="0 0 480 916" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="cs-liner__track"
@@ -67,99 +71,95 @@
             <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
           </svg>
         </div>
+
         <div class="cs-section__container">
-
-          <div class="cs-meet-circles">
-            <span class="cs-meet-circles__text">Meet</span>
-            <span class="cs-meet-circles__brand">
-              <svg class="cs-brand" width="456" height="102" viewBox="0 0 456 102" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g class="cs-brand__letters" clip-path="url(#clip0_268_7098)">
-                  <path class="cs-brand__letter cs-brand__letter--x"
-                    d="M427.309 1.66417L352.452 93.567C349.779 96.727 351.873 101.794 355.891 101.794H378.096C379.404 101.794 380.675 101.196 381.572 100.13L401.908 72.4939C403.758 70.2687 407.029 70.2874 408.88 72.55L431.178 100.28C432.075 101.364 433.346 102 434.692 102H451.383C455.364 102 457.476 96.9701 454.822 93.8101L421.814 54.1507C420.318 52.3369 420.244 49.6257 421.683 47.7371L452.205 8.05904C454.691 4.84291 452.523 1.0318e-05 448.635 1.0318e-05H430.729C429.421 -0.0373866 428.187 0.542265 427.29 1.58938V1.64547H427.309V1.66417Z"
-                    fill="url(#paint0_linear_268_7098)" />
-                  <path 
-                    class="cs-brand__letter cs-brand__letter--o"
-                    d="M378.919 31.5256C387.068 31.5256 393.704 24.4763 393.704 15.7815C393.704 7.08671 387.068 0.0373993 378.919 0.0373993C370.77 0.0373993 364.135 7.08671 364.135 15.7815C364.135 24.4763 370.77 31.5256 378.919 31.5256Z"
-                    fill="url(#paint1_linear_268_7098)" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--c"
-                    d="M21.5879 73.0539C18.5039 73.0539 15.6442 72.493 13.0275 71.3711C10.4108 70.2492 8.13051 68.6972 6.18666 66.6778C4.26151 64.677 2.74755 62.321 1.64479 59.6098C0.542034 56.8985 0 53.9628 0 50.7467C0 47.5306 0.542034 44.5762 1.6261 41.8649C2.71017 39.135 4.22413 36.779 6.16797 34.7969C8.11182 32.8149 10.3921 31.2629 12.9901 30.1597C15.5881 29.0565 18.4665 28.5143 21.5879 28.5143C24.7093 28.5143 27.4381 29.0378 29.8866 30.0849C32.3351 31.132 34.4098 32.5157 36.1107 34.2173C37.8115 35.9375 39.0264 37.8261 39.7554 39.8642L32.6902 43.2299C31.8865 41.0235 30.5034 39.2285 28.5783 37.8074C26.6531 36.405 24.3168 35.6945 21.5692 35.6945C18.8217 35.6945 16.4853 36.3302 14.4106 37.6017C12.3546 38.8732 10.7472 40.6308 9.60708 42.8747C8.46694 45.1185 7.90622 47.7363 7.90622 50.7467C7.90622 53.7572 8.46694 56.3936 9.60708 58.6561C10.7472 60.9187 12.3546 62.6763 14.4106 63.9478C16.4666 65.2193 18.859 65.855 21.5692 65.855C24.2794 65.855 26.6344 65.1445 28.5783 63.7421C30.5034 62.3397 31.8865 60.5447 32.6902 58.3757L39.7554 61.6853C39.0264 63.7234 37.8115 65.612 36.1107 67.3322C34.4098 69.0525 32.3351 70.4362 29.8866 71.4646C27.4381 72.5117 24.6719 73.0353 21.5879 73.0353V73.0539Z"
-                    fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--i"
-                    d="M60.5391 72.363V29.207H68.464V72.363H60.5391Z" fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--r"
-                    d="M91.1738 72.363V29.207H107.267C110.201 29.207 112.799 29.7305 115.061 30.7963C117.322 31.8621 119.079 33.3954 120.35 35.4336C121.621 37.453 122.257 39.9399 122.257 42.8755C122.257 45.8112 121.546 48.3355 120.145 50.4297C118.743 52.5239 116.836 54.0946 114.444 55.0856L124.35 72.3443H115.435L104.781 53.4028L109.939 56.4132H99.1174V72.3443H91.1738V72.363ZM99.0987 49.4761H107.379C108.799 49.4761 110.052 49.1956 111.08 48.6347C112.126 48.0737 112.93 47.2884 113.509 46.2973C114.089 45.2876 114.369 44.1283 114.369 42.8194C114.369 41.5105 114.089 40.2951 113.509 39.3228C112.93 38.3318 112.126 37.5652 111.08 37.0042C110.033 36.4433 108.799 36.1628 107.379 36.1628H99.0987V49.4761Z"
-                    fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--c"
-                    d="M164.236 73.0548C161.152 73.0548 158.293 72.4939 155.676 71.372C153.059 70.25 150.779 68.6981 148.835 66.6786C146.91 64.6779 145.396 62.3219 144.293 59.6106C143.19 56.8994 142.648 53.9637 142.648 50.7476C142.648 47.5314 143.19 44.5771 144.275 41.8658C145.359 39.1545 146.873 36.7798 148.816 34.7978C150.76 32.8158 153.041 31.2638 155.657 30.1606C158.255 29.0574 161.134 28.5151 164.255 28.5151C167.376 28.5151 170.105 29.0387 172.572 30.0858C175.021 31.1329 177.096 32.5166 178.797 34.2181C180.497 35.9384 181.712 37.8269 182.441 39.8651L175.376 43.2308C174.572 41.0244 173.189 39.2293 171.264 37.8082C169.339 36.4059 167.003 35.6953 164.255 35.6953C161.507 35.6953 159.171 36.3311 157.096 37.6026C155.04 38.8741 153.433 40.6317 152.293 42.8755C151.153 45.1193 150.592 47.7371 150.592 50.7476C150.592 53.758 151.153 56.3945 152.293 58.657C153.433 60.9195 155.04 62.6772 157.096 63.9487C159.152 65.2202 161.545 65.8559 164.255 65.8559C166.965 65.8559 169.339 65.1454 171.264 63.743C173.189 62.3406 174.572 60.5456 175.376 58.3765L182.441 61.6862C181.712 63.7243 180.497 65.6128 178.797 67.3331C177.096 69.0533 175.021 70.437 172.572 71.4655C170.124 72.5126 167.358 73.0361 164.255 73.0361H164.236V73.0548Z"
-                    fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--l"
-                    d="M203.207 72.363V29.207H211.132V65.4072H229.598V72.363H203.207Z" fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--e"
-                    d="M249.111 72.363V29.207H277.82V36.1628H257.036V47.2323H276.662V54.2442H257.036V65.4259H277.82V72.3817H249.111V72.363Z"
-                    fill="black" />
-                  <path
-                    class="cs-brand__letter cs-brand__letter--s"
-                    d="M313.427 73.0548C310.717 73.0548 308.212 72.55 305.876 71.5402C303.539 70.5305 301.539 69.1281 299.857 67.3331C298.175 65.538 296.942 63.4438 296.119 61.0504L302.717 58.2083C303.764 60.6765 305.259 62.6211 307.24 64.0235C309.203 65.4259 311.427 66.1364 313.894 66.1364C315.277 66.1364 316.492 65.912 317.52 65.4633C318.548 65.0145 319.333 64.4161 319.894 63.6308C320.455 62.8642 320.735 61.9293 320.735 60.8447C320.735 59.5732 320.361 58.5261 319.614 57.7221C318.866 56.9181 317.726 56.2636 316.23 55.7588L307.95 53.1036C304.586 52.0565 302.063 50.5045 300.343 48.4477C298.624 46.3908 297.764 43.9226 297.764 41.0618C297.764 38.5936 298.381 36.4059 299.614 34.5173C300.848 32.6288 302.567 31.1516 304.736 30.0858C306.922 29.02 309.408 28.4964 312.231 28.4964C314.81 28.4964 317.184 28.9452 319.352 29.8614C321.52 30.7776 323.37 32.0304 324.94 33.6198C326.51 35.2279 327.669 37.0977 328.436 39.2667L321.894 42.165C321.09 40.0334 319.819 38.3879 318.1 37.1912C316.38 35.9945 314.417 35.3962 312.231 35.3962C310.922 35.3962 309.763 35.6205 308.754 36.0693C307.745 36.5181 306.96 37.1351 306.418 37.9578C305.857 38.7619 305.577 39.6968 305.577 40.7439C305.577 41.9406 305.969 42.9877 306.736 43.9039C307.502 44.8202 308.679 45.512 310.268 46.0169L318.193 48.5038C321.632 49.6257 324.211 51.1589 325.931 53.141C327.651 55.1043 328.51 57.5351 328.51 60.4334C328.51 62.9016 327.875 65.0893 326.604 66.9778C325.333 68.8664 323.576 70.3622 321.333 71.4468C319.09 72.5313 316.473 73.0735 313.464 73.0735H313.427V73.0548Z"
-                    fill="black" />
-                </g>
-                <defs>
-                  <linearGradient id="paint0_linear_268_7098" x1="403.628" y1="102" x2="403.628" y2="8.58293e-06"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#4D83DB" />
-                    <stop offset="1" stop-color="#00F2A1" />
-                  </linearGradient>
-                  <linearGradient id="paint1_linear_268_7098" x1="378.919" y1="31.5256" x2="378.919" y2="0.0373993"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#4D83DB" />
-                    <stop offset="1" stop-color="#00F2A1" />
-                  </linearGradient>
-                  <clipPath id="clip0_268_7098">
-                    <rect width="456" height="102" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </span>
-            <!-- <img src="./images/section-logo.svg" alt="Circles"> -->
+          <div class="cs-brand">
+            <svg class="cs-brand__svg" width="456" height="102" viewBox="0 0 456 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g class="cs-brand__letters" clip-path="url(#clip0_268_7098)">
+                <path class="cs-brand__letter cs-brand__letter--x"
+                  d="M427.309 1.66417L352.452 93.567C349.779 96.727 351.873 101.794 355.891 101.794H378.096C379.404 101.794 380.675 101.196 381.572 100.13L401.908 72.4939C403.758 70.2687 407.029 70.2874 408.88 72.55L431.178 100.28C432.075 101.364 433.346 102 434.692 102H451.383C455.364 102 457.476 96.9701 454.822 93.8101L421.814 54.1507C420.318 52.3369 420.244 49.6257 421.683 47.7371L452.205 8.05904C454.691 4.84291 452.523 1.0318e-05 448.635 1.0318e-05H430.729C429.421 -0.0373866 428.187 0.542265 427.29 1.58938V1.64547H427.309V1.66417Z"
+                  fill="url(#paint0_linear_268_7098)" />
+                <path class="cs-brand__letter cs-brand__letter--o"
+                  d="M378.919 31.5256C387.068 31.5256 393.704 24.4763 393.704 15.7815C393.704 7.08671 387.068 0.0373993 378.919 0.0373993C370.77 0.0373993 364.135 7.08671 364.135 15.7815C364.135 24.4763 370.77 31.5256 378.919 31.5256Z"
+                  fill="url(#paint1_linear_268_7098)" />
+                <path class="cs-brand__letter cs-brand__letter--c"
+                  d="M21.5879 73.0539C18.5039 73.0539 15.6442 72.493 13.0275 71.3711C10.4108 70.2492 8.13051 68.6972 6.18666 66.6778C4.26151 64.677 2.74755 62.321 1.64479 59.6098C0.542034 56.8985 0 53.9628 0 50.7467C0 47.5306 0.542034 44.5762 1.6261 41.8649C2.71017 39.135 4.22413 36.779 6.16797 34.7969C8.11182 32.8149 10.3921 31.2629 12.9901 30.1597C15.5881 29.0565 18.4665 28.5143 21.5879 28.5143C24.7093 28.5143 27.4381 29.0378 29.8866 30.0849C32.3351 31.132 34.4098 32.5157 36.1107 34.2173C37.8115 35.9375 39.0264 37.8261 39.7554 39.8642L32.6902 43.2299C31.8865 41.0235 30.5034 39.2285 28.5783 37.8074C26.6531 36.405 24.3168 35.6945 21.5692 35.6945C18.8217 35.6945 16.4853 36.3302 14.4106 37.6017C12.3546 38.8732 10.7472 40.6308 9.60708 42.8747C8.46694 45.1185 7.90622 47.7363 7.90622 50.7467C7.90622 53.7572 8.46694 56.3936 9.60708 58.6561C10.7472 60.9187 12.3546 62.6763 14.4106 63.9478C16.4666 65.2193 18.859 65.855 21.5692 65.855C24.2794 65.855 26.6344 65.1445 28.5783 63.7421C30.5034 62.3397 31.8865 60.5447 32.6902 58.3757L39.7554 61.6853C39.0264 63.7234 37.8115 65.612 36.1107 67.3322C34.4098 69.0525 32.3351 70.4362 29.8866 71.4646C27.4381 72.5117 24.6719 73.0353 21.5879 73.0353V73.0539Z"
+                  fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--i" d="M60.5391 72.363V29.207H68.464V72.363H60.5391Z"
+                  fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--r"
+                  d="M91.1738 72.363V29.207H107.267C110.201 29.207 112.799 29.7305 115.061 30.7963C117.322 31.8621 119.079 33.3954 120.35 35.4336C121.621 37.453 122.257 39.9399 122.257 42.8755C122.257 45.8112 121.546 48.3355 120.145 50.4297C118.743 52.5239 116.836 54.0946 114.444 55.0856L124.35 72.3443H115.435L104.781 53.4028L109.939 56.4132H99.1174V72.3443H91.1738V72.363ZM99.0987 49.4761H107.379C108.799 49.4761 110.052 49.1956 111.08 48.6347C112.126 48.0737 112.93 47.2884 113.509 46.2973C114.089 45.2876 114.369 44.1283 114.369 42.8194C114.369 41.5105 114.089 40.2951 113.509 39.3228C112.93 38.3318 112.126 37.5652 111.08 37.0042C110.033 36.4433 108.799 36.1628 107.379 36.1628H99.0987V49.4761Z"
+                  fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--c"
+                  d="M164.236 73.0548C161.152 73.0548 158.293 72.4939 155.676 71.372C153.059 70.25 150.779 68.6981 148.835 66.6786C146.91 64.6779 145.396 62.3219 144.293 59.6106C143.19 56.8994 142.648 53.9637 142.648 50.7476C142.648 47.5314 143.19 44.5771 144.275 41.8658C145.359 39.1545 146.873 36.7798 148.816 34.7978C150.76 32.8158 153.041 31.2638 155.657 30.1606C158.255 29.0574 161.134 28.5151 164.255 28.5151C167.376 28.5151 170.105 29.0387 172.572 30.0858C175.021 31.1329 177.096 32.5166 178.797 34.2181C180.497 35.9384 181.712 37.8269 182.441 39.8651L175.376 43.2308C174.572 41.0244 173.189 39.2293 171.264 37.8082C169.339 36.4059 167.003 35.6953 164.255 35.6953C161.507 35.6953 159.171 36.3311 157.096 37.6026C155.04 38.8741 153.433 40.6317 152.293 42.8755C151.153 45.1193 150.592 47.7371 150.592 50.7476C150.592 53.758 151.153 56.3945 152.293 58.657C153.433 60.9195 155.04 62.6772 157.096 63.9487C159.152 65.2202 161.545 65.8559 164.255 65.8559C166.965 65.8559 169.339 65.1454 171.264 63.743C173.189 62.3406 174.572 60.5456 175.376 58.3765L182.441 61.6862C181.712 63.7243 180.497 65.6128 178.797 67.3331C177.096 69.0533 175.021 70.437 172.572 71.4655C170.124 72.5126 167.358 73.0361 164.255 73.0361H164.236V73.0548Z"
+                  fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--l"
+                  d="M203.207 72.363V29.207H211.132V65.4072H229.598V72.363H203.207Z" fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--e"
+                  d="M249.111 72.363V29.207H277.82V36.1628H257.036V47.2323H276.662V54.2442H257.036V65.4259H277.82V72.3817H249.111V72.363Z"
+                  fill="black" />
+                <path class="cs-brand__letter cs-brand__letter--s"
+                  d="M313.427 73.0548C310.717 73.0548 308.212 72.55 305.876 71.5402C303.539 70.5305 301.539 69.1281 299.857 67.3331C298.175 65.538 296.942 63.4438 296.119 61.0504L302.717 58.2083C303.764 60.6765 305.259 62.6211 307.24 64.0235C309.203 65.4259 311.427 66.1364 313.894 66.1364C315.277 66.1364 316.492 65.912 317.52 65.4633C318.548 65.0145 319.333 64.4161 319.894 63.6308C320.455 62.8642 320.735 61.9293 320.735 60.8447C320.735 59.5732 320.361 58.5261 319.614 57.7221C318.866 56.9181 317.726 56.2636 316.23 55.7588L307.95 53.1036C304.586 52.0565 302.063 50.5045 300.343 48.4477C298.624 46.3908 297.764 43.9226 297.764 41.0618C297.764 38.5936 298.381 36.4059 299.614 34.5173C300.848 32.6288 302.567 31.1516 304.736 30.0858C306.922 29.02 309.408 28.4964 312.231 28.4964C314.81 28.4964 317.184 28.9452 319.352 29.8614C321.52 30.7776 323.37 32.0304 324.94 33.6198C326.51 35.2279 327.669 37.0977 328.436 39.2667L321.894 42.165C321.09 40.0334 319.819 38.3879 318.1 37.1912C316.38 35.9945 314.417 35.3962 312.231 35.3962C310.922 35.3962 309.763 35.6205 308.754 36.0693C307.745 36.5181 306.96 37.1351 306.418 37.9578C305.857 38.7619 305.577 39.6968 305.577 40.7439C305.577 41.9406 305.969 42.9877 306.736 43.9039C307.502 44.8202 308.679 45.512 310.268 46.0169L318.193 48.5038C321.632 49.6257 324.211 51.1589 325.931 53.141C327.651 55.1043 328.51 57.5351 328.51 60.4334C328.51 62.9016 327.875 65.0893 326.604 66.9778C325.333 68.8664 323.576 70.3622 321.333 71.4468C319.09 72.5313 316.473 73.0735 313.464 73.0735H313.427V73.0548Z"
+                  fill="black" />
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_268_7098" x1="403.628" y1="102" x2="403.628" y2="8.58293e-06"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4D83DB" />
+                  <stop offset="1" stop-color="#00F2A1" />
+                </linearGradient>
+                <linearGradient id="paint1_linear_268_7098" x1="378.919" y1="31.5256" x2="378.919" y2="0.0373993"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#4D83DB" />
+                  <stop offset="1" stop-color="#00F2A1" />
+                </linearGradient>
+                <clipPath id="clip0_268_7098">
+                  <rect width="456" height="102" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
           </div>
 
-          <div class="cs-grid cs-grid--title">
-            <div class="cs-grid__item">
-              <h1 class="cs-title">
-                <span class="cs-title__sub">AI AT CORE.</span>
-                TECHCO<br/>REIMAGINED.
-              </h1>
+          <h1 class="cs-title">
+            <span class="cs-title__highlight">AI at the Core.</span>Techco Reimagined.
+          </h1>
+
+          <div class="cs-flex cs-partners-members">
+            <div class="cs-members">
+              <p class="cs-members__text">Proud member of</p>
+              <div class="cs-member">
+                <img src="./images/pride/tmforum.png" alt="">
+              </div>
             </div>
-          </div>
 
-          <div class="cs-grid cs-grid--companies">
-            <div class="cs-grid__item">
-              <div class="cs-companies">
-                <p class="cs-companies__text">Trusted by</p>
-                <div class="cs-companies__list">
-                  <div class="cs-company"><img src="./images/companies/kddi.png" alt="KDDI" class="cs-company__img"></div>
-                  <div class="cs-company"><img src="./images/companies/telkomsel.png" alt="Telkomsel" class="cs-company__img"></div>
-                  <div class="cs-company"><img src="./images/companies/at-and-t.png" alt="AT&T" class="cs-company__img"></div>
-                  <div class="cs-company"><img src="./images/companies/e-international.png" alt="E - International" class="cs-company__img"></div>
-                </div>
+            <div class="cs-companies">
+              <p class="cs-companies__text">Our flagship partners</p>
+              <div class="cs-companies__list">
+                <div class="cs-company"><img src="./images/companies/kddi.png" alt="KDDI" class="cs-company__img"></div>
+                <div class="cs-company"><img src="./images/companies/telkomsel.png" alt="Telkomsel" class="cs-company__img"></div>
+                <div class="cs-company"><img src="./images/companies/at-and-t.png" alt="AT&T" class="cs-company__img"></div>
+                <div class="cs-company"><img src="./images/companies/e-international.png" alt="E - International"
+                    class="cs-company__img"></div>
+                <div class="cs-company"><img src="./images/companies/vodafone.png" alt="KDDI" class="cs-company__img"></div>
+                <div class="cs-company"><img src="./images/companies/mobicom.png" alt="KDDI" class="cs-company__img"></div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
-      <!-- Hero: End -->
-      <section class="cs-section cs-section--ix-sdmo">
+      <!-- Section - Hero: End -->
+      <section class="cs-section cs-section--h-sdmo">
         <div class="cs-concentric">
           <svg class="cs-concentric-circles" viewBox="0 0 1166 1166" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5" stroke="url(#paint1_linear_2005_3610)" />
-            <circle class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5" stroke="url(#paint0_linear_2005_3610)" />
-            <circle class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25" stroke="url(#paint2_linear_2005_3610)" stroke-width="1.5" />
-            <circle class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582" stroke="url(#paint3_linear_2005_3610)" stroke-width="2" />
+            <circle class="cs-concentric-circle cs-concentric-circle--1" cx="583" cy="583" r="128.5"
+              stroke="url(#paint1_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--2" cx="583" cy="583" r="263.5"
+              stroke="url(#paint0_linear_2005_3610)" />
+            <circle class="cs-concentric-circle cs-concentric-circle--3" cx="583" cy="583" r="416.25"
+              stroke="url(#paint2_linear_2005_3610)" stroke-width="1.5" />
+            <circle class="cs-concentric-circle cs-concentric-circle--4" cx="583" cy="583" r="582"
+              stroke="url(#paint3_linear_2005_3610)" stroke-width="2" />
             <defs>
               <linearGradient id="paint0_linear_2005_3610" x1="690" y1="769.5" x2="468.303" y2="375.679"
                 gradientUnits="userSpaceOnUse">
@@ -185,48 +185,128 @@
               </linearGradient>
             </defs>
           </svg>
-          
+        
           <!-- <div class="cs-ccircles">
-            <div class="cs-ccircle cs-ccircle--1"></div>
-            <div class="cs-ccircle cs-ccircle--2"></div>
-            <div class="cs-ccircle cs-ccircle--3"></div>
-            <div class="cs-ccircle cs-ccircle--4"></div>
-          </div> -->
-
+                    <div class="cs-ccircle cs-ccircle--1"></div>
+                    <div class="cs-ccircle cs-ccircle--2"></div>
+                    <div class="cs-ccircle cs-ccircle--3"></div>
+                    <div class="cs-ccircle cs-ccircle--4"></div>
+                  </div> -->
+        
           <!-- <div class="cs-ctexts">
-            <div class="cs-ctext cs-ctext--1">Retention</div>
-            <div class="cs-ctext cs-ctext--2">Monetization</div>
-            <div class="cs-ctext cs-ctext--3">Acquisition</div>
-          </div> -->
+                    <div class="cs-ctext cs-ctext--1">Retention</div>
+                    <div class="cs-ctext cs-ctext--2">Monetization</div>
+                    <div class="cs-ctext cs-ctext--3">Acquisition</div>
+                  </div> -->
         </div>
         <div class="cs-section__container">
-          <h2 class="cs-title t-center">
-            <span class="cs-title__sub">The world’s first</span>
-            AI-native telco SAAS platform for smarter digital mobile operations
-            <span class="cs-title__sub">AI-native telco SAAS platform for smarter digital mobile operations</span>
-          </h2>
-
-          
+          <div class="cs-flex cs-flex--col cs-flex--items-center">
+            <div class="cs-brand">
+              <svg width="255" height="63" viewBox="0 0 255 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M231.947 11.2253L201.496 48.6102C200.409 49.8957 201.261 51.957 202.895 51.957H211.928C212.46 51.957 212.977 51.7136 213.342 51.28L221.614 40.0379C222.367 39.1327 223.698 39.1404 224.45 40.0607L233.521 51.3408C233.886 51.782 234.403 52.0406 234.95 52.0406H241.74C243.36 52.0406 244.219 49.9945 243.139 48.7091L229.712 32.5761C229.104 31.8383 229.073 30.7354 229.659 29.9672L242.075 13.8266C243.086 12.5183 242.204 10.5483 240.622 10.5483H233.339C232.806 10.5331 232.305 10.7689 231.94 11.1948V11.2177H231.947V11.2253Z"
+                  fill="url(#paint0_linear_943_5986)" />
+                <path
+                  d="M212.262 23.3722C215.577 23.3722 218.276 20.5047 218.276 16.9677C218.276 13.4308 215.577 10.5632 212.262 10.5632C208.947 10.5632 206.248 13.4308 206.248 16.9677C206.248 20.5047 208.947 23.3722 212.262 23.3722Z"
+                  fill="url(#paint1_linear_943_5986)" />
+                <path
+                  d="M69.4323 34.6138L76.6327 47.8535L69.1193 47.9022L62.6842 35.8539H58.139V47.89H51.4141V14.6874L65.2814 14.7117C67.6004 15.0035 69.7338 15.6965 71.5078 17.204C72.6441 18.1037 73.6992 19.7085 74.1862 21.1066C74.708 22.7966 74.9746 24.5351 74.7891 26.3223C74.6036 29.9088 72.7021 33.0698 69.4207 34.626L69.4323 34.6138ZM68.1337 25.5807C68.3308 23.064 66.7076 20.8635 64.3422 20.827L58.1622 20.7419V29.7629L64.1451 29.7021C66.2786 29.6778 68.0642 27.8663 68.1337 25.5685V25.5807Z"
+                  fill="black" />
+                <path
+                  d="M157.002 34.2756H143.002V41.6972H157.825V47.9022H136.297V14.6874H157.825V20.7707H143.002V28.1923H157.002V34.2756Z"
+                  fill="black" />
+                <path
+                  d="M183.286 44.3168C179.741 48.3241 173.201 48.7602 168.525 46.6741C165.163 45.1654 162.648 42.3485 161.516 38.8008L166.97 36.3139C167.61 37.6104 168.307 38.7654 169.314 39.7083C170.606 40.887 172.126 41.712 173.83 41.9124C175.568 42.1127 177.615 41.7945 178.552 40.1562C179.49 38.5179 178.781 36.5378 177.054 35.8306C175.385 35.147 173.693 34.6284 171.955 34.0509C169.142 33.108 166.73 32.3772 164.649 30.0082C162.568 27.6391 162.407 25.6944 162.682 23.2193C163.242 17.9272 167.496 15.1338 172.344 14.7331C174.596 14.5445 177.363 14.9335 179.398 16.006C182.28 17.3497 184.475 19.8012 185.504 22.9364L180.073 25.4705C179.09 22.7242 176.78 20.7913 173.967 20.6616C172.618 20.6027 171.36 20.7913 170.331 21.6399C169.302 22.4885 168.799 24.669 169.942 26.0008C171.086 27.3327 171.292 27.0145 172.103 27.2973L178.655 29.4896C179.833 29.8785 180.862 30.4443 181.868 31.1279C184.624 33.0255 185.801 36.0664 185.413 39.4255C185.195 41.2759 184.498 42.926 183.252 44.3286L183.286 44.3168Z"
+                  fill="black" />
+                <path
+                  d="M93.5226 41.7182C97.4527 42.0718 100.641 40.1385 102.055 36.3071L104.722 37.6156L108.003 39.2425C107.342 41.1759 106.287 42.6966 104.849 44.0406C101.661 46.9996 97.4295 48.1785 93.14 47.8484C88.8504 47.5183 86.3114 46.2215 83.6797 43.8166C81.9755 42.2605 80.4799 40.1738 79.6684 37.9929C79.0887 36.4485 78.6714 34.9042 78.5554 33.242C78.312 29.7525 78.6018 26.7699 80.0742 23.5398C82.4276 18.3762 87.5519 15.0989 93.0936 14.7335C98.0208 14.4034 102.45 15.8299 105.812 19.5198C106.751 20.7104 107.574 21.8775 108.003 23.3747L102.044 26.263C100.931 23.0211 98.0904 20.8991 94.7978 20.8637C91.5053 20.8283 94.2761 20.6515 93.9863 20.8755C90.7865 20.8873 87.9113 22.7263 86.3926 25.6382C84.8738 28.55 84.6652 35.3168 87.5635 38.6649C89.1286 40.4803 91.1459 41.506 93.511 41.7182H93.5226Z"
+                  fill="black" />
+                <path
+                  d="M12.1528 29.8668C11.5616 35.5479 14.4348 41.0757 20.5242 41.7122C24.4498 42.1247 28.0089 40.1564 29.3804 36.3258L31.828 37.5162L35.4226 39.2488C34.7722 41.1818 33.6726 42.6669 32.2419 43.987C29.7115 46.3207 26.4835 47.6172 23.0309 47.8529C17.852 48.2183 12.9923 46.5564 9.48051 42.6669C7.09204 40.0267 5.67315 36.6912 5.36573 33.1317C4.89277 27.6745 6.4299 22.4178 10.5683 18.7286C14.0091 15.6524 18.3722 14.4266 22.9363 14.733C28.2808 15.0984 33.6135 18.1393 35.4107 23.3489C34.5357 23.7732 33.779 24.1622 32.975 24.5394L29.3686 26.2366C28.2453 23.0425 25.3366 20.9798 22.0259 20.8502C16.4331 20.638 12.7203 24.4451 12.1528 29.8668Z"
+                  fill="black" />
+                <path d="M132.595 41.6972L132.607 47.9022H112.309V14.6874H119.035V41.6972H132.595Z" fill="black" />
+                <path d="M45.8793 47.89L39.1133 47.9022V14.6874H45.8793V47.89Z" fill="black" />
+                <defs>
+                  <linearGradient id="paint0_linear_943_5986" x1="222.314" y1="52.0406" x2="222.314" y2="10.5483"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4D83DB" />
+                    <stop offset="1" stop-color="#00F2A1" />
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_943_5986" x1="212.262" y1="23.3722" x2="212.262" y2="10.5632"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4D83DB" />
+                    <stop offset="1" stop-color="#00F2A1" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h2 class="cs-title">
+              AI-native TELCO SAAS platform <span class="cs-title__sub"> smarter digital mobile operations</span>
+            </h2>
+          </div>
         </div>
       </section>
-      <!-- SDMO: End -->
-      <section class="cs-section cs-section--ix-carex">
+      <!-- Section - Sdmo: End -->
+      <section class="cs-section cs-section--h-carex">
         <div class="cs-section__backdrop">
           <div class="cs-bcircles">
             <div class="cs-bcircle"></div>
           </div>
-          <svg class="cs-liner" width="410" height="834" viewBox="0 0 410 834" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="cs-liner__track" d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
-            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
-            <!-- <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
+          <svg class="cs-liner" width="460" height="834" viewBox="0 0 410 834" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track" d="M0 5C219.257 5 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
             <path class="cs-liner__small" d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
+            <rect  class="cs-liner__line" y="1" width="30" height="8" rx="4" fill="#00F2A1" />
           </svg>
+
+          <!-- <svg class="cs-liner" width="410" height="834" viewBox="0 0 410 834" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track"
+              d="M0 4.99988C219.257 4.99988 397 182.743 397 402C397 556.24 363.597 633.274 242.657 785.5" stroke="black" />
+            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <path class="cs-liner__line" d="M111.5 19.9999C69.5 5 34 5.00002 1 5" stroke="var(--cs-color-green)" stroke-width="10" />
+            <path class="cs-liner__small" d="M274 544C249.5 625.5 169.477 711.499 169.477 711.499L74.5 823" stroke="black" />
+          </svg> -->
         </div>
         <div class="cs-section__container">
           <h3 class="cs-sub-title"></h3>
           <div class="cs-grid">
             <div class="cs-grid__item">
-
+              <div class="cs-slider">
+                <div class="cs-slider__bg">
+                  <img src="./images/carex/x-slider-bg.png" alt="">
+                </div>
+                <div class="swiper cs-slider__swiper">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/carex/img-1.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/carex/img-2.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/carex/img-3.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/carex/img-4.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+                
+                  <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
             </div>
             <div class="cs-grid__item">
               <div class="cs-hlt-title">
@@ -236,32 +316,66 @@
                   <span class="cs-hlt-title__sub-line"></span>
                 </div>
               </div>
-
+      
               <h2 class="cs-title">
                 <span class="cs-title__highlight">CareX</span>
                 AI-Native Conversational OS
                 <span class="cs-title__sub">for Customer Relationship</span>
               </h2>
-              <div class="cs-dotline"></div>
-
-              <p class="cs-description">Embeds directly into your BSS stack to unify customer relationship into one seamless experience</p>
-
-              <a href="" class="cs-link">Explore</a>
+              <hr class="cs-line"></hr>
+      
+              <p class="cs-description">Embeds directly into your BSS stack to unify customer relationship into one seamless
+                experience</p>
+      
+              <div class="cs-flex cs-flex--space-between">
+                <div class="cs-flex cs-flex--items-center">
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Demo
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+              
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Upcoming
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              
+                <a href="" class="cs-btn">
+                  Know More
+                  <span class="cs-btn__icon">
+                    <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
-
+      
         </div>
       </section>
       <!-- CareX: End -->
-      <section class="cs-section cs-section--ix-nova">
+      <section class="cs-section cs-section--h-nova">
         <div class="cs-section__backdrop">
-          <svg class="cs-liner" width="324" height="888" viewBox="0 0 324 888" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="cs-liner__track"
-              d="M322.123 761.485C200.623 719.985 126.311 651.34 82.8974 593.485C-65.8393 395.273 37.8561 163.228 112.166 74.9851C134.998 47.8724 153.593 25.7885 170.209 5.98511"
-              stroke="black" />
-              <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
-            <!-- <path class="cs-liner__line" d="M173.197 3.22583L116.197 70.7258" stroke="var(--cs-color-green)" stroke-width="10" /> -->
-            <path class="cs-liner__sub" d="M0.430495 638.17C0.430495 638.17 98.4038 804.743 323.197 857.877" stroke="black" />
+          <svg class="cs-liner" width="321" height="857" viewBox="0 0 321 857" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track" d="M171.421 5C-116.084 290.5 -10.0843 648.5 319.921 760.5" stroke="black" />
+            <path class="cs-liner__sub" d="M0.416016 640.5C40.0864 700.167 139.416 813 319.922 856.5" stroke="black" />
+            
+            <rect class="cs-liner__line" y="1" width="30" height="8" rx="4" fill="#00F2A1" />
           </svg>
         </div>
         <div class="cs-section__container">
@@ -274,39 +388,149 @@
                   <span class="cs-hlt-title__sub-line"></span>
                 </div>
               </div>
-
+      
               <h2 class="cs-title">
                 <span class="cs-title__highlight">NOVA</span>
                 AI-Native Decision Layer
                 <span class="cs-title__sub">for Telco-Scale Analytics</span>
               </h2>
-              <div class="cs-dotline"></div>
-          
-              <p class="cs-description">Enables faster, trusted decisions through natural-language insights and guided diagnostics.</p>
-          
-              <a href="" class="cs-link">Explore</a>
+              <hr class="cs-line"></hr>
+      
+              <p class="cs-description">Enables faster, trusted decisions through natural-language insights and guided
+                diagnostics.</p>
+      
+              <div class="cs-flex cs-flex--space-between">
+                <div class="cs-flex cs-flex--items-center">
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Demo
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+              
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Upcoming
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              
+                <a href="" class="cs-btn">
+                  Know More
+                  <span class="cs-btn__icon">
+                    <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
             </div>
             <div class="cs-grid__item">
-          
+              <div class="cs-slider">
+                <div class="cs-slider__bg">
+                  <img src="./images/nova/x-slider-bg.png" alt="">
+                </div>
+                <div class="swiper cs-slider__swiper">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/nova/img-1.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/nova/img-2.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/nova/img-3.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/nova/img-4.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+                
+                  <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Nova: End -->
-      <section class="cs-section cs-section--ix-zerofyx">
+      <section class="cs-section cs-section--h-zerofyx">
         <div class="cs-section__backdrop">
           <svg class="cs-liner" width="410" height="822" viewBox="0 0 410 822" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="cs-liner__track" d="M5.48633 5C224.743 5 402.486 182.743 402.486 402C402.486 540.308 329.071 663.092 201.945 821.5"
+            <path class="cs-liner__track"
+              d="M5.48633 5C224.743 5 402.486 182.743 402.486 402C402.486 540.308 329.071 663.092 201.945 821.5"
               stroke="black" />
             <!-- <path class="cs-liner__line" d="M100 18C56 5 20.5 5 0 5" stroke="var(--cs-color-green)" stroke-width="10" /> -->
-            <rect class="cs-liner__line" width="80" height="7" rx="7" fill="var(--cs-color-green)" />
+            <rect class="cs-liner__line" width="60" height="10" rx="6" fill="var(--cs-color-green)" />
           </svg>
         </div>
-
+      
         <div class="cs-section__container">
           <div class="cs-grid">
             <div class="cs-grid__item">
-          
+              <div class="cs-slider">
+                <div class="cs-slider__bg">
+                  <img src="./images/zerofyx/x-slider-bg.png" alt="">
+                </div>
+                <div class="swiper cs-slider__swiper">
+                  <!-- Additional required wrapper -->
+                  <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/zerofyx/img-1.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/zerofyx/img-2.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/zerofyx/img-3.png" alt="">
+                      </div>
+                    </div>
+                    <div class="swiper-slide cs-slider__item">
+                      <div class="cs-slider__media">
+                        <img src="./images/zerofyx/img-4.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- If we need pagination -->
+                  <div class="swiper-pagination"></div>
+                
+                  <!-- If we need navigation buttons -->
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+              
             </div>
             <div class="cs-grid__item">
               <div class="cs-hlt-title">
@@ -316,37 +540,73 @@
                   <span class="cs-hlt-title__sub-line"></span>
                 </div>
               </div>
-
+      
               <h2 class="cs-title">
                 <span class="cs-title__highlight">zerofyX</span>
                 AI-Powered Lifestyle Marketplace Engine
                 <span class="cs-title__sub">for Telco Affinity</span>
               </h2>
-              <div class="cs-dotline"></div>
-          
+              <hr class="cs-line"></hr>
+      
               <p class="cs-description">Merges connectivity, commerce, & services into a daily engagement experience.</p>
-          
-              <a href="" class="cs-link">Explore</a>
+
+              <div class="cs-flex cs-flex--space-between">
+                <div class="cs-flex cs-flex--items-center">
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Demo 
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+
+                  <a href="" class="cs-btn cs-btn--secondary">
+                    Upcoming
+                    <span class="cs-btn__icon">
+                      <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                          fill="white" />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+
+                <a href="" class="cs-btn">
+                  Know More
+                  <span class="cs-btn__icon">
+                    <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 6.36401C0.447715 6.36401 -2.41411e-08 6.81173 0 7.36401C2.41411e-08 7.9163 0.447715 8.36401 1 8.36401L1 7.36401L1 6.36401ZM13.5383 8.07112C13.9288 7.6806 13.9288 7.04743 13.5383 6.65691L7.17435 0.292946C6.78383 -0.0975788 6.15067 -0.0975788 5.76014 0.292946C5.36962 0.68347 5.36962 1.31663 5.76014 1.70716L11.417 7.36401L5.76014 13.0209C5.36962 13.4114 5.36962 14.0446 5.76014 14.4351C6.15067 14.8256 6.78383 14.8256 7.17436 14.4351L13.5383 8.07112ZM1 7.36401L1 8.36401L12.8312 8.36401L12.8312 7.36401L12.8312 6.36401L1 6.36401L1 7.36401Z"
+                        fill="white" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+      
             </div>
           </div>
         </div>
       </section>
       <!-- Zerofyx: End -->
-      <section class="cs-section cs-section--ix-circles-collab">
+      <section class="cs-section cs-section--h-collab">
         <div class="cs-section__container">
           <div class="cs-circles-collab">
             <div class="cs-brand cs-brand--circles">
               <img src="./images/circles-logo-big.svg" alt="Circles">
             </div>
-
+      
             <div class="cs-circles-collab__connect">
               <img src="./images/collab-connect.svg" alt="Connect">
             </div>
-
+      
             <div class="cs-brand cs-brand--openai">
               <img src="./images/open-ai.png" alt="Open AI">
             </div>
-
+      
           </div>
           <div class="t-center">
             <h2 class="cs-title">Co-developing a fully AI-native telco platform​</h2>
@@ -354,7 +614,7 @@
               A multi-year technical collaboration to embed AI natively across the telco stack.
             </p>
           </div>
-
+      
           <div class="cs-articles">
             <figure class="cs-article">
               <div class="cs-article__image">
@@ -363,33 +623,37 @@
               <figcaption class="cs-article__content">
                 <h4 class="cs-article__title">Co-Developed AI-Native Architecture</h4>
                 <p class="cs-article__description">Circles and OpenAI jointly
-                design the core AI architecture from the ground up, optimized
-                for telco performance, scale, and operational complexity​</p>
+                  design the core AI architecture from the ground up, optimized
+                  for telco performance, scale, and operational complexity​</p>
               </figcaption>
             </figure>
-
+      
             <figure class="cs-article">
               <div class="cs-article__image">
                 <img src="./images/circles-open-ai/img-2.png" alt="AI Embedded End-to-End, Not Layered On">
               </div>
               <figcaption class="cs-article__content">
                 <h4 class="cs-article__title">AI Embedded End-to-End, Not Layered On</h4>
-                <p class="cs-article__description">AI is integrated natively across customer service, CRM, operations, and analytics to ensure reliability, performance,
-                and long-term extensibility​​</p>
+                <p class="cs-article__description">AI is integrated natively across customer service, CRM, operations, and
+                  analytics to ensure reliability, performance,
+                  and long-term extensibility​​</p>
               </figcaption>
             </figure>
 
+
+      
             <figure class="cs-article">
               <div class="cs-article__image">
                 <img src="./images/circles-open-ai/img-3.png" alt="Built for Enterprise  Deployment at Global Scale">
               </div>
               <figcaption class="cs-article__content">
                 <h4 class="cs-article__title">Built for Enterprise  Deployment at Global Scale</h4>
-                <p class="cs-article__description">Production-grade foundations enable global deployment to operator partners, shaped through hands-on technical
-                co-development</p>
+                <p class="cs-article__description">Production-grade foundations enable global deployment to operator partners,
+                  shaped through hands-on technical
+                  co-development</p>
               </figcaption>
             </figure>
-
+      
             <figure class="cs-article">
               <div class="cs-article__image">
                 <img src="./images/circles-open-ai/img-4.png" alt="Designed for First-Mover Telco Innovation">
@@ -397,81 +661,95 @@
               <figcaption class="cs-article__content">
                 <h4 class="cs-article__title">Designed for First-Mover Telco Innovation</h4>
                 <p class="cs-article__description">Early insight into OpenAI’s
-                technology direction supports faster development of new, telco-specific AI capabilities​</p>
+                  technology direction supports faster development of new, telco-specific AI capabilities​</p>
               </figcaption>
             </figure>
           </div>
         </div>
       </section>
       <!-- Circles & Openai: End -->
-
-
-      <section class="cs-section cs-section--ix-trust">
+      <section class="cs-section cs-section--h-trust">
         <div class="cs-section__backdrop"></div>
-
-        <div class="cs-section__container cs-trust-card">
-          <h2 class="cs-title t-center">
-            <span class="cs-title__sub">Built on a foundation of</span>
-            Trust, Security &amp; Governance
-          </h2>
-
-          <div class="cs-trust-grid">
-            <article class="cs-trust-item">
-              <div class="cs-trust-icon" aria-hidden="true"></div>
-              <h4 class="cs-trust-title">Identity &amp; Access Management</h4>
-              <p class="cs-trust-desc">Telcos can securely manage their data by adding, removing, and monitoring role-based access across all levels.</p>
-            </article>
-
-            <article class="cs-trust-item">
-              <div class="cs-trust-icon" aria-hidden="true"></div>
-              <h4 class="cs-trust-title">Data Privacy &amp; Compliance</h4>
-              <p class="cs-trust-desc">CirclesX OS ensures compliance with industry frameworks and gives full control over data retention and handling.</p>
-            </article>
-
-            <article class="cs-trust-item">
-              <div class="cs-trust-icon" aria-hidden="true"></div>
-              <h4 class="cs-trust-title">Monitoring &amp; Transparency</h4>
-              <p class="cs-trust-desc">Provides visibility into data flow, agent interactions, and customer journeys so you can audit, improve and trust outcomes.</p>
-            </article>
-
-            <article class="cs-trust-item">
-              <div class="cs-trust-icon" aria-hidden="true"></div>
-              <h4 class="cs-trust-title">Security Governance</h4>
-              <p class="cs-trust-desc">Adheres to industry-standard security frameworks to secure your data comprehensively and consistently.</p>
-            </article>
+      
+        <div class="cs-section__container">
+          <div class="cs-foundation">
+            <!-- <div class="cs-foundation__border"></div> -->
+            <svg class="cs-foundation__border" viewBox="0 0 1196 509" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect rx="36" fill="white" fill-opacity="0.2"
+                stroke="url(#paint0_linear_615_5176)" stroke-width="1" />
+              <defs>
+                <linearGradient id="paint0_linear_615_5176" x1="0" y1="0" x2="357.201" y2="943.026"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#194AB8" />
+                  <stop offset="1" stop-color="#76FF27" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <h2 class="cs-title t-center">
+              <span class="cs-title__highlight">Built on a foundation of
+              Trust, Security &amp; Governance</span>
+            </h2>
+          
+            <div class="cs-foundation__list">
+              <article class="cs-foundation__item">
+                <div class="cs-foundation__icon" aria-hidden="true"><img src="./images/foundation-img-1.png" alt="Identity &amp; Access Management" /></div>
+                <h4 class="cs-foundation__title">Identity &amp; Access Management</h4>
+                <p class="cs-foundation__desc">Telcos can securely manage their data by adding, removing, and monitoring role-based
+                  access across all levels.</p>
+              </article>
+        
+              <article class="cs-foundation__item">
+                <div class="cs-foundation__icon" aria-hidden="true"><img src="./images/foundation-img-2.png" alt="Data Privacy &amp; Compliance" /></div>
+                <h4 class="cs-foundation__title">Data Privacy &amp; Compliance</h4>
+                <p class="cs-foundation__desc">CirclesX OS ensures compliance with industry frameworks and gives full control over
+                  data retention and handling.</p>
+              </article>
+        
+              <article class="cs-foundation__item">
+                <div class="cs-foundation__icon" aria-hidden="true"><img src="./images/foundation-img-3.png" alt="Monitoring &amp; Transparency" /></div>
+                <h4 class="cs-foundation__title">Monitoring &amp; Transparency</h4>
+                <p class="cs-foundation__desc">Provides visibility into data flow, agent interactions, and customer journeys so you
+                  can audit, improve and foundation outcomes.</p>
+              </article>
+        
+              <article class="cs-foundation__item">
+                <div class="cs-foundation__icon" aria-hidden="true"><img src="./images/foundation-img-4.png" alt="Security Governance" /></div>
+                <h4 class="cs-foundation__title">Security Governance</h4>
+                <p class="cs-foundation__desc">Adheres to industry-standard security frameworks to secure your data comprehensively
+                  and consistently.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
       <!-- Trust, Security & Governance: End -->
-
-
-      
-      <section class="cs-section cs-section--ix-join-revolution">
+      <section class="cs-section cs-section--h-join">
         <div class="cs-section__backdrop">
-          <svg width="309" height="252" viewBox="0 0 309 252" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M146.895 248.416C65.7675 183.248 72.5173 72.1689 161.971 0.312988" stroke="black" />
-            <path d="M92.1141 166.719C118.571 223.427 147.614 248.617 147.614 248.617" stroke="#00F2A1" stroke-width="10" />
+          <svg class="cs-liner" width="309" height="252" viewBox="0 0 309 252" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="cs-liner__track" d="M146.895 248.416C65.7675 183.248 72.5173 72.1689 161.971 0.312988" stroke="black" />
+            <!-- <path class="cs-liner__line" d="M92.1141 166.719C118.571 223.427 147.614 248.617 147.614 248.617" stroke="#00F2A1" stroke-width="10" /> -->
+            <rect class="cs-liner__line" width="80" height="8" rx="10" />
           </svg>
         </div>
-
+      
         <div class="cs-section__container">
           <img class="cs-brand" src="./images/brand-symbol.png" alt="Circles">
-          
+      
           <h2 class="cs-title t-center">Join the AI‑DMO Revolution</h2>
-
+      
           <div class="cs-join-steps" role="list" aria-label="Three benefits of joining the AI-DMO revolution">
             <article class="cs-join-step" role="listitem">
               <div class="cs-join-step__count" aria-hidden="true">1</div>
               <h3 class="cs-join-step__title">AI‑Driven Growth</h3>
               <p class="cs-join-step__description">Acquire. Retain. Monetize - at scale.</p>
             </article>
-
+      
             <article class="cs-join-step" role="listitem">
               <div class="cs-join-step__count" aria-hidden="true">2</div>
               <h3 class="cs-join-step__title">Connected Intelligence</h3>
               <p class="cs-join-step__description">One truth. Zero silos.</p>
             </article>
-            
+      
             <article class="cs-join-step" role="listitem">
               <div class="cs-join-step__count" aria-hidden="true">3</div>
               <h3 class="cs-join-step__title">Revenue Acceleration</h3>
@@ -481,14 +759,16 @@
         </div>
       </section>
       <!-- Join Revolution: End -->
-    </main>
-    <!-- Main: End -->
+     </main>
+     <!-- Main: End -->
+
     <footer class="cs-footer">
       <div class="cs-footer__container">
-        <div class="cs-footer__brand">
+        
+        <!-- <div class="cs-footer__brand">
           <img src="./images/footer-logo.svg" loading="lazy" alt="Circles">
-        </div>
-        <p class="cs-footer__copyright">&copy; 2026 circles.co</p>
+        </div> -->
+        <p class="cs-footer__copyright">Confidential Product Demonstration | Unauthorized Distribution Prohibited | &copy; 2026 circles.co</p>
       </div>
       <div class="cs-stripes"></div>
     </footer>
@@ -500,558 +780,9 @@
   <script src="./gsap/ScrollTrigger.min.js"></script>
   <script src="./gsap/MotionPathPlugin.min.js"></script>
   <script src="./gsap/SplitText.min.js"></script>
+  <script src="./gsap/DrawSVGPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
   <!-- Main Script -->
-  <script>
-    // Register GSAP plugins by reference (plugin objects), not by string names
-    gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin);
-
-    document.addEventListener("DOMContentLoaded", init)
-
-    // Split All Headlines
-    const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++', wordsClass: 'word++'}); }
-
-
-    function blobsAnim() {
-        const blobs = document.querySelectorAll('.cs-main .cs-bcircles .cs-bcircle');
-
-        const blobsTl = gsap.timeline({
-          // paused: true, // Start paused
-          // scrollTrigger: {
-          //   trigger: '.cs-section--ix-hero', // The section containing blobs
-          //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
-          //   end: 'bottom top',           // Animation stops when the section leaves the viewport
-          //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
-          // },
-        })
-        const animDefaults = {
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        }
-
-        // Randomize initial positions
-        blobs.forEach(blob => {
-          const x = Math.random() * (window.innerWidth / 2) + window.innerWidth / 2;
-          const y = Math.random() * (window.innerHeight - 300);
-          gsap.set(blob, {x: x, y: y});
-        });
-
-
-        // Add floating animation with GSAP
-        blobs.forEach((blob, index) => {
-          const delay = -index * 5;
-          blobsTl.add(
-            gsap.to(blob, {
-              x: () => Math.random() * (window.innerWidth / 2) + window.innerWidth / 2,
-              y: () => Math.random() * (window.innerHeight - 300),
-              duration: 15,
-              ...animDefaults
-            }),
-            delay
-          )
-        });
-
-        // Add subtle pulsing animation
-        blobsTl.add(
-          gsap.to(blobs, {
-            scale: '+=0.05',
-            duration: 1,
-            ...animDefaults
-          })
-        )
-      }
-
-    function heroAnim() {
-      const sectionHero = document.querySelector('.cs-section--ix-hero');
-      
-      const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
-      const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
-
-      gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -5})
-
-      blobsAnim();
-
-      function brandLetters() {
-        const meetCirclesContainer = sectionHero.querySelector('.cs-meet-circles');
-        const meetText = meetCirclesContainer.querySelector('.cs-meet-circles__text');
-        const brandLettersList = meetCirclesContainer.querySelectorAll('.cs-brand__letter');
-        const brandXO = Array.from(brandLettersList).slice(0, 2);
-        const brandLetters = Array.from(brandLettersList).slice(2, brandLettersList.length);
-
-        gsap.set(meetText, {x: -30, opacity: 0})
-        gsap.set(brandXO, {x: -30, opacity: 0})
-        gsap.set(brandLetters, {x: 5, opacity: 0})
-
-        const tl = gsap.timeline();
-
-        tl
-          .to(brandXO, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24 })
-          .to(brandLetters, {x: 0, duration: 0.4, opacity: 1, stagger: 0.16})
-          .to(meetText, {opacity: 1, x: 0}, '<')
-
-        return tl;
-      }
-
-      function companiesAnim() {
-        const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
-
-        if (!sectionHeroCompanies) return gsap.timeline();
-
-        const sectionHeroCompanyTitle = sectionHero?.querySelector('.cs-companies .cs-companies__text');
-        const sectionHeroCompaniesList = sectionHeroCompanies?.querySelectorAll('.cs-company');
-
-        gsap.set([sectionHeroCompanyTitle, sectionHeroCompaniesList], {autoAlpha: 0, x: -20})
-
-        const tl = gsap.timeline();
-
-        tl
-          .to(sectionHeroCompanyTitle, {autoAlpha: 1, x: 0, duration: .48})
-          .to(sectionHeroCompaniesList, {autoAlpha: 1, x: 0, stagger: 0.25, duration: .48}, '-=0.3')
-
-        return tl;
-      }
-
-      function liner() {
-        const linerLineWidthRange = {min: 50, max: 80};
-
-        const liner = sectionHero?.querySelector(".cs-liner");
-        const linerTrack = liner?.querySelector('.cs-liner__track');
-        const linerLine = liner?.querySelector('.cs-liner__line');
-        gsap.set([linerTrack, linerLine], {opacity:0})
-
-        const tl = gsap.timeline();
-
-        tl.to([linerTrack, linerLine], {opacity: 1})
-        tl.to(linerLine, {
-          motionPath: {
-            path: linerTrack,
-            align: linerTrack,
-            autoRotate: true,
-            alignOrigin: [0.5, 0.5],
-            start: 0.036
-
-          },
-          transformOrigin: "50% 50%",
-          scrollTrigger: {
-            trigger: sectionHero,
-            scrub: true,
-            start: "top top",
-            onUpdate: (self) => {
-              // Clamp progress to 30%-60% range (0.3 - 0.6)
-              const startTrigger = 0.3;
-              const endTrigger = 0.6;
-
-              // Map the 0.3-0.6 range to 0-1 (for interpolation)
-              let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
-              // Clamp values outside 0-1
-              mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
-
-              // Calculate width (e.g., between 200px and 500px)
-              const minWidth = 50;
-              const maxWidth = 150;
-              const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
-
-              gsap.set(linerLine, {width: newWidth});
-            }
-
-          }
-        })
-
-        return tl;
-      }
-      
-      const heroTl = gsap.timeline({ease: "power4.in", });
-
-      heroTl
-        .add(brandLetters())
-        .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .8})
-        .add(liner())   
-        .add(companiesAnim())
-    }
-
-    function sdmoAnim() {
-      const sectionSdmo = document.querySelector('.cs-section--ix-sdmo');
-      const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
-
-      gsap.set(sectionTitle, {opacity: 0, y: 25})
-
-      function ccirclesBackdrop () {
-        const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-        const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
-
-        // const getCirclePathArrays = () => {
-        //   let pathArrays = [];
-
-        //   ccircles.forEach((circle, i) => {
-        //     if (i > 0) {
-        //        pathArrays.push(MotionPathPlugin.convertToPath(circle));
-        //     }
-        //   })
-        //   return pathArrays;
-        // }
-        
-        // const circlePathArrays = getCirclePathArrays();
-
-        // circlePathArrays?.forEach((item, i) => {
-        //   gsap.set(ctexts[i], {
-        //     autoAlpha: 0,
-        //     motionPath: {
-        //       path: item[0],
-        //       align: item[0],
-        //       alignOrigin: [0.5, 0.5]
-        //     }
-        //   })
-        // })
-
-        gsap.set(ccircles, {opacity: 0, scale: (i, el, list) => {
-          return (i * 0.2) + 0.1
-        }, transformOrigin: '50% 50%'})
-
-        const tl = gsap.timeline()
-
-        tl.to(ccircles, {opacity: 1, scale: 1, rotation: 360,  duration: 1.5, stagger: 0.3})
-        
-        ccircles.forEach((circle, i) => {
-          let textIndex = i-1;
-
-          console.log(textIndex)
-          // tl.to(circle, {
-          //   rotation: "+=360",
-          //   duration: 16 - i * 2.5, // different speeds
-          //   repeat: -1,
-          //   ease: "none"
-          // }, '<');
-          // if (i > 0) {
-          //   tl.to(ctexts[textIndex], {
-          //     autoAlpha: 1,
-          //     duration: 0.6,
-          //     // motionPath: {
-          //     //   path: circlePathArrays[textIndex][0],
-          //     //   align: circlePathArrays[textIndex][0],
-          //     //   alignOrigin: [0.5, 0.5],
-          //     // }
-          //   },'<')
-          // }
-        });
-
-        return tl;
-      }
-
-      const sdmoTl = gsap.timeline()
-
-      sdmoTl
-        .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1})
-        .add(ccirclesBackdrop())
-
-      ScrollTrigger.create({
-        animation: sdmoTl,
-        trigger: sectionSdmo,
-        start: "top center"
-      })
-    }
-    
-    function carexAnim() {
-      const carexSection = document.querySelector('.cs-section--ix-carex');
-      const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
-      const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
-
-      gsap.to(linerLine, {
-        motionPath: {
-          path: linerTrack,
-          align: linerTrack,
-          autoRotate: true,
-          alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-          trigger: carexSection,
-          start: 'top top',
-          scrub: true,
-        }
-      })
-    }
-
-    function novaAnim () {
-      const novaSection = document.querySelector('.cs-section--ix-nova');
-      const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
-      const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
-
-      gsap.to(linerLine, {
-        motionPath: {
-          path: linerTrack,
-          align: linerTrack,
-          autoRotate: true,
-          alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-          trigger: novaSection,
-          start: 'top top',
-          scrub: true,
-        }
-      })
-    }
-
-    function zerofyxAnim() {
-      const zerofyxSection = document.querySelector('.cs-section--ix-zerofyx');
-      const linerTrack = zerofyxSection?.querySelector('.cs-liner .cs-liner__track')
-      const linerLine = zerofyxSection?.querySelector('.cs-liner .cs-liner__line')
-
-      gsap.to(linerLine, {
-        motionPath: {
-          path: linerTrack,
-          align: linerTrack,
-          autoRotate: true,
-          alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-          trigger: zerofyxSection,
-          start: 'top top',
-          scrub: true,
-        }
-      })
-    }
-
-    function collabAnim() {
-      const sectionCollab = document.querySelector('.cs-section--ix-circles-collab');
-      const title = sectionCollab?.querySelectorAll('.cs-title .word');
-      
-      const description = sectionCollab.querySelector('.cs-description');
-      const articles = sectionCollab?.querySelectorAll('.cs-article');
-
-      function collabConnect () {
-        const collab = sectionCollab.querySelector('.cs-circles-collab');
-        const collabConnect = collab.querySelector('.cs-circles-collab__connect');
-        const bcircles = collab.querySelector('.cs-brand--circles');
-        const bopenai = collab.querySelector('.cs-brand--openai');
-
-        gsap.set(collabConnect, {opacity: 0, scale: 0.1});
-        gsap.set(bcircles, {opacity: 0, x: -30})
-        gsap.set(bopenai, {opacity: 0, x: 30})
-
-        const tl = gsap.timeline();
-        tl
-          .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duration: 0.8})
-          .to(bcircles, {opacity: 1, x: 0, duration: 0.6})
-          .to(bopenai, {opacity: 1, x: 0, duration: 0.6}, '<')
-
-        return tl;
-      }
-
-
-      gsap.set(title, {opacity: 0, y: 20})
-      gsap.set(description, {opacity: 0, y: 10})
-      gsap.set(articles, {opacity: 0, x: -30})
-
-      const collabTl = gsap.timeline();
-      collabTl
-        .add(collabConnect())
-        .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
-        .to(description, {y: 0, opacity: 1, duration: 0.6})
-        .to(articles, {x: 0, opacity: 1, stagger: 0.3, duration: 0.6})
-
-      ScrollTrigger.create({
-        trigger: sectionCollab,
-        animation: collabTl,
-        start: "top center"
-      })
-    }
-
-    function joinAnim () {
-      const sectionJoin = document.querySelector('.cs-section--ix-join-revolution');
-      const brand = sectionJoin?.querySelector('.cs-brand');
-      const title = sectionJoin?.querySelectorAll('.cs-title .word');
-      const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
-
-      gsap.set(brand, {opacity: 0, scale: 0.5})
-      gsap.set(joinSteps, {opacity: 0, y: 40});
-      gsap.set(title, {y: 20, opacity: 0})
-
-      const joinTl = gsap.timeline();
-      joinTl
-        .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
-        .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
-        .to(joinSteps, {y: 0, opacity: 1, stagger: 0.22, duration: 0.8}, '-=15%')
-
-      ScrollTrigger.create({
-        trigger: sectionJoin,
-        animation: joinTl,
-        start: "top center",
-      })
-    }
-    
-    function init() {
-      let splitTexts = splitTextToChars();
-
-      const gradMotion = document.getElementById('gradMotion');
-      const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
-      const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
-
-      gsap.set(gradMotionCircle, {
-        motionPath: {
-          path: gradMotionTrack,
-          align: gradMotionTrack,
-        }
-      })
-
-      const gradCircleSettings = [
-        {
-          size: 59.8,
-          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
-        },
-        {
-          size: 59.8,
-          gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
-        },
-        {
-          size: 135.9,
-          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
-        },
-        {
-          size: 135.9,
-          gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
-        },
-        {
-          size: 135.9,
-          gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
-        }
-      ]
-
-      const sections = gsap.utils.toArray([
-        '.cs-section--ix-hero',
-        '.cs-section--ix-sdmo',
-        '.cs-section--ix-carex',
-        '.cs-section--ix-nova',
-        '.cs-section--ix-zerofyx'
-      ]);
-
-      const totalProgress = 1; // how far along the path you want to go
-
-      // gsap.to(gradMotionCircle, {
-      //   motionPath: {
-      //     path: gradMotionTrack,
-      //     align: gradMotionTrack,
-      //     start: 0,
-      //     end: totalProgress
-      //   },
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: sections[0],
-      //     start: "top top",
-      //     onUpdate: (self) => {
-      //       console.log("Trigger:", self.trigger);
-      //       console.log("EndTrigger:", self.vars.endTrigger);
-      //       console.log("Progress:", self.progress);
-      //     },
-      //     endTrigger: sections[sections.length - 1],
-      //     end: "bottom bottom",
-      //     scrub: true
-      //   }
-      // });
-
-      gsap.to(gradMotionCircle, {
-        motionPath: {
-          path: gradMotionTrack,
-          align: gradMotionTrack,
-          alignOrigin: [0.5, 0.5],
-          autoRotate: false,
-          start: 0,
-          end: 1
-        },
-        ease: "none",
-        scrollTrigger: {
-          trigger: sections[0],
-          start: "top top",
-          endTrigger: sections[sections.length - 1],
-          end: "bottom bottom",
-          scrub: true,
-          // markers: true
-        }
-      });
-
-      sections.forEach((section, index) => {
-        const settings = gradCircleSettings[index];
-
-        gsap.to(gradMotionCircle, {
-          width: `${settings.size}rem`,
-          height: `${settings.size}rem`,
-          background: settings.gradient,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top center",
-            end: "bottom center",
-            scrub: true
-          }
-        });
-      });
-      
-      heroAnim(); // Hero Animation
-      sdmoAnim(); // Sdmo Second Section Animation
-      carexAnim(); // CareX Animation
-      novaAnim(); // Nova Animation
-      zerofyxAnim(); // Zerofyx Animation
-      collabAnim(); // Collab Animation
-      joinAnim(); // Join Revolution - Last Section Animation
-    }
-
-    
-
-
-    
-    
-    
-
-    // const min = 1;
-    // const max = 1.5;
-    // let shapes;
-
-    // class Shape {
-    //   constructor(el) {
-    //     this.el = el;
-    //     this.size = el.offsetWidth;
-    //     this.x = random(0, window.innerWidth - this.size);
-    //     this.y = random(0, window.innerHeight - this.size);
-    //     this.vx = random(min, max);
-    //     this.vy = random(min, max);
-    //   }
-    //   boundary() {
-    //     if (this.x >= window.innerWidth - this.size) {
-    //       this.vx *= -1;
-    //       this.x = window.innerWidth - this.size;
-    //     }
-    //     if (this.y >= window.innerHeight - this.size) {
-    //       this.vy *= -1;
-    //       this.y = window.innerHeight - this.size;
-    //     }
-    //     if (this.x <= 0) {
-    //       this.vx *= -1;
-    //       this.x = 0;
-    //     }
-    //     if (this.y <= 0) {
-    //       this.vy *= -1;
-    //       this.y = 0;
-    //     }
-    //   }
-    //   animate() {
-    //     this.x += this.vx;
-    //     this.y += this.vy;
-    //     this.el.style.transform = `translate(${this.x}px,${this.y}px)`;
-    //     this.boundary();
-    //   }
-    // }
-
-    // const random = (min, max) => Math.random() * (max - min) + min;
-
-    // function update() {
-    //   shapes.forEach((shape) => shape.animate());
-    //   requestAnimationFrame(update);
-    // }
-
-    // function initHero() {
-    //   shapes = Array.from(heroBlurCircles, (el) => new Shape(el));
-    //   update();
-    // }
-
-    // window.addEventListener('load', initHero, false);
-  </script>
+  <script src="./main.js"></script>
 </body>
 </html>
