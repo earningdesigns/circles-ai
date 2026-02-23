@@ -31,3 +31,25 @@ function setActiveNavLink() {
 
 // Run after page load
 window.addEventListener("load", setActiveNavLink);
+
+
+function stickyHeaderScroll() {
+  const header = document.querySelector(".cs-header");
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScrollY && currentScroll > 100) {
+      // scrolling DOWN → hide
+      header.classList.add("cs-header--hide");
+    } else {
+      // scrolling UP → show
+      header.classList.remove("cs-header--hide");
+    }
+
+    lastScrollY = currentScroll;
+  });
+}
+
+stickyHeaderScroll();

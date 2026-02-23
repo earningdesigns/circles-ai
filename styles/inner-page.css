@@ -75,9 +75,16 @@ img {
   top: 0;
   left: 0;
   z-index: 500;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+
 }
+
 .cs-header .cs-stripes {
   border-width: 0;
+}
+.cs-header.cs-header--hide {
+  transform: translateY(-5rem);
 }
 .cs-header__container {
   max-width: 1080px;
@@ -93,8 +100,8 @@ img {
   display: flex;
   align-items: center;
   gap: 4.8rem;
-
 }
+
 .cs-header__nav-line {
   position: absolute;
   top: 0;
