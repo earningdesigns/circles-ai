@@ -76,7 +76,7 @@ function heroAnim() {
 
   gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -5})
 
-  blobsAnim();
+  
 
   function brandLetters() {
     const meetCirclesContainer = sectionHero.querySelector('.cs-brand');
@@ -136,6 +136,11 @@ function heroAnim() {
     const linerLine = liner?.querySelector('.cs-liner__line');
     gsap.set(linerLine, {opacity:0})
     gsap.set(linerTrack, {drawSVG: 0})
+    gsap.set(linerLine, {motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          alignOrigin: [0.5, 0.5]
+        }})
 
     const tl = gsap.timeline();
 
@@ -156,23 +161,23 @@ function heroAnim() {
           trigger: sectionHero,
           scrub: true,
           start: "top top",
-          onUpdate: (self) => {
-            // Clamp progress to 30%-60% range (0.3 - 0.6)
-            const startTrigger = 0.3;
-            const endTrigger = 0.6;
+          // onUpdate: (self) => {
+          //   // Clamp progress to 30%-60% range (0.3 - 0.6)
+          //   const startTrigger = 0.3;
+          //   const endTrigger = 0.6;
 
-            // Map the 0.3-0.6 range to 0-1 (for interpolation)
-            let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
-            // Clamp values outside 0-1
-            mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
+          //   // Map the 0.3-0.6 range to 0-1 (for interpolation)
+          //   let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
+          //   // Clamp values outside 0-1
+          //   mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
 
-            // Calculate width (e.g., between 200px and 500px)
-            const minWidth = 50;
-            const maxWidth = 150;
-            const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
+          //   // Calculate width (e.g., between 200px and 500px)
+          //   const minWidth = 50;
+          //   const maxWidth = 150;
+          //   const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
 
-            gsap.set(linerLine, {width: newWidth});
-          }
+          //   gsap.set(linerLine, {width: newWidth});
+          // }
 
         }
       }
@@ -597,7 +602,7 @@ function init() {
   setFoundationBorder();
   window.addEventListener('resize', setFoundationBorder());
   
-  
+  blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
   sdmoAnim(); // Sdmo Second Section Animation
   carexAnim(); // CareX Animation
