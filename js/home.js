@@ -203,62 +203,86 @@ function sdmoAnim() {
   gsap.set(sectionTitle, {opacity: 0, y: 25})
 
   function ccirclesBackdrop () {
-    const ccircles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-    const ctexts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
+    const circles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
+    const texts = sectionSdmo?.querySelectorAll('.cs-ctexts .cs-ctext');
 
-    // const getCirclePathArrays = () => {
-    //   let pathArrays = [];
+    // SVG center
+    const centerX = 583;
+    const centerY = 583;
 
-    //   ccircles.forEach((circle, i) => {
-    //     if (i > 0) {
-    //        pathArrays.push(MotionPathPlugin.convertToPath(circle));
-    //     }
-    //   })
-    //   return pathArrays;
-    // }
-    
-    // const circlePathArrays = getCirclePathArrays();
+    // ------------------------------------
+    // INITIAL SETUP
+    // ------------------------------------
 
-    // circlePathArrays?.forEach((item, i) => {
-    //   gsap.set(ctexts[i], {
-    //     autoAlpha: 0,
-    //     motionPath: {
-    //       path: item[0],
-    //       align: item[0],
-    //       alignOrigin: [0.5, 0.5]
-    //     }
-    //   })
-    // })
+    gsap.set(circles, {
+      opacity: 0,
+      scale: (i) => (i * 0.2) + 0.3,
+      transformOrigin: "50% 50%"
+    });
 
-    gsap.set(ccircles, {opacity: 0, scale: (i, el, list) => {
-      return (i * 0.2) + 0.1
-    }, transformOrigin: '50% 50%'})
+    // Position text at right edge of each circle
+    texts.forEach((text, i) => {
+      const radius = parseFloat(circles[i].getAttribute("r"));
 
-    const tl = gsap.timeline()
+      gsap.set(text, {
+        x: centerX + radius,
+        y: centerY,
+        xPercent: -50,
+        yPercent: -50,
+        autoAlpha: 0
+      });
+    });
 
-    tl.to(ccircles, {opacity: 1, scale: 1, rotation: 360,  duration: 1.5, stagger: 0.3})
-    
-    ccircles.forEach((circle, i) => {
-      let textIndex = i-1;
+    // ------------------------------------
+    // INTRO TIMELINE
+    // ------------------------------------
 
-      console.log(textIndex)
-      // tl.to(circle, {
-      //   rotation: "+=360",
-      //   duration: 16 - i * 2.5, // different speeds
-      //   repeat: -1,
-      //   ease: "none"
-      // }, '<');
-      // if (i > 0) {
-      //   tl.to(ctexts[textIndex], {
-      //     autoAlpha: 1,
-      //     duration: 0.6,
-      //     // motionPath: {
-      //     //   path: circlePathArrays[textIndex][0],
-      //     //   align: circlePathArrays[textIndex][0],
-      //     //   alignOrigin: [0.5, 0.5],
-      //     // }
-      //   },'<')
-      // }
+    const tl = gsap.timeline();
+
+    tl.to(circles, {
+      opacity: 1,
+      scale: 1,
+      rotation: 360,
+      duration: 1.5,
+      stagger: 0.3,
+      ease: "power2.out"
+    })
+    .to(texts, {
+      autoAlpha: 1,
+      duration: 0.8,
+      stagger: 0.2
+    }, "-=1");
+
+    // ------------------------------------
+    // INFINITE ROTATION
+    // ------------------------------------
+
+    tl.add(() => {
+
+      // circles.forEach((circle, i) => {
+
+      //   const duration = 8 + i * 3;
+      //   const direction = i % 2 === 0 ? "+=360" : "-=360";
+
+      //   // Rotate circle
+      //   gsap.to(circle, {
+      //     rotation: direction,
+      //     duration: duration,
+      //     repeat: -1,
+      //     ease: "none",
+      //     transformOrigin: "50% 50%"
+      //   });
+
+      //   // Counter-rotate text so it stays upright
+      //   gsap.to(texts[i], {
+      //     rotation: direction === "+=360" ? "-=360" : "+=360",
+      //     duration: duration,
+      //     repeat: -1,
+      //     ease: "none"
+      //   });
+
+      // });
+
     });
 
     return tl;
@@ -279,10 +303,32 @@ function sdmoAnim() {
 
 function carexAnim() {
   const carexSection = document.querySelector('.cs-section--h-carex');
+  const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
   const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
+  const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
   const carexSlider = carexSection.querySelector('.cs-slider__swiper');
 
+  gsap.set(carexTitle, {opacity: 0})
+  gsap.set([linerTrack, linerSub], {drawSVG: 0})
+
+  ScrollTrigger.create ({
+    trigger: carexSection,
+    start: 'top top',
+    once: true,
+    onEnter: () => {
+      gsap.to(linerTrack, {
+        drawSVG: "100%", 
+        duration: 0.8,
+      })
+      gsap.to(linerSub, {
+        drawSVG: "100%", 
+        duration: 0.8,
+      })
+      gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
+    }
+  })
+  
   gsap.to(linerLine, {
     motionPath: {
       path: linerTrack,
@@ -292,9 +338,10 @@ function carexAnim() {
     },
     scrollTrigger: {
       trigger: carexSection,
-      start: 'top top',
+      start: 'top center',
       scrub: true,
     }
+    
   })
 
   const swiper = new Swiper('.cs-slider__swiper', {
@@ -321,9 +368,28 @@ function carexAnim() {
 function novaAnim () {
   const novaSection = document.querySelector('.cs-section--h-nova');
   const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
+  const linerSub = novaSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
   const novaSlider = novaSection.querySelector('.cs-slider__swiper');
 
+  gsap.set([linerTrack, linerSub], {drawSVG: 0})
+
+  ScrollTrigger.create ({
+    trigger: novaSection,
+    start: 'top top',
+    once: true,
+    onEnter: () => {
+      gsap.to(linerTrack, {
+        drawSVG: "100%", 
+        duration: 0.8,
+      })
+      gsap.to(linerSub, {
+        drawSVG: "100%", 
+        duration: 0.8,
+      })
+    }
+  })
+  
   gsap.to(linerLine, {
     motionPath: {
       path: linerTrack,
@@ -333,9 +399,10 @@ function novaAnim () {
     },
     scrollTrigger: {
       trigger: novaSection,
-      start: 'top top',
+      start: 'top center',
       scrub: true,
     }
+    
   })
 
     const swiper = new Swiper('.cs-slider__swiper', {

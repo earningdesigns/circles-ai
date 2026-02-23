@@ -176,8 +176,6 @@ img {
     }
   }
   
-  &gradcircle {
-  }
 
   &title {
     --cs-title-f-size: 3.6rem;
@@ -345,6 +343,16 @@ img {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6.2rem;
 
+    &:hover {
+      #{$btn} {
+        &__ {
+          &icon svg {
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+
 
     &__ {
       &icon {
@@ -353,12 +361,17 @@ img {
         justify-content: center;
         width: 3.6rem;
         height: 3.6rem;
+        > svg {
+          transform-origin: center center;
+          transition: transform ease 0.24s;
+        }
       }
     }
 
     &--secondary {
       background: rgba(255, 255, 255, 0.1);
       color: #000;
+
   
       #{$btn} {
         &__icon {
@@ -367,7 +380,16 @@ img {
           border-radius: 50%;
 
           svg {
+            transition: transform ease 0.26s;
             transform: rotate(-45deg);
+          }
+        }
+      }
+      
+      &:hover {
+        #{$btn} {
+          &__icon svg {
+            transform: rotate(0deg)
           }
         }
       }
@@ -570,6 +592,7 @@ img {
       width: 12rem;
     }
   }
+  //  Members: ENd
   &companies {
     display: flex;
     flex-direction: column;
@@ -972,17 +995,25 @@ img {
       color: var(--cs-color-black);
       z-index: 15;
 
-      & svg {
+      .swiper-navigation-icon {
         font-size: 2rem;
         width: 50%;
         height: 50%;
+        transition: transform ease 0.24s;
       }
+
     }
     .swiper-button-prev {
       left: 30%;
+      &:hover .swiper-navigation-icon {
+        transform: rotate(180deg) scale(0.9);
+      }
     }
     .swiper-button-next {
       right: 30%;
+      &:hover .swiper-navigation-icon {
+        transform: scale(0.9);
+      }
     }
     .swiper-pagination {
       &-bullet {
@@ -1066,8 +1097,8 @@ img {
 
           &liner {
             position: absolute;
-            top: 35.5%;
-            left: 0;
+            top: 56.5%;
+            left: -5.8%;
 
             &__track {
 
