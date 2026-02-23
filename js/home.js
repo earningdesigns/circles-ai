@@ -13,12 +13,12 @@ function blobsAnim() {
 
     const blobsTl = gsap.timeline({
       // paused: true, // Start paused
-      scrollTrigger: {
-        trigger: '.cs-section--h-hero', // The section containing blobs
-        start: 'top top',         // Animation starts when section reaches the middle of the viewport
-        end: 'bottom top',           // Animation stops when the section leaves the viewport
-        toggleActions: 'play pause resume pause', // Play/pause based on scroll
-      },
+      // scrollTrigger: {
+      //   trigger: '.cs-section--h-hero', // The section containing blobs
+      //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
+      //   end: 'bottom top',           // Animation stops when the section leaves the viewport
+      //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
+      // },
     })
     const animDefaults = {
       repeat: -1,
@@ -51,7 +51,7 @@ function blobsAnim() {
         gsap.to(blob, {
           x: () => coOrd.x,
           y: () => coOrd.y,
-          duration: 12,
+          duration: 8,
           ...animDefaults
         }),
         delay
@@ -59,13 +59,13 @@ function blobsAnim() {
     });
 
     // Add subtle pulsing animation
-    // blobsTl.add(
-    //   gsap.to(blobs, {
-    //     scale: '+=0.05',
-    //     duration: 1,
-    //     ...animDefaults
-    //   })
-    // )
+    blobsTl.add(
+      gsap.to(blobs, {
+        scale: '+=0.05',
+        duration: 1,
+        ...animDefaults
+      })
+    )
   }
 
 function heroAnim() {
@@ -73,9 +73,11 @@ function heroAnim() {
   
   const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
   const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
+  const titleSvg = sectionHero.querySelectorAll('.cs-titlesvg path')
 
-  gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -5})
-
+  gsap.set(sectionHeroTitleChar, {opacity: 0, x: -5})
+  gsap.set(titleSvg,{opacity: 0, x: -5})
+  
   
 
   function brandLetters() {
@@ -189,8 +191,10 @@ function heroAnim() {
   const heroTl = gsap.timeline({ease: "power4.out", });
 
   heroTl
+    .add(blobsAnim())
     .add(brandLetters())
-    .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .8})
+    .to(titleSvg,{x: 0, opacity: 1, stagger: 0.08, duration: .8})
+    .to(sectionHeroTitleChar, {x: 0, opacity: 1, stagger: 0.08, duration: .8})
     .add(liner()) 
     .add(memberAnim())
     .add(companiesAnim())
@@ -259,8 +263,6 @@ function sdmoAnim() {
 
     tl.add(() => {
       circlePaths.forEach((circle, i) => {
-
-        const radius = radiusVal[i];
         const duration = 8 + i * 3;
         const clockwise = i % 2 === 0;
 
@@ -285,7 +287,7 @@ function sdmoAnim() {
       texts.forEach((text, i) => {
 
         gsap.to(text, {
-          duration: 8 + i * 3,
+          duration: 20,
           repeat: -1,
           ease: "none",
           motionPath: {
@@ -294,7 +296,7 @@ function sdmoAnim() {
             alignOrigin: [0.5, 0.5],
             autoRotate: false // keeps text upright
           },
-          direction: i % 2 === 0 ? "normal" : "reverse"
+          direction: i % 3 === 0 ? "normal" : "reverse"
         });
       });
     }, '<')
@@ -323,8 +325,10 @@ function carexAnim() {
   const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
   const carexSlider = carexSection.querySelector('.cs-slider__swiper');
-
-  gsap.set(carexTitle, {opacity: 0})
+  const titleSvg = carexSection.querySelectorAll('.cs-titlesvg path')
+  
+  // gsap.set(titleSvg,{opacity: 0, x: -5})
+  // gsap.set(carexTitle, {opacity: 0})
   gsap.set([linerTrack, linerSub], {drawSVG: 0})
 
   ScrollTrigger.create ({
@@ -340,7 +344,7 @@ function carexAnim() {
         drawSVG: "100%", 
         duration: 0.8,
       })
-      gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
+      // gsap.to(carexTitle, {opacity: 1, duration: 1, stagger: 0.2})
     }
   })
   
@@ -589,27 +593,27 @@ function init() {
   const gradCircleSettings = [
     {
       size: 59.8,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
       size: 59.8,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
-      size: 135.9,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
+      size: 90,
+      gradient: 'linear-gradient(to top, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
     },
     {
-      size: 135.9,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
+      size: 80,
+      gradient: 'linear-gradient(to top, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
     },
     {
-      size: 135.9,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+      size: 80,
+      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
     },
     {
-      size: 135.9,
-      gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
+      size: 80,
+      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
     }
   ]
 
@@ -649,7 +653,7 @@ function init() {
     gsap.to(gradMotionCircle, {
       width: `${settings.size}rem`,
       height: `${settings.size}rem`,
-      background: settings.gradient,
+      // background: settings.gradient,
       ease: "sine.inOut",
       scrollTrigger: {
         trigger: section,
@@ -688,7 +692,7 @@ function init() {
   setFoundationBorder();
   window.addEventListener('resize', setFoundationBorder());
   
-  blobsAnim(); // Hero Blob Animation
+  // blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
   sdmoAnim(); // Sdmo Second Section Animation
   carexAnim(); // CareX Animation

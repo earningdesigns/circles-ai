@@ -14,7 +14,6 @@ $breakpoint-xxl: 1400px;
 :root {
   --cs-base-f-size: 1.6rem;
   --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
-  --cs-head-f-family: "Red Hat Display", sans-serif;
   --cs-color-green: #00F2A1;
   --cs-color-black: #000;
   --cs-color-blue: #194AB8;
@@ -202,12 +201,14 @@ img {
         font-weight: var(--cs-title-hlight-f-weight);
         line-height: var(--cs-title-hlight-line-height);
 
-        background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+        background-color: var(--cs-color-green); /* fallback */
+        background-image: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+        background-image: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         -moz-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
+        // text-fill-color: transparent;
         color: transparent;
         margin-bottom: .8rem;
       }
@@ -435,50 +436,55 @@ img {
   }
   // Grid: End
 
-  &concentric-circles {
-    width: 100%;
-    height: auto;
-  }
+  &concentric {
+    &-circle {
+      fill: none;
+      opacity: 0;
+      transform-origin: 50% 50%;
 
-  &concentric-circle {
-    fill: none;
-    opacity: 0;
-    transform-origin: 50% 50%;
-  }
-
-  &concentric-text {
-    &s {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+      &s {
+        display: block;
+        width: 75dvw;
+        max-width: 120rem;
+        margin: auto;
+      }
     }
-    & {
-      --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+    &-text {
+      &s {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      & {
+        --cs-ctext-bg: rgba(0, 214, 242, 0.8);
 
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: center center;
-      padding: 2rem 2.4rem;
-      background: var(--cs-ctext-bg);
-      border-radius: 2.6rem;
-      font-size: 1.4rem;
-      line-height: 132%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center center;
+        padding: 0.8rem 1.6rem;
+        background: var(--cs-ctext-bg);
+        border-radius: 5rem;
+        font-size: 1.4rem;
+        line-height: 132%;
 
-      &-- {
-        &2 {
-          --cs-ctext-bg: #FF8F33C7;
-        }
+        &-- {
+          &2 {
+            --cs-ctext-bg: #FF8F33C7;
+          }
 
-        &3 {
-          --cs-ctext-bg: #00F2A1B5;
+          &3 {
+            --cs-ctext-bg: #00F2A1B5;
+          }
         }
       }
     }
   }
+
+
   // Concentric Circles Texts: End
 
   &ccircle {
@@ -1047,6 +1053,19 @@ img {
     z-index: 10;
     padding-block: 8rem;
 
+    @media (min-width: $breakpoint-md) {
+      --cs-section-container-width: 88%;
+    }
+    @media (min-width: $breakpoint-lg) {
+      --cs-section-container-width: 98rem;
+    }
+    @media (min-width: $breakpoint-xl) {
+      --cs-section-container-width: 98rem;
+    }
+    @media (min-width: $breakpoint-xxl) {
+      --cs-section-container-width: 118rem;
+    }
+
     &__ {
       &backdrop {
         position: absolute;
@@ -1060,6 +1079,8 @@ img {
         position: relative;
         width: var(--cs-section-container-width);
         margin-inline: auto;
+
+       
       }
 
       &backdrop + &container {
@@ -1075,12 +1096,31 @@ img {
         flex-direction: column;
         justify-content: center;
 
+        #{$section}__{
+          &backdrop {
+            width: var(--cs-section-container-width);
+            margin-inline: auto;
+            right: 0;
+          }
+        }
+
 
         #{$app} {
           &meet-circles {
             display: flex;
             align-items: center;
             gap: 4rem;
+          }
+
+          &titlesvg {
+            margin-bottom: 2.4rem;
+            width: 60vw;
+            margin-inline: auto;
+
+            svg {
+              display: block;
+              width: 100%;
+            }
           }
 
           &brand {
@@ -1111,7 +1151,7 @@ img {
           &liner {
             position: absolute;
             top: 56.5%;
-            left: -5.8%;
+            left: -22rem;
 
             &__track {
 
@@ -1123,8 +1163,6 @@ img {
 
           &title {
             $title: &;
-
-            font-family: var(--cs-head-f-family);
             --cs-title-hlight-f-size: 5rem;
             --cs-title-hlight-f-weight: 700;
             --cs-title-hlight-line-height: 120%;
@@ -1151,12 +1189,19 @@ img {
 
             #{$app}title {
               &__highlight {
-                background: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+                background-image: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+                background-image: -webkit-linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                text-fill-color: transparent;
+                // color: transparent;
                 margin-bottom: 1.2rem;
+                animation: gradientMove 4s ease infinite;
+
+                @keyframes gradientMove {
+                  0% { background-position: 0% 50%; }
+                  100% { background-position: 100% 50%; }
+                }
               }
             }
           }
@@ -1171,14 +1216,6 @@ img {
         justify-content: center;
         
         #{$app} {
-          &concentric {
-            position: relative;
-          }
-          &concentric-circles {
-            display: block;
-            width: 75dvw;
-            margin: auto;
-          }
           &brand {
 
           }
@@ -1199,9 +1236,9 @@ img {
               --cs-title-f-size: 2.8rem;
             }
             @media (min-width: $breakpoint-lg) {
-              --cs-title-f-size: 3.2rem;
             }
             @media (min-width: $breakpoint-xl) {
+              --cs-title-f-size: 3.2rem;
 
             }
 
@@ -1229,7 +1266,50 @@ img {
         
       }
       // SDMO: End
+      &carex, &zerofyx {
+        #{$app} {
+          &grid {
+            --cs-grid-cols: 1;
+            --cs-grid-gap: 3.2rem;
+
+            &__ {
+              &item:first-child {
+                
+              }
+            }
+            @media (min-width: $breakpoint-md) {
+              --cs-grid-gap: 0;
+              &__ {
+                &item:first-child {
+                  
+                }
+              }
+            }
+            @media (min-width: $breakpoint-lg) {
+              --cs-grid-cols: 12;
+              &__ {
+                &item:first-child {
+                  grid-column: 1 / 6;
+                }
+                &item:last-child {
+                  grid-column: 6 / 12;
+                }
+              }
+            }
+            @media (min-width: $breakpoint-xl) {
+              
+            }
+          }
+        }
+      }
       &carex, &nova, &zerofyx {
+        #{$section} {
+          &__backdrop {
+            max-width: var(--cs-section-container-width);
+            margin-inline: auto;
+            right: 0;
+          }
+        }
         #{$app} {
           &title {
             @media (min-width: $breakpoint-md) {
@@ -1279,12 +1359,16 @@ img {
         #{$app} {
           &liner {
             position: absolute;
-            top: 2rem;
-            right: 6.2%;
+            // top: 2rem;
+            // right: 6.2%;
+            top: -1%;
+            right: -11.8%;
 
             @media (min-width: $breakpoint-md) {
-              top: -2.6rem;
-              right: 6.2%;
+              // top: -2.6rem;
+              // right: 6.2%;
+              top: -1%;
+              right: -11.8%;
             }
             @media (min-width: $breakpoint-lg) {
             }
@@ -1307,8 +1391,6 @@ img {
           }
 
           &grid {
-            --cs-grid-cols: 1;
-            --cs-grid-gap: 3.2rem;
             &__ {
               &item:first-child {
                 order: 1
@@ -1328,10 +1410,8 @@ img {
                 &item:first-child {
                   order: 0;
                   width: 100%;
-                  grid-column: 2 / 7;
                 }
                 &item:last-child {
-                  grid-column: 7 / 12;
                 }
               }
             }
@@ -1362,7 +1442,7 @@ img {
           &liner {
             position: absolute;
             top: 0;
-            left: 0%;
+            left: -10rem;
           }
           &hlt-title {
             position: absolute;
@@ -1370,8 +1450,6 @@ img {
           }
 
           &grid {
-            --cs-grid-cols: 1;
-            --cs-grid-gap: 3.2rem;
             
 
             @media (min-width: $breakpoint-md) {
@@ -1385,14 +1463,13 @@ img {
               }
             }
             @media (min-width: $breakpoint-lg) {
-              --cs-grid-cols: 12;
               &__ {
                 &item:first-child {
-                  grid-column: 2 / 7;
+                  grid-column: 2 / 8;
                 }
                 &item:last-child {
                   width: 100%;
-                  grid-column: 7 / 12;
+                  grid-column: 8 / 13;
                 }
               }
             }
@@ -1421,12 +1498,16 @@ img {
         #{$app} {
           &liner {
             position: absolute;
-            top: 12.9rem;
-            right: 6.2%;
+            // top: 12.9rem;
+            // right: 6.2%;
+            top: 7.8rem;
+            right: -4.6rem;
 
             @media (min-width: $breakpoint-md) {
-              top: -2.6rem;
-              right: 6.2%;
+              // top: -2.6rem;
+              // right: 6.2%;
+              top: 7.8rem;
+              right: -4.6rem;
             }
             @media (min-width: $breakpoint-lg) {
             }
@@ -1448,8 +1529,6 @@ img {
             }
           }
           &grid {
-            --cs-grid-cols: 1;
-            --cs-grid-gap: 3.2rem;
 
             &__ {
               &item:first-child {
@@ -1468,15 +1547,12 @@ img {
               }
             }
             @media (min-width: $breakpoint-lg) {
-              --cs-grid-cols: 12;
               &__ {
                 &item:first-child {
                   order: 0;
                   width: 100%;
-                  grid-column: 2 / 7;
                 }
                 &item:last-child {
-                  grid-column: 7 / 12;
                 }
               }
             }
@@ -1510,6 +1586,12 @@ img {
         padding-top: 7.8rem;
 
         #{$app} {
+          &titlesvg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4rem;
+          }
           &title {
             --cs-title-hlight-f-size: 2.8rem;
             --cs-title-hlight-f-weight: 600;

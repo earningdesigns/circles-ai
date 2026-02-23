@@ -8,7 +8,6 @@
 :root {
   --cs-base-f-size: 1.6rem;
   --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
-  --cs-head-f-family: "Red Hat Display", sans-serif;
   --cs-color-green: #00F2A1;
   --cs-color-black: #000;
   --cs-color-blue: #194AB8;
@@ -158,12 +157,14 @@ img {
   font-size: var(--cs-title-hlight-f-size);
   font-weight: var(--cs-title-hlight-f-weight);
   line-height: var(--cs-title-hlight-line-height);
-  background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+  background-color: var(--cs-color-green);
+  /* fallback */
+  background-image: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+  background-image: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   color: transparent;
   margin-bottom: 0.8rem;
 }
@@ -327,14 +328,16 @@ img {
 .cs-grid__item {
   position: relative;
 }
-.cs-concentric-circles {
-  width: 100%;
-  height: auto;
-}
 .cs-concentric-circle {
   fill: none;
   opacity: 0;
   transform-origin: 50% 50%;
+}
+.cs-concentric-circles {
+  display: block;
+  width: 75dvw;
+  max-width: 120rem;
+  margin: auto;
 }
 .cs-concentric-texts {
   position: absolute;
@@ -350,17 +353,17 @@ img {
   top: 0;
   left: 0;
   transform-origin: center center;
-  padding: 2rem 2.4rem;
+  padding: 0.8rem 1.6rem;
   background: var(--cs-ctext-bg);
-  border-radius: 2.6rem;
+  border-radius: 5rem;
   font-size: 1.4rem;
   line-height: 132%;
 }
 .cs-concentric-text--2 {
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: #FF8F33C7;
 }
 .cs-concentric-text--3 {
-  --cs-ctext-bg: #FF8F33C7;
+  --cs-ctext-bg: #00F2A1B5;
 }
 .cs-ccircles {
   position: relative;
@@ -826,6 +829,26 @@ img {
   z-index: 10;
   padding-block: 8rem;
 }
+@media (min-width: 768px) {
+  .cs-section {
+    --cs-section-container-width: 88%;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section {
+    --cs-section-container-width: 98rem;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section {
+    --cs-section-container-width: 98rem;
+  }
+}
+@media (min-width: 1400px) {
+  .cs-section {
+    --cs-section-container-width: 118rem;
+  }
+}
 .cs-section__backdrop {
   position: absolute;
   width: 100%;
@@ -847,10 +870,24 @@ img {
   flex-direction: column;
   justify-content: center;
 }
+.cs-section--h-hero .cs-section__backdrop {
+  width: var(--cs-section-container-width);
+  margin-inline: auto;
+  right: 0;
+}
 .cs-section--h-hero .cs-meet-circles {
   display: flex;
   align-items: center;
   gap: 4rem;
+}
+.cs-section--h-hero .cs-titlesvg {
+  margin-bottom: 2.4rem;
+  width: 60vw;
+  margin-inline: auto;
+}
+.cs-section--h-hero .cs-titlesvg svg {
+  display: block;
+  width: 100%;
 }
 .cs-section--h-hero .cs-brand {
   --cs-brand-width: 70vw;
@@ -882,10 +919,9 @@ img {
 .cs-section--h-hero .cs-liner {
   position: absolute;
   top: 56.5%;
-  left: -5.8%;
+  left: -22rem;
 }
 .cs-section--h-hero .cs-title {
-  font-family: var(--cs-head-f-family);
   --cs-title-hlight-f-size: 5rem;
   --cs-title-hlight-f-weight: 700;
   --cs-title-hlight-line-height: 120%;
@@ -907,12 +943,21 @@ img {
   }
 }
 .cs-section--h-hero .cs-title .cs-title__highlight {
-  background: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+  background-image: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+  background-image: -webkit-linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   margin-bottom: 1.2rem;
+  animation: gradientMove 4s ease infinite;
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 .cs-section--h-sdmo {
   min-height: 100vh;
@@ -920,14 +965,6 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.cs-section--h-sdmo .cs-concentric {
-  position: relative;
-}
-.cs-section--h-sdmo .cs-concentric-circles {
-  display: block;
-  width: 75dvw;
-  margin: auto;
 }
 .cs-section--h-sdmo .cs-title {
   --cs-title-f-size: 2.4rem;
@@ -944,7 +981,7 @@ img {
     --cs-title-f-size: 2.8rem;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .cs-section--h-sdmo .cs-title {
     --cs-title-f-size: 3.2rem;
   }
@@ -960,6 +997,31 @@ img {
   align-items: center;
   width: 100%;
   justify-content: center;
+}
+.cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+  --cs-grid-cols: 1;
+  --cs-grid-gap: 3.2rem;
+}
+@media (min-width: 768px) {
+  .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+    --cs-grid-gap: 0;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+    --cs-grid-cols: 12;
+  }
+  .cs-section--h-carex .cs-grid__item:first-child, .cs-section--h-zerofyx .cs-grid__item:first-child {
+    grid-column: 1/6;
+  }
+  .cs-section--h-carex .cs-grid__item:last-child, .cs-section--h-zerofyx .cs-grid__item:last-child {
+    grid-column: 6/12;
+  }
+}
+.cs-section--h-carex .cs-section__backdrop, .cs-section--h-nova .cs-section__backdrop, .cs-section--h-zerofyx .cs-section__backdrop {
+  max-width: var(--cs-section-container-width);
+  margin-inline: auto;
+  right: 0;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
@@ -1001,13 +1063,13 @@ img {
 }
 .cs-section--h-carex .cs-liner {
   position: absolute;
-  top: 2rem;
-  right: 6.2%;
+  top: -1%;
+  right: -11.8%;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
-    top: -2.6rem;
-    right: 6.2%;
+    top: -1%;
+    right: -11.8%;
   }
 }
 .cs-section--h-carex .cs-hlt-title {
@@ -1018,10 +1080,6 @@ img {
   .cs-section--h-carex .cs-hlt-title {
     top: -20.4rem;
   }
-}
-.cs-section--h-carex .cs-grid {
-  --cs-grid-cols: 1;
-  --cs-grid-gap: 3.2rem;
 }
 .cs-section--h-carex .cs-grid__item:first-child {
   order: 1;
@@ -1039,10 +1097,6 @@ img {
   .cs-section--h-carex .cs-grid__item:first-child {
     order: 0;
     width: 100%;
-    grid-column: 2/7;
-  }
-  .cs-section--h-carex .cs-grid__item:last-child {
-    grid-column: 7/12;
   }
 }
 .cs-section--h-nova {
@@ -1054,15 +1108,11 @@ img {
 .cs-section--h-nova .cs-liner {
   position: absolute;
   top: 0;
-  left: 0%;
+  left: -10rem;
 }
 .cs-section--h-nova .cs-hlt-title {
   position: absolute;
   top: -16rem;
-}
-.cs-section--h-nova .cs-grid {
-  --cs-grid-cols: 1;
-  --cs-grid-gap: 3.2rem;
 }
 @media (min-width: 768px) {
   .cs-section--h-nova .cs-grid__item:last-child {
@@ -1071,15 +1121,12 @@ img {
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-nova .cs-grid {
-    --cs-grid-cols: 12;
-  }
   .cs-section--h-nova .cs-grid__item:first-child {
-    grid-column: 2/7;
+    grid-column: 2/8;
   }
   .cs-section--h-nova .cs-grid__item:last-child {
     width: 100%;
-    grid-column: 7/12;
+    grid-column: 8/13;
   }
 }
 .cs-section--h-zerofyx {
@@ -1090,13 +1137,13 @@ img {
 }
 .cs-section--h-zerofyx .cs-liner {
   position: absolute;
-  top: 12.9rem;
-  right: 6.2%;
+  top: 7.8rem;
+  right: -4.6rem;
 }
 @media (min-width: 768px) {
   .cs-section--h-zerofyx .cs-liner {
-    top: -2.6rem;
-    right: 6.2%;
+    top: 7.8rem;
+    right: -4.6rem;
   }
 }
 .cs-section--h-zerofyx .cs-hlt-title {
@@ -1108,10 +1155,6 @@ img {
     top: -31.5rem;
   }
 }
-.cs-section--h-zerofyx .cs-grid {
-  --cs-grid-cols: 1;
-  --cs-grid-gap: 3.2rem;
-}
 .cs-section--h-zerofyx .cs-grid__item:first-child {
   order: 1;
 }
@@ -1122,16 +1165,9 @@ img {
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-zerofyx .cs-grid {
-    --cs-grid-cols: 12;
-  }
   .cs-section--h-zerofyx .cs-grid__item:first-child {
     order: 0;
     width: 100%;
-    grid-column: 2/7;
-  }
-  .cs-section--h-zerofyx .cs-grid__item:last-child {
-    grid-column: 7/12;
   }
 }
 .cs-section--h-collab .cs-description {
@@ -1155,6 +1191,12 @@ img {
 }
 .cs-section--h-trust {
   padding-top: 7.8rem;
+}
+.cs-section--h-trust .cs-titlesvg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
 }
 .cs-section--h-trust .cs-title {
   --cs-title-hlight-f-size: 2.8rem;
