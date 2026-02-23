@@ -79,9 +79,17 @@
                 </div>
 
                 <!-- YouTube Iframe (Already in HTML, Just Hidden) -->
-                <iframe id="youtubeVideo" class="cs-video-iframe" width="100%" height="100%"
-                 src="https://www.youtube.com/embed/exNaJTLts0w?autoplay=1&mute=1&rel=0&playsinline=1si=uH3vJKOXtzNOICGE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+               <iframe 
+  id="youtubeVideo"
+  class="cs-video-iframe"
+  width="100%"
+  height="100%"
+  src="https://www.youtube.com/embed/exNaJTLts0w?autoplay=1&mute=1&rel=0&playsinline=1&controls=0&loop=1&playlist=exNaJTLts0w"
+  title="Zerofy Demo"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
 
 
               </div>
@@ -322,16 +330,6 @@
   <script>
 
     function pageInit() {
-      //youtube  video         
-      const playBtn = document.getElementById("playBtn");
-      const thumbnail = document.getElementById("thumbnail");
-      const iframe = document.getElementById("youtubeVideo");
-
-      playBtn.addEventListener("click", function () {
-        thumbnail.style.display = "none";
-        iframe.style.display = "block";
-        iframe.src += "&autoplay=1";
-      });
 
       const slider = document.querySelector(".cs-loyalty-slider"); // full section
       const slides = document.querySelectorAll(".cs-slide");
@@ -567,8 +565,6 @@
       }
     }
 
-    // hero slider section
-    document.addEventListener("DOMContentLoaded", pageInit());
   </script>
 </body>
 
