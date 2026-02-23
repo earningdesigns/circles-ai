@@ -783,6 +783,20 @@ img {
   z-index: -1;
 }
 
+.zerofy-blob {
+  position: absolute;
+  width: 650px;
+  height: 700px;
+  top: -255px;
+  left: 752px;
+  background: radial-gradient(    circle at center,    rgb(255 255 255) -41%,    #65FFF2 30%,    rgba(0, 242, 255, 0) 48%  );
+  filter: blur(60px);
+  border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
+  z-index: -1;
+}
+
+
+
 .nova-blob {
   position: absolute;
   width: 750px;
@@ -857,9 +871,10 @@ img {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
-  gap: 60px;
+  
 }
 .cs-loyalty-hero__right {
+  margin-left: -100px;
   width: 100%;
 }
 .cs-loyalty-hero__left {
@@ -1026,20 +1041,7 @@ img {
 .cs-section--loyalty-experience {
   min-height: 0;
   padding: 0px 0 0;
-  background:
-    linear-gradient(
-      to bottom,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0.8) 15%,
-      rgba(255, 255, 255, 0) 35%
-    ),
-    radial-gradient(circle at left, #00f2ff26 15%, rgba(0, 242, 255, 0) 35%),
-    radial-gradient(circle at center, #00f2ff61 12%, rgba(0, 242, 255, 0) 53%),
-    radial-gradient(
-      circle at center,
-      rgb(189 255 163 / 54%) 29%,
-      rgba(0, 242, 255, 0) 51%
-    );
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #bdffa394 18% 14%, rgba(0, 242, 255, 0) 57%), radial-gradient(circle at center, #00f2ff29 12%, rgba(0, 242, 255, 0) 53%), radial-gradient(circle at center, rgb(189 255 163 / 54%) 29%, rgba(0, 242, 255, 0) 51%) !important;
 }
 
 .cs-section--carex-experience {
@@ -1082,14 +1084,14 @@ img {
 
 /* Card Container */
 .cs-experience-card {
-  width: 100%;
+  width: 70%;
   height: 100%;
   margin: 70px auto;
   position: relative;
-  padding: 40px 15px;
+  padding: 0 23px 70px;
   border-radius: 88px;
-  border-color: #8e8ff9 !important;
-  background: transparent;
+  border-color: #8e90f9aa !important;
+  background: transparent !important;
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
 
   border: 1.5px solid;
@@ -1409,6 +1411,9 @@ img {
 }
 
 @media (max-width: 1080px) {
+  .cs-loyalty-hero__right {
+    margin: 0;
+  }
   .cs-section--loyalty-hero {
     padding: 120px 0 120px;
   }
@@ -1437,6 +1442,11 @@ img {
 }
 
 @media (max-width: 767px) {
+
+  .cs-loyalty-hero__right {
+    margin: 0;
+
+  }
   .insight-blob,
   .carex-blob {
     width: 450px;
@@ -1461,6 +1471,9 @@ img {
 }
 
 @media (max-width: 568px) {
+  .cs-loyalty-hero__right {
+    margin: 0;
+  }
   .cs-loyalty-hero__container {
     display: flex;
     flex-direction: column;
@@ -1771,6 +1784,7 @@ img {
 ================================ */
 
 .cs-loyalty-hero__left {
+  margin-top: -100px;
   display: flex;
   flex-direction: column;
 }
@@ -1811,9 +1825,10 @@ img {
 
 /* CARD */
 .cs-experience-card {
+  display: flex;
+  justify-content: center;
   position: relative;
-  margin: 70px auto 0;
-  padding: 80px 40px 120px;
+  margin: 70px auto;
   border-radius: 60px; /* bigger radius */
   border: 1.5px solid rgba(92, 141, 255, 0.4); /* softer border */
   background: radial-gradient(
@@ -1910,7 +1925,7 @@ img {
 /* Mobile */
 @media (max-width: 768px) {
   .cs-experience-card {
-    padding: 60px 20px 110px;
+           padding: 36px 20px 76px;
     border-radius: 40px;
   }
 
