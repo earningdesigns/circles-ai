@@ -780,7 +780,7 @@ img {
     height: 750px;
     top: 100px;
     left: -150px;
-    background: radial-gradient(circle at center, rgb(255 255 255) 0%, rgb(189 255 163 / 26%) 40%, rgba(0, 242, 255, 0) 70%);
+    background: radial-gradient(circle at center, rgb(255 255 255) 0%, rgb(189 255 163 / 71%) 40%, rgba(0, 242, 255, 0) 70%);
     filter: blur(60px);
     border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
     z-index: -1;
