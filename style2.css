@@ -110,8 +110,8 @@ img {
   height: 100%;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(5rem);
-  -webkit-backdrop-filter: blur(5rem);
+  backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem);
   z-index: 5;
 }
 .cs-gradmotion {
@@ -503,7 +503,7 @@ img {
 }
 @media (min-width: 768px) {
   .cs-articles {
-    --cs-articles-grid-cols: 2;
+    --cs-articles-grid-cols: 4;
   }
 }
 @media (min-width: 1200px) {
@@ -520,6 +520,16 @@ img {
   width: min(100%, 30rem);
   height: max(100%, 40rem);
   overflow: hidden;
+}
+@media (min-width: 992px) {
+  .cs-article {
+    padding: 1.2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-article {
+    padding: 3rem;
+  }
 }
 .cs-article:nth-child(even):before, .cs-article:nth-child(even):after {
   content: "";
