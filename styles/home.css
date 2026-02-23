@@ -327,14 +327,15 @@ img {
 .cs-grid__item {
   position: relative;
 }
-.cs-concentric-circles {
-  width: 100%;
-  height: auto;
-}
 .cs-concentric-circle {
   fill: none;
   opacity: 0;
   transform-origin: 50% 50%;
+}
+.cs-concentric-circles {
+  display: block;
+  width: 75dvw;
+  margin: auto;
 }
 .cs-concentric-texts {
   position: absolute;
@@ -350,9 +351,9 @@ img {
   top: 0;
   left: 0;
   transform-origin: center center;
-  padding: 2rem 2.4rem;
+  padding: 0.8rem 1.6rem;
   background: var(--cs-ctext-bg);
-  border-radius: 2.6rem;
+  border-radius: 5rem;
   font-size: 1.4rem;
   line-height: 132%;
 }
@@ -921,17 +922,8 @@ img {
   align-items: center;
   justify-content: center;
 }
-.cs-section--h-sdmo .cs-concentric {
-  position: relative;
-}
-.cs-section--h-sdmo .cs-concentric-circles {
-  display: block;
-  width: 75dvw;
-  margin: auto;
-}
 .cs-section--h-sdmo .cs-title {
   --cs-title-f-size: 2.4rem;
-  --cs-title-line-height: 132%;
   --cs-title-f-weight: 600;
   --cs-title-sub-f-weight: 300;
   --cs-title-sub-f-size: var(--cs-title-f-size);

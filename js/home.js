@@ -259,8 +259,6 @@ function sdmoAnim() {
 
     tl.add(() => {
       circlePaths.forEach((circle, i) => {
-
-        const radius = radiusVal[i];
         const duration = 8 + i * 3;
         const clockwise = i % 2 === 0;
 
@@ -285,7 +283,7 @@ function sdmoAnim() {
       texts.forEach((text, i) => {
 
         gsap.to(text, {
-          duration: 8 + i * 3,
+          duration: 10 + i * 6,
           repeat: -1,
           ease: "none",
           motionPath: {
@@ -294,7 +292,7 @@ function sdmoAnim() {
             alignOrigin: [0.5, 0.5],
             autoRotate: false // keeps text upright
           },
-          direction: i % 2 === 0 ? "normal" : "reverse"
+          direction: i % 3 === 0 ? "normal" : "reverse"
         });
       });
     }, '<')

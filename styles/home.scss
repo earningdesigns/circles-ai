@@ -435,50 +435,54 @@ img {
   }
   // Grid: End
 
-  &concentric-circles {
-    width: 100%;
-    height: auto;
-  }
+  &concentric {
+    &-circle {
+      fill: none;
+      opacity: 0;
+      transform-origin: 50% 50%;
 
-  &concentric-circle {
-    fill: none;
-    opacity: 0;
-    transform-origin: 50% 50%;
-  }
-
-  &concentric-text {
-    &s {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+      &s {
+        display: block;
+        width: 75dvw;
+        margin: auto;
+      }
     }
-    & {
-      --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+    &-text {
+      &s {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      & {
+        --cs-ctext-bg: rgba(0, 214, 242, 0.8);
 
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: center center;
-      padding: 2rem 2.4rem;
-      background: var(--cs-ctext-bg);
-      border-radius: 2.6rem;
-      font-size: 1.4rem;
-      line-height: 132%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center center;
+        padding: 0.8rem 1.6rem;
+        background: var(--cs-ctext-bg);
+        border-radius: 5rem;
+        font-size: 1.4rem;
+        line-height: 132%;
 
-      &-- {
-        &2 {
-          --cs-ctext-bg: #FF8F33C7;
-        }
+        &-- {
+          &2 {
+            --cs-ctext-bg: #FF8F33C7;
+          }
 
-        &3 {
-          --cs-ctext-bg: #00F2A1B5;
+          &3 {
+            --cs-ctext-bg: #00F2A1B5;
+          }
         }
       }
     }
   }
+
+
   // Concentric Circles Texts: End
 
   &ccircle {
@@ -1171,21 +1175,13 @@ img {
         justify-content: center;
         
         #{$app} {
-          &concentric {
-            position: relative;
-          }
-          &concentric-circles {
-            display: block;
-            width: 75dvw;
-            margin: auto;
-          }
           &brand {
 
           }
 
           &title {
             --cs-title-f-size: 2.4rem;
-            --cs-title-line-height: 132%;
+            // --cs-title-line-height: 132%;
             --cs-title-f-weight: 600;
 
             --cs-title-sub-f-weight: 300;
