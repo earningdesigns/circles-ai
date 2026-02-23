@@ -1079,8 +1079,8 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
-    top: 6.5rem;
-    right: -11.8%;
+    top: 8.4rem;
+    right: -15rem;
   }
 }
 @media (min-width: 1200px) {
@@ -1126,6 +1126,18 @@ img {
   position: absolute;
   top: 5.3rem;
   left: -10rem;
+}
+@media (min-width: 768px) {
+  .cs-section--h-nova .cs-liner {
+    top: 3.3rem;
+    left: -12rem;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-nova .cs-liner {
+    top: 6.3rem;
+    left: -12rem;
+  }
 }
 .cs-section--h-nova .cs-hlt-title {
   position: absolute;

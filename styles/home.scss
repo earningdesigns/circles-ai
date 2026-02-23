@@ -1381,8 +1381,11 @@ img {
             @media (min-width: $breakpoint-md) {
               // top: -2.6rem;
               // right: 6.2%;
-              top: 6.5rem;
-              right: -11.8%;
+              // top: 6.5rem;
+              // right: -11.8%;
+
+              top: 8.4rem;
+              right: -15rem;
             }
             @media (min-width: $breakpoint-lg) {
             }
@@ -1459,6 +1462,17 @@ img {
             position: absolute;
             top: 5.3rem;
             left: -10rem;
+
+            @media (min-width: $breakpoint-md) {
+              top: 3.3rem;
+              left: -12rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+            @media (min-width: $breakpoint-xl) {
+              top: 6.3rem;
+              left: -12rem;
+            }
           }
           &hlt-title {
             position: absolute;
