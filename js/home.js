@@ -13,12 +13,12 @@ function blobsAnim() {
 
     const blobsTl = gsap.timeline({
       // paused: true, // Start paused
-      scrollTrigger: {
-        trigger: '.cs-section--h-hero', // The section containing blobs
-        start: 'top top',         // Animation starts when section reaches the middle of the viewport
-        end: 'bottom top',           // Animation stops when the section leaves the viewport
-        toggleActions: 'play pause resume pause', // Play/pause based on scroll
-      },
+      // scrollTrigger: {
+      //   trigger: '.cs-section--h-hero', // The section containing blobs
+      //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
+      //   end: 'bottom top',           // Animation stops when the section leaves the viewport
+      //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
+      // },
     })
     const animDefaults = {
       repeat: -1,
@@ -59,13 +59,13 @@ function blobsAnim() {
     });
 
     // Add subtle pulsing animation
-    // blobsTl.add(
-    //   gsap.to(blobs, {
-    //     scale: '+=0.05',
-    //     duration: 1,
-    //     ...animDefaults
-    //   })
-    // )
+    blobsTl.add(
+      gsap.to(blobs, {
+        scale: '+=0.05',
+        duration: 1,
+        ...animDefaults
+      })
+    )
   }
 
 function heroAnim() {
@@ -77,7 +77,7 @@ function heroAnim() {
 
   gsap.set(sectionHeroTitleChar, {opacity: 0, x: -5})
   gsap.set(titleSvg,{opacity: 0, x: -5})
-
+  
   
 
   function brandLetters() {
@@ -191,6 +191,7 @@ function heroAnim() {
   const heroTl = gsap.timeline({ease: "power4.out", });
 
   heroTl
+    .add(blobsAnim())
     .add(brandLetters())
     .to(titleSvg,{x: 0, opacity: 1, stagger: 0.08, duration: .8})
     .to(sectionHeroTitleChar, {x: 0, opacity: 1, stagger: 0.08, duration: .8})
@@ -689,7 +690,7 @@ function init() {
   setFoundationBorder();
   window.addEventListener('resize', setFoundationBorder());
   
-  blobsAnim(); // Hero Blob Animation
+  // blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
   sdmoAnim(); // Sdmo Second Section Animation
   carexAnim(); // CareX Animation
