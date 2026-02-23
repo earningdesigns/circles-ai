@@ -222,7 +222,7 @@ function sdmoAnim() {
 
     gsap.set(circlePaths, {
       opacity: 0,
-      scale: (i) => (i * 0.2) + 0.3,
+      scale: (i) => (i * 0.3),
       transformOrigin: "50% 50%"
     });
 
@@ -263,7 +263,7 @@ function sdmoAnim() {
 
     tl.add(() => {
       circlePaths.forEach((circle, i) => {
-        const duration = 8 + i * 3;
+        const duration = 20 + i * 3;
         const clockwise = i % 2 === 0;
 
         // Rotate circle
@@ -287,7 +287,7 @@ function sdmoAnim() {
       texts.forEach((text, i) => {
 
         gsap.to(text, {
-          duration: 20,
+          duration: 50,
           repeat: -1,
           ease: "none",
           motionPath: {
