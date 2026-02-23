@@ -29,7 +29,7 @@ function blobsAnim() {
     const randomCoord = () => {
       const marginSpace = 300;
 
-      const x = Math.random() * (window.innerWidth - marginSpace);
+      const x = Math.random() * (window.innerWidth / 2 - marginSpace);
       const y = Math.random() * (window.innerHeight - marginSpace);
 
       return {x: x, y: y}
