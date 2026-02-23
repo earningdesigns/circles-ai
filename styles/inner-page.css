@@ -98,6 +98,7 @@ img {
   text-transform: uppercase;
 }
 .cs-header__brand {
+  
   max-width: 12.4rem;
 }
 .cs-main {
@@ -1180,7 +1181,6 @@ img {
   inset: 0;
   width: 100%;
   height: 100%;
-  display: none;
   border-radius: 28px;
 }
 
@@ -1779,7 +1779,7 @@ img {
   width: 66% !important;
   max-width: 520px !important;
   margin-top: 30px !important;
-  border-radius: 20px !important;
+  border-radius: 27px !important;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12) !important;
 }
 
