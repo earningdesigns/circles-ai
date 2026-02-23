@@ -74,7 +74,7 @@ function heroAnim() {
   const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
   const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
 
-  gsap.set(sectionHeroTitleChar, {autoAlpha: 0, x: -5})
+  gsap.set(sectionHeroTitleChar, {opacity: 0, x: -5})
 
   
 
@@ -190,7 +190,7 @@ function heroAnim() {
 
   heroTl
     .add(brandLetters())
-    .to(sectionHeroTitleChar, {x: 0, autoAlpha: 1, stagger: 0.08, duration: .8})
+    .to(sectionHeroTitleChar, {x: 0, opacity: 1, stagger: 0.08, duration: .8})
     .add(liner()) 
     .add(memberAnim())
     .add(companiesAnim())
