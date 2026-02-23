@@ -1295,6 +1295,50 @@ width: 100%;
 .red {
   background: #F44336;
 }
+
+.right-mobile{
+      border-radius: 35px 35px 0 0;
+    height: 88px;
+    background: aliceblue;
+}
+
+
+/* Logo Wrapper */
+.logo {
+  margin: 5px 20px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.left-logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inner-icon {
+    gap: 20px;
+    display: flex;
+}
+
+/* Text */
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b8cff;
+  letter-spacing: 0.5px;
+}
+.logo-paragraph{
+  font-size: 16px;
+}
+
+
 @media (max-width:1440px){
   .insight-blob, .carex-blob{
     left: 277px;
