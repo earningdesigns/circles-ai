@@ -157,12 +157,14 @@ img {
   font-size: var(--cs-title-hlight-f-size);
   font-weight: var(--cs-title-hlight-f-weight);
   line-height: var(--cs-title-hlight-line-height);
+  background-color: var(--cs-color-green);
+  /* fallback */
+  background: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
   background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   color: transparent;
   margin-bottom: 0.8rem;
 }
@@ -908,9 +910,7 @@ img {
 .cs-section--h-hero .cs-title .cs-title__highlight {
   background: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
   margin-bottom: 1.2rem;
   animation: gradientMove 4s ease infinite;
 }

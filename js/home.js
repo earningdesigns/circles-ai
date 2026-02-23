@@ -283,7 +283,7 @@ function sdmoAnim() {
       texts.forEach((text, i) => {
 
         gsap.to(text, {
-          duration: 10 + i * 6,
+          duration: 20,
           repeat: -1,
           ease: "none",
           motionPath: {
