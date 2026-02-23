@@ -8,7 +8,6 @@
 :root {
   --cs-base-f-size: 1.6rem;
   --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
-  --cs-head-f-family: "Red Hat Display", sans-serif;
   --cs-color-green: #00F2A1;
   --cs-color-black: #000;
   --cs-color-blue: #194AB8;
@@ -358,10 +357,10 @@ img {
   line-height: 132%;
 }
 .cs-concentric-text--2 {
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: #FF8F33C7;
 }
 .cs-concentric-text--3 {
-  --cs-ctext-bg: #FF8F33C7;
+  --cs-ctext-bg: #00F2A1B5;
 }
 .cs-ccircles {
   position: relative;
@@ -886,7 +885,6 @@ img {
   left: -5.8%;
 }
 .cs-section--h-hero .cs-title {
-  font-family: var(--cs-head-f-family);
   --cs-title-hlight-f-size: 5rem;
   --cs-title-hlight-f-weight: 700;
   --cs-title-hlight-line-height: 120%;
