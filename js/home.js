@@ -8,7 +8,7 @@ const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "wo
 
 
 function blobsAnim() {
-    const blobs = document.querySelectorAll('.cs-main .cs-bcircles .cs-bcircle');
+    const blobs = document.querySelectorAll('#homeBlurCircles .cs-bcircle');
     const blobsLimit = blobs.length;
 
     const blobsTl = gsap.timeline({
@@ -694,8 +694,8 @@ function init() {
 
     updateGradient();
   }
-  setFoundationBorder();
-  window.addEventListener('resize', setFoundationBorder());
+  // setFoundationBorder();
+  // window.addEventListener('resize', setFoundationBorder());
 
   ScrollTrigger.create({
     trigger: '.cs-footer',

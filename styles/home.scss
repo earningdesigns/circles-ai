@@ -552,6 +552,7 @@ img {
     &s {
       --cs-bcircles-width: 100%;
       --cs-bcircles-height: 100%;
+      --cs-bcircle-size: 135rem;
 
       position: absolute;
       top: 0;
@@ -563,7 +564,6 @@ img {
     & {
       display: block;
       position: absolute;
-      --cs-bcircle-size: 135rem;
 
       width: var(--cs-bcircle-size);
       height: var(--cs-bcircle-size);
@@ -713,11 +713,13 @@ img {
 
   &article {
     &s {
+      position: relative;
       --cs-articles-grid-cols: 1;
       display: grid;
       gap: 3rem;
       justify-content: center;
       grid-template-columns: repeat(var(--cs-articles-grid-cols), minmax(0, 1fr));
+      z-index: 5;
 
       @media (min-width: $breakpoint-md) {
         --cs-articles-grid-cols: 4;
@@ -750,39 +752,16 @@ img {
       
 
       &:nth-child(even) {
-        &:before, &:after {
+        &:before {
           content: '';
           position: absolute;
-          // mix-blend-mode: ;
-          filter: blur(137.75px);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-        }
-        &:before {
-          width: 16.8rem;
-          height: 16.8rem;
-          top: 22rem;
-          left: 3rem;
-          background: rgba(35, 99, 221, 0.6);
-        }
-        &:after {
-          top: 16rem;
-          left: 1rem;
-          width: 13.6rem;
-          height: 13.6rem;
-          background: rgba(0, 242, 161, 0.44);
-        }
-      }
-
-      &:nth-child(2) {
-        &:before {
-          top: 20rem;
-          left: 8rem;
-        }
-        &:after {
-          top: 14rem;
-          left: 2rem;
-        }
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url('../images/grad-bg.png') 0 0 no-repeat;
+          background-size: cover;
+        } 
       }
 
       &__ {
@@ -824,7 +803,12 @@ img {
     position: relative;
     padding: 3.6rem;
     background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3.2rem;
     width: 100%;
+    // border: 2px solid transparent;
+    // background: linear-gradient(var(--cs-color-blue), var(--cs-color-green)) padding-box, linear-gradient(200deg, #dcdcdc, #ffffff, #cfcfcf) border-box;
+    // transition: 0.4s ease;
 
     @media (min-width: $breakpoint-md) {
       padding: 4rem;
@@ -846,6 +830,7 @@ img {
         left: 0;
         width: 100%;
         height: 100%;
+
         > rect {
           width: var(--cs-foundation-border-rect-width);
           height: var(--cs-foundation-border-rect-height);
@@ -1615,6 +1600,16 @@ img {
         padding-top: 7.8rem;
 
         #{$app} {
+          &bcircle {
+            &s {
+
+            }
+            & {
+              top: -50%;
+              left: -50%;
+              background: radial-gradient(50% at 50%, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
+            }
+          }
           &titlesvg {
             display: flex;
             align-items: center;

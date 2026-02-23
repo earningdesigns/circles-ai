@@ -417,6 +417,7 @@ img {
 .cs-bcircles {
   --cs-bcircles-width: 100%;
   --cs-bcircles-height: 100%;
+  --cs-bcircle-size: 135rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -426,7 +427,6 @@ img {
 .cs-bcircle {
   display: block;
   position: absolute;
-  --cs-bcircle-size: 135rem;
   width: var(--cs-bcircle-size);
   height: var(--cs-bcircle-size);
   border-radius: 50%;
@@ -543,11 +543,13 @@ img {
   }
 }
 .cs-articles {
+  position: relative;
   --cs-articles-grid-cols: 1;
   display: grid;
   gap: 3rem;
   justify-content: center;
   grid-template-columns: repeat(var(--cs-articles-grid-cols), minmax(0, 1fr));
+  z-index: 5;
 }
 @media (min-width: 768px) {
   .cs-articles {
@@ -579,34 +581,15 @@ img {
     padding: 3rem;
   }
 }
-.cs-article:nth-child(even):before, .cs-article:nth-child(even):after {
+.cs-article:nth-child(even):before {
   content: "";
   position: absolute;
-  filter: blur(137.75px);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.cs-article:nth-child(even):before {
-  width: 16.8rem;
-  height: 16.8rem;
-  top: 22rem;
-  left: 3rem;
-  background: rgba(35, 99, 221, 0.6);
-}
-.cs-article:nth-child(even):after {
-  top: 16rem;
-  left: 1rem;
-  width: 13.6rem;
-  height: 13.6rem;
-  background: rgba(0, 242, 161, 0.44);
-}
-.cs-article:nth-child(2):before {
-  top: 20rem;
-  left: 8rem;
-}
-.cs-article:nth-child(2):after {
-  top: 14rem;
-  left: 2rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../images/grad-bg.png") 0 0 no-repeat;
+  background-size: cover;
 }
 .cs-article__image {
   width: 7rem;
@@ -637,6 +620,8 @@ img {
   position: relative;
   padding: 3.6rem;
   background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 3.2rem;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -1216,6 +1201,11 @@ img {
 }
 .cs-section--h-trust {
   padding-top: 7.8rem;
+}
+.cs-section--h-trust .cs-bcircle {
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(50% at 50%, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
 }
 .cs-section--h-trust .cs-titlesvg {
   display: flex;
