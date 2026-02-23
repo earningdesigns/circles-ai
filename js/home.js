@@ -202,15 +202,11 @@ function sdmoAnim() {
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
 
   gsap.set(sectionTitle, {opacity: 0, y: 25})
-  gsap.set(brand, {opacity: 0})
+  gsap.set(brand, {opacity: 0, x: 5})
 
   function ccirclesBackdrop () {
     const circles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
     const texts = sectionSdmo?.querySelectorAll('.cs-concentric-texts .cs-concentric-text');
-
-    // SVG center
-    const centerX = 583;
-    const centerY = 583;
 
     // ------------------------------------
     // INITIAL SETUP
@@ -227,16 +223,17 @@ function sdmoAnim() {
     });
 
     // Position text at right edge of each circle
-    const radiusVal = [582, 416, 263];
-    texts.forEach((text, i) => {
-      const radius = radiusVal[i];
+    const circlePathsLength = circlePaths.length - 1;
 
+    texts.forEach((text, i) => {
       gsap.set(text, {
-        x: centerX + radius,
-        y: centerY,
-        xPercent: -50,
-        yPercent: -50,
-        autoAlpha: 0
+        autoAlpha: 0,
+        motionPath: {
+          path: circlePaths[circlePathsLength - i],
+          align: circlePaths[circlePathsLength - i],
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false // keeps text upright
+        },
       });
     });
 
@@ -254,18 +251,13 @@ function sdmoAnim() {
       stagger: 0.3,
       ease: "power2.out"
     })
-    .to(texts, {
-      autoAlpha: 1,
-      duration: 0.8,
-      stagger: 0.2
-    }, "-=1");
+    
 
     // --------------------------------
     // ORBIT LOGIC
     // --------------------------------
 
     tl.add(() => {
-
       circlePaths.forEach((circle, i) => {
 
         const radius = radiusVal[i];
@@ -283,25 +275,29 @@ function sdmoAnim() {
       });
 
     })
+    tl.to(texts, {
+      autoAlpha: 1,
+      duration: 0.8,
+      stagger: 0.2
+    }, "-=1");
     tl.add(()=> {
       // Animate text along circle paths
       texts.forEach((text, i) => {
-        gsap.set(text, { autoAlpha: 1 });
 
         gsap.to(text, {
           duration: 8 + i * 3,
           repeat: -1,
           ease: "none",
           motionPath: {
-            path: circlePaths[i],
-            align: circlePaths[i],
+            path: circlePaths[circlePathsLength - i],
+            align: circlePaths[circlePathsLength - i],
             alignOrigin: [0.5, 0.5],
             autoRotate: false // keeps text upright
           },
           direction: i % 2 === 0 ? "normal" : "reverse"
         });
       });
-    })
+    }, '<')
 
     return tl;
   }
@@ -309,9 +305,9 @@ function sdmoAnim() {
   const sdmoTl = gsap.timeline()
 
   sdmoTl
-    .to(brand, {opacity: 1, duration: 0.6, stagger: 0.2})
-    .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1})
+    .to(brand, {opacity: 1, x: 0, duration: 0.6, stagger: 0.2})
     .add(ccirclesBackdrop())
+    .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1}, '-=50%')
 
   ScrollTrigger.create({
     animation: sdmoTl,
@@ -610,6 +606,10 @@ function init() {
     {
       size: 135.9,
       gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+    },
+    {
+      size: 135.9,
+      gradient: 'radial-gradient(50% 50% at 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
     }
   ]
 
@@ -618,32 +618,11 @@ function init() {
     '.cs-section--h-sdmo',
     '.cs-section--h-carex',
     '.cs-section--h-nova',
-    '.cs-section--h-zerofyx'
+    '.cs-section--h-zerofyx',
+    '.cs-section--h-collab'
   ]);
 
   const totalProgress = 1; // how far along the path you want to go
-
-  // gsap.to(gradMotionCircle, {
-  //   motionPath: {
-  //     path: gradMotionTrack,
-  //     align: gradMotionTrack,
-  //     start: 0,
-  //     end: totalProgress
-  //   },
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: sections[0],
-  //     start: "top top",
-  //     onUpdate: (self) => {
-  //       console.log("Trigger:", self.trigger);
-  //       console.log("EndTrigger:", self.vars.endTrigger);
-  //       console.log("Progress:", self.progress);
-  //     },
-  //     endTrigger: sections[sections.length - 1],
-  //     end: "bottom bottom",
-  //     scrub: true
-  //   }
-  // });
 
   gsap.to(gradMotionCircle, {
     motionPath: {
@@ -661,7 +640,6 @@ function init() {
       endTrigger: sections[sections.length - 1],
       end: "bottom bottom",
       scrub: true,
-      // markers: true
     }
   });
 
@@ -672,12 +650,12 @@ function init() {
       width: `${settings.size}rem`,
       height: `${settings.size}rem`,
       background: settings.gradient,
-      ease: "none",
+      ease: "sine.inOut",
       scrollTrigger: {
         trigger: section,
         start: "top center",
         end: "bottom center",
-        scrub: true
+        scrub: 2
       }
     });
   });
