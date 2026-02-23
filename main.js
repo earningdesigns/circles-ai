@@ -1,5 +1,5 @@
 // Register GSAP plugins by reference (plugin objects), not by string names
-gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin);
+gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
 document.addEventListener("DOMContentLoaded", init)
 
@@ -123,50 +123,54 @@ function heroAnim() {
     const liner = sectionHero?.querySelector(".cs-liner");
     const linerTrack = liner?.querySelector('.cs-liner__track');
     const linerLine = liner?.querySelector('.cs-liner__line');
-    gsap.set([linerTrack, linerLine], {opacity:0})
+    gsap.set(linerLine, {opacity:0})
+    gsap.set(linerTrack, {drawSVG: 0})
 
     const tl = gsap.timeline();
 
-    tl.to([linerTrack, linerLine], {opacity: 1})
-    tl.to(linerLine, {
-      motionPath: {
-        path: linerTrack,
-        align: linerTrack,
-        autoRotate: true,
-        alignOrigin: [0.5, 0.5],
-        start: 0.036
+    tl
+      .to(linerTrack, {duration: 1.2, drawSVG: "100%"})
+      .to(linerLine, {opacity: 1})
+      .to(linerLine, {
+        motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          autoRotate: true,
+          alignOrigin: [0.5, 0.5],
+          start: 0.036
 
-      },
-      transformOrigin: "50% 50%",
-      scrollTrigger: {
-        trigger: sectionHero,
-        scrub: true,
-        start: "top top",
-        onUpdate: (self) => {
-          // Clamp progress to 30%-60% range (0.3 - 0.6)
-          const startTrigger = 0.3;
-          const endTrigger = 0.6;
+        },
+        transformOrigin: "50% 50%",
+        scrollTrigger: {
+          trigger: sectionHero,
+          scrub: true,
+          start: "top top",
+          onUpdate: (self) => {
+            // Clamp progress to 30%-60% range (0.3 - 0.6)
+            const startTrigger = 0.3;
+            const endTrigger = 0.6;
 
-          // Map the 0.3-0.6 range to 0-1 (for interpolation)
-          let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
-          // Clamp values outside 0-1
-          mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
+            // Map the 0.3-0.6 range to 0-1 (for interpolation)
+            let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
+            // Clamp values outside 0-1
+            mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
 
-          // Calculate width (e.g., between 200px and 500px)
-          const minWidth = 50;
-          const maxWidth = 150;
-          const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
+            // Calculate width (e.g., between 200px and 500px)
+            const minWidth = 50;
+            const maxWidth = 150;
+            const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
 
-          gsap.set(linerLine, {width: newWidth});
+            gsap.set(linerLine, {width: newWidth});
+          }
+
         }
-
       }
-    })
+    )
 
     return tl;
   }
   
-  const heroTl = gsap.timeline({ease: "power4.in", });
+  const heroTl = gsap.timeline({ease: "power4.out", });
 
   heroTl
     .add(brandLetters())
@@ -438,7 +442,7 @@ function joinAnim () {
   joinTl
     .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
     .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
-    .to(joinSteps, {y: 0, opacity: 1, stagger: 0.22, duration: 0.8}, '-=15%')
+    .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
 
   ScrollTrigger.create({
     trigger: sectionJoin,
@@ -525,7 +529,7 @@ function init() {
       start: 0,
       end: 1
     },
-    ease: "none",
+    ease: "power2.inOut",
     scrollTrigger: {
       trigger: sections[0],
       start: "top top",
@@ -581,10 +585,6 @@ function init() {
   setFoundationBorder();
   window.addEventListener('resize', setFoundationBorder());
   
-
-
-
-
   
   heroAnim(); // Hero Animation
   sdmoAnim(); // Sdmo Second Section Animation
@@ -594,63 +594,3 @@ function init() {
   collabAnim(); // Collab Animation
   joinAnim(); // Join Revolution - Last Section Animation
 }
-
-
-
-
-
-
-
-
-// const min = 1;
-// const max = 1.5;
-// let shapes;
-
-// class Shape {
-//   constructor(el) {
-//     this.el = el;
-//     this.size = el.offsetWidth;
-//     this.x = random(0, window.innerWidth - this.size);
-//     this.y = random(0, window.innerHeight - this.size);
-//     this.vx = random(min, max);
-//     this.vy = random(min, max);
-//   }
-//   boundary() {
-//     if (this.x >= window.innerWidth - this.size) {
-//       this.vx *= -1;
-//       this.x = window.innerWidth - this.size;
-//     }
-//     if (this.y >= window.innerHeight - this.size) {
-//       this.vy *= -1;
-//       this.y = window.innerHeight - this.size;
-//     }
-//     if (this.x <= 0) {
-//       this.vx *= -1;
-//       this.x = 0;
-//     }
-//     if (this.y <= 0) {
-//       this.vy *= -1;
-//       this.y = 0;
-//     }
-//   }
-//   animate() {
-//     this.x += this.vx;
-//     this.y += this.vy;
-//     this.el.style.transform = `translate(${this.x}px,${this.y}px)`;
-//     this.boundary();
-//   }
-// }
-
-// const random = (min, max) => Math.random() * (max - min) + min;
-
-// function update() {
-//   shapes.forEach((shape) => shape.animate());
-//   requestAnimationFrame(update);
-// }
-
-// function initHero() {
-//   shapes = Array.from(heroBlurCircles, (el) => new Shape(el));
-//   update();
-// }
-
-// window.addEventListener('load', initHero, false);
