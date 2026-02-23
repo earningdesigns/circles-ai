@@ -198,9 +198,11 @@ function heroAnim() {
 
 function sdmoAnim() {
   const sectionSdmo = document.querySelector('.cs-section--h-sdmo');
+  const brand = sectionSdmo.querySelectorAll('.cs-brand svg path');
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
 
   gsap.set(sectionTitle, {opacity: 0, y: 25})
+  gsap.set(brand, {opacity: 0})
 
   function ccirclesBackdrop () {
     const circles = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
@@ -291,6 +293,7 @@ function sdmoAnim() {
   const sdmoTl = gsap.timeline()
 
   sdmoTl
+    .to(brand, {opacity: 1, duration: 0.6, stagger: 0.2})
     .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1})
     .add(ccirclesBackdrop())
 
@@ -486,8 +489,8 @@ function collabAnim() {
 
     const tl = gsap.timeline();
     tl
-      .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duration: 0.8})
-      .to(bcircles, {opacity: 1, x: 0, duration: 0.6})
+      .to(collabConnect, {opacity: 1, scale: 1, rotation: 360, duration: 0.4})
+      .to(bcircles, {opacity: 1, x: 0, duration: 0.6}, '<')
       .to(bopenai, {opacity: 1, x: 0, duration: 0.6}, '<')
 
     return tl;
@@ -502,8 +505,8 @@ function collabAnim() {
   collabTl
     .add(collabConnect())
     .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
-    .to(description, {y: 0, opacity: 1, duration: 0.6})
-    .to(articles, {x: 0, opacity: 1, stagger: 0.3, duration: 0.6})
+    .to(description, {y: 0, opacity: 1, duration: 0.6}, '-=80%')
+    .to(articles, {x: 0, opacity: 1, stagger: 0.18, duration: 0.6})
 
   ScrollTrigger.create({
     trigger: sectionCollab,
