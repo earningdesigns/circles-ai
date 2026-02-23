@@ -202,8 +202,8 @@ img {
         line-height: var(--cs-title-hlight-line-height);
 
         background-color: var(--cs-color-green); /* fallback */
-        background: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
-        background: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+        background-image: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+        background-image: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         -moz-text-fill-color: transparent;
@@ -1088,6 +1088,17 @@ img {
             gap: 4rem;
           }
 
+          &titlesvg {
+            margin-bottom: 1.6rem;
+            width: 60vw;
+            margin-inline: auto;
+
+            svg {
+              display: block;
+              width: 100%;
+            }
+          }
+
           &brand {
             --cs-brand-width: 70vw;
 
@@ -1154,9 +1165,10 @@ img {
 
             #{$app}title {
               &__highlight {
-                background: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+                background-image: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+                background-image: -webkit-linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
                 -webkit-background-clip: text;
-                // -webkit-text-fill-color: transparent;
+                -webkit-text-fill-color: transparent;
                 background-clip: text;
                 // color: transparent;
                 margin-bottom: 1.2rem;
