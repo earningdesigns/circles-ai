@@ -41,7 +41,7 @@
     <!-- CUSTOMER LOYALTY HERO -->
     <section class="cs-section cs-section--loyalty-hero">
       <div class="cs-loyalty-bg"></div>
-      <div class="cs-blob carex-blob"></div>
+      <div class="cs-blob zerofy-blob"></div>
 
       <div class="cs-section__container cs-loyalty-hero__container">
 
@@ -81,12 +81,7 @@
 
                 <!-- YouTube Iframe (Already in HTML, Just Hidden) -->
                 <iframe id="youtubeVideo" class="cs-video-iframe" width="100%" height="100%"
-                  src="https://www.youtube.com/embed/exNaJTLts0w?autoplay=1&mute=1&rel=0&playsinline=1si=1HDYgOPCA34pD1pm" title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                 src="https://www.youtube.com/embed/uJse-dLCRi8?autoplay=1&mute=1&rel=0&playsinline=1si=U14YPDJNgAEZYvuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 
@@ -180,10 +175,6 @@
         <h2 class="cs-loyalty-section-title">
           Dive Into ZerofyX Experience
         </h2>
-
-        <p class="cs-loyalty-section-desc">
-          Know how ZerofyX keeps customers engaged through personalized rewards and seamless bill savings.
-        </p>
 
         <!-- Experience Card -->
         <div class="cs-experience-card">
@@ -311,6 +302,8 @@
       slider.addEventListener("touchmove", (e) => moveDrag(e.touches[0].clientX));
       slider.addEventListener("touchend", endDrag);
     }
+
+    document.addEventListener("DOMContentLoaded", pageInit);
 
   </script>
 </body>
