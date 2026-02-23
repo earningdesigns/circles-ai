@@ -1122,6 +1122,9 @@ img {
   flex-direction: column;
   align-items: center;
 }
+.cs-section--h-nova .cs-section__container {
+  margin-top: 8.8rem;
+}
 .cs-section--h-nova .cs-liner {
   position: absolute;
   top: 5.3rem;
@@ -1129,13 +1132,13 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-nova .cs-liner {
-    top: 3.3rem;
+    top: 9.3rem;
     left: -12rem;
   }
 }
 @media (min-width: 1200px) {
   .cs-section--h-nova .cs-liner {
-    top: 6.3rem;
+    top: 12.3rem;
     left: -12rem;
   }
 }
