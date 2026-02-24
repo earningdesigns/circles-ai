@@ -331,13 +331,16 @@ img {
   }
 
   &liner {
+    --cs-liner-width: 60rem;
+    width: 100%;
+    height: auto;
+    max-width: var(--cs-liner-width);
+
     &__line {
       // fill: linear-gradient(90deg, #00ffa2, #00d4ff);
       // filter: drop-shadow(0 0 6px #00ffa2);
       transition: filter 0.3s ease;
 
-      
-      
       &:hover {
         // filter: drop-shadow(0 0 10px #00ffa2) drop-shadow(0 0 30px #00d4ff);
         filter: url(#glow);
@@ -678,7 +681,9 @@ img {
   &partners-members {
     margin-top: 16rem;
     justify-content: space-between;
-    // flex-direction: column;
+    width: 96%;
+    margin-left: auto;
+    // margin-inline: auto;
     align-items: center;
     @media (min-width: $breakpoint-md) {
       gap: 4rem;
@@ -714,7 +719,7 @@ img {
       overflow: hidden;
     }
     @media (min-width: $breakpoint-lg) {
-      max-width: 70rem;
+      max-width: 65rem;
     }
     @media (min-width: $breakpoint-xl) {
     }
@@ -1254,7 +1259,8 @@ img {
 
       &container {
         position: relative;
-        width: var(--cs-section-container-width);
+        width: 100%;
+        max-width: var(--cs-section-container-width);
         margin-inline: auto;
 
        
@@ -1268,10 +1274,21 @@ img {
     // Section: Modifiers 
     &--h- {
       &hero {
-        min-height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        min-height: 100dvh;
+        padding-bottom: 0;
+
+        @media (min-width: $breakpoint-md) {
+          --cs-section-container-width: 94%;
+        }
+        @media (min-width: $breakpoint-lg) {
+          --cs-section-container-width: 98rem;
+        }
+        @media (min-width: $breakpoint-xl) {
+          // --cs-section-container-width: 94%;
+        }
 
         #{$section}__{
           &backdrop {
@@ -1280,7 +1297,6 @@ img {
             right: 0;
           }
         }
-
 
         #{$app} {
           &meet-circles {
@@ -1330,12 +1346,17 @@ img {
             top: 56.5%;
             left: -16rem;
 
+            --cs-liner-width: 60rem;
+
             @media (min-width: $breakpoint-md) {
-              max-width: 96vw;
+              --cs-liner-width: 23.1em;
+              top: 62.5%;
+              left: 2%;
             }
             @media (min-width: $breakpoint-lg) {
             }
             @media (min-width: $breakpoint-xl) {
+              --cs-liner-width: 60rem;
             }
 
 
