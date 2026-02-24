@@ -260,6 +260,12 @@ img {
   margin-block: 3rem 2rem;
   background: #595959;
 }
+.cs-liner {
+  --cs-liner-width: 60rem;
+  width: 100%;
+  height: auto;
+  max-width: var(--cs-liner-width);
+}
 .cs-liner__line {
   transition: filter 0.3s ease;
 }
@@ -496,6 +502,8 @@ img {
 .cs-partners-members {
   margin-top: 16rem;
   justify-content: space-between;
+  width: 96%;
+  margin-left: auto;
   align-items: center;
 }
 @media (min-width: 768px) {
@@ -531,7 +539,7 @@ img {
 }
 @media (min-width: 992px) {
   .cs-companies {
-    max-width: 70rem;
+    max-width: 65rem;
   }
 }
 .cs-companies__text {
@@ -951,17 +959,29 @@ img {
 }
 .cs-section__container {
   position: relative;
-  width: var(--cs-section-container-width);
+  width: 100%;
+  max-width: var(--cs-section-container-width);
   margin-inline: auto;
 }
 .cs-section__backdrop + .cs-section__container {
   z-index: 10;
 }
 .cs-section--h-hero {
-  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-height: 100dvh;
+  padding-bottom: 0;
+}
+@media (min-width: 768px) {
+  .cs-section--h-hero {
+    --cs-section-container-width: 94%;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-hero {
+    --cs-section-container-width: 98rem;
+  }
 }
 .cs-section--h-hero .cs-section__backdrop {
   width: var(--cs-section-container-width);
@@ -1013,10 +1033,18 @@ img {
   position: absolute;
   top: 56.5%;
   left: -16rem;
+  --cs-liner-width: 60rem;
 }
 @media (min-width: 768px) {
   .cs-section--h-hero .cs-liner {
-    max-width: 96vw;
+    --cs-liner-width: 23.1em;
+    top: 62.5%;
+    left: 2%;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-hero .cs-liner {
+    --cs-liner-width: 60rem;
   }
 }
 .cs-section--h-hero .cs-title {
