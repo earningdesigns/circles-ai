@@ -121,7 +121,7 @@ img {
   top: -.8rem;
 
   height: 1px;
-  background-color: var(--cs-color-blue);
+  background-color: #79797991;
 }
 
 .cs-header__link {
@@ -134,7 +134,7 @@ img {
 }
 
 .cs-header__brand {
-  /* position: fixed; */
+  position: absolute;
   top: 4rem;
   right: 4%;
   max-width: 12.4rem;
