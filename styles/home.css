@@ -34,6 +34,10 @@ img {
   height: auto;
 }
 
+svg {
+  shape-rendering: geometricPrecision;
+}
+
 .t-center {
   text-align: center !important;
 }
@@ -517,6 +521,12 @@ img {
     flex-direction: row;
   }
 }
+@media (min-width: 1200px) {
+  .cs-partners-members {
+    width: 118rem;
+    margin-inline: auto;
+  }
+}
 .cs-members {
   display: flex;
   gap: 1.8rem;
@@ -995,8 +1005,10 @@ img {
 }
 .cs-section--h-hero .cs-titlesvg {
   margin-bottom: 2.4rem;
-  width: 60vw;
+  max-width: 60vw;
   margin-inline: auto;
+  display: flex;
+  justify-content: center;
 }
 .cs-section--h-hero .cs-titlesvg svg {
   display: block;
@@ -1377,7 +1389,16 @@ img {
 }
 .cs-section--h-trust {
   padding-top: 7.8rem;
-  --cs-section-container-width: 94%;
+}
+@media (min-width: 768px) {
+  .cs-section--h-trust {
+    --cs-section-container-width: 94%;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-trust {
+    --cs-section-container-width: 118rem;
+  }
 }
 .cs-section--h-trust .cs-bcircle {
   top: -50%;
@@ -1435,8 +1456,9 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-join .cs-liner {
-    top: -23%;
-    left: 32%;
+    top: -19rem;
+    left: 35%;
+    --cs-liner-width: 7em;
   }
 }
 .cs-section--h-join .cs-brand {

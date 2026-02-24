@@ -1,7 +1,6 @@
 // Register GSAP plugins by reference (plugin objects), not by string names
 gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
-
 gsap.ticker.lagSmoothing(0);
 
 ScrollTrigger.config({
@@ -11,11 +10,6 @@ ScrollTrigger.config({
 
 ScrollTrigger.normalizeScroll(true);
 
-const ease = {smooth: 'expo.out', natural: 'power1.inOut', fluid: 'power3.inOut'};
-
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
 document.addEventListener("DOMContentLoaded", init)
 
 // Split All Headlines
@@ -23,7 +17,7 @@ const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "wo
 
 
 function blobsAnim() {
-  const blobs = $$('#homeBlurCircles .cs-bcircle');
+  const blobs = document.querySelectorAll('#homeBlurCircles .cs-bcircle');
   const blobsLimit = blobs.length;
   const animDefaults = {
     repeat: -1,
@@ -184,21 +178,38 @@ function horizontalLoop(items, config) {
 }
 
 function heroAnim() {
-  const sectionHero = $('.cs-section--h-hero');
+  const sectionHero = document.querySelector('.cs-section--h-hero');
   
   const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
+  // const sectionHeroTitleChar = sectionHeroTitle?.querySelectorAll('.char');
   const titleSvg = sectionHero.querySelectorAll('.cs-titlesvg')
-  const meetCirclesContainer = sectionHero.querySelector('.cs-brand');
-  const members = sectionHero.querySelector('.cs-members');
-  const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
-  const companies = sectionHeroCompanies?.querySelectorAll('.cs-company');
 
-  gsap.set(meetCirclesContainer, {y: -25, opacity: 0})
-  gsap.set(titleSvg,{opacity: 0, y: -25});
   gsap.set(sectionHeroTitle, {opacity: 0, y: -25})
-  gsap.set(members, {opacity: 0})
-  gsap.set(sectionHeroCompanies, {opacity: 0})
+  gsap.set(titleSvg,{opacity: 0, x: -5});
 
+ 
+  
+  
+
+  function brandLetters() {
+    const meetCirclesContainer = sectionHero.querySelector('.cs-brand');
+    const brandLettersSymbols = meetCirclesContainer.querySelectorAll('.cs-brand__symbol');
+    const brandLetters = meetCirclesContainer.querySelectorAll('.cs-brand__letter');
+  
+
+    // gsap.set(brandLettersSymbols, {x: -30, opacity: 0})
+    // gsap.set(brandLetters, {x: 5, rotateX: -30, opacity: 0})
+    gsap.set(meetCirclesContainer, {y: 30, opacity: 0})
+
+    const tl = gsap.timeline();
+
+    tl
+      // .to(brandLettersSymbols, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24 })
+      // .to(brandLetters, {x: 0, duration: 0.4, rotateX: 0, opacity: 1, stagger: 0.16})
+      .to(meetCirclesContainer, {opacity: 1, y: 0, duration: 1.6})
+
+    return tl;
+  }
 
   function liner() {
     const linerLineWidthRange = {min: 50, max: 80};
@@ -206,15 +217,18 @@ function heroAnim() {
     const liner = sectionHero?.querySelector(".cs-liner");
     const linerTrack = liner?.querySelector('.cs-liner__track');
     const linerLine = liner?.querySelector('.cs-liner__line');
-
     gsap.set(linerLine, {opacity:0})
-    gsap.set(linerTrack, {opacity: 0, drawSVG: "60%"})
-    gsap.set(linerLine, {motionPath: { path: linerTrack, align: linerTrack, alignOrigin: [0.5, 0.5] }})
+    gsap.set(linerTrack, {drawSVG: 0})
+    gsap.set(linerLine, {motionPath: {
+          path: linerTrack,
+          align: linerTrack,
+          alignOrigin: [0.5, 0.5]
+        }})
 
-    const tl = gsap.timeline({ease: ease.fluid});
+    const tl = gsap.timeline();
 
     tl
-      .to(linerTrack, {opacity: 1, duration: 2, drawSVG: "100%"})
+      .to(linerTrack, {duration: 0.8, drawSVG: "100%"})
       .to(linerLine, {opacity: 1})
       .to(linerLine, {
         motionPath: {
@@ -255,13 +269,26 @@ function heroAnim() {
     return tl;
   }
 
+  const members = sectionHero.querySelector('.cs-members');
+  const memberTitle = members?.querySelector('.cs-members__text');
+  const member = members?.querySelector('.cs-member');
+  
+  gsap.set([memberTitle, member], {opacity: 0})
+  
+
+  const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
+  const sectionHeroCompanyTitle = sectionHero?.querySelector('.cs-companies .cs-companies__text');
+  const sectionHeroCompaniesList = sectionHeroCompanies?.querySelectorAll('.cs-company');
+  
+  gsap.set([sectionHeroCompanyTitle, sectionHeroCompaniesList], {opacity: 0, x: -20})
+
+  const companies = document.querySelectorAll(".cs-section--h-hero .cs-companies .cs-company");
   const companiesTl = horizontalLoop(companies, {
     repeat: -1,
     speed: 0.4,
     draggable: true,
     paddingRight: parseFloat(gsap.getProperty(companies[1], "marginRight", "px"))
-  });
-
+  }) 
   companies.forEach(company => {
     company.addEventListener("mouseenter", () => gsap.to(companiesTl, {timeScale: 0, overwrite: true}));
     company.addEventListener("mouseleave", () => gsap.to(companiesTl, {timeScale: 1, overwrite: true}));
@@ -277,32 +304,30 @@ function heroAnim() {
       companiesTl.pause();
     }
   }
-
   window.addEventListener('load', toggleCompaniesAnim)
   window.addEventListener('scroll', toggleCompaniesAnim)
 
  
-  const heroTl = gsap.timeline({ease: ease.smooth, });
+  const heroTl = gsap.timeline({ease: "power4.out", });
 
   heroTl
-    .to(meetCirclesContainer, {opacity: 1, y: 0, duration: 1.6})
-    .to(titleSvg,{x: 0, opacity: 1, duration: .8})
-    .to(sectionHeroTitle, {y: 0, opacity: 1, duration: .8})
-
-    .to(members, {duration: 0.6,opacity: 1})
-    .to(sectionHeroCompanies, {opacity: 1}, '-=0.3')
+    .add(brandLetters())
+    .to(titleSvg,{x: 0, opacity: 1, stagger: 0.08, duration: .8})
+    .to(sectionHeroTitle, {y: 0, opacity: 1, stagger: 0.08, duration: .8})
+    .to([memberTitle, member], {duration: 0.6, stagger: 0.1,opacity: 1})
+    .to(sectionHeroCompanyTitle, {opacity: 1, x: 0, duration: .48})
+    .to(sectionHeroCompaniesList, {opacity: 1}, '-=0.3')
     .add(liner())
 }
-// Hero Anim: End
 
 function sdmoAnim() {
-  const sectionSdmo = $('.cs-section--h-sdmo');
-  const brand = sectionSdmo.querySelectorAll('.cs-brand');
+  const sectionSdmo = document.querySelector('.cs-section--h-sdmo');
+  const brand = sectionSdmo.querySelectorAll('.cs-brand svg path');
   const circlesContainer = sectionSdmo.querySelector('.cs-concentric');
   
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
-  const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
+  const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title .word'))
 
   gsap.set(sectionTitle, {opacity: 0, y: 25})
   gsap.set(brand, {opacity: 0, x: 5})
@@ -350,10 +375,10 @@ function sdmoAnim() {
     //   });
     // });
 
-  const sdmoTl = gsap.timeline({ease: ease.smooth})
+  const sdmoTl = gsap.timeline()
 
   sdmoTl
-    .to(brand, {opacity: 1, x: 0, duration: 0.6})
+    .to(brand, {opacity: 1, x: 0, duration: 0.6, stagger: 0.2})
     .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
     .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
     .to(texts, {
@@ -380,7 +405,7 @@ function sdmoAnim() {
     // .to(circles, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
     // .to(ccircles, {opacity: 1, duration: 1, repeat: -1})
     
-    .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')
+    .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8, stagger: 0.1}, '-=50%')
 
   ScrollTrigger.create({
     animation: sdmoTl,
@@ -390,7 +415,7 @@ function sdmoAnim() {
 }
 
 function carexAnim() {
-  const carexSection = $('.cs-section--h-carex');
+  const carexSection = document.querySelector('.cs-section--h-carex');
   const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
   const hltTitle = carexSection?.querySelector('.cs-hlt-title');
   const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
@@ -425,7 +450,7 @@ function carexAnim() {
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     },
-    ease: ease.fluid,
+    ease: "none",
     scrollTrigger: {
       trigger: carexSection,
       start: "top center+=100", // start AFTER intro visually
@@ -460,7 +485,7 @@ function carexAnim() {
 }
 
 function novaAnim () {
-  const novaSection = $('.cs-section--h-nova');
+  const novaSection = document.querySelector('.cs-section--h-nova');
   const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
   const linerSub = novaSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
@@ -487,7 +512,7 @@ function novaAnim () {
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     },
-    ease: ease.fluid,
+    ease: "none",
     scrollTrigger: {
       trigger: novaSection,
       start: "top center+=100", // start AFTER intro visually
@@ -522,7 +547,7 @@ function novaAnim () {
 }
 
 function zerofyxAnim() {
-  const zerofyxSection = $('.cs-section--h-zerofyx');
+  const zerofyxSection = document.querySelector('.cs-section--h-zerofyx');
   const linerTrack = zerofyxSection?.querySelector('.cs-liner .cs-liner__track')
   const linerLine = zerofyxSection?.querySelector('.cs-liner .cs-liner__line')
   const zerofyxSlider = zerofyxSection.querySelector('.cs-slider__swiper');
@@ -544,7 +569,7 @@ function zerofyxAnim() {
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     },
-    ease: ease.fluid,
+    ease: "none",
     scrollTrigger: {
       trigger: zerofyxSection,
       start: "top center+=100", // start AFTER intro visually
@@ -579,7 +604,7 @@ function zerofyxAnim() {
 }
 
 function collabAnim() {
-  const sectionCollab = $('.cs-section--h-collab');
+  const sectionCollab = document.querySelector('.cs-section--h-collab');
   const title = sectionCollab?.querySelectorAll('.cs-title .word');
   
   const description = sectionCollab.querySelector('.cs-description');
@@ -609,7 +634,7 @@ function collabAnim() {
   gsap.set(description, {opacity: 0, y: 10})
   gsap.set(articles, {opacity: 0, x: -30})
 
-  const collabTl = gsap.timeline({ease: ease.smooth});
+  const collabTl = gsap.timeline();
   collabTl
     .add(collabConnect())
     .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
@@ -624,7 +649,7 @@ function collabAnim() {
 }
 
 function trustAnim() {
-  const sectionJoin = $('.cs-section--h-trust');
+  const sectionJoin = document.querySelector('.cs-section--h-trust');
   const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
   const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
   
@@ -632,7 +657,7 @@ function trustAnim() {
   gsap.set(joinSteps, {opacity: 0, y: 40});
   gsap.set(titleSvg, {y: 20, opacity: 0})
 
-  const trustTl = gsap.timeline({ease: ease.smooth});
+  const trustTl = gsap.timeline();
   trustTl
     .to(titleSvg, {y: 0, opacity: 1, duration: 0.8})
     .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
@@ -645,9 +670,9 @@ function trustAnim() {
 }
 
 function joinAnim () {
-  const sectionJoin = $('.cs-section--h-join');
+  const sectionJoin = document.querySelector('.cs-section--h-join');
   const brand = sectionJoin?.querySelector('.cs-brand');
-  const title = sectionJoin?.querySelectorAll('.cs-title');
+  const title = sectionJoin?.querySelectorAll('.cs-title .word');
   const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
 
   gsap.set(brand, {opacity: 0, scale: 0.5, rotation: 180})
@@ -694,7 +719,7 @@ function joinAnim () {
   //   }
   // });
 
-  const joinTl = gsap.timeline({ease: ease.smooth});
+  const joinTl = gsap.timeline();
   joinTl
     .to(linerTrack, { drawSVG: "100%", duration: 0.4 })
     .to(linerLine, {
@@ -811,7 +836,7 @@ function init() {
   // });
 
   function setFoundationBorder() {
-    const foundation = $('.cs-section--h-trust .cs-foundation');
+    const foundation = document.querySelector('.cs-section--h-trust .cs-foundation');
     const foundationBorder = foundation.querySelector('.cs-foundation__border');
 
     
@@ -854,7 +879,7 @@ function init() {
     }
   })
 
-  const swipers = $$(".swiper");
+  const swipers = document.querySelectorAll(".swiper");
 
   const swiperInstances = [];
 
