@@ -485,19 +485,19 @@ function novaAnim () {
   const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
   const novaSlider = novaSection.querySelector('.cs-slider__swiper');
 
-  gsap.set([linerTrack, linerSub], {drawSVG: 0})
+  // gsap.set([linerTrack, linerSub], {drawSVG: 0})
 
-  const introTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: novaSection,
-      start: "top 80%",
-      once: true,
-    }
-  });
+  // const introTl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: novaSection,
+  //     start: "top 80%",
+  //     once: true,
+  //   }
+  // });
 
-  introTl
-    .to(linerTrack, { drawSVG: "100%", duration: 1 })
-    .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+  // introTl
+  //   .to(linerTrack, { drawSVG: "100%", duration: 1 })
+  //   .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
 
   gsap.to(linerLine, {
     motionPath: {
@@ -547,14 +547,14 @@ function zerofyxAnim() {
   const zerofyxSlider = zerofyxSection.querySelector('.cs-slider__swiper');
 
   
-    gsap.to(
-      linerTrack, { drawSVG: "100%", duration: 1,
-      scrollTrigger: {
-        trigger: zerofyxSection,
-        start: "top 80%",
-        once: true,
-      }
-    });
+    // gsap.to(
+    //   linerTrack, { drawSVG: "100%", duration: 1,
+    //   scrollTrigger: {
+    //     trigger: zerofyxSection,
+    //     start: "top 80%",
+    //     once: true,
+    //   }
+    // });
 
     gsap.to(linerLine, {
     motionPath: {
