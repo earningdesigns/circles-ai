@@ -947,7 +947,7 @@ img {
 }
 @media (min-width: 1400px) {
   .cs-section {
-    --cs-section-container-width: 118rem;
+    --cs-section-container-width: 118rem !important;
   }
 }
 .cs-section__backdrop {
