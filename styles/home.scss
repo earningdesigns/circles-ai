@@ -861,16 +861,21 @@ img {
           // color: #FFFFFF;
           margin-bottom: 1.6rem;
           z-index: 1;
+
+          /* End-to-End AI Integration, Not Bolted on */
+
         }
         &description {
           position: relative;
           font-weight: 500;
           line-height: 156%;
+          font-size: 1.6rem;
           /* or 25px */
           letter-spacing: -0.01em;
           // color: #FFFFFF;
           opacity: 0.7;
           z-index: 1;
+
         }
       }
     }
@@ -891,11 +896,6 @@ img {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
-    // border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.12); /* glass effect */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     // color: white;
     font-size: 20px;
     border: 1px solid transparent;
@@ -907,7 +907,7 @@ img {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 20px;
+      border-radius: 3.2rem;
       padding: 1px;
       background: linear-gradient(135deg, var(--cs-color-blue), var(--cs-color-green));
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -984,7 +984,7 @@ img {
 
         @media (min-width: $breakpoint-md) {
           gap: 3.8rem; 
-          --cs-foundation-list-grid-cols: 2;
+          --cs-foundation-list-grid-cols: 4;
         }
         @media (min-width: $breakpoint-lg) {
         }
@@ -1031,6 +1031,7 @@ img {
         line-height: 156%;
         /* or 25px */
         letter-spacing: -0.01em;
+        font-size: 1.6rem;
         opacity: 0.7;
       }
     }
@@ -1761,6 +1762,7 @@ img {
       }
       // zerofyx: End
       &collab {
+        --cs-section-container-width: 94%;
         #{$app} {
           &description {
             margin-inline: auto;
@@ -1781,6 +1783,7 @@ img {
       // Circles Collab: End
       &trust {
         padding-top: 7.8rem;
+        --cs-section-container-width: 94%;
 
         #{$app} {
           &bcircle {
