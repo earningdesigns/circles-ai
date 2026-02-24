@@ -421,7 +421,7 @@ function carexAnim() {
   // gsap.set(titleSvg,{opacity: 0, x: -5})
   // gsap.set(carexTitle, {opacity: 0})
   gsap.set(hltTitle, {opacity: 0})
-  gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
+  // gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
   const introTl = gsap.timeline({
     scrollTrigger: {
       trigger: carexSection,
@@ -432,8 +432,8 @@ function carexAnim() {
 
   introTl
     .to(hltTitle, {opacity: 1, duration: 0.8})
-    .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
-    .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+    // .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
+    // .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
 
   
 

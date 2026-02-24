@@ -947,7 +947,7 @@ img {
 }
 @media (min-width: 1400px) {
   .cs-section {
-    --cs-section-container-width: 118rem !important;
+    --cs-section-container-width: 118rem;
   }
 }
 .cs-section__backdrop {
@@ -1206,8 +1206,9 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
-    top: 2.4rem;
-    right: -15rem;
+    --cs-liner-width: 22em;
+    top: 1.2rem;
+    right: -2.56%;
   }
 }
 @media (min-width: 1200px) {
@@ -1261,8 +1262,9 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-nova .cs-liner {
+    --cs-liner-width: min(19em, 87rem);
     top: 4.3rem;
-    left: -12rem;
+    left: -0.8%;
   }
 }
 @media (min-width: 1200px) {
@@ -1274,6 +1276,11 @@ img {
 .cs-section--h-nova .cs-hlt-title {
   position: absolute;
   top: -22rem;
+}
+@media (min-width: 768px) {
+  .cs-section--h-nova .cs-hlt-title {
+    left: 17%;
+  }
 }
 @media (min-width: 768px) {
   .cs-section--h-nova .cs-grid__item:last-child {
@@ -1311,8 +1318,9 @@ img {
 }
 @media (min-width: 768px) {
   .cs-section--h-zerofyx .cs-liner {
-    top: 8.7rem;
-    right: -4.6rem;
+    top: 7.8rem;
+    right: -1%;
+    --cs-liner-width: 23em;
   }
 }
 @media (min-width: 1200px) {
