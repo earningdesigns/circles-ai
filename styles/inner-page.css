@@ -1513,6 +1513,19 @@ a.cs-btn.loyalty-demo-btn {
     
 }
 
+.cs-fixed-message {
+  position: fixed;
+  bottom: 3.5rem;
+  width: 100%;
+  left: 0;
+  font-weight: 500;
+  font-size: 1rem;
+  /* identical to box height, or 16px */
+  text-align: center;
+  color: #A0A0A0;
+  z-index: 10;
+}
+
 @media (max-width: 1440px) {
   .cs-section--loyalty-hero{
     padding: 140px 0 80px;
@@ -1529,6 +1542,10 @@ a.cs-btn.loyalty-demo-btn {
 }
 
 @media (max-width: 1080px) {
+   .cs-hero-footer{
+    top: 57% !important;
+    
+  }
   .cs-dots {
   right: 30px;
 }
@@ -1572,6 +1589,13 @@ a.cs-btn.loyalty-demo-btn {
 }
 
 @media (max-width: 820px) {
+  .cs-header__nav-line{
+    left:384px;
+  }
+   .cs-hero-footer{
+    top: 52% !important;
+    
+  }
   .cs-header__nav {
 gap: 2.8rem;
 }
@@ -2178,7 +2202,7 @@ gap: 2.8rem;
 ================================ */
 
 .cs-hero-footer {
-  top: 82%;
+  top: 89%;
   position: fixed;
   justify-self: center;
   text-align: center;
@@ -2316,6 +2340,7 @@ gap: 2.8rem;
 }
 
 @media (max-width: 1080px) {
+ 
   .cs-slider-wrapper {
     width: 100%;
     min-height: 460px;
