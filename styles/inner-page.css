@@ -1983,6 +1983,7 @@ gap: 2.8rem;
   .experience-block {
     height: auto;
     max-width: 100%;
+    width: 100%;
   }
 }
 /* -----------------------------
