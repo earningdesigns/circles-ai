@@ -431,6 +431,9 @@ function carexAnim() {
       start: "top center+=100", // start AFTER intro visually
       end: "bottom center",
       scrub: 1,
+      onScurbComplete: () => {
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      }
     }
   });
 }
