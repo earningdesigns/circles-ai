@@ -671,6 +671,7 @@ img {
 }
 .cs-foundation {
   position: relative;
+  z-index: 10;
   padding: 3.6rem;
   border-radius: 3.2rem;
   width: 100%;
@@ -1296,6 +1297,11 @@ img {
 .cs-section--h-collab {
   --cs-section-container-width: 94%;
 }
+.cs-section--h-collab .cs-title {
+  --cs-title-f-size: 2.2rem;
+  --cs-title-f-weight: 600;
+  --cs-title-line-height: 124%;
+}
 .cs-section--h-collab .cs-description {
   margin-inline: auto;
   margin-bottom: 4.8rem;
@@ -1303,11 +1309,6 @@ img {
 @media (min-width: 768px) {
   .cs-section--h-collab .cs-description {
     width: 70%;
-  }
-}
-@media (min-width: 992px) {
-  .cs-section--h-collab .cs-description {
-    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -1364,6 +1365,17 @@ img {
     --cs-title-hlight-f-size: 3.6rem;
   }
 }
+.cs-section--h-join .cs-liner {
+  position: absolute;
+  top: -10%;
+  left: 25%;
+}
+@media (min-width: 768px) {
+  .cs-section--h-join .cs-liner {
+    top: -23%;
+    left: 32%;
+  }
+}
 .cs-section--h-join .cs-brand {
   display: block;
   width: 16rem;
@@ -1382,11 +1394,6 @@ img {
 }
 .cs-section--h-join .cs-title {
   margin-bottom: 10rem;
-}
-.cs-section--h-join .cs-liner {
-  position: absolute;
-  top: -10%;
-  left: 25%;
 }
 .cs-footer {
   --cs-footer-container-width: 90%;

@@ -661,6 +661,7 @@ function trustAnim() {
   const sectionJoin = document.querySelector('.cs-section--h-trust');
   const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
   const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
+  
 
   gsap.set(joinSteps, {opacity: 0, y: 40});
   gsap.set(titleSvg, {y: 20, opacity: 0})
@@ -687,8 +688,60 @@ function joinAnim () {
   gsap.set(joinSteps, {opacity: 0, y: 40});
   gsap.set(title, {y: 20, opacity: 0})
 
+  const linerTrack = sectionJoin?.querySelector('.cs-liner .cs-liner__track')
+  const linerLine = sectionJoin?.querySelector('.cs-liner .cs-liner__line')
+
+  gsap.set(linerTrack, {drawSVG: 0})
+  gsap.set(linerLine, {
+    opacity: 0,
+    motionPath: {
+      path: linerTrack,
+      align: linerTrack,
+      autoRotate: true,
+      alignOrigin: [0.5, 0.5]
+    }})
+
+  // const introTl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: sectionJoin,
+  //     start: "top 80%",
+  //     once: true,
+  //   }
+  // });
+
+  // introTl
+    
+
+  // gsap.to(linerLine, {
+  //   motionPath: {
+  //     path: linerTrack,
+  //     align: linerTrack,
+  //     autoRotate: true,
+  //     alignOrigin: [0.5, 0.5]
+  //   },
+  //   ease: "none",
+  //   scrollTrigger: {
+  //     trigger: sectionJoin,
+  //     start: "top center+=100", // start AFTER intro visually
+  //     end: "bottom center",
+  //     scrub: 1,
+  //   }
+  // });
+
   const joinTl = gsap.timeline();
   joinTl
+    .to(linerTrack, { drawSVG: "100%", duration: 0.4 })
+    .to(linerLine, {
+      opacity: 1,
+      duration: 1,
+    motionPath: {
+      path: linerTrack,
+      align: linerTrack,
+      start: 0.15,
+      end: 1,
+      autoRotate: true,
+      alignOrigin: [0.5, 0.5]
+    }}, '<')
     .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
     .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
     .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
