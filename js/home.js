@@ -353,6 +353,10 @@ function sdmoAnim() {
     gsap.set(circlePaths, {
       transformOrigin: "50% 50%"
     });
+    gsap.set(texts, {
+    opacity: 0,
+      
+    });
 
     const tl = gsap.timeline();
 
