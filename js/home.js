@@ -356,18 +356,18 @@ function sdmoAnim() {
 
     const tl = gsap.timeline();
 
-    texts.forEach((text, i) => {
-      gsap.set(text, {
-        opacity: 0,
-        motionPath: {
-          path: circlePaths[i],
-          align: circlePaths[i],
-          alignOrigin: [0.5, 0.5],
+    // texts.forEach((text, i) => {
+    //   gsap.set(text, {
+    //     opacity: 0,
+    //     motionPath: {
+    //       path: circlePaths[i],
+    //       align: circlePaths[i],
+    //       alignOrigin: [0.5, 0.5],
           
-          autoRotate: false // keeps text upright
-        },
-      });
-    });
+    //       autoRotate: false // keeps text upright
+    //     },
+    //   });
+    // });
 
   const sdmoTl = gsap.timeline()
 
