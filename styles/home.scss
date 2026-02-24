@@ -437,8 +437,8 @@ img {
   }
 
   &grid {
-    --cs-grid-cols: 12;
-    --cs-grid-gap: 0;
+    --cs-grid-cols: 1;
+    --cs-grid-gap: 3.2rem;
 
     display: grid;
     gap: var(--cs-grid-gap);
@@ -448,6 +448,15 @@ img {
 
     &__item {
       position: relative;
+    }
+
+    @media (min-width: $breakpoint-md) {
+    }
+    @media (min-width: $breakpoint-lg) {
+      --cs-grid-cols: 12;
+      --cs-grid-gap: 0;
+    }
+    @media (min-width: $breakpoint-xl) {
     }
   }
   // Grid: End
@@ -1451,6 +1460,13 @@ img {
           }
         }
         #{$app} {
+          &bcircle {
+            & {
+              top: -25%;
+              right: -55%;
+              background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.2) 48.8%, rgba(97, 255, 218, 0) 100%);
+            }
+          }
           &liner {
             position: absolute;
             // top: 2rem;
@@ -1504,7 +1520,6 @@ img {
               }
             }
             @media (min-width: $breakpoint-lg) {
-              --cs-grid-cols: 12;
               &__ {
                 &item:first-child {
                   order: 0;
@@ -1536,6 +1551,14 @@ img {
           }
         }
         #{$app} {
+          &bcircle {
+            & {
+              // --cs-bcircle-size: 110vw;
+              top: -22%;
+              left: -60%;
+              background: radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.2) 48.8%, rgba(0, 242, 255, 0) 100%);
+            }
+          }
           &liner {
             position: absolute;
             top: 5.3rem;
@@ -1558,8 +1581,6 @@ img {
           }
 
           &grid {
-            
-
             @media (min-width: $breakpoint-md) {
               &__ {
                 &item:first-child {
