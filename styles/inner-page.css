@@ -2429,7 +2429,7 @@ gap: 2.8rem;
   height: 36px;
   border-radius: 50%;
   border: none;
-
+  background: unset;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2452,3 +2452,31 @@ gap: 2.8rem;
   color:rgba(32, 32, 32, 1) ;
 }
 
+.tab-slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-slider {
+  overflow: hidden;
+  flex: 1;
+  cursor: grab;
+}
+
+.button-track {
+  display: flex;
+  gap: 12px; /* spacing between buttons */
+  transition: transform 0.35s cubic-bezier(.25,.8,.25,1);
+  will-change: transform;
+}
+
+.inner-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.tab-arrow.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
