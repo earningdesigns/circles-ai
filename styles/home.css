@@ -139,6 +139,26 @@ svg {
   right: 2.8rem;
   z-index: 20;
 }
+.cs-hand-icon {
+  cursor: pointer;
+  z-index: 999;
+  animation: floatHand 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.cs-hand-icon.down {
+  transform: rotate(180deg);
+}
+
+.cs-hand-icon.up {
+  transform: rotate(0deg);
+}
+
+@keyframes floatHand {
+  0% { translate: 0 0; }
+  50% { translate: 0 -12px; }
+  100% { translate: 0 0; }
+}
 .cs-gradmotion {
   position: absolute;
   top: 65vh;
