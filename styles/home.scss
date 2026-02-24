@@ -569,7 +569,8 @@ img {
       height: var(--cs-bcircle-size);
       border-radius: 50%;
       background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
-
+      filter: blur(3rem);
+      -webkit-filter: blur(3rem);
     }
     &-- {
       &1 {
@@ -735,12 +736,12 @@ img {
       z-index: 5;
 
       @media (min-width: $breakpoint-md) {
+        gap: 0rem;
         --cs-articles-grid-cols: 4;
       }
       @media (min-width: $breakpoint-lg) {
       }
       @media (min-width: $breakpoint-xl) {
-        gap: 0;
         --cs-articles-grid-cols: 4;
       }
     }
@@ -757,11 +758,12 @@ img {
       @media (min-width: $breakpoint-md) {
       }
       @media (min-width: $breakpoint-lg) {
-        padding: 1.2rem;
-        padding-bottom: 2.4rem;
+        padding: 1.8rem;
+        padding-bottom: 3.6rem;
       }
       @media (min-width: $breakpoint-xl) {
         padding: 3rem;
+        padding-bottom: 4.8rem;
       }
       
 
@@ -1609,7 +1611,9 @@ img {
             & {
               top: 0;
               right: -80%;
-              background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0) 100%);
+              filter: blur(1rem); /* keep 0 for crisp neon edge */
+              -webkit-filter: blur(1rem); /* keep 0 for crisp neon edge */
+              background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0.1) 50%, rgba(255, 0, 196, 0) 100%);
             }
           }
           &liner {
@@ -1708,12 +1712,11 @@ img {
 
             }
             & {
-              // --cs-bcircle-size: 100rem;
+              // --cs-bcircle-size: 110vw;
               top: -50%;
-              left: -20%;
+              left: -40%;
+              background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.5) 0%, rgba(43, 0, 255, 0.2) 45%, rgba(43, 0, 255, 0) 100%);
 
-              // background: radial-gradient(circle at top bottom, rgba(101,255,242, .75) 0%, rgba(43, 0, 255, 0) 100%);
-              background: radial-gradient(50% 50% at 50% 50%, rgba(101,255,242,0.75) 0%, rgba(43, 0, 255, 0) 100%);
             }
           }
           &titlesvg {

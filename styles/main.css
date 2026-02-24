@@ -222,6 +222,50 @@ img {
   display: grid;
   grid-template-columns: repeat(var(--cs-grid-cols), minmax(0, 1fr));
 }
+.cs-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  font-size: 1.2rem;
+  line-height: 150%;
+  text-decoration: none;
+  padding-block: 0.4rem;
+  padding-inline: 2.4rem 0.4rem;
+  color: #fff;
+  background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6.2rem;
+}
+.cs-btn:hover .cs-btn__icon svg {
+  transform: translateX(3px);
+}
+.cs-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+}
+.cs-btn__icon > svg {
+  transform-origin: center center;
+  transition: transform ease 0.24s;
+}
+.cs-btn--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #000;
+}
+.cs-btn--secondary .cs-btn__icon {
+  background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+}
+.cs-btn--secondary .cs-btn__icon svg {
+  transition: transform ease 0.26s;
+  transform: rotate(-45deg);
+}
+.cs-btn--secondary:hover .cs-btn__icon svg {
+  transform: rotate(0deg);
+}
 .cs-bcircles {
   --cs-bcircles-width: 100%;
   --cs-bcircles-height: 100%;
