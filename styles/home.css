@@ -16,6 +16,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -147,11 +148,11 @@ svg {
 }
 
 .cs-hand-icon.down {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 
 .cs-hand-icon.up {
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }
 
 @keyframes floatHand {
