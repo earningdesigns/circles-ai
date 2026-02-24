@@ -1976,7 +1976,7 @@ gap: 2.8rem;
   }
 
   .dual-experience {
-    flex-direction: column;
+    flex-direction: row;
     gap: 40px;
   }
 
