@@ -71,7 +71,7 @@ img {
 
 .cs-header {
   --cs-header-container-width: 94%;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -82,11 +82,19 @@ img {
 
 .cs-header .cs-stripes {
   border-width: 0;
+  transition: transform 0.3s ease;
+}
+.cs-header .cs-stripes,
+.cs-header .cs-header__nav {
+  transition: transform 0.4s ease;
+}
+.cs-header.cs-header--hide .cs-header__nav,
+.cs-header.cs-header--hide .cs-stripes{
+  transform: translateY(-15rem);
+  transition: transform 0.24s ease;
+
 }
 
-.cs-header.cs-header--hide {
-  transform: translateY(-5rem);
-}
 
 .cs-header__container {
   max-width: 1080px;
@@ -103,6 +111,7 @@ img {
   display: flex;
   align-items: center;
   gap: 4.8rem;
+  transition: transform 0.3s ease;
 }
 
 .cs-header__nav-line {
@@ -127,7 +136,9 @@ img {
     top: 4rem;
     right: 4%;
     max-width: 12.4rem;
+
 }
+
 
 
 .cs-main {

@@ -311,6 +311,10 @@ img {
     }
   }
 
+  &titlesvg {
+    margin-bottom: 2.4rem;
+  }
+
   &line {
     width: 9.6rem;
     height: 1px;
@@ -318,28 +322,20 @@ img {
     background: #595959;
   }
 
-  &dotline {
-    display: block;
-    position: relative;
-    width: 1rem;
-    height: 1rem;
-    background: var(--cs-color-blue);
-    border-radius: 50%;
-    margin-block: 3rem 2rem; 
+  &liner {
+    &__line {
+      // fill: linear-gradient(90deg, #00ffa2, #00d4ff);
+      // filter: drop-shadow(0 0 6px #00ffa2);
+      transition: filter 0.3s ease;
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: .5rem;
-      bottom: 0;
-      margin-block: auto;
-      width: 4.4rem;
-      height: 1px;
-      background: #dfdfdf;
+      
+      
+      &:hover {
+        // filter: drop-shadow(0 0 10px #00ffa2) drop-shadow(0 0 30px #00d4ff);
+        filter: url(#glow);
+      }
     }
   }
-  // Dot Line: End
 
   &btn {
     $btn: &;
@@ -674,7 +670,7 @@ img {
   &partners-members {
     margin-top: 16rem;
     justify-content: space-between;
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
     @media (min-width: $breakpoint-md) {
       gap: 4rem;
@@ -693,8 +689,6 @@ img {
       gap: 1.8rem;
       flex-direction: column;
       flex-shrink: 0;
-      
-      
     }
     & {
       width: 12rem;
@@ -705,15 +699,14 @@ img {
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
-    align-items: center;
     
 
     @media (min-width: $breakpoint-md) {
-      max-width: 70rem;
+      max-width: 45rem;
       overflow: hidden;
     }
     @media (min-width: $breakpoint-lg) {
-      align-items: flex-start;
+      max-width: 70rem;
     }
     @media (min-width: $breakpoint-xl) {
     }
@@ -793,20 +786,20 @@ img {
     &s {
       position: relative;
       --cs-articles-grid-cols: 1;
-      display: grid;
+      display: flex;
       gap: 3rem;
       justify-content: center;
-      grid-template-columns: repeat(var(--cs-articles-grid-cols), minmax(0, 1fr));
+      
       z-index: 5;
 
       @media (min-width: $breakpoint-md) {
         gap: 0rem;
-        --cs-articles-grid-cols: 4;
+        // --cs-articles-grid-cols: 4;
       }
       @media (min-width: $breakpoint-lg) {
       }
       @media (min-width: $breakpoint-xl) {
-        --cs-articles-grid-cols: 4;
+        // --cs-articles-grid-cols: 4;
       }
     }
 
@@ -816,6 +809,7 @@ img {
       flex-direction: column;
       padding: 3rem;
       width: min(100%, 30rem);
+      
       // height: max(100%, 40rem);
       overflow: hidden;
 
@@ -828,6 +822,21 @@ img {
       @media (min-width: $breakpoint-xl) {
         padding: 3rem;
         padding-bottom: 4.8rem;
+      }
+
+      &:nth-child(odd) {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+      }
+
+      &:first-child {
+        border-right-width: 0;
+        border-top-left-radius: 3.2rem;
+        border-bottom-left-radius: 3.2rem;
+      }
+      &:last-child {
+        border-left-width: 0;
+        border-top-right-radius: 3.2rem;
+        border-bottom-right-radius: 3.2rem;
       }
       
 
@@ -914,6 +923,21 @@ img {
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
+      z-index: 1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      border-radius: 3.2rem;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+      z-index: -1;
+      background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     }
 
     // &::before {
@@ -1849,6 +1873,11 @@ img {
       }
       // Trust: End
       &join {
+        #{$section} {
+          &__backdrop {
+            z-index: -2;
+          }
+        }
         #{$app} {
           &liner {
             position: absolute;
@@ -1857,6 +1886,7 @@ img {
             // top: 7.8rem;
             top: -10%;
             left: 25%;
+            z-index: -10;
 
             @media (min-width: $breakpoint-md) {
               // top: -2.6rem;
