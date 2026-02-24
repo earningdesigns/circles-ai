@@ -1376,16 +1376,18 @@ img {
 }
 
 .screen-img.active {
-  padding: 10px 10px 0;
+/*
+  padding: 10px 10px 0; */
   justify-self: anchor-center;
   width: 88%;
   opacity: 1;
   visibility: visible;
 }
-
+/*
 .insights-img.active {
   padding: 50px 10px 0 !important;
 }
+  */
 
 /* BUTTON SLIDER */
 .button-slider {
