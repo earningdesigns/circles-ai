@@ -558,7 +558,7 @@ img {
 }
 .cs-companies .cs-company__img {
   max-width: 100%;
-  height: 2.4rem;
+  height: 3.8rem;
   object-fit: contain;
 }
 .cs-circles-collab {
@@ -1086,11 +1086,15 @@ img {
   }
 }
 .cs-section--h-sdmo {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+@media (orientation: landscape) {
+  .cs-section--h-sdmo {
+    height: 98dvh;
+  }
 }
 .cs-section--h-sdmo .cs-title {
   --cs-title-f-size: 2.4rem;

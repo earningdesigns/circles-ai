@@ -453,29 +453,29 @@ function carexAnim() {
     }
   });
 
-  const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  // const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function novaAnim () {
@@ -515,29 +515,29 @@ function novaAnim () {
     }
   });
 
-    const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  //   const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function zerofyxAnim() {
@@ -572,29 +572,29 @@ function zerofyxAnim() {
     }
   });
 
-  const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  // const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function collabAnim() {
@@ -872,6 +872,45 @@ function init() {
       })
     }
   })
+
+  const swipers = document.querySelectorAll(".swiper");
+
+  const swiperInstances = [];
+
+  swipers.forEach((el, index) => {
+    swiperInstances[index] = new Swiper(el, {
+      loop: true,
+      autoplay: { delay: 2500 },
+      slidesPerView: 1,
+      pauseOnMouseEnter: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+
+  // Observe each swiper
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const swiperEl = entry.target;
+      const swiper = swiperEl.swiper; // Swiper instance
+
+      if (entry.isIntersecting) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Attach observer
+  swipers.forEach(swiper => observer.observe(swiper));
   
   blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation

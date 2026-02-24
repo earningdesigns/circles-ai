@@ -747,7 +747,7 @@ img {
 
       &__img {
         max-width: 100%;
-        height: 2.4rem;
+        height: 3.8rem;
         object-fit: contain;
       }
 
@@ -1416,12 +1416,13 @@ img {
       }
       // Hero: End
       &sdmo {
-        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+        @media (orientation: landscape) {
+          height: 98dvh;
+        }
         #{$app} {
           &brand {
 
