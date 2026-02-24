@@ -121,7 +121,7 @@ img {
   top: -.8rem;
 
   height: 1px;
-  background-color: var(--cs-color-blue);
+  background-color: #79797991;
 }
 
 .cs-header__link {
@@ -134,7 +134,7 @@ img {
 }
 
 .cs-header__brand {
-  /* position: fixed; */
+  position: absolute;
   top: 4rem;
   right: 4%;
   max-width: 12.4rem;
@@ -1161,6 +1161,7 @@ img {
   padding: 0px 0 0;
   background:
     linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #bdffa333 18% 14%, rgba(0, 242, 255, 0) 57%), radial-gradient(circle at left, #00f2ff40 12%, rgba(0, 242, 255, 0) 44%), radial-gradient(circle at center, rgb(189 255 163 / 42%) 29%, rgba(0, 242, 255, 0) 51%) !important;
+  margin-top: 100px;
 }
 
 .cs-section--carex-experience {
@@ -1183,6 +1184,7 @@ img {
       rgba(255, 255, 255, 0.8) 15%,
       rgba(255, 255, 255, 0) 35%),
     radial-gradient(circle at left, #00f2ff3d 0%, rgba(0, 242, 255, 0) 36%);
+  margin-top: 100px;
 }
 
 .cs-loyalty-section-title {
@@ -2020,7 +2022,7 @@ a.cs-btn.loyalty-demo-btn {
   }
 
   .dual-experience {
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 40px;
   }
 
