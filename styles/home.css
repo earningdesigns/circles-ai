@@ -821,6 +821,7 @@ svg {
 @media screen and (min-width: 768px) {
   .cs-join-steps {
     flex-direction: row;
+    align-items: stretch;
   }
 }
 @media screen and (min-width: 992px) {

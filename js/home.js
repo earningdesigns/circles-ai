@@ -12,6 +12,8 @@ ScrollTrigger.config({
 ScrollTrigger.normalizeScroll(true);
 
 const ease = {smooth: 'expo.out', natural: 'power1.inOut', fluid: 'power3.inOut'};
+const time = { fast: 0.4, normal: 0.8, slow: 1.4, verySlow: 1.8};
+const fadeInUpSettings = {set: { y: 30, opacity: 0}, show: {y: 0, opacity: 1, duration: 0.8}};
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -580,7 +582,7 @@ function zerofyxAnim() {
 
 function collabAnim() {
   const sectionCollab = $('.cs-section--h-collab');
-  const title = sectionCollab?.querySelectorAll('.cs-title .word');
+  const title = sectionCollab?.querySelectorAll('.cs-title');
   
   const description = sectionCollab.querySelector('.cs-description');
   const articles = sectionCollab?.querySelectorAll('.cs-article');
@@ -605,21 +607,22 @@ function collabAnim() {
   }
 
 
-  gsap.set(title, {opacity: 0, y: 20})
-  gsap.set(description, {opacity: 0, y: 10})
+  gsap.set(title, fadeInUpSettings.set)
+  gsap.set(description, fadeInUpSettings.set)
   gsap.set(articles, {opacity: 0, x: -30})
 
   const collabTl = gsap.timeline({ease: ease.smooth});
   collabTl
     .add(collabConnect())
-    .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.6})
-    .to(description, {y: 0, opacity: 1, duration: 0.6}, '-=80%')
-    .to(articles, {x: 0, opacity: 1, stagger: 0.18, duration: 0.6})
+    .to(title, fadeInUpSettings.show)
+    .to(description, fadeInUpSettings.show, '-=80%')
+    .to(articles, {x: 0, opacity: 1, stagger: 0.14, duration: time.normal})
 
   ScrollTrigger.create({
     trigger: sectionCollab,
     animation: collabTl,
-    start: "top center"
+    start: "top center",
+    once: true,
   })
 }
 
@@ -629,30 +632,32 @@ function trustAnim() {
   const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
   
 
-  gsap.set(joinSteps, {opacity: 0, y: 40});
-  gsap.set(titleSvg, {y: 20, opacity: 0})
+  gsap.set(joinSteps, fadeInUpSettings.set);
+  gsap.set(titleSvg, fadeInUpSettings.set)
 
   const trustTl = gsap.timeline({ease: ease.smooth});
   trustTl
-    .to(titleSvg, {y: 0, opacity: 1, duration: 0.8})
-    .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
+    .to(titleSvg, fadeInUpSettings.show)
+    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.14}, '-=15%')
 
   ScrollTrigger.create({
     trigger: sectionJoin,
     animation: trustTl,
     start: "top center",
+    once: true,
   })
 }
+// Trust Section: End
 
 function joinAnim () {
   const sectionJoin = $('.cs-section--h-join');
   const brand = sectionJoin?.querySelector('.cs-brand');
-  const title = sectionJoin?.querySelectorAll('.cs-title');
+  const title = sectionJoin?.querySelector('.cs-title');
   const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
 
   gsap.set(brand, {opacity: 0, scale: 0.5, rotation: 180})
-  gsap.set(joinSteps, {opacity: 0, y: 40});
-  gsap.set(title, {y: 20, opacity: 0})
+  gsap.set(joinSteps, fadeInUpSettings.set);
+  gsap.set(title, fadeInUpSettings.set)
 
   const linerTrack = sectionJoin?.querySelector('.cs-liner .cs-liner__track')
   const linerLine = sectionJoin?.querySelector('.cs-liner .cs-liner__line')
@@ -695,8 +700,9 @@ function joinAnim () {
   // });
 
   const joinTl = gsap.timeline({ease: ease.smooth});
+
   joinTl
-    .to(linerTrack, { drawSVG: "100%", duration: 0.4 })
+    .to(linerTrack, { drawSVG: "100%", duration: time.fast })
     .to(linerLine, {
       opacity: 1,
       duration: 1,
@@ -708,17 +714,20 @@ function joinAnim () {
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     }}, '<')
-    .to([linerTrack, linerLine], { opacity: 0, duration: 0.4 })
-    .to(brand, {opacity: 1, scale: 1, rotation: 0, duration: 1.2}, '-=75%')
-    .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
-    .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
+
+    .to([linerTrack, linerLine], { opacity: 0, duration: time.fast })
+    .to(brand, {opacity: 1, scale: 1, rotation: 0, duration: time.slow}, '-=75%')
+    .to(title, fadeInUpSettings.show, '-=0.6')
+    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.12}, '-=15%')
 
   ScrollTrigger.create({
     trigger: sectionJoin,
     animation: joinTl,
     start: "top center",
+    once: true,
   })
 }
+// Join Anim: End
 
 
 

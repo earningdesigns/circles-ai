@@ -1092,6 +1092,7 @@ svg {
 
       @media screen and (min-width: $breakpoint-md) {
         flex-direction: row;
+        align-items: stretch;
       }
 
       @media screen and (min-width: $breakpoint-lg) {
