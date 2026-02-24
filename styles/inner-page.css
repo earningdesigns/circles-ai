@@ -2113,7 +2113,7 @@ a.cs-btn.loyalty-demo-btn {
 ================================ */
 
 .cs-loyalty-hero__left {
-  /* margin-top: -110px; */
+  margin-top: -110px; 
   display: flex;
   flex-direction: column;
 }
@@ -2414,9 +2414,9 @@ a.cs-btn.loyalty-demo-btn {
     height: 62%;
   }
 
-  /* .cs-loyalty-hero__left {
+   .cs-loyalty-hero__left {
     margin-top: -50px;
-  } */
+  } 
 
   .cs-slide-content h3 {
     font-size: 24px !important;
