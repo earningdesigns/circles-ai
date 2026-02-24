@@ -103,9 +103,9 @@ svg {
   text-transform: uppercase;
 }
 .cs-header__brand {
-  position: fixed;
+  /* position: fixed;
   top: 4rem;
-  right: 4%;
+  right: 4%; */
   max-width: 12.4rem;
 }
 .cs-main {
