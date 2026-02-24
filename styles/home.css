@@ -306,11 +306,10 @@ svg {
 }
 .cs-btn--secondary {
   color: #000;
-  background: rgba(255, 255, 255, 0.15);
+  background:#ffffff;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -919,19 +918,15 @@ svg {
 .cs-slider .swiper-button-next .swiper-navigation-icon,
 .cs-slider .swiper-button-prev .swiper-navigation-icon {
   font-size: 2rem;
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
   transition: transform ease 0.24s;
 }
-.cs-slider .swiper-button-prev {
-  left: 30%;
-}
+
 .cs-slider .swiper-button-prev:hover .swiper-navigation-icon {
   transform: rotate(180deg) scale(0.9);
 }
-.cs-slider .swiper-button-next {
-  right: 30%;
-}
+
 .cs-slider .swiper-button-next:hover .swiper-navigation-icon {
   transform: scale(0.9);
 }
