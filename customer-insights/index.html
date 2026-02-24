@@ -258,7 +258,7 @@
                   <button class="inner-btn" data-index="1">Alerts</button>
                   <button class="inner-btn" data-index="2">Extensions</button>
                   <button class="inner-btn" data-index="3">Forecast</button>
-                  <button class="inner-btn" data-index="0">Knowledge Graph</button>
+                  <button class="inner-btn" data-index="4">Knowledge Graph</button>
 
                 </div>
               </div>
@@ -305,7 +305,7 @@
   <script src="../js/header.js"></script>
   <!-- Main Script -->
   <script>
-    function pageInit() {
+    document.addEventListener("DOMContentLoaded", function () {
 
       /* ================= YOUTUBE ================= */
 
@@ -321,7 +321,7 @@
         });
       }
 
-      /* ================= MAIN SLIDER ================= */
+      /* ================= HERO SLIDER ================= */
 
       const mainSlider = document.querySelector(".cs-loyalty-slider");
       const slides = document.querySelectorAll(".cs-slide");
@@ -333,25 +333,7 @@
 
         let current = 0;
         const totalSlides = slides.length;
-
-        let isDraggingMain = false;
-        let startXMain = 0;
-        let diffMain = 0;
-        const threshold = 80;
-
-        let autoSlideInterval;
-        const autoDelay = 3000;
-
-        function startAutoSlide() {
-          stopAutoSlide();
-          autoSlideInterval = setInterval(() => {
-            updateSlider((current + 1) % totalSlides);
-          }, autoDelay);
-        }
-
-        function stopAutoSlide() {
-          clearInterval(autoSlideInterval);
-        }
+        let autoSlide;
 
         function updateSlider(index) {
           slides.forEach((slide, i) => {
@@ -361,91 +343,60 @@
 
           slides[index].classList.add("active");
           if (dots[index]) dots[index].classList.add("active");
+
           current = index;
+        }
+
+        function startAuto() {
+          autoSlide = setInterval(() => {
+            updateSlider((current + 1) % totalSlides);
+          }, 3000);
+        }
+
+        function stopAuto() {
+          clearInterval(autoSlide);
         }
 
         if (next) {
           next.addEventListener("click", () => {
             updateSlider((current + 1) % totalSlides);
-            startAutoSlide();
           });
         }
 
         if (prev) {
           prev.addEventListener("click", () => {
             updateSlider((current - 1 + totalSlides) % totalSlides);
-            startAutoSlide();
           });
         }
 
         dots.forEach((dot, i) => {
           dot.addEventListener("click", () => {
             updateSlider(i);
-            startAutoSlide();
           });
         });
 
-        function startDragMain(x) {
-          isDraggingMain = true;
-          startXMain = x;
-          mainSlider.style.cursor = "grabbing";
-          stopAutoSlide();
-        }
+        mainSlider.addEventListener("mouseenter", stopAuto);
+        mainSlider.addEventListener("mouseleave", startAuto);
 
-        function moveDragMain(x) {
-          if (!isDraggingMain) return;
-          diffMain = x - startXMain;
-        }
-
-        function endDragMain() {
-          if (!isDraggingMain) return;
-
-          if (diffMain > threshold) {
-            updateSlider((current - 1 + totalSlides) % totalSlides);
-          } else if (diffMain < -threshold) {
-            updateSlider((current + 1) % totalSlides);
-          }
-
-          isDraggingMain = false;
-          diffMain = 0;
-          mainSlider.style.cursor = "grab";
-          startAutoSlide();
-        }
-
-        mainSlider.addEventListener("mousedown", e => startDragMain(e.clientX));
-        mainSlider.addEventListener("mousemove", e => moveDragMain(e.clientX));
-        mainSlider.addEventListener("mouseup", endDragMain);
-        mainSlider.addEventListener("mouseleave", endDragMain);
-
-        mainSlider.addEventListener("touchstart", e => startDragMain(e.touches[0].clientX));
-        mainSlider.addEventListener("touchmove", e => moveDragMain(e.touches[0].clientX));
-        mainSlider.addEventListener("touchend", endDragMain);
-
-        mainSlider.addEventListener("mouseenter", stopAutoSlide);
-        mainSlider.addEventListener("mouseleave", startAutoSlide);
-
-        startAutoSlide();
+        startAuto();
       }
 
-      /* ================= TAB SECTIONS ================= */
+      /* ================= TAB SECTIONS WITH ARROWS ================= */
 
       document.querySelectorAll(".experience-block").forEach(section => {
 
         const buttons = section.querySelectorAll(".inner-btn");
         const screens = section.querySelectorAll(".screen-img");
         const track = section.querySelector(".button-track");
-        const tabSlider = section.querySelector(".button-slider");
+        const slider = section.querySelector(".button-slider");
+        const prevArrow = section.querySelector(".tab-prev");
+        const nextArrow = section.querySelector(".tab-next");
 
-        if (!track || !buttons.length) return;
+        if (!buttons.length || !screens.length || !track) return;
 
         let visibleStart = 0;
         const visibleCount = 4;
-        const totalBtns = buttons.length;
-
-        let isDraggingTabs = false;
-        let startXTabs = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
+        const total = buttons.length;
 
         function showImage(index) {
           buttons.forEach(b => b.classList.remove("active"));
@@ -453,97 +404,59 @@
 
           buttons[index].classList.add("active");
           if (screens[index]) screens[index].classList.add("active");
-
-          shiftWindow(index);
-        }
-
-        function shiftWindow(index) {
-          const lastVisible = visibleStart + visibleCount - 1;
-
-          if (index >= lastVisible && index < totalBtns - 1) {
-            visibleStart++;
-          }
-
-          if (index <= visibleStart && visibleStart > 0) {
-            visibleStart--;
-          }
-
-          clampPosition();
-          updateSliderPosition();
-        }
-
-        function clampPosition() {
-          if (visibleStart > totalBtns - visibleCount) {
-            visibleStart = totalBtns - visibleCount;
-          }
-          if (visibleStart < 0) {
-            visibleStart = 0;
-          }
         }
 
         function updateSliderPosition() {
           const buttonWidth = buttons[0].offsetWidth + 12;
-          currentTranslate = -visibleStart * buttonWidth;
-          prevTranslate = currentTranslate;
-          track.style.transform = `translateX(${currentTranslate}px)`;
+          const translate = -visibleStart * buttonWidth;
+          track.style.transform = `translateX(${translate}px)`;
         }
 
-        buttons.forEach(btn => {
+        /* ===== BUTTON CLICK ===== */
+
+        buttons.forEach((btn, index) => {
           btn.addEventListener("click", () => {
-            const index = parseInt(btn.dataset.index);
             showImage(index);
           });
         });
 
-        function startDragTabs(e) {
-          isDraggingTabs = true;
-          startXTabs = getPositionX(e);
-          tabSlider.style.cursor = "grabbing";
+        /* ===== ARROW LEFT ===== */
+
+        if (prevArrow) {
+          prevArrow.addEventListener("click", () => {
+            visibleStart--;
+
+            if (visibleStart < 0) {
+              visibleStart = total - visibleCount;
+            }
+
+            updateSliderPosition();
+          });
         }
 
-        function dragTabs(e) {
-          if (!isDraggingTabs) return;
-          const currentPosition = getPositionX(e);
-          const move = currentPosition - startXTabs;
-          track.style.transform = `translateX(${prevTranslate + move}px)`;
+        /* ===== ARROW RIGHT ===== */
+
+        if (nextArrow) {
+          nextArrow.addEventListener("click", () => {
+            visibleStart++;
+
+            if (visibleStart > total - visibleCount) {
+              visibleStart = 0;
+            }
+
+            updateSliderPosition();
+          });
         }
-
-        function endDragTabs(e) {
-          if (!isDraggingTabs) return;
-
-          isDraggingTabs = false;
-          tabSlider.style.cursor = "grab";
-
-          const endPosition = getPositionX(e);
-          const movedBy = endPosition - startXTabs;
-
-          if (movedBy < -50) visibleStart++;
-          if (movedBy > 50) visibleStart--;
-
-          clampPosition();
-          updateSliderPosition();
-        }
-
-        function getPositionX(e) {
-          return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-        }
-
-        tabSlider.addEventListener("mousedown", startDragTabs);
-        tabSlider.addEventListener("mousemove", dragTabs);
-        tabSlider.addEventListener("mouseup", endDragTabs);
-        tabSlider.addEventListener("mouseleave", endDragTabs);
-
-        tabSlider.addEventListener("touchstart", startDragTabs);
-        tabSlider.addEventListener("touchmove", dragTabs);
-        tabSlider.addEventListener("touchend", endDragTabs);
 
         updateSliderPosition();
+
       });
 
       /* ================= BLOB ANIMATION ================= */
 
       if (typeof gsap !== "undefined") {
         const blob = document.querySelector('.cs-blob');
+
         if (blob) {
           gsap.to(blob, {
             x: 200,
@@ -564,9 +477,8 @@
           });
         }
       }
-    }
 
-    document.addEventListener("DOMContentLoaded", pageInit);
+    });
   </script>
 </body>
 

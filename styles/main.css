@@ -136,6 +136,11 @@ img {
   text-fill-color: transparent;
   color: transparent;
   margin-bottom: 0.8rem;
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* MUST */
 }
 .cs-title__sub {
   display: block;

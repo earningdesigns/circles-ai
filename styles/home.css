@@ -299,8 +299,32 @@ img {
   transition: transform ease 0.24s;
 }
 .cs-btn--secondary {
-  background: rgba(255, 255, 255, 0.1);
   color: #000;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+.cs-btn--secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+}
+.cs-btn--secondary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
 }
 .cs-btn--secondary .cs-btn__icon {
   background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
@@ -332,8 +356,8 @@ img {
   justify-content: space-between;
 }
 .cs-grid {
-  --cs-grid-cols: 12;
-  --cs-grid-gap: 0;
+  --cs-grid-cols: 1;
+  --cs-grid-gap: 3.2rem;
   display: grid;
   gap: var(--cs-grid-gap);
   grid-template-columns: repeat(var(--cs-grid-cols), minmax(0, 1fr));
@@ -342,6 +366,15 @@ img {
 }
 .cs-grid__item {
   position: relative;
+}
+@media (min-width: 992px) {
+  .cs-grid {
+    --cs-grid-cols: 12;
+    --cs-grid-gap: 0;
+  }
+}
+.cs-concentric {
+  --cs-concentric-size: 121rem;
 }
 .cs-concentric-vibes {
   position: absolute;
@@ -364,17 +397,15 @@ img {
 }
 .cs-concentric-texts {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  margin: auto;
+  width: var(--cs-concentric-size);
+  height: var(--cs-concentric-size);
   pointer-events: none;
 }
 .cs-concentric-text {
   --cs-ctext-bg: rgba(0, 214, 242, 0.8);
   position: absolute;
-  top: 0;
-  left: 0;
   transform-origin: center center;
   padding: 0.8rem 1.6rem;
   background: var(--cs-ctext-bg);
@@ -382,10 +413,18 @@ img {
   font-size: 1.4rem;
   line-height: 132%;
 }
+.cs-concentric-text--1 {
+  top: 21%;
+  left: 4%;
+}
 .cs-concentric-text--2 {
+  top: 53%;
+  left: 8%;
   --cs-ctext-bg: #FF8F33C7;
 }
 .cs-concentric-text--3 {
+  top: 34%;
+  right: 11%;
   --cs-ctext-bg: #00F2A1B5;
 }
 .cs-ccircles {
@@ -651,7 +690,7 @@ img {
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  padding: 2px;
+  padding: 1px;
   background: linear-gradient(135deg, var(--cs-color-blue), var(--cs-color-green));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -1105,6 +1144,11 @@ img {
   flex-direction: column;
   align-items: center;
 }
+.cs-section--h-carex .cs-bcircle {
+  top: -25%;
+  right: -55%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.2) 48.8%, rgba(97, 255, 218, 0) 100%);
+}
 .cs-section--h-carex .cs-liner {
   position: absolute;
   top: 6.5rem;
@@ -1141,9 +1185,6 @@ img {
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-carex .cs-grid {
-    --cs-grid-cols: 12;
-  }
   .cs-section--h-carex .cs-grid__item:first-child {
     order: 0;
     width: 100%;
@@ -1157,6 +1198,11 @@ img {
 }
 .cs-section--h-nova .cs-section__container {
   margin-top: 8.8rem;
+}
+.cs-section--h-nova .cs-bcircle {
+  top: -22%;
+  left: -60%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.2) 48.8%, rgba(0, 242, 255, 0) 100%);
 }
 .cs-section--h-nova .cs-liner {
   position: absolute;
@@ -1280,7 +1326,23 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 6.4rem;
+}
+.cs-section--h-trust .cs-titlesvg__mobile {
+  display: block;
+}
+@media (min-width: 992px) {
+  .cs-section--h-trust .cs-titlesvg__mobile {
+    display: none;
+  }
+}
+.cs-section--h-trust .cs-titlesvg__desktop {
+  display: none;
+}
+@media (min-width: 992px) {
+  .cs-section--h-trust .cs-titlesvg__desktop {
+    display: block;
+  }
 }
 .cs-section--h-trust .cs-title {
   --cs-title-hlight-f-size: 2.8rem;

@@ -25,7 +25,7 @@
 
         <nav class="cs-header__nav">
           <div class="cs-header__nav-line"></div>
-          <a href="/customer-relationship/" class="cs-header__link">Customer Relationship</a>
+          <a href="/customer-relationship/" class="cs-header__link" style="color: #194AB8;">Customer Relationship</a>
           <a href="/customer-insights/" class="cs-header__link">Customer insights</a>
           <a href="/customer-loyalty/" class="cs-header__link">Customer loyalty</a>
         </nav>
@@ -38,11 +38,47 @@
       </div>
     </header>
     <!-- Header: End -->
+    <style>
+      /* =========================================
+   DEMO BUTTON – FIGMA MATCH
+========================================= */
 
+      .demo-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        padding: 12px 30px;
+        border-radius: 50px;
+
+        font-size: 16px;
+        font-weight: 500;
+        color: #ffffff;
+        text-decoration: none;
+
+       
+
+        transition: all 0.3s ease;
+      }
+
+      .demo-btn img {
+        width: 28px;
+        height: 18px;
+        object-fit: cover;
+      }
+
+      /* Hover effect */
+      .demo-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(120, 100, 255, 0.45);
+      }
+    </style>
     <!-- CUSTOMER LOYALTY HERO -->
-    <section class="cs-section cs-section--loyalty-hero">
-      <div class="cs-loyalty-bg carex-bg"></div>
-      <div class="cs-blob carex-blob"></div>
+    <section class="cs-section cs-section--loyalty-hero"
+      style="background: url('../images/ellipse.png');background-repeat: no-repeat;">
+      <!-- <div class="cs-loyalty-bg carex-bg"></div>
+      <div class="cs-blob carex-blob"></div> -->
 
 
       <div class="cs-section__container cs-loyalty-hero__container">
@@ -51,7 +87,7 @@
           <div class="cs-loyalty-product">
             <div class="cs-loyalty-product_top">
 
-              <img src="../images/Sec-Logo.svg" alt="">
+              <img src="../images/banner-logo.svg" alt="">
 
             </div>
 
@@ -139,7 +175,7 @@
                       customers across multiple languages from day one</p>
                   </div>
                   <div class="cs-slide-image">
-                    <img src="../images/Frame 483866 (6).png" alt="Dining Offers">
+                    <img src="../images/Frame 483866.png" alt="Dining Offers">
                   </div>
                 </div>
               </div>
@@ -155,7 +191,7 @@
                       compliant, enterprise-ready APIs built to scale</p>
                   </div>
                   <div class="cs-slide-image">
-                    <img src="../images/Frame 483866 (7).png" alt="Lifestyle">
+                    <img src="../images/Frame 483869.png" alt="Lifestyle">
                   </div>
                 </div>
 
@@ -188,9 +224,10 @@
       </div>
     </section>
     <!-- EXPERIENCE SECTION -->
-    <section class="cs-section cs-section--carex-experience">
+    <section class="cs-section cs-section--carex-experience"
+      style="background: url('../images/Ellipse 55.png');background-repeat: no-repeat;background-size: cover;">
       <div class="cs-section__container t-center">
-        <div class="cs-blob"></div>
+        <!-- <div class="cs-blob"></div> -->
 
         <h2 class="cs-loyalty-section-title">
           Dive Into The CareX Experience
@@ -199,7 +236,6 @@
 
         <div class="dual-experience">
 
-          <!-- LEFT SECTION -->
           <div class="experience-block">
 
             <div class="three-dots">
@@ -240,11 +276,9 @@
               </button>
 
             </div>
-            <a href="#" class="demo-btn">Demo →</a>
+            <a href="#" class="demo-btn">Demo <img src="../images/Group 771.png" alt=""></a>
 
           </div>
-
-
 
           <!-- RIGHT SECTION -->
           <div class="experience-block">
@@ -299,8 +333,8 @@
                   <button class="inner-btn active" data-index="0">SIM Activation</button>
                   <button class="inner-btn" data-index="1">Network</button>
                   <button class="inner-btn" data-index="2">Billing</button>
-                  <button class="inner-btn" data-index="3">Order tracking</button>
-                  <button class="inner-btn" data-index="4">Port-In</button>
+                  <!-- <button class="inner-btn" data-index="3">Order tracking</button>
+                    <button class="inner-btn" data-index="4">Port-In</button> -->
                 </div>
               </div>
 
@@ -311,9 +345,13 @@
             </div>
 
             <a href="https://www.figma.com/proto/bJ7e1n0nFFo1M4ZaelM1HW/CareX?node-id=424-17587&t=U6rAhGzxfGoNH5CZ-0&sca%E2%80%A6="
-              target="_blank" class="demo-btn">Upcoming →</a>
+              target="_blank" class="demo-btn">Upcoming <img src="../images/Group 771.png" alt=""></a>
 
           </div>
+
+
+          <!-- LEFT SECTION -->
+
 
         </div>
       </div>
