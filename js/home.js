@@ -855,11 +855,29 @@ function getCurrentSectionIndex() {
   return index;
 }
 
+function updateDirectionByScroll() {
+  const currentIndex = getCurrentSectionIndex();
+
+  if (currentIndex === sections.length - 1) {
+    direction = -1;
+  } else if (currentIndex === 0) {
+    direction = 1;
+  }
+
+  hand.classList.remove('up', 'down');
+  hand.classList.add(direction === -1 ? 'up' : 'down');
+}
+
+/* -------- CLICK -------- */
+
+let isScrolling = false;
+
 hand.addEventListener('click', () => {
+  if (isScrolling) return;
+  isScrolling = true;
 
   let currentIndex = getCurrentSectionIndex();
 
-  // Change direction at boundaries
   if (currentIndex === sections.length - 1) {
     direction = -1;
   } else if (currentIndex === 0) {
@@ -872,9 +890,16 @@ hand.addEventListener('click', () => {
     behavior: 'smooth'
   });
 
-  // Rotate hand
-  hand.style.transition = "transform 0.3s ease";
-  hand.style.transform = direction === -1 
-    ? "rotate(180deg)" 
-    : "rotate(0deg)";
+  hand.classList.remove('up', 'down');
+  hand.classList.add(direction === -1 ? 'up' : 'down');
+
+  setTimeout(() => {
+    isScrolling = false;
+  }, 800);
+});
+
+/* -------- SCROLL DETECTION -------- */
+
+window.addEventListener('scroll', () => {
+  updateDirectionByScroll();
 });
