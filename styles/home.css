@@ -1266,8 +1266,8 @@ img {
 }
 .cs-section--h-trust .cs-bcircle {
   top: -50%;
-  left: -50%;
-  background: radial-gradient(50% at 50%, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
+  left: -20%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(43, 0, 255, 0) 100%);
 }
 .cs-section--h-trust .cs-titlesvg {
   display: flex;
