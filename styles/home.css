@@ -125,7 +125,7 @@ svg {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 200vh;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2rem);
@@ -1164,6 +1164,12 @@ svg {
     grid-column: 6/12;
   }
 }
+.cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
+  min-height: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .cs-section--h-carex .cs-section__backdrop, .cs-section--h-nova .cs-section__backdrop, .cs-section--h-zerofyx .cs-section__backdrop {
   max-width: var(--cs-section-container-width);
   margin-inline: auto;
@@ -1200,12 +1206,6 @@ svg {
   .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
     --cs-foundation-list-grid-cols: 4;
   }
-}
-.cs-section--h-carex {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .cs-section--h-carex .cs-bcircle {
   top: -25%;
@@ -1253,12 +1253,6 @@ svg {
     order: 0;
     width: 100%;
   }
-}
-.cs-section--h-nova {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .cs-section--h-nova .cs-section__container {
   margin-top: 8.8rem;
@@ -1309,12 +1303,6 @@ svg {
     width: 100%;
     grid-column: 8/13;
   }
-}
-.cs-section--h-zerofyx {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .cs-section--h-zerofyx .cs-bcircle {
   top: 0;

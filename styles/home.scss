@@ -150,7 +150,7 @@ svg {
         top: 0;
         left: 0;
         width: 100%;
-        height:100%;
+        height: 200vh;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(2rem);
@@ -1522,6 +1522,10 @@ svg {
         }
       }
       &carex, &nova, &zerofyx {
+        min-height: 80rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         #{$section} {
           &__backdrop {
             max-width: var(--cs-section-container-width);
@@ -1569,15 +1573,8 @@ svg {
         }
       }
       &carex {
-        min-height: 90rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-
         #{$section} {
           &__ {
-            
             &container {
               // position: absolute;
               // top: -5.8%;
@@ -1657,10 +1654,6 @@ svg {
       }
       // CareX: End
       &nova {
-        min-height: 90rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
          #{$section} {
           &__ {
@@ -1740,11 +1733,6 @@ svg {
       }
       //  NOva: End
       &zerofyx {
-        min-height: 90rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
         #{$section} {
           &__ {
             
