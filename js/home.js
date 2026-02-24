@@ -510,7 +510,11 @@ function carexAnim() {
 
   const swiper = new Swiper('.cs-slider__swiper', {
     loop: true,
-
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
@@ -568,7 +572,11 @@ function novaAnim () {
 
     const swiper = new Swiper('.cs-slider__swiper', {
     loop: true,
-
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
@@ -621,7 +629,11 @@ function zerofyxAnim() {
 
   const swiper = new Swiper('.cs-slider__swiper', {
     loop: true,
-
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
