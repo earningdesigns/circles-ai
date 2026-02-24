@@ -125,7 +125,7 @@ svg {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 200vh;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(2rem);
@@ -306,10 +306,11 @@ svg {
 }
 .cs-btn--secondary {
   color: #000;
-  background:#ffffff;
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -918,15 +919,19 @@ svg {
 .cs-slider .swiper-button-next .swiper-navigation-icon,
 .cs-slider .swiper-button-prev .swiper-navigation-icon {
   font-size: 2rem;
-  width: 30%;
-  height: 30%;
+  width: 50%;
+  height: 50%;
   transition: transform ease 0.24s;
 }
-
+.cs-slider .swiper-button-prev {
+  left: 30%;
+}
 .cs-slider .swiper-button-prev:hover .swiper-navigation-icon {
   transform: rotate(180deg) scale(0.9);
 }
-
+.cs-slider .swiper-button-next {
+  right: 30%;
+}
 .cs-slider .swiper-button-next:hover .swiper-navigation-icon {
   transform: scale(0.9);
 }
@@ -1159,6 +1164,12 @@ svg {
     grid-column: 6/12;
   }
 }
+.cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
+  min-height: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .cs-section--h-carex .cs-section__backdrop, .cs-section--h-nova .cs-section__backdrop, .cs-section--h-zerofyx .cs-section__backdrop {
   max-width: var(--cs-section-container-width);
   margin-inline: auto;
@@ -1196,12 +1207,6 @@ svg {
     --cs-foundation-list-grid-cols: 4;
   }
 }
-.cs-section--h-carex {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .cs-section--h-carex .cs-bcircle {
   top: -25%;
   right: -55%;
@@ -1215,7 +1220,7 @@ svg {
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
     --cs-liner-width: 22em;
-    top: 1.2rem;
+    top: 0.5rem;
     right: -2.56%;
   }
 }
@@ -1248,12 +1253,6 @@ svg {
     order: 0;
     width: 100%;
   }
-}
-.cs-section--h-nova {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .cs-section--h-nova .cs-section__container {
   margin-top: 8.8rem;
@@ -1305,12 +1304,6 @@ svg {
     grid-column: 8/13;
   }
 }
-.cs-section--h-zerofyx {
-  min-height: 90rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .cs-section--h-zerofyx .cs-bcircle {
   top: 0;
   right: -80%;
@@ -1326,9 +1319,9 @@ svg {
 }
 @media (min-width: 768px) {
   .cs-section--h-zerofyx .cs-liner {
-    top: 8.3%;
-    right: -1%;
     --cs-liner-width: 23em;
+    top: -1.5rem;
+    right: -1%;
   }
 }
 @media (min-width: 1200px) {

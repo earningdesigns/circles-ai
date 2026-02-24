@@ -21,7 +21,7 @@ const $$ = document.querySelectorAll.bind(document);
 document.addEventListener("DOMContentLoaded", init)
 
 // Split All Headlines
-const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++', wordsClass: 'word++'}); }
+// const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "words,chars", charsClass: 'char++', wordsClass: 'word++'}); }
 
 
 function blobsAnim() {
@@ -225,13 +225,16 @@ function heroAnim() {
           autoRotate: true,
           alignOrigin: [0.5, 0.5],
           start: 0.036
-
         },
         transformOrigin: "50% 50%",
         scrollTrigger: {
           trigger: sectionHero,
           scrub: true,
           start: "top top",
+          // end: "bottom bottom",
+          onScurbComplete: () => {
+            gsap.to(linerLine, {opacity: 0, duration: time.normal})
+          }
           // onUpdate: (self) => {
           //   // Clamp progress to 30%-60% range (0.3 - 0.6)
           //   const startTrigger = 0.3;
@@ -329,13 +332,8 @@ function sdmoAnim() {
       MotionPathPlugin.convertToPath(circle)[0]
     );
 
-    gsap.set(circlePaths, {
-      transformOrigin: "50% 50%"
-    });
-    gsap.set(texts, {
-    opacity: 0,
-      
-    });
+    gsap.set(circlePaths, { transformOrigin: "50% 50%" });
+    gsap.set(texts, { opacity: 0, });
 
     const tl = gsap.timeline();
 
@@ -433,32 +431,11 @@ function carexAnim() {
       start: "top center+=100", // start AFTER intro visually
       end: "bottom center",
       scrub: 1,
+      onScurbComplete: () => {
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      }
     }
   });
-
-  // const swiper = new Swiper('.cs-slider__swiper', {
-  //   loop: true,
-  //   autoplay: {
-  //       delay: 2500,
-  //       disableOnInteraction: false,
-  //       pauseOnMouseEnter: true,
-  //     },
-  //   // If we need pagination
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },
-
-  //   // Navigation arrows
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-
-  //   // And if we need scrollbar
-  //   scrollbar: {
-  //     el: '.swiper-scrollbar',
-  //   },
-  // });
 }
 
 function novaAnim () {
@@ -497,30 +474,6 @@ function novaAnim () {
       scrub: 1,
     }
   });
-
-  //   const swiper = new Swiper('.cs-slider__swiper', {
-  //   loop: true,
-  //   autoplay: {
-  //       delay: 2500,
-  //       disableOnInteraction: false,
-  //       pauseOnMouseEnter: true,
-  //     },
-  //   // If we need pagination
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },
-
-  //   // Navigation arrows
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-
-  //   // And if we need scrollbar
-  //   scrollbar: {
-  //     el: '.swiper-scrollbar',
-  //   },
-  // });
 }
 
 function zerofyxAnim() {
@@ -554,30 +507,6 @@ function zerofyxAnim() {
       scrub: 1,
     }
   });
-
-  // const swiper = new Swiper('.cs-slider__swiper', {
-  //   loop: true,
-  //   autoplay: {
-  //       delay: 2500,
-  //       disableOnInteraction: false,
-  //       pauseOnMouseEnter: true,
-  //     },
-  //   // If we need pagination
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //   },
-
-  //   // Navigation arrows
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-
-  //   // And if we need scrollbar
-  //   scrollbar: {
-  //     el: '.swiper-scrollbar',
-  //   },
-  // });
 }
 
 function collabAnim() {
@@ -625,6 +554,7 @@ function collabAnim() {
     once: true,
   })
 }
+// Collab: End
 
 function trustAnim() {
   const sectionJoin = $('.cs-section--h-trust');
@@ -748,10 +678,8 @@ function onPageStartEnd() {
 // Usage
 
 
-
-
 function init() {
-  let splitTexts = splitTextToChars();
+  // let splitTexts = splitTextToChars();
 
   // const gradMotion = document.getElementById('gradMotion');
   // const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
@@ -838,34 +766,7 @@ function init() {
   //   });
   // });
 
-  function setFoundationBorder() {
-    const foundation = $('.cs-section--h-trust .cs-foundation');
-    const foundationBorder = foundation.querySelector('.cs-foundation__border');
-
-    
-    let container = foundation.getBoundingClientRect();
-
-    const newViewBoxVal = `0 0 ${container.width} ${container.height}`
-    foundationBorder.setAttribute('viewBox', newViewBoxVal);
-
-    foundationBorder.style.setProperty('--cs-foundation-border-rect-width', `${parseInt(container.width)}px`)
-    foundationBorder.style.setProperty('--cs-foundation-border-rect-height', `${parseInt(container.height)}px`)
-
-    function updateGradient() {
-      const rect = foundationBorder.querySelector('rect');
-      const gradient = foundationBorder.querySelector('#paint0_linear_615_5176')
-      const x = rect.getAttribute('x');
-      
-      // Update gradient to match new width
-      gradient.setAttribute('x2', parseInt(container.width));
-      gradient.setAttribute('y2', parseInt(container.height));
-    }
-
-    updateGradient();
-  }
-  // setFoundationBorder();
-  // window.addEventListener('resize', setFoundationBorder());
-
+  // Fixed Message: Start
   ScrollTrigger.create({
     trigger: '.cs-footer',
     onEnter: () => {
@@ -881,9 +782,10 @@ function init() {
       })
     }
   })
+  // Fixed Message: End
 
+  // All Page Swipers: Start
   const swipers = $$(".swiper");
-
   const swiperInstances = [];
 
   swipers.forEach((el, index) => {
@@ -920,6 +822,7 @@ function init() {
 
   // Attach observer
   swipers.forEach(swiper => observer.observe(swiper));
+  // All Page Swipers: End
   
   blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
