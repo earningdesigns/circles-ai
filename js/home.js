@@ -82,112 +82,101 @@ function blobsAnim() {
 }
 
 let currentScroll = 0;
-  let scrollDirection = 1;
+let scrollDirection = 1;
 
-  function horizontalLoop(items, config) {
-    items = gsap.utils.toArray(items);
-    config = config || {};
-    let tl = gsap.timeline({repeat: config.repeat, paused: config.paused, defaults: {ease: "none"}, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)}),
-      length = items.length,
-      startX = items[0].offsetLeft,
-      times = [],
-      widths = [],
-      xPercents = [],
-      curIndex = 0,
-      pixelsPerSecond = (config.speed || 1) * 100,
-      snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
-      populateWidths = () => items.forEach((el, i) => {
-        widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
-        xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / widths[i] * 100 + gsap.getProperty(el, "xPercent"));
-      }),
-      getTotalWidth = () => items[length-1].offsetLeft + xPercents[length-1] / 100 * widths[length-1] - startX + items[length-1].offsetWidth * gsap.getProperty(items[length-1], "scaleX") + (parseFloat(config.paddingRight) || 0),
-        totalWidth, curX, distanceToStart, distanceToLoop, item, i;
-    populateWidths();
-    gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
-      xPercent: i => xPercents[i]
-    });
-    gsap.set(items, {x: 0});
-    totalWidth = getTotalWidth();
-    for (i = 0; i < length; i++) {
-      item = items[i];
-      curX = xPercents[i] / 100 * widths[i];
-      distanceToStart = item.offsetLeft + curX - startX;
-      distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
-      tl.to(item, {xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond}, 0)
-        .fromTo(item, {xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100)}, {xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false}, distanceToLoop / pixelsPerSecond)
-        .add("label" + i, distanceToStart / pixelsPerSecond);
-      times[i] = distanceToStart / pixelsPerSecond;
-    }
-    function toIndex(index, vars) {
-      vars = vars || {};
-      (Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length); // always go in the shortest direction
-      let newIndex = gsap.utils.wrap(0, length, index),
-        time = times[newIndex];
-      if (time > tl.time() !== index > curIndex) { // if we're wrapping the timeline's playhead, make the proper adjustments
-        vars.modifiers = {time: gsap.utils.wrap(0, tl.duration())};
-        time += tl.duration() * (index > curIndex ? 1 : -1);
-      }
-      curIndex = newIndex;
-      vars.overwrite = true;
-      return tl.tweenTo(time, vars);
-    }
-    tl.next = vars => toIndex(curIndex+1, vars);
-    tl.previous = vars => toIndex(curIndex-1, vars);
-    tl.current = () => curIndex;
-    tl.toIndex = (index, vars) => toIndex(index, vars);
-    tl.updateIndex = () => curIndex = Math.round(tl.progress() * (items.length - 1));
-    tl.times = times;
-    tl.progress(1, true).progress(0, true); // pre-render for performance
-    if (config.reversed) {
-      tl.vars.onReverseComplete();
-      tl.reverse();
-    }
-    if (config.draggable && typeof(Draggable) === "function") {
-      let proxy = document.createElement("div"),
-          wrap = gsap.utils.wrap(0, 1),
-          ratio, startProgress, draggable, dragSnap, roundFactor,
-          align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
-          syncIndex = () => tl.updateIndex();
-      typeof(InertiaPlugin) === "undefined" && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club");
-      draggable = Draggable.create(proxy, {
-        trigger: items[0].parentNode,
-        type: "x",
-        onPress() {
-          startProgress = tl.progress();
-          tl.progress(0);
-          populateWidths();
-          totalWidth = getTotalWidth();
-          ratio = 1 / totalWidth;
-          dragSnap = totalWidth / items.length;
-          roundFactor = Math.pow(10, ((dragSnap + "").split(".")[1] || "").length);
-          tl.progress(startProgress);
-        },
-        onDrag: align,
-        onThrowUpdate: align,
-        inertia: true,
-        snap: value => {
-          let n = Math.round(parseFloat(value) / dragSnap) * dragSnap * roundFactor;
-          return (n - n % 1) / roundFactor;
-        },
-        onRelease: syncIndex,
-        onThrowComplete: () => gsap.set(proxy, {x: 0}) && syncIndex()
-      })[0];
-    }
-    
-    return tl;
+function horizontalLoop(items, config) {
+  items = gsap.utils.toArray(items);
+  config = config || {};
+  let tl = gsap.timeline({repeat: config.repeat, paused: config.paused, defaults: {ease: "none"}, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100)}),
+    length = items.length,
+    startX = items[0].offsetLeft,
+    times = [],
+    widths = [],
+    xPercents = [],
+    curIndex = 0,
+    pixelsPerSecond = (config.speed || 1) * 100,
+    snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+    populateWidths = () => items.forEach((el, i) => {
+      widths[i] = parseFloat(gsap.getProperty(el, "width", "px"));
+      xPercents[i] = snap(parseFloat(gsap.getProperty(el, "x", "px")) / widths[i] * 100 + gsap.getProperty(el, "xPercent"));
+    }),
+    getTotalWidth = () => items[length-1].offsetLeft + xPercents[length-1] / 100 * widths[length-1] - startX + items[length-1].offsetWidth * gsap.getProperty(items[length-1], "scaleX") + (parseFloat(config.paddingRight) || 0),
+      totalWidth, curX, distanceToStart, distanceToLoop, item, i;
+  populateWidths();
+  gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
+    xPercent: i => xPercents[i]
+  });
+  gsap.set(items, {x: 0});
+  totalWidth = getTotalWidth();
+  for (i = 0; i < length; i++) {
+    item = items[i];
+    curX = xPercents[i] / 100 * widths[i];
+    distanceToStart = item.offsetLeft + curX - startX;
+    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    tl.to(item, {xPercent: snap((curX - distanceToLoop) / widths[i] * 100), duration: distanceToLoop / pixelsPerSecond}, 0)
+      .fromTo(item, {xPercent: snap((curX - distanceToLoop + totalWidth) / widths[i] * 100)}, {xPercent: xPercents[i], duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond, immediateRender: false}, distanceToLoop / pixelsPerSecond)
+      .add("label" + i, distanceToStart / pixelsPerSecond);
+    times[i] = distanceToStart / pixelsPerSecond;
   }
-
-function heroCompanies() {
+  function toIndex(index, vars) {
+    vars = vars || {};
+    (Math.abs(index - curIndex) > length / 2) && (index += index > curIndex ? -length : length); // always go in the shortest direction
+    let newIndex = gsap.utils.wrap(0, length, index),
+      time = times[newIndex];
+    if (time > tl.time() !== index > curIndex) { // if we're wrapping the timeline's playhead, make the proper adjustments
+      vars.modifiers = {time: gsap.utils.wrap(0, tl.duration())};
+      time += tl.duration() * (index > curIndex ? 1 : -1);
+    }
+    curIndex = newIndex;
+    vars.overwrite = true;
+    return tl.tweenTo(time, vars);
+  }
+  tl.next = vars => toIndex(curIndex+1, vars);
+  tl.previous = vars => toIndex(curIndex-1, vars);
+  tl.current = () => curIndex;
+  tl.toIndex = (index, vars) => toIndex(index, vars);
+  tl.updateIndex = () => curIndex = Math.round(tl.progress() * (items.length - 1));
+  tl.times = times;
+  tl.progress(1, true).progress(0, true); // pre-render for performance
+  if (config.reversed) {
+    tl.vars.onReverseComplete();
+    tl.reverse();
+  }
+  if (config.draggable && typeof(Draggable) === "function") {
+    let proxy = document.createElement("div"),
+        wrap = gsap.utils.wrap(0, 1),
+        ratio, startProgress, draggable, dragSnap, roundFactor,
+        align = () => tl.progress(wrap(startProgress + (draggable.startX - draggable.x) * ratio)),
+        syncIndex = () => tl.updateIndex();
+    typeof(InertiaPlugin) === "undefined" && console.warn("InertiaPlugin required for momentum-based scrolling and snapping. https://greensock.com/club");
+    draggable = Draggable.create(proxy, {
+      trigger: items[0].parentNode,
+      type: "x",
+      onPress() {
+        startProgress = tl.progress();
+        tl.progress(0);
+        populateWidths();
+        totalWidth = getTotalWidth();
+        ratio = 1 / totalWidth;
+        dragSnap = totalWidth / items.length;
+        roundFactor = Math.pow(10, ((dragSnap + "").split(".")[1] || "").length);
+        tl.progress(startProgress);
+      },
+      onDrag: align,
+      onThrowUpdate: align,
+      inertia: true,
+      snap: value => {
+        let n = Math.round(parseFloat(value) / dragSnap) * dragSnap * roundFactor;
+        return (n - n % 1) / roundFactor;
+      },
+      onRelease: syncIndex,
+      onThrowComplete: () => gsap.set(proxy, {x: 0}) && syncIndex()
+    })[0];
+  }
   
-  
-
-  
-
-  // return
-  
-
- 
+  return tl;
 }
+
 function heroAnim() {
   const sectionHero = document.querySelector('.cs-section--h-hero');
   
@@ -204,25 +193,23 @@ function heroAnim() {
 
   function brandLetters() {
     const meetCirclesContainer = sectionHero.querySelector('.cs-brand');
+    const brandLettersSymbols = meetCirclesContainer.querySelectorAll('.cs-brand__symbol');
+    const brandLetters = meetCirclesContainer.querySelectorAll('.cs-brand__letter');
+  
 
-    const brandLettersList = meetCirclesContainer.querySelectorAll('.cs-brand__letter');
-    
-    const brandXO = Array.from(brandLettersList).slice(0, 2);
-    const brandLetters = Array.from(brandLettersList).slice(2, brandLettersList.length);
-
-    gsap.set(brandXO, {x: -30, opacity: 0})
-    gsap.set(brandLetters, {x: 5, opacity: 0})
+    gsap.set(brandLettersSymbols, {x: -30, opacity: 0})
+    gsap.set(brandLetters, {x: 5, rotateX: -30, opacity: 0})
 
     const tl = gsap.timeline();
 
     tl
-      .to(brandXO, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24 })
-      .to(brandLetters, {x: 0, duration: 0.4, opacity: 1, stagger: 0.16})
+      .to(brandLettersSymbols, {x: 0, duration: 0.6, opacity: 1, stagger: 0.24 })
+      .to(brandLetters, {x: 0, duration: 0.4, rotateX: 0, opacity: 1, stagger: 0.16})
 
     return tl;
   }
 
-   function liner() {
+  function liner() {
     const linerLineWidthRange = {min: 50, max: 80};
 
     const liner = sectionHero?.querySelector(".cs-liner");
@@ -328,9 +315,7 @@ function heroAnim() {
     .to([memberTitle, member], {duration: 0.6, stagger: 0.1,opacity: 1})
     .to(sectionHeroCompanyTitle, {opacity: 1, x: 0, duration: .48})
     .to(sectionHeroCompaniesList, {opacity: 1}, '-=0.3')
-    .add(liner()) 
-
-  heroCompanies();
+    .add(liner())
 }
 
 function sdmoAnim() {
@@ -374,13 +359,13 @@ function sdmoAnim() {
     texts.forEach((text, i) => {
       gsap.set(text, {
         opacity: 0,
-        // motionPath: {
-        //   path: circlePaths[i],
-        //   align: circlePaths[i],
-        //   alignOrigin: [0.5, 0.5],
+        motionPath: {
+          path: circlePaths[i],
+          align: circlePaths[i],
+          alignOrigin: [0.5, 0.5],
           
-        //   autoRotate: false // keeps text upright
-        // },
+          autoRotate: false // keeps text upright
+        },
       });
     });
 
@@ -759,90 +744,90 @@ function joinAnim () {
 function init() {
   let splitTexts = splitTextToChars();
 
-  const gradMotion = document.getElementById('gradMotion');
-  const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
-  const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
+  // const gradMotion = document.getElementById('gradMotion');
+  // const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
+  // const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
 
-  gsap.set(gradMotionCircle, {
-    motionPath: {
-      path: gradMotionTrack,
-      align: gradMotionTrack,
-    }
-  })
+  // gsap.set(gradMotionCircle, {
+  //   motionPath: {
+  //     path: gradMotionTrack,
+  //     align: gradMotionTrack,
+  //   }
+  // })
 
-  const gradCircleSettings = [
-    {
-      size: 59.8,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%%, rgba(255, 255, 255, 0.5) 89.9%)',
-    },
-    {
-      size: 59.8,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%, rgba(255, 255, 255, 0.5) 89.9%)',
-    },
-    {
-      size: 135,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.1) 46%, rgba(97, 255, 218, 0) 100%)',
-    },
-    {
-      size: 135,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.1) 48%, rgba(0, 242, 255, 0) 100%)',
-    },
-    {
-      size: 135,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0.1) 48%, rgb(255, 0, 195, 0) 100%)'
-    },
-    {
-      size: 135,
-      gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0.1) 48%, rgb(43, 0, 195, 0) 100%)'
-    }
-  ]
+  // const gradCircleSettings = [
+  //   {
+  //     size: 59.8,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%%, rgba(255, 255, 255, 0.5) 89.9%)',
+  //   },
+  //   {
+  //     size: 59.8,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%, rgba(255, 255, 255, 0.5) 89.9%)',
+  //   },
+  //   {
+  //     size: 135,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.1) 46%, rgba(97, 255, 218, 0) 100%)',
+  //   },
+  //   {
+  //     size: 135,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.1) 48%, rgba(0, 242, 255, 0) 100%)',
+  //   },
+  //   {
+  //     size: 135,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0.1) 48%, rgb(255, 0, 195, 0) 100%)'
+  //   },
+  //   {
+  //     size: 135,
+  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0.1) 48%, rgb(43, 0, 195, 0) 100%)'
+  //   }
+  // ]
 
-  const sections = gsap.utils.toArray([
-    '.cs-section--h-hero',
-    '.cs-section--h-sdmo',
-    '.cs-section--h-carex',
-    '.cs-section--h-nova',
-    '.cs-section--h-zerofyx',
-    '.cs-section--h-collab'
-  ]);
+  // const sections = gsap.utils.toArray([
+  //   '.cs-section--h-hero',
+  //   '.cs-section--h-sdmo',
+  //   '.cs-section--h-carex',
+  //   '.cs-section--h-nova',
+  //   '.cs-section--h-zerofyx',
+  //   '.cs-section--h-collab'
+  // ]);
 
-  const totalProgress = 1; // how far along the path you want to go
+  // const totalProgress = 1; // how far along the path you want to go
 
-  gsap.to(gradMotionCircle, {
-    motionPath: {
-      path: gradMotionTrack,
-      align: gradMotionTrack,
-      alignOrigin: [0.5, 0.5],
-      autoRotate: false,
-      start: 0,
-      end: 1
-    },
-    ease: "power2.inOut",
-    scrollTrigger: {
-      trigger: sections[0],
-      start: "top top",
-      endTrigger: sections[sections.length - 1],
-      end: "bottom bottom",
-      scrub: true,
-    }
-  });
+  // gsap.to(gradMotionCircle, {
+  //   motionPath: {
+  //     path: gradMotionTrack,
+  //     align: gradMotionTrack,
+  //     alignOrigin: [0.5, 0.5],
+  //     autoRotate: false,
+  //     start: 0,
+  //     end: 1
+  //   },
+  //   ease: "power2.inOut",
+  //   scrollTrigger: {
+  //     trigger: sections[0],
+  //     start: "top top",
+  //     endTrigger: sections[sections.length - 1],
+  //     end: "bottom bottom",
+  //     scrub: true,
+  //   }
+  // });
 
-  sections.forEach((section, index) => {
-    const settings = gradCircleSettings[index];
+  // sections.forEach((section, index) => {
+  //   const settings = gradCircleSettings[index];
 
-    gsap.to(gradMotionCircle, {
-      width: `${settings.size}rem`,
-      height: `${settings.size}rem`,
-      background: settings.gradient,
-      ease: "sine.inOut",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "bottom center",
-        scrub: true
-      }
-    });
-  });
+  //   gsap.to(gradMotionCircle, {
+  //     width: `${settings.size}rem`,
+  //     height: `${settings.size}rem`,
+  //     background: settings.gradient,
+  //     ease: "sine.inOut",
+  //     scrollTrigger: {
+  //       trigger: section,
+  //       start: "top top",
+  //       end: "bottom center",
+  //       scrub: true
+  //     }
+  //   });
+  // });
 
   function setFoundationBorder() {
     const foundation = document.querySelector('.cs-section--h-trust .cs-foundation');
