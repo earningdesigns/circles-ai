@@ -886,6 +886,7 @@ img {
   &foundation {
 
     position: relative;
+    z-index: 10;
     padding: 3.6rem;
     // background: rgba(255, 255, 255, 0.2);
     // border: 1px solid rgba(255,255,255,0.5);
@@ -1764,7 +1765,13 @@ img {
       &collab {
         --cs-section-container-width: 94%;
         #{$app} {
+          &title {
+            --cs-title-f-size: 2.2rem;
+            --cs-title-f-weight: 600;
+            --cs-title-line-height: 124%;
+          }
           &description {
+            // font-size: 1.8rem;
             margin-inline: auto;
             margin-bottom: 4.8rem;
 
@@ -1772,7 +1779,7 @@ img {
               width: 70%;
             }
             @media (min-width: $breakpoint-lg) {
-              width: 50%;
+              // width: 50%;
             }
             @media (min-width: $breakpoint-xl) {
               width: 25%;
@@ -1819,6 +1826,7 @@ img {
             }
 
           }
+          
           &title {
             --cs-title-hlight-f-size: 2.8rem;
             --cs-title-hlight-f-weight: 600;
@@ -1842,6 +1850,27 @@ img {
       // Trust: End
       &join {
         #{$app} {
+          &liner {
+            position: absolute;
+            // top: 12.9rem;
+            // right: 6.2%;
+            // top: 7.8rem;
+            top: -10%;
+            left: 25%;
+
+            @media (min-width: $breakpoint-md) {
+              // top: -2.6rem;
+              // right: 6.2%;
+              top: -23%;
+              left: 32%;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+            @media (min-width: $breakpoint-xl) {
+              // top: 5.3rem;
+              // right: 6.4rem;
+            }
+          }
           &brand {
             display: block;
             width: 16rem;
@@ -1859,11 +1888,7 @@ img {
           &title {
             margin-bottom: 10rem;
           }
-          &liner {
-            position: absolute;
-            top: -10%;
-            left: 25%;
-          }
+          
         }
       }
     }
