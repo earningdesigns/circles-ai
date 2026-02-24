@@ -41,6 +41,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+svg {
+  shape-rendering: geometricPrecision;
+}
 .t-center {
   text-align: center !important;
 }
@@ -163,7 +166,7 @@ img {
     width: 2.4rem;
     bottom: 1rem;
     right: 2.8rem;
-    z-index: 10;
+    z-index: 20;
   }
 
 
@@ -689,13 +692,15 @@ img {
       gap: 4rem;
     }
     @media (min-width: $breakpoint-lg) {
-      
       align-items: flex-start;
       flex-direction: row;
     }
     @media (min-width: $breakpoint-xl) {
+      width: 118rem;
+      margin-inline: auto;
     }
   }
+
   &member {
     &s {
       display: flex;
@@ -1087,6 +1092,7 @@ img {
 
       @media screen and (min-width: $breakpoint-md) {
         flex-direction: row;
+        align-items: stretch;
       }
 
       @media screen and (min-width: $breakpoint-lg) {
@@ -1305,8 +1311,10 @@ img {
 
           &titlesvg {
             margin-bottom: 2.4rem;
-            width: 60vw;
+            max-width: 60vw;
             margin-inline: auto;
+            display: flex;
+            justify-content: center;
 
             svg {
               display: block;
@@ -1854,21 +1862,28 @@ img {
       // Circles Collab: End
       &trust {
         padding-top: 7.8rem;
-        --cs-section-container-width: 94%;
+
+        @media (min-width: $breakpoint-md) {
+          --cs-section-container-width: 94%;
+          
+        }
+        @media (min-width: $breakpoint-lg) {
+          
+        }
+        @media (min-width: $breakpoint-xl) {
+          --cs-section-container-width: 118rem;
+        }
 
         #{$app} {
           &bcircle {
-            &s {
-
-            }
             & {
               // --cs-bcircle-size: 110vw;
               top: -50%;
               left: -40%;
               background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.5) 0%, rgba(43, 0, 255, 0.2) 45%, rgba(43, 0, 255, 0) 100%);
-
             }
           }
+
           &titlesvg {
             display: flex;
             align-items: center;
@@ -1929,10 +1944,9 @@ img {
             z-index: -10;
 
             @media (min-width: $breakpoint-md) {
-              // top: -2.6rem;
-              // right: 6.2%;
-              top: -23%;
-              left: 32%;
+              top: -19rem;
+              left: 35%;
+              --cs-liner-width: 7em;
             }
             @media (min-width: $breakpoint-lg) {
             }
@@ -1958,7 +1972,6 @@ img {
           &title {
             margin-bottom: 10rem;
           }
-          
         }
       }
     }
