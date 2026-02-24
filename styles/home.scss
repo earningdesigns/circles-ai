@@ -1573,15 +1573,6 @@ svg {
         }
       }
       &carex {
-        #{$section} {
-          &__ {
-            &container {
-              // position: absolute;
-              // top: -5.8%;
-              // inset-inline: 0;
-            }
-          }
-        }
         #{$app} {
           &bcircle {
             & {
@@ -1597,7 +1588,7 @@ svg {
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 22em;
-              top: 1.2rem;
+              top: 0.5rem;
               right: -2.56%;
             }
             @media (min-width: $breakpoint-lg) {
@@ -1733,20 +1724,8 @@ svg {
       }
       //  NOva: End
       &zerofyx {
-        #{$section} {
-          &__ {
-            
-            &container {
-              // top: -6%;
-              // inset-inline: 0;
-            }
-          }
-        }
         #{$app} {
           &bcircle {
-            &s {
-
-            }
             & {
               top: 0;
               right: -80%;
@@ -1763,9 +1742,10 @@ svg {
             right: -4.6rem;
 
             @media (min-width: $breakpoint-md) {
-              top: 8.3%;
-              right: -1%;
               --cs-liner-width: 23em;
+              
+              top: -1.5rem;
+              right: -1%;
             }
             @media (min-width: $breakpoint-lg) {
             }
