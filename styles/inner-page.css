@@ -82,11 +82,16 @@ img {
 
 .cs-header .cs-stripes {
   border-width: 0;
+  transition: transform 0.3s ease;
 }
-
+.cs-header .cs-stripes,
+.cs-header .cs-header__nav {
+  transition: transform 0.4s ease;
+}
 .cs-header.cs-header--hide .cs-header__nav,
 .cs-header.cs-header--hide .cs-stripes{
   transform: translateY(-15rem);
+  transition: transform 0.24s ease;
 
 }
 
@@ -106,6 +111,7 @@ img {
   display: flex;
   align-items: center;
   gap: 4.8rem;
+  transition: transform 0.3s ease;
 }
 
 .cs-header__nav-line {
