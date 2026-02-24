@@ -681,7 +681,7 @@ img {
   position: absolute;
   inset: 0;
   border-radius: 20px;
-  padding: 2px;
+  padding: 1px;
   background: linear-gradient(135deg, var(--cs-color-blue), var(--cs-color-green));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -1317,7 +1317,23 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 6.4rem;
+}
+.cs-section--h-trust .cs-titlesvg__mobile {
+  display: block;
+}
+@media (min-width: 992px) {
+  .cs-section--h-trust .cs-titlesvg__mobile {
+    display: none;
+  }
+}
+.cs-section--h-trust .cs-titlesvg__desktop {
+  display: none;
+}
+@media (min-width: 992px) {
+  .cs-section--h-trust .cs-titlesvg__desktop {
+    display: block;
+  }
 }
 .cs-section--h-trust .cs-title {
   --cs-title-hlight-f-size: 2.8rem;

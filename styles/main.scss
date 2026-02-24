@@ -165,6 +165,12 @@ img {
         text-fill-color: transparent;
         color: transparent;
         margin-bottom: .8rem;
+
+        background-size: 300% 300%;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; /* MUST */
       }
 
       &sub {
