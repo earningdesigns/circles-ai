@@ -549,7 +549,7 @@ svg {
 }
 @media (min-width: 992px) {
   .cs-companies {
-    max-width: 65rem;
+    max-width: 70rem;
   }
 }
 .cs-companies__text {
