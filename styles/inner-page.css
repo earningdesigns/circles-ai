@@ -1527,6 +1527,11 @@ a.cs-btn.loyalty-demo-btn {
     
 }
 
+.loyalty-demo-btn:hover{
+   transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(120, 100, 255, 0.45);
+}
+
 .cs-fixed-message {
   position: fixed;
   bottom: 2.5rem;
@@ -2445,3 +2450,4 @@ gap: 2.8rem;
   line-height: 22px;
   color:rgba(32, 32, 32, 1) ;
 }
+
