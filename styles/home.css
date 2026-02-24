@@ -128,6 +128,13 @@ img {
   -webkit-backdrop-filter: blur(2rem);
   z-index: 5;
 }
+.cs-hand-icon {
+  position: fixed;
+  width: 2.4rem;
+  bottom: 1rem;
+  right: 2.8rem;
+  z-index: 10;
+}
 .cs-gradmotion {
   position: absolute;
   top: 65vh;
@@ -1006,6 +1013,11 @@ img {
   position: absolute;
   top: 56.5%;
   left: -16rem;
+}
+@media (min-width: 768px) {
+  .cs-section--h-hero .cs-liner {
+    max-width: 96vw;
+  }
 }
 .cs-section--h-hero .cs-title {
   --cs-title-hlight-f-size: 5rem;

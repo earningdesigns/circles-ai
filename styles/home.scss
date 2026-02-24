@@ -158,6 +158,14 @@ img {
   }
   // Main: End
 
+  &hand-icon {
+    position: fixed;
+    width: 2.4rem;
+    bottom: 1rem;
+    right: 2.8rem;
+    z-index: 10;
+  }
+
 
   &gradmotion {
     position: absolute;
@@ -1321,6 +1329,15 @@ img {
             position: absolute;
             top: 56.5%;
             left: -16rem;
+
+            @media (min-width: $breakpoint-md) {
+              max-width: 96vw;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+            @media (min-width: $breakpoint-xl) {
+            }
+
 
             &__track {
 
