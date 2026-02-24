@@ -684,7 +684,7 @@ function joinAnim () {
   const title = sectionJoin?.querySelectorAll('.cs-title .word');
   const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
 
-  gsap.set(brand, {opacity: 0, scale: 0.5})
+  gsap.set(brand, {opacity: 0, scale: 0.5, rotation: 180})
   gsap.set(joinSteps, {opacity: 0, y: 40});
   gsap.set(title, {y: 20, opacity: 0})
 
@@ -742,7 +742,8 @@ function joinAnim () {
       autoRotate: true,
       alignOrigin: [0.5, 0.5]
     }}, '<')
-    .to(brand, {opacity: 1, scale: 1, rotation: 180, duration: 1.2})
+    .to([linerTrack, linerLine], { opacity: 0, duration: 0.4 })
+    .to(brand, {opacity: 1, scale: 1, rotation: 0, duration: 1.2}, '-=75%')
     .to(title, {y: 0, opacity: 1, stagger: 0.16, duration: 0.8}, '-=0.6')
     .to(joinSteps, {y: 0, opacity: 1, stagger: 0.18, duration: 0.8}, '-=15%')
 
