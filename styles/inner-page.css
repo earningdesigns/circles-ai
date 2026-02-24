@@ -77,7 +77,6 @@ img {
   z-index: 500;
   transform: translateY(0);
   transition: transform 0.3s ease;
-
 }
 
 .cs-header .cs-stripes {
@@ -806,13 +805,16 @@ img {
   height: 700px;
   top: -255px;
   left: 752px;
-  background: radial-gradient(    circle at center,    rgb(255 255 255) -41%,    #65FFF2 30%,    rgba(0, 242, 255, 0) 48%  );
+  background: radial-gradient(
+    circle at center,
+    rgb(255 255 255) -41%,
+    #65fff2 30%,
+    rgba(0, 242, 255, 0) 48%
+  );
   filter: blur(60px);
   border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
   z-index: -1;
 }
-
-
 
 .nova-blob {
   position: absolute;
@@ -888,7 +890,6 @@ img {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
-  
 }
 .cs-loyalty-hero__right {
   margin-left: -100px;
@@ -959,7 +960,7 @@ img {
 .cs-loyalty-slider {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 723px;
 }
 
 /* WRAPPER */
@@ -1058,7 +1059,24 @@ img {
 .cs-section--loyalty-experience {
   min-height: 0;
   padding: 0px 0 0;
-  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 14%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left, #bdffa394 18% 14%, rgba(0, 242, 255, 0) 57%), radial-gradient(circle at center, #00f2ff29 12%, rgba(0, 242, 255, 0) 53%), radial-gradient(circle at center, rgb(189 255 163 / 54%) 29%, rgba(0, 242, 255, 0) 51%) !important;
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.8) 14%,
+      rgba(255, 255, 255, 0) 35%
+    ),
+    radial-gradient(
+      circle at left,
+      #bdffa394 18% 14%,
+      rgba(0, 242, 255, 0) 57%
+    ),
+    radial-gradient(circle at center, #00f2ff29 12%, rgba(0, 242, 255, 0) 53%),
+    radial-gradient(
+      circle at center,
+      rgb(189 255 163 / 54%) 29%,
+      rgba(0, 242, 255, 0) 51%
+    ) !important;
 }
 
 .cs-section--carex-experience {
@@ -1323,7 +1341,6 @@ img {
   border: none;
 }
 
-
 .loyalty-btn {
   justify-self: center;
   margin: 0 auto !important;
@@ -1459,10 +1476,8 @@ img {
 }
 
 @media (max-width: 767px) {
-
   .cs-loyalty-hero__right {
     margin: 0;
-
   }
   .insight-blob,
   .carex-blob {
@@ -1626,7 +1641,6 @@ img {
   cursor: grabbing;
 }
 
-
 /* =====================================================
    FINAL RESPONSIVE FIX – DESKTOP / iPAD / MOBILE
    Paste at VERY BOTTOM of your CSS file
@@ -1658,7 +1672,6 @@ img {
    Keep single row
 ------------------------------ */
 @media (min-width: 769px) and (max-width: 1024px) {
-
   .dual-experience {
     flex-direction: row !important;
     gap: 20px !important;
@@ -1693,7 +1706,6 @@ img {
    Stack cards
 ------------------------------ */
 @media (max-width: 768px) {
-
   .dual-experience {
     flex-direction: column !important;
     gap: 30px !important;
@@ -1761,7 +1773,6 @@ img {
 }
 
 .cs-slide-content h3 {
-  
   font-size: 24px !important;
   font-weight: 600 !important;
   line-height: 1.2 !important;
@@ -1786,7 +1797,7 @@ img {
 
 /* Center slider controls */
 .cs-slider-controls {
-  margin-top: 25px !important;;
+  margin-top: 25px !important;
   gap: 30px !important;
 }
 
@@ -1801,7 +1812,7 @@ img {
 ================================ */
 
 .cs-loyalty-hero__left {
-  margin-top: -100px;
+  margin-top: -125px;
   display: flex;
   flex-direction: column;
 }
@@ -1822,9 +1833,7 @@ img {
   }
 }
 
-
 /* Customer Loyality Page */
-
 
 /* =========================================
    ZEROFYX EXPERIENCE – FIGMA ACCURATE
@@ -1875,7 +1884,7 @@ img {
   left: 50%;
   bottom: 40px;
   transform: translateX(-50%);
-  
+
   padding: 16px 52px;
   border-radius: 999px;
   font-size: 16px;
@@ -1887,12 +1896,7 @@ img {
   gap: 10px;
 
   /* Softer blended gradient */
-  background: linear-gradient(
-    135deg,
-    #5C8DFF 0%,
-    #8A6BFF 45%,
-    #EA4F88 100%
-  );
+  background: linear-gradient(135deg, #5c8dff 0%, #8a6bff 45%, #ea4f88 100%);
 
   /* Depth shadow like Figma */
   box-shadow:
@@ -1942,7 +1946,7 @@ img {
 /* Mobile */
 @media (max-width: 768px) {
   .cs-experience-card {
-           padding: 36px 20px 76px;
+    padding: 36px 20px 76px;
     border-radius: 40px;
   }
 
@@ -1976,7 +1980,7 @@ img {
 
 .cs-slide-container {
   display: flex;
-  flex-direction: column;   /* ← IMPORTANT */
+  flex-direction: column; /* ← IMPORTANT */
   align-items: flex-start;
   justify-content: center;
   height: 100%;
@@ -2002,23 +2006,23 @@ img {
 }
 
 .cs-slide-image {
-  width: 100%;
+  height: 362px;
+  width: 607px;
   display: flex;
-  justify-content: center;
 }
 
 .cs-slide-image img {
   width: 100%;
   max-width: 750px;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* Prevent jump */
 .cs-slider-wrapper {
+  width: 724px;
   min-height: 520px;
 }
-
 
 /* Demo Buttons */
 
@@ -2029,23 +2033,23 @@ img {
   font-size: 14px;
   font-weight: 300;
 
-  background: #F1F1F1;
-  border: 1px solid #E2E2E2;
+  background: #f1f1f1;
+  border: 1px solid #e2e2e2;
   color: #333;
 
   cursor: pointer;
   transition: all 0.25s ease;
 
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.6);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .inner-btn:hover {
-  background: #EAEAEA;
+  background: #eaeaea;
 }
 
 /* Active tab gradient exactly like figma */
 .inner-btn.active {
-  background: linear-gradient(90deg, #00C9A7 0%, #2F5DA9 100%);
+  background: linear-gradient(90deg, #00c9a7 0%, #2f5da9 100%);
   border: none;
   color: #fff;
 }
@@ -2067,7 +2071,7 @@ img {
   text-decoration: none;
   color: #fff;
 
-  background: linear-gradient(90deg, #5C8DFF 0%, #EA4F88 100%);
+  background: linear-gradient(90deg, #5c8dff 0%, #ea4f88 100%);
 
   box-shadow:
     0 14px 28px rgba(92, 141, 255, 0.35),
@@ -2087,4 +2091,35 @@ img {
   box-shadow:
     0 18px 32px rgba(92, 141, 255, 0.4),
     0 8px 20px rgba(234, 79, 136, 0.3);
+}
+
+@media (max-width: 1080px) {
+  .cs-slider-wrapper {
+    width: 100%;
+    min-height: 460px;
+    min-width: 488px;
+  }
+  .cs-slide-image {
+    width: 100%;
+    height: 62%;
+  }
+  .cs-loyalty-hero__left {
+    margin-top: -50px;
+  }
+  .cs-slide-content h3 {
+    font-size: 19px !important;
+  }
+  .cs-loyalty-product_top {
+    max-width: 40%;
+  }
+  .cs-video-wrapper {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 767px) {
+   .cs-slide-image {
+    width: 100%;
+    height: 70%;
+  }
 }
