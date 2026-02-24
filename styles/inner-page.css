@@ -2516,3 +2516,38 @@ a.cs-btn.loyalty-demo-btn {
   opacity: 0.4;
   pointer-events: none;
 }
+.cs-video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.cs-video-modal.active {
+  display: flex;
+}
+
+.cs-video-modal__content {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.cs-video-modal iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.cs-video-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
