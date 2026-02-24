@@ -1126,7 +1126,7 @@ img {
   }
 }
 .cs-section--h-nova {
-  min-height: 90rem;
+  min-height: 100rem;
   display: flex;
   flex-direction: column;
   align-items: center;
