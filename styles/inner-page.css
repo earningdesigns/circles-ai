@@ -1021,7 +1021,7 @@ img {
 .cs-loyalty-product__subtitle {
   line-height: 30px;
   margin-top: 30px;
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 300;
   color: #000;
   font-family: "Plus Jakarta Sans";
@@ -1348,8 +1348,8 @@ img {
 }
 
 .experience-block {
-  max-width: 550px;
-  max-height: 614px;
+  max-width: 450px;
+  max-height: 411px;
   border: 1px solid #000;
   border-radius: 33px;
   background: #ffffff;
@@ -1431,10 +1431,11 @@ img {
   height: 1px;
   background: #7c7c7c66;
   margin: 21px auto;
+  margin-top: -21px;
 }
 
 .three-dots {
-  height: 60px;
+  height: 20px;
   margin: 20px 20px 0 0;
   justify-content: end;
   display: flex;
@@ -1498,14 +1499,14 @@ img {
 
 /* Text */
 .logo-text {
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 700;
   color: #2b8cff;
   letter-spacing: 0.5px;
 }
 
 .logo-paragraph {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 .image-container img {
@@ -1909,7 +1910,7 @@ gap: 2.8rem;
 /* 4️⃣ CARD */
 .experience-block {
   width: 40%;
-  max-width: 450px;      /* Figma width */
+  max-width: 350px;      /* Figma width */
   height: auto;         /* Figma height */
   border-radius: 36px;
   border: 1px solid #385E694D;
@@ -1961,7 +1962,7 @@ gap: 2.8rem;
   }
 
   .dual-experience {
-    gap: 40px;
+    gap: 20px;
   }
 }
 
@@ -2289,7 +2290,7 @@ gap: 2.8rem;
   padding: 8px 20px;
   border-radius: 10px;
 
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 300;
 
   background: #f1f1f1;
@@ -2332,9 +2333,7 @@ gap: 2.8rem;
 
   background: linear-gradient(78deg, #5c8dff , #EA4F88 144%);
 
-  box-shadow:
-    0 14px 28px rgba(92, 141, 255, 0.35),
-    0 6px 16px rgba(234, 79, 136, 0.25);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
   transition: all 0.3s ease;
 
@@ -2342,7 +2341,7 @@ gap: 2.8rem;
   display: block;
   width: fit-content;
   margin-left: auto;
-  margin-top: 37px;
+  margin-top: 15px;
 }
 
 .demo-btn:hover {
@@ -2358,6 +2357,8 @@ gap: 2.8rem;
     width: 100%;
     min-height: 460px;
     min-width: 488px;
+    margin-left: 15px;
+    margin-top: 25px;
   }
 
   .cs-slide-image {
@@ -2365,9 +2366,9 @@ gap: 2.8rem;
     height: 62%;
   }
 
-  .cs-loyalty-hero__left {
+  /* .cs-loyalty-hero__left {
     margin-top: -50px;
-  }
+  } */
 
   .cs-slide-content h3 {
     font-size: 24px !important;
