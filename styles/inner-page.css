@@ -1431,7 +1431,7 @@ img {
   height: 1px;
   background: #7c7c7c66;
   margin: 21px auto;
-  margin-top: -21px;
+  /* margin-top: -21px; */
 }
 
 .three-dots {
