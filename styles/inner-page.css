@@ -1433,7 +1433,9 @@ img {
   margin: 21px auto;
   /* margin-top: -21px; */
 }
-
+.minus-margin-21 {
+  margin-top: -21px;
+}
 .three-dots {
   height: 20px;
   margin: 20px 20px 0 0;
