@@ -569,7 +569,8 @@ img {
       height: var(--cs-bcircle-size);
       border-radius: 50%;
       background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
-
+      filter: blur(3rem);
+      -webkit-filter: blur(3rem);
     }
     &-- {
       &1 {

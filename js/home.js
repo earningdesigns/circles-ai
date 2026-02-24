@@ -759,27 +759,27 @@ function init() {
   const gradCircleSettings = [
     {
       size: 59.8,
-      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
       size: 59.8,
-      gradient: 'linear-gradient(to top, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%)',
+      gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%, rgba(255, 255, 255, 0.5) 89.9%)',
     },
     {
-      size: 90,
-      gradient: 'linear-gradient(to top, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%)',
+      size: 135,
+      gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.1) 46%, rgba(97, 255, 218, 0) 100%)',
     },
     {
-      size: 80,
-      gradient: 'linear-gradient(to top, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0) 100%)',
+      size: 135,
+      gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.1) 48%, rgba(0, 242, 255, 0) 100%)',
     },
     {
-      size: 80,
-      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(255, 0, 195, 0) 100%)'
+      size: 135,
+      gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0.1) 48%, rgb(255, 0, 195, 0) 100%)'
     },
     {
-      size: 80,
-      gradient: 'linear-gradient(to top, #65FFF2 0%, rgb(43, 0, 195, 0) 100%)'
+      size: 135,
+      gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0.1) 48%, rgb(43, 0, 195, 0) 100%)'
     }
   ]
 
@@ -819,13 +819,13 @@ function init() {
     gsap.to(gradMotionCircle, {
       width: `${settings.size}rem`,
       height: `${settings.size}rem`,
-      // background: settings.gradient,
+      background: settings.gradient,
       ease: "sine.inOut",
       scrollTrigger: {
         trigger: section,
-        start: "top center",
+        start: "top top",
         end: "bottom center",
-        scrub: 2
+        scrub: true
       }
     });
   });
