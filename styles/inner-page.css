@@ -1563,6 +1563,15 @@ a.cs-btn.loyalty-demo-btn {
 
 
 @media (max-width: 1080px) {
+<<<<<<< HEAD
+=======
+
+.cs-fixed-message{
+ 
+ bottom: 2.5rem;
+    z-index: 9999;
+}
+>>>>>>> 4291460 (updated footer sticky)
   .cs-dots {
   right: 30px;
 }

@@ -421,7 +421,7 @@ function carexAnim() {
   // gsap.set(titleSvg,{opacity: 0, x: -5})
   // gsap.set(carexTitle, {opacity: 0})
   gsap.set(hltTitle, {opacity: 0})
-  gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
+  // gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
   const introTl = gsap.timeline({
     scrollTrigger: {
       trigger: carexSection,
@@ -432,8 +432,8 @@ function carexAnim() {
 
   introTl
     .to(hltTitle, {opacity: 1, duration: 0.8})
-    .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
-    .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+    // .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
+    // .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
 
   
 
@@ -453,29 +453,29 @@ function carexAnim() {
     }
   });
 
-  const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  // const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function novaAnim () {
@@ -485,19 +485,19 @@ function novaAnim () {
   const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
   const novaSlider = novaSection.querySelector('.cs-slider__swiper');
 
-  gsap.set([linerTrack, linerSub], {drawSVG: 0})
+  // gsap.set([linerTrack, linerSub], {drawSVG: 0})
 
-  const introTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: novaSection,
-      start: "top 80%",
-      once: true,
-    }
-  });
+  // const introTl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: novaSection,
+  //     start: "top 80%",
+  //     once: true,
+  //   }
+  // });
 
-  introTl
-    .to(linerTrack, { drawSVG: "100%", duration: 1 })
-    .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+  // introTl
+  //   .to(linerTrack, { drawSVG: "100%", duration: 1 })
+  //   .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
 
   gsap.to(linerLine, {
     motionPath: {
@@ -515,29 +515,29 @@ function novaAnim () {
     }
   });
 
-    const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  //   const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function zerofyxAnim() {
@@ -547,14 +547,14 @@ function zerofyxAnim() {
   const zerofyxSlider = zerofyxSection.querySelector('.cs-slider__swiper');
 
   
-    gsap.to(
-      linerTrack, { drawSVG: "100%", duration: 1,
-      scrollTrigger: {
-        trigger: zerofyxSection,
-        start: "top 80%",
-        once: true,
-      }
-    });
+    // gsap.to(
+    //   linerTrack, { drawSVG: "100%", duration: 1,
+    //   scrollTrigger: {
+    //     trigger: zerofyxSection,
+    //     start: "top 80%",
+    //     once: true,
+    //   }
+    // });
 
     gsap.to(linerLine, {
     motionPath: {
@@ -572,29 +572,29 @@ function zerofyxAnim() {
     }
   });
 
-  const swiper = new Swiper('.cs-slider__swiper', {
-    loop: true,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
+  // const swiper = new Swiper('.cs-slider__swiper', {
+  //   loop: true,
+  //   autoplay: {
+  //       delay: 2500,
+  //       disableOnInteraction: false,
+  //       pauseOnMouseEnter: true,
+  //     },
+  //   // If we need pagination
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //   },
 
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+  //   // Navigation arrows
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
-  });
+  //   // And if we need scrollbar
+  //   scrollbar: {
+  //     el: '.swiper-scrollbar',
+  //   },
+  // });
 }
 
 function collabAnim() {
@@ -872,6 +872,45 @@ function init() {
       })
     }
   })
+
+  const swipers = document.querySelectorAll(".swiper");
+
+  const swiperInstances = [];
+
+  swipers.forEach((el, index) => {
+    swiperInstances[index] = new Swiper(el, {
+      loop: true,
+      autoplay: { delay: 2500 },
+      slidesPerView: 1,
+      pauseOnMouseEnter: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  });
+
+  // Observe each swiper
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const swiperEl = entry.target;
+      const swiper = swiperEl.swiper; // Swiper instance
+
+      if (entry.isIntersecting) {
+        swiper.autoplay.start();
+      } else {
+        swiper.autoplay.stop();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  // Attach observer
+  swipers.forEach(swiper => observer.observe(swiper));
   
   blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
