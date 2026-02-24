@@ -409,6 +409,7 @@ svg {
   width: 75dvw;
   max-width: 120rem;
   margin: auto;
+  z-index: -1;
 }
 .cs-concentric-circle {
   fill: none;
