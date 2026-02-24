@@ -71,7 +71,7 @@ img {
 
 .cs-header {
   --cs-header-container-width: 94%;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
@@ -84,9 +84,12 @@ img {
   border-width: 0;
 }
 
-.cs-header.cs-header--hide {
-  transform: translateY(-5rem);
+.cs-header.cs-header--hide .cs-header__nav,
+.cs-header.cs-header--hide .cs-stripes{
+  transform: translateY(-15rem);
+
 }
+
 
 .cs-header__container {
   max-width: 1080px;
@@ -127,7 +130,9 @@ img {
     top: 4rem;
     right: 4%;
     max-width: 12.4rem;
+
 }
+
 
 
 .cs-main {
