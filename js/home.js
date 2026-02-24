@@ -323,28 +323,6 @@ function sdmoAnim() {
 
     const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
     const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-    // FORCE SVG transform support
-gsap.set(texts, {
-  transformOrigin: "50% 50%",
-  transformBox: "fill-box"
-});
-
-// ROTATE EACH OVAL ALONG ITS CIRCLE
-texts.forEach((text, i) => {
-
-  gsap.to(text, {
-    motionPath: {
-      path: circles[i],
-      align: circles[i],
-      alignOrigin: [0.5, 0.5],
-      autoRotate: false
-    },
-    duration: 30 + (i * 5),
-    repeat: -1,
-    ease: "none"
-  });
-
-});
     // ------------------------------------
     // INITIAL SETUP
     // ------------------------------------
