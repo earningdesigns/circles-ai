@@ -1348,7 +1348,7 @@ img {
 
 .experience-block {
   max-width: 450px;
-  max-height: 411px;
+  max-height: 430px;
   border: 1px solid #000;
   border-radius: 33px;
   background: #ffffff;
@@ -1357,6 +1357,7 @@ img {
 }
 
 .insights-block {
+  padding: 1rem 0 2rem !important;
   max-width: 550px;
   max-height: 550px;
 }
@@ -1378,6 +1379,7 @@ img {
 }
 
 .screen-img.active {
+  border-radius: 36px;
 /*
   padding: 10px 10px 0; */
   justify-self: anchor-center;
@@ -1427,7 +1429,7 @@ img {
 }
 
 .divider {
-  width: 100%;
+  width: 85%;
   border: none;
   height: 1px;
   background: #7c7c7c66;
@@ -1961,7 +1963,7 @@ a.cs-btn.loyalty-demo-btn {
   border-radius: 36px;
   border: 1px solid #385E694D;
   background: #fff;
-  padding: 0 25px 25px;
+  padding: 0 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2388,7 +2390,7 @@ a.cs-btn.loyalty-demo-btn {
   /* 🔥 RIGHT ALIGN FIX */
   display: block;
   width: fit-content;
-  margin-left: auto;
+  margin-left: 18rem;
   margin-top: 15px;
 }
 
