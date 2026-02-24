@@ -1,6 +1,15 @@
 // Register GSAP plugins by reference (plugin objects), not by string names
 gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
+gsap.ticker.lagSmoothing(0);
+
+ScrollTrigger.config({
+  limitCallbacks: true,
+  ignoreMobileResize: true,
+});
+
+ScrollTrigger.normalizeScroll(true);
+
 document.addEventListener("DOMContentLoaded", init)
 
 // Split All Headlines
@@ -10,22 +19,11 @@ const splitTextToChars = () => { return SplitText.create(".cs-title", {type: "wo
 function blobsAnim() {
     const blobs = document.querySelectorAll('#homeBlurCircles .cs-bcircle');
     const blobsLimit = blobs.length;
-
-    const blobsTl = gsap.timeline({
-      // paused: true, // Start paused
-      // scrollTrigger: {
-      //   trigger: '.cs-section--h-hero', // The section containing blobs
-      //   start: 'top top',         // Animation starts when section reaches the middle of the viewport
-      //   end: 'bottom top',           // Animation stops when the section leaves the viewport
-      //   toggleActions: 'play pause resume pause', // Play/pause based on scroll
-      // },
-    })
     const animDefaults = {
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
     }
-
     const randomCoord = () => {
       const marginSpace = 300;
 
@@ -41,6 +39,7 @@ function blobsAnim() {
       gsap.set(blob, {x: coOrd.x, y: coOrd.y});
     });
 
+    const blobsTl = gsap.timeline({paused: true});
 
     // Add floating animation with GSAP
     blobs.forEach((blob, index) => {
@@ -63,9 +62,23 @@ function blobsAnim() {
       gsap.to(blobs, {
         scale: '+=0.05',
         duration: 1,
+        stagger: 1,
         ...animDefaults
       })
     )
+    
+    function toggleBlob() {
+      const currentScroll = window.scrollY;
+      const winHeight = window.innerHeight;
+
+      if (currentScroll < winHeight) {
+        if (!blobsTl.isActive()) blobsTl.play();
+      } else {
+        blobsTl.pause();
+      }
+    }
+    window.addEventListener('load', toggleBlob)
+    window.addEventListener('scroll', toggleBlob)
   }
 
 function heroAnim() {
@@ -191,7 +204,7 @@ function heroAnim() {
   const heroTl = gsap.timeline({ease: "power4.out", });
 
   heroTl
-    .add(blobsAnim())
+    // .add(blobsAnim())
     .add(brandLetters())
     .to(titleSvg,{x: 0, opacity: 1, stagger: 0.08, duration: .8})
     .to(sectionHeroTitleChar, {x: 0, opacity: 1, stagger: 0.08, duration: .8})
@@ -328,6 +341,7 @@ function sdmoAnim() {
 function carexAnim() {
   const carexSection = document.querySelector('.cs-section--h-carex');
   const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
+  const hltTitle = carexSection?.querySelector('.cs-hlt-title');
   const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
   const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
@@ -336,8 +350,8 @@ function carexAnim() {
   
   // gsap.set(titleSvg,{opacity: 0, x: -5})
   // gsap.set(carexTitle, {opacity: 0})
-  gsap.set([linerTrack, linerSub], {drawSVG: 0})
-
+  gsap.set(hltTitle, {opacity: 0})
+  gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
   const introTl = gsap.timeline({
     scrollTrigger: {
       trigger: carexSection,
@@ -347,12 +361,13 @@ function carexAnim() {
   });
 
   introTl
-    .to(linerTrack, { drawSVG: "100%", duration: 1 })
+    .to(hltTitle, {opacity: 1, duration: 0.8})
+    .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
     .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
 
   
 
-    gsap.to(linerLine, {
+  gsap.to(linerLine, {
     motionPath: {
       path: linerTrack,
       align: linerTrack,
@@ -722,7 +737,7 @@ function init() {
     }
   })
   
-  // blobsAnim(); // Hero Blob Animation
+  blobsAnim(); // Hero Blob Animation
   heroAnim(); // Hero Animation
   sdmoAnim(); // Sdmo Second Section Animation
   carexAnim(); // CareX Animation
