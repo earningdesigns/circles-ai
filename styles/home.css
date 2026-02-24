@@ -137,7 +137,7 @@ svg {
   width: 2.4rem;
   bottom: 1rem;
   right: 2.8rem;
-  z-index: 10;
+  z-index: 20;
 }
 .cs-gradmotion {
   position: absolute;

@@ -729,6 +729,25 @@ function joinAnim () {
 }
 // Join Anim: End
 
+function onPageStartEnd() {
+  window.addEventListener("scroll", () => {
+    const doc = document.documentElement;
+    
+    let isBottom = doc.scrollTop + window.innerHeight >= doc.scrollHeight - 5;
+    let isTop = doc.scrollTop <= window.innerHeight;
+
+    if (isBottom) {
+      gsap.to('#handSymbol', {rotate: 180, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
+    }
+    else if (isTop) {
+      gsap.to('#handSymbol', {rotate: 0, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
+    }
+  });
+}
+
+// Usage
+
+
 
 
 function init() {
@@ -911,4 +930,6 @@ function init() {
   collabAnim(); // Collab Animation
   trustAnim(); // Trust ANimation
   joinAnim(); // Join Revolution - Last Section Animation
+
+  onPageStartEnd();
 }
