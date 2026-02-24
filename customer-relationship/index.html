@@ -625,54 +625,53 @@
   /* DRAG / SWIPE */
   /* ========================= */
 
-  function getX(e) {
-    return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+  let moved = false;
+
+function startDrag(e) {
+  isDragging = true;
+  moved = false;
+  startX = getX(e);
+  slider.style.cursor = "grabbing";
+  track.style.transition = "none";
+}
+
+function drag(e) {
+  if (!isDragging) return;
+
+  const currentX = getX(e);
+  const diff = currentX - startX;
+
+  if (Math.abs(diff) > 5) {
+    moved = true; // only mark as drag if moved enough
   }
 
-  function startDrag(e) {
-    isDragging = true;
-    startX = getX(e);
-    slider.style.cursor = "grabbing";
-    track.style.transition = "none";
+  track.style.transform = `translateX(${prevTranslate + diff}px)`;
+}
+
+function endDrag(e) {
+  if (!isDragging) return;
+
+  isDragging = false;
+  slider.style.cursor = "grab";
+  track.style.transition = "transform 0.35s cubic-bezier(.25,.8,.25,1)";
+
+  if (!moved) {
+    // It was a tap, not a drag → do nothing
+    updateSliderPosition(activeIndex);
+    return;
   }
 
-  function drag(e) {
-    if (!isDragging) return;
+  const endX = getX(e);
+  const movedBy = endX - startX;
 
-    const currentX = getX(e);
-    const diff = currentX - startX;
+  const btnWidth = buttons[0].offsetWidth;
+  const gap = parseInt(getComputedStyle(track).gap) || 0;
+  const fullWidth = btnWidth + gap;
 
-    track.style.transform = `translateX(${prevTranslate + diff}px)`;
-  }
+  const movedSlides = Math.round(movedBy / fullWidth);
 
-  function endDrag(e) {
-    if (!isDragging) return;
-
-    isDragging = false;
-    slider.style.cursor = "grab";
-    track.style.transition = "transform 0.35s cubic-bezier(.25,.8,.25,1)";
-
-    const endX = getX(e);
-    const movedBy = endX - startX;
-
-    const btnWidth = buttons[0].offsetWidth;
-    const gap = parseInt(getComputedStyle(track).gap) || 0;
-    const fullWidth = btnWidth + gap;
-
-    const movedSlides = Math.round(movedBy / fullWidth);
-
-    showTab(activeIndex - movedSlides);
-  }
-
-  slider.addEventListener("mousedown", startDrag);
-  slider.addEventListener("mousemove", drag);
-  slider.addEventListener("mouseup", endDrag);
-  slider.addEventListener("mouseleave", endDrag);
-
-  slider.addEventListener("touchstart", startDrag);
-  slider.addEventListener("touchmove", drag);
-  slider.addEventListener("touchend", endDrag);
-
+  showTab(activeIndex - movedSlides);
+}
   /* ========================= */
   /* RESIZE FIX */
   /* ========================= */
