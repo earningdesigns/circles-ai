@@ -86,7 +86,7 @@ img {
   transform: translateY(-5rem);
 }
 .cs-header__container {
-  max-width: 1080px;
+  /* max-width: 1080px; */
   width: var(--cs-header-container-width);
   margin-inline: auto;
   display: flex;
