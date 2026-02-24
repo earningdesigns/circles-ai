@@ -31,7 +31,7 @@
 
         <div class="cs-header__brand">
           <a href="/">
-          <img src="../images/circles-logo 2.svg" alt="Circles" class="">
+            <img src="../images/circles-logo 2.svg" alt="Circles" class="">
           </a>
         </div>
       </div>
@@ -81,7 +81,10 @@
 
                 <!-- YouTube Iframe (Already in HTML, Just Hidden) -->
                 <iframe id="youtubeVideo" class="cs-video-iframe" width="100%" height="100%"
-                 src="https://www.youtube.com/embed/uJse-dLCRi8?autoplay=1&mute=1&rel=0&playsinline=1si=U14YPDJNgAEZYvuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  src="https://www.youtube.com/embed/uJse-dLCRi8?autoplay=1&mute=1&rel=0&playsinline=1si=U14YPDJNgAEZYvuE"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 
@@ -188,7 +191,8 @@
         <div class="cs-experience-card">
           <!-- Background Screens -->
           <img src="../images/Group 483953.png" alt="Experience UI" class="cs-experience-bg">
-          <a href="https://www.figma.com/proto/xLRLceaQ2d9XZIjjdFDZLq/Zerofy?node-id=152-769&viewport=1559%2C-750%2C0.12&t=gOm0TXIIminbWcg0-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=152%3A769&show-proto-sidebar=1" target="_blank" class="demo-btn loyalty-btn">Demo</a>
+          <a href="https://www.figma.com/proto/xLRLceaQ2d9XZIjjdFDZLq/Zerofy?node-id=152-769&viewport=1559%2C-750%2C0.12&t=gOm0TXIIminbWcg0-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=152%3A769&show-proto-sidebar=1"
+            target="_blank" class="demo-btn loyalty-btn">Demo</a>
         </div>
 
         <!-- Demo Link -->
@@ -220,23 +224,32 @@
   <script src="../js/header.js"></script>
   <!-- Main Script -->
   <script>
-    //youtube  video
+    // youtube + slider
     function pageInit() {
+
+      /* ================= YOUTUBE ================= */
+
       const playBtn = document.getElementById("playBtn");
       const thumbnail = document.getElementById("thumbnail");
       const iframe = document.getElementById("youtubeVideo");
 
-      playBtn.addEventListener("click", function () {
-        thumbnail.style.display = "none";
-        iframe.style.display = "block";
-        iframe.src += "&autoplay=1";
-      });
+      if (playBtn) {
+        playBtn.addEventListener("click", function () {
+          thumbnail.style.display = "none";
+          iframe.style.display = "block";
+          iframe.src += "&autoplay=1";
+        });
+      }
 
-      const slider = document.querySelector(".cs-loyalty-slider"); // full section
+      /* ================= SLIDER ================= */
+
+      const slider = document.querySelector(".cs-loyalty-slider");
       const slides = document.querySelectorAll(".cs-slide");
       const dots = document.querySelectorAll(".cs-dots span");
       const prev = document.querySelector(".cs-prev");
       const next = document.querySelector(".cs-next");
+
+      if (!slider) return;
 
       let current = 0;
       const total = slides.length;
@@ -245,6 +258,24 @@
       let startX = 0;
       let diff = 0;
       const threshold = 80;
+
+      /* ===== AUTO SLIDE ===== */
+
+      let autoSlideInterval;
+      const autoDelay = 4000; // 4 seconds
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideInterval = setInterval(() => {
+          updateSlider((current + 1) % total);
+        }, autoDelay);
+      }
+
+      function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+      }
+
+      /* ===== UPDATE SLIDER ===== */
 
       function updateSlider(index) {
         slides.forEach((slide, i) => {
@@ -257,24 +288,32 @@
         current = index;
       }
 
-      // BUTTONS
+      /* ===== BUTTONS ===== */
+
       next.addEventListener("click", () => {
         updateSlider((current + 1) % total);
+        startAutoSlide();
       });
 
       prev.addEventListener("click", () => {
         updateSlider((current - 1 + total) % total);
+        startAutoSlide();
       });
 
       dots.forEach((dot, i) => {
-        dot.addEventListener("click", () => updateSlider(i));
+        dot.addEventListener("click", () => {
+          updateSlider(i);
+          startAutoSlide();
+        });
       });
 
-      // DRAG START
+      /* ===== DRAG ===== */
+
       function startDrag(x) {
         isDragging = true;
         startX = x;
         slider.style.cursor = "grabbing";
+        stopAutoSlide();
       }
 
       function moveDrag(x) {
@@ -294,22 +333,34 @@
         isDragging = false;
         diff = 0;
         slider.style.cursor = "grab";
+
+        startAutoSlide();
       }
 
-      // MOUSE
+      /* ===== MOUSE EVENTS ===== */
+
       slider.addEventListener("mousedown", (e) => startDrag(e.clientX));
       slider.addEventListener("mousemove", (e) => moveDrag(e.clientX));
       slider.addEventListener("mouseup", endDrag);
       slider.addEventListener("mouseleave", endDrag);
 
-      // TOUCH
+      /* ===== TOUCH EVENTS ===== */
+
       slider.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX));
       slider.addEventListener("touchmove", (e) => moveDrag(e.touches[0].clientX));
       slider.addEventListener("touchend", endDrag);
+
+      /* ===== HOVER PAUSE ===== */
+
+      slider.addEventListener("mouseenter", stopAutoSlide);
+      slider.addEventListener("mouseleave", startAutoSlide);
+
+      /* ===== INIT ===== */
+
+      startAutoSlide();
     }
 
     document.addEventListener("DOMContentLoaded", pageInit);
-
   </script>
 </body>
 
