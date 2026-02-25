@@ -1469,7 +1469,9 @@ svg {
               left: 2%;
             }
             @media (min-width: $breakpoint-xl) {
-              --cs-liner-width: 60rem;
+              --cs-liner-width: 43rem;
+              top: 65%;
+              left: -5%;
             }
 
 
@@ -1647,6 +1649,17 @@ svg {
         display: flex;
         flex-direction: column;
         align-items: center;
+        
+
+        @media (min-width: $breakpoint-md) {
+          padding-block: 5rem 19rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+        }
+        @media (min-width: $breakpoint-xl) {
+          // --cs-grid-gap: 3rem;
+        }
+
         #{$section} {
           &__backdrop {
             max-width: var(--cs-section-container-width);
@@ -1655,6 +1668,22 @@ svg {
           }
         }
         #{$app} {
+          &hlt-title {
+            position: absolute;
+            top: -22rem;
+            @media (min-width: $breakpoint-md) {
+              align-items: flex-end;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+            @media (min-width: $breakpoint-xl) {
+              // top: -31.5rem;
+              
+            }
+          }
+          &liner {
+            z-index: -1;
+          }
           &grid {
             @media (min-width: $breakpoint-md) {
               // --cs-grid-gap: 3rem;
@@ -1716,32 +1745,15 @@ svg {
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 22em;
               top: -16.4rem;
-              left: 30rem;
-              left: 51%;
               left: 19.8em;
             }
             @media (min-width: $breakpoint-lg) {
               left: 16em;
             }
             @media (min-width: $breakpoint-xl) {
-              top: -14.8rem;
-              left: 16em;
+              top: -16.3rem;
+              left: 20.8em;
               
-            }
-          }
-
-                  
-          &hlt-title {
-            position: absolute;
-            top: -22rem;
-
-            @media (min-width: $breakpoint-md) {
-              
-            }
-            @media (min-width: $breakpoint-lg) {
-            }
-            @media (min-width: $breakpoint-xl) {
-              top: -20.4rem;
             }
           }
           &contentbox {
@@ -1807,6 +1819,18 @@ svg {
               background: radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.2) 48.8%, rgba(0, 242, 255, 0) 100%);
             }
           }
+          &contentbox {
+            padding-left: 6.5rem;
+            @media (min-width: $breakpoint-md) {
+              padding-left: 16.5rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+              padding-left: 0;
+            }
+            @media (min-width: $breakpoint-xl) {
+              
+            }
+          }
           &liner {
             position: absolute;
             top: 5.3rem;
@@ -1814,29 +1838,18 @@ svg {
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: min(19em, 87rem);
-              top: 4.3rem;
-              left: -0.8%;
+              top: -15rem;
+              left: -1.3em;
             }
             @media (min-width: $breakpoint-lg) {
+              left: -10.5em;
             }
             @media (min-width: $breakpoint-xl) {
-              top: 12.3rem;
-              left: -12rem;
+              // top: 12.3rem;
+              // left: -12rem;
             }
           }
-          &hlt-title {
-            position: absolute;
-            top: -22rem;
-
-            @media (min-width: $breakpoint-md) {
-              left: 17%
-            }
-            @media (min-width: $breakpoint-lg) {
-            }
-            @media (min-width: $breakpoint-xl) {
-              
-            }
-          }
+          
 
           &grid {
             @media (min-width: $breakpoint-md) {
@@ -1880,37 +1893,32 @@ svg {
           }
           &liner {
             position: absolute;
-            // top: 12.9rem;
-            // right: 6.2%;
-            // top: 7.8rem;
-            right: -4.6rem;
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 23em;
               
-              top: -1.5rem;
-              right: -1%;
+              top: -16.5rem;
+              left: 20.2em;
             }
             @media (min-width: $breakpoint-lg) {
+              left: 16.5em;
             }
             @media (min-width: $breakpoint-xl) {
-              top: 5.3rem;
-              right: 6.4rem;
+              
             }
           }
-          &hlt-title {
-            position: absolute;
-            top: -22rem;
+          &contentbox {
             @media (min-width: $breakpoint-md) {
-              
+              padding-left:5rem;
             }
             @media (min-width: $breakpoint-lg) {
+              padding-left:0;
             }
             @media (min-width: $breakpoint-xl) {
-              top: -31.5rem;
-              
+             
             }
           }
+          
           &grid {
 
             &__ {
