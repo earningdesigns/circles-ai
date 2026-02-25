@@ -59,45 +59,9 @@
     </header>
 
     <!-- Header: End -->
-    <style>
-      /* =========================================
-   DEMO BUTTON – FIGMA MATCH
-========================================= */
-
-      .demo-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-
-        padding: 10px 10px 10px 15px;
-        border-radius: 30px;
-
-        font-size: 12px;
-        font-weight: 500;
-        color: #ffffff;
-        text-decoration: none;
-
-
-
-        transition: all 0.3s ease;
-      }
-
-      .demo-btn img {
-        width: 28px;
-        height: 18px;
-        object-fit: cover;
-      }
-
-      /* Hover effect */
-      .demo-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 35px rgba(120, 100, 255, 0.45);
-      }
-    </style>
     <!-- CUSTOMER LOYALTY HERO -->
     <section class="cs-section cs-section--loyalty-hero"
-      style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
+      style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: 100% 100%;background-position: center;">
       <!-- <div class="cs-loyalty-bg carex-bg"></div>
       <div class="cs-blob carex-blob"></div> -->
 
@@ -736,7 +700,7 @@ function endDrag(e) {
   const overlay = document.getElementById("closeVideo");
   const iframe = document.getElementById("popupVideo");
 
-  const videoURL = "https://www.youtube.com/embed/exNaJTLts0w?autoplay=1&rel=0";
+  const videoURL = "https://www.youtube.com/embed/exNaJTLts0w?autoplay=1&rel=0&modestbranding=1&playsinline=1";
 
   openBtn.addEventListener("click", () => {
     iframe.src = videoURL;
