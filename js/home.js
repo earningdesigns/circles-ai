@@ -232,8 +232,11 @@ function heroAnim() {
           scrub: true,
           start: "top top",
           // end: "bottom bottom",
-          onScurbComplete: () => {
+          onLeave: () => {
             gsap.to(linerLine, {opacity: 0, duration: time.normal})
+          },
+          onEnterBack: () => {
+            gsap.to(linerLine, {opacity: 1, duration: time.normal})
           }
           // onUpdate: (self) => {
           //   // Clamp progress to 30%-60% range (0.3 - 0.6)
@@ -451,8 +454,14 @@ function carexAnim() {
       start: "top center+=100", // start AFTER intro visually
       end: "bottom center",
       scrub: 1,
-      onScurbComplete: () => {
+      onEnter: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+      },
+      onLeave: () => {
         gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onEnterBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
       }
     }
   });
@@ -492,6 +501,15 @@ function novaAnim () {
       start: "top center+=100", // start AFTER intro visually
       end: "bottom center",
       scrub: 1,
+      onEnter: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+      },
+      onLeave: () => {
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onEnterBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+      }
     }
   });
 }
@@ -511,6 +529,7 @@ function zerofyxAnim() {
     //     once: true,
     //   }
     // });
+    gsap.set(linerLine, {opacity: 0})
 
     gsap.to(linerLine, {
     motionPath: {
@@ -525,6 +544,15 @@ function zerofyxAnim() {
       start: "top center+=100", // start AFTER intro visually
       end: "bottom center",
       scrub: 1,
+      onEnter: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+      },
+      onLeave: () => {
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onEnterBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+      }
     }
   });
 }

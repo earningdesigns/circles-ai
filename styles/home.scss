@@ -1698,6 +1698,13 @@ svg {
               // --cs-grid-gap: 3rem;
             }
           }
+          &contentbox {
+            @media (min-width: $breakpoint-lg) {
+              // width: 75%;
+            }
+            &__footer {
+            }
+          }
           &title {
             @media (min-width: $breakpoint-md) {
 
@@ -1768,6 +1775,7 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
+              // width: 85%
             }
             @media (min-width: $breakpoint-xl) {
             }
@@ -1832,6 +1840,7 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
+              // width: 85%;
             }
             @media (min-width: $breakpoint-xl) {
               
@@ -1895,8 +1904,8 @@ svg {
             & {
               top: 0;
               right: -80%;
-              filter: blur(1rem); /* keep 0 for crisp neon edge */
-              -webkit-filter: blur(1rem); /* keep 0 for crisp neon edge */
+              // filter: blur(1rem); /* keep 0 for crisp neon edge */
+              // -webkit-filter: blur(1rem); /* keep 0 for crisp neon edge */
               background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0.1) 50%, rgba(255, 0, 196, 0) 100%);
             }
           }
