@@ -1304,9 +1304,16 @@
       positionTags(scrollAngle);
     });
 
-    window.addEventListener("wheel", e => {
-      targetAngle += e.deltaY * 0.05;
-    }, {passive: true});
+    ScrollTrigger.create({
+  trigger: "#concentricTexts",
+  start: "top bottom",
+  end: "bottom top",
+  scrub: true,
+  onUpdate: self => {
+    // 200px feeling equivalent rotation amount
+    targetAngle = self.progress * 50;
+  }
+});
 
     positionTags(0);
   </script>
