@@ -300,43 +300,6 @@
     </section>
   </div>
 
-  <style>
-    /* =========================================
-   DEMO BUTTON – FIGMA MATCH
-========================================= */
-
-    .demo-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-
-      padding: 10px 10px 10px 15px;
-      border-radius: 30px;
-
-      font-size: 12px;
-      font-weight: 500;
-      color: #ffffff;
-      text-decoration: none;
-
-
-
-      transition: all 0.3s ease;
-    }
-
-    .demo-btn img {
-      width: 28px;
-      height: 18px;
-      object-fit: cover;
-    }
-
-    /* Hover effect */
-    .demo-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(120, 100, 255, 0.45);
-    }
-  </style>
-
   <!-- Page: End -->
   <!-- Body Scripts -->
   <script src="../js/gsap/gsap.min.js"></script>
@@ -649,7 +612,7 @@ function endDrag(e) {
   const iframe = document.getElementById("popupVideo");
 
 
-  const videoURL = "https://www.youtube.com/embed/jXNtGZScyFI?autoplay=1&rel=0";
+  const videoURL = "https://www.youtube.com/embed/jXNtGZScyFI?autoplay=1&rel=0&modestbranding=1&playsinline=1";
 
   openBtn.addEventListener("click", () => {
     iframe.src = videoURL;
