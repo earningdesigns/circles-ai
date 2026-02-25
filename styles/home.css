@@ -332,7 +332,6 @@ svg {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -991,9 +990,9 @@ svg {
 }
 .cs-slider__media > img {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
 }
 .cs-slider .swiper-button-next,
 .cs-slider .swiper-button-prev {
