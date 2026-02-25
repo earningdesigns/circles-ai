@@ -1121,8 +1121,6 @@ img {
 }
 
 .cs-dots {
-  right: 120px;
-  position: absolute;
   display: flex;
   gap: 5px;
 }
@@ -2091,10 +2089,6 @@ a.cs-btn.loyalty-demo-btn {
   align-items: center !important;
 }
 
-/* Center slider controls */
-.cs-slider-controls {
-  gap: 30px !important;
-}
 
 /* Soften background blob */
 .insight-blob {
