@@ -309,7 +309,7 @@ svg {
 
     &__ {
       &text {
-        font-weight: 800;
+        font-weight: 600;
         font-size: 2.4rem;
         line-height: 150%;
         text-transform: uppercase;
@@ -870,7 +870,7 @@ svg {
     align-items: center;
     gap: 3rem;
     justify-content: center;
-    margin-bottom: 7rem;
+    margin-bottom: 2rem;
     #{$app} {
       &brand {
         &--circles {
@@ -1645,16 +1645,17 @@ svg {
         }
       }
       &carex, &nova, &zerofyx {
-        min-height: 80rem;
+        // min-height: 80rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         
 
         @media (min-width: $breakpoint-md) {
-          padding-block: 5rem 19rem;
+          padding-block: 12rem 19rem;
         }
         @media (min-width: $breakpoint-lg) {
+          // padding-bottom: 0;
         }
         @media (min-width: $breakpoint-xl) {
           // --cs-grid-gap: 3rem;
@@ -1801,7 +1802,9 @@ svg {
       }
       // CareX: End
       &nova {
-
+        @media (min-width: $breakpoint-lg) {
+          padding-bottom: 24rem;
+        }
          #{$section} {
           &__ {
             
@@ -1881,6 +1884,9 @@ svg {
       }
       //  NOva: End
       &zerofyx {
+        @media (min-width: $breakpoint-lg) {
+          padding-bottom: 16rem
+        }
         #{$app} {
           &bcircle {
             & {
@@ -1934,6 +1940,7 @@ svg {
                   
                 }
                 &item:last-child {
+                  grid-column: 6 / 13;
                 }
               }
             }
@@ -1956,6 +1963,15 @@ svg {
       // zerofyx: End
       &collab {
         --cs-section-container-width: 94%;
+        @media (min-width: $breakpoint-md) {
+        }
+        @media (min-width: $breakpoint-lg) {
+          padding-top: 0;
+        }
+        @media (min-width: $breakpoint-xl) {
+          padding-top: 0;
+        }
+
         #{$app} {
           &title {
             --cs-title-f-size: 2.2rem;
