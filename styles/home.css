@@ -444,8 +444,8 @@ svg {
 .cs-concentric-texts .orbit-ring {
   --cs-ctext-bg: rgba(0, 214, 242, 0.8);
   position: absolute;
-  top: 57%;
-  left: 45%;
+  top: 58%;
+  left: 25%;
   width: 0;
   height: 0;
   transform: translate(-50%, -50%);
