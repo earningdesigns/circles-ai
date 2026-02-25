@@ -133,14 +133,6 @@ img {
   font-weight: 600;
 }
 
-.cs-header__brand {
-  position: absolute;
-  top: 4rem;
-  right: 4%;
-  max-width: 12.4rem;
-
-}
-
 
 
 .cs-main {
@@ -1328,7 +1320,7 @@ img {
 }
 
 .cs-video-play__icon img {
-  width: 40px;
+  width: 50px;
   /* Adjust size */
   height: auto;
   display: block;
