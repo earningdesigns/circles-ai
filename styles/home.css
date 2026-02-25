@@ -984,8 +984,8 @@ svg {
 .cs-slider__media {
   display: flex;
   justify-content: center;
-  width: 84%;
-  height: 88%;
+  width: 90%;
+  height: 90%;
   margin-inline: auto;
 }
 .cs-slider__media > img {
