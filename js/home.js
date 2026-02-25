@@ -307,7 +307,7 @@ function sdmoAnim() {
   const sectionSdmo = $('.cs-section--h-sdmo');
   const brand = sectionSdmo.querySelectorAll('.cs-brand');
   const circlesContainer = sectionSdmo.querySelector('.cs-concentric');
-  
+  const concentricVibes = sectionSdmo.querySelector('.cs-concentric-vibes');
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
@@ -317,27 +317,27 @@ function sdmoAnim() {
   gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
 
   const setContainerSize = () => {
-    let rect = circlesContainer.querySelector('.cs-concentric-circles').getBoundingClientRect();
+    let rect = concentricVibes.getBoundingClientRect();
     circlesContainer.style.setProperty('--cs-concentric-size',`${rect.width}px`)
   }
   setContainerSize();
   window.addEventListener('resize', setContainerSize());
 
 
-    const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-    const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-    const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
+    // const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
+    // const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
+    // const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
 
     // ------------------------------------
     // INITIAL SETUP
     // ------------------------------------
 
-    const circlePaths = Array.from(circles).map(circle =>
-      MotionPathPlugin.convertToPath(circle)[0]
-    );
+    // const circlePaths = Array.from(circles).map(circle =>
+    //   MotionPathPlugin.convertToPath(circle)[0]
+    // );
 
-    gsap.set(circlePaths, { transformOrigin: "50% 50%" });
-    gsap.set(texts, { opacity: 0, });
+    // gsap.set(circlePaths, { transformOrigin: "50% 50%" });
+    // gsap.set(texts, { opacity: 0, });
 
 
     const center = { x: 350, y: 350 };
@@ -392,11 +392,11 @@ function sdmoAnim() {
     .to(brand, {opacity: 1, x: 0, duration: 0.6})
     .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
     .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
-    .to(texts, {
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.2
-    }, "-=1")
+    // .to(texts, {
+    //   opacity: 1,
+    //   duration: 0.8,
+    //   stagger: 0.2
+    // }, "-=1")
     // .add(()=> {
     //   gsap.to()
     // }, '<')
@@ -461,7 +461,10 @@ function carexAnim() {
         gsap.to(linerLine, {opacity: 0, duration: time.normal})
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
       }
     }
   });
@@ -508,7 +511,10 @@ function novaAnim () {
         gsap.to(linerLine, {opacity: 0, duration: time.normal})
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
       }
     }
   });
@@ -542,16 +548,24 @@ function zerofyxAnim() {
     scrollTrigger: {
       trigger: zerofyxSection,
       start: "top center+=100", // start AFTER intro visually
-      end: "bottom center",
+      end: "bottom center+=100",
       scrub: 1,
+      
       onEnter: () => {
         gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        console.log('enter')
       },
       onLeave: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal});
+        console.log('leave')
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        console.log('enterBack')
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        console.log('leaveBack')
       }
     }
   });
