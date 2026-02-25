@@ -380,6 +380,9 @@ svg {
 .cs-flex--col {
   flex-direction: column;
 }
+.cs-flex--gap-0 {
+  --cs-flex-gap: 0;
+}
 .cs-flex--items-center {
   align-items: center;
 }
@@ -1083,7 +1086,7 @@ svg {
   gap: 4rem;
 }
 .cs-section--h-hero .cs-titlesvg {
-  margin-bottom: 2.4rem;
+  margin-bottom: 0.6rem;
   max-width: 60vw;
   margin-inline: auto;
   display: flex;
@@ -1098,7 +1101,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: 4.6rem;
 }
 .cs-section--h-hero .cs-brand__svg {
   display: block;

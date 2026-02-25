@@ -291,7 +291,7 @@ function heroAnim() {
 
   heroTl
     .to(meetCirclesContainer, {opacity: 1, y: 0, duration: 1.6})
-    .to(titleSvg,{x: 0, opacity: 1, duration: .8})
+    .to(titleSvg,{y: 0, opacity: 1, duration: .8})
     .to(sectionHeroTitle, {y: 0, opacity: 1, duration: .8})
 
     .to(members, {duration: 0.6,opacity: 1})

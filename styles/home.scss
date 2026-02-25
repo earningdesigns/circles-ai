@@ -517,6 +517,9 @@ svg {
       &col {
         flex-direction: column;
       }
+      &gap-0 {
+        --cs-flex-gap: 0;
+      }
       &items-center {
         align-items: center;
       }
@@ -1414,7 +1417,7 @@ svg {
           }
 
           &titlesvg {
-            margin-bottom: 2.4rem;
+            margin-bottom: 0.6rem;
             max-width: 60vw;
             margin-inline: auto;
             display: flex;
@@ -1432,7 +1435,7 @@ svg {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 3.2rem;
+            margin-bottom: 4.6rem;
             
             &__svg {
               display: block;
