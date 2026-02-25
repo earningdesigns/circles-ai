@@ -154,8 +154,8 @@ svg {
         height: 200vh;
         /* From https://css.glass */
         background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(2rem);
-        -webkit-backdrop-filter: blur(2rem);
+        // backdrop-filter: blur(2rem);
+        // -webkit-backdrop-filter: blur(2rem);
         z-index: 5;
       }
     }
@@ -587,43 +587,90 @@ svg {
     }
     &-text {
       &s {
-        position: absolute;
+        position: relative;
         inset: 0;
         margin: auto;
         width: var(--cs-concentric-size);
         height: var(--cs-concentric-size);
-        pointer-events: none;
-      }
-      & {
-        --cs-ctext-bg: rgba(0, 214, 242, 0.8);
-
-        position: absolute;
-        transform-origin: center center;
-        padding: 0.8rem 1.6rem;
-        background: var(--cs-ctext-bg);
-        border-radius: 5rem;
-        font-size: 1.4rem;
-        line-height: 132%;
-
-        &-- {
-          &1 {
-            top: 21%;
-            left: 4%;
+        .orbit-ring {
+          --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+          position:absolute;
+          top:50%;
+          left:50%;
+          width:0;
+          height:0;
+          transform:translate(-50%, -50%);
+          &-- {
+            &1 { 
           }
-          &2 {
-            top: 53%;
-            left: 8%;
+          &2 { 
             --cs-ctext-bg: #FF8F33C7;
           }
-
-          &3 {
-            top: 34%;
-            right: 11%;
+          &3 { 
             --cs-ctext-bg: #00F2A1B5;
           }
         }
+        .tag {
+          position:absolute;
+          top:0;
+          left:0;
+          will-change:transform;
+          }
+        }
+        .tag-inner {
+        
+          cursor: default;
+          user-select: none;
+
+          position: absolute;
+          transform-origin: center center;
+          padding: 0.8rem 1.6rem;
+          background: var(--cs-ctext-bg);
+          border-radius: 5rem;
+          font-size: 1.4rem;
+          line-height: 132%;
+        }
       }
+      // & {
+      //   --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+
+      //   position: absolute;
+      //   transform-origin: center center;
+      //   padding: 0.8rem 1.6rem;
+      //   background: var(--cs-ctext-bg);
+      //   border-radius: 5rem;
+      //   font-size: 1.4rem;
+      //   line-height: 132%;
+
+      //   &-- {
+      //     &1 {
+      //       top: 21%;
+      //       left: 4%;
+      //     }
+      //     &2 {
+      //       top: 53%;
+      //       left: 8%;
+      //       --cs-ctext-bg: #FF8F33C7;
+      //     }
+
+      //     &3 {
+      //       top: 34%;
+      //       right: 11%;
+      //       --cs-ctext-bg: #00F2A1B5;
+      //     }
+      //   }
+      // }
     }
+
+    // .scene {
+    //   position: relative;
+    //   width: var(--cs-concentric-size);
+    //   height: var(--cs-concentric-size);
+    // }
+
+    
+
+    
   }
   // Concentric Circles Texts: End
 
@@ -750,8 +797,8 @@ svg {
       height: var(--cs-bcircle-size);
       border-radius: 50%;
       background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
-      filter: blur(3rem);
-      -webkit-filter: blur(3rem);
+      // filter: blur(3rem);
+      // -webkit-filter: blur(3rem);
     }
     &-- {
       &1 {
@@ -2164,4 +2211,6 @@ svg {
     }
   }
   // Footer: End
+
+  
 }

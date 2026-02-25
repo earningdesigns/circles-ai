@@ -303,233 +303,115 @@ function heroAnim() {
 }
 // Hero Anim: End
 
-// function sdmoAnim() {
-//   const sectionSdmo = $('.cs-section--h-sdmo');
-//   const brand = sectionSdmo.querySelectorAll('.cs-brand');
-//   const circlesContainer = sectionSdmo.querySelector('.cs-concentric');
-  
-//   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
-//   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
-//   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
-
-//   gsap.set(sectionTitle, {opacity: 0, y: 25})
-//   gsap.set(brand, {opacity: 0, x: 5})
-//   gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
-
-//   const setContainerSize = () => {
-//     let rect = circlesContainer.querySelector('.cs-concentric-circles').getBoundingClientRect();
-//     circlesContainer.style.setProperty('--cs-concentric-size',`${rect.width}px`)
-//   }
-//   setContainerSize();
-//   window.addEventListener('resize', setContainerSize());
-
-
-//     const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-//     const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-//     const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-
-//     // ------------------------------------
-//     // INITIAL SETUP
-//     // ------------------------------------
-
-//     const circlePaths = Array.from(circles).map(circle =>
-//       MotionPathPlugin.convertToPath(circle)[0]
-//     );
-
-//     gsap.set(circlePaths, { transformOrigin: "50% 50%" });
-//     gsap.set(texts, { opacity: 0, });
-
-
-//     const center = { x: 350, y: 350 };
-
-//     // Custom starting angles (YOU CONTROL POSITION)
-//     const configs = [
-//       { selector: ".cs-concentric-circles .cs-concentric-txt--1", radius: 267, speed: 0.01, angles: [0, 1.5] },
-//       { selector: ".cs-concentric-txt--2", radius: 452, speed: -0.007, angles: [0.8, 2.4] },
-//       { selector: ".cs-concentric-txt--3", radius: 604, speed: 0.004, angles: [1.2] }
-//     ];
-
-//     // configs.forEach(cfg => {
-//     //   const pills = document.querySelectorAll(cfg.selector);
-
-//     //   paths.forEach((pill, i) => {
-//     //     let angle = cfg.angles[i] || (i / pills.length) * Math.PI * 2;
-
-//     //     gsap.ticker.add(() => {
-//     //       angle += cfg.speed;
-
-//     //       const x = center.x + cfg.radius * Math.cos(angle);
-//     //       const y = center.y + cfg.radius * Math.sin(angle);
-
-//     //       gsap.set(pill, {
-//     //         x: x - 40, // half width
-//     //         y: y - 14, // half height
-//     //         rotation: 0 // KEEP TEXT UPRIGHT
-//     //       });
-//     //     });
-//     //   });
-//     // });
-    
-
-//     const tl = gsap.timeline();
-
-//     // texts.forEach((text, i) => {
-//     //   gsap.set(text, {
-//     //     opacity: 0,
-//     //     motionPath: {
-//     //       path: circlePaths[i],
-//     //       align: circlePaths[i],
-//     //       alignOrigin: [0.5, 0.5],
-          
-//     //       autoRotate: false // keeps text upright
-//     //     },
-//     //   });
-//     // });
-
-//   const sdmoTl = gsap.timeline({ease: ease.smooth})
-
-//   sdmoTl
-//     .to(brand, {opacity: 1, x: 0, duration: 0.6})
-//     .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
-//     .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
-//     .to(texts, {
-//       opacity: 1,
-//       duration: 0.8,
-//       stagger: 0.2
-//     }, "-=1")
-//     // .add(()=> {
-//     //   gsap.to()
-//     // }, '<')
-//     // .to(circlePaths, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
-//     // .to(ccircles, {opacity: 1, duration: 1, repeat: -1})
-    
-//     .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')
-
-//   ScrollTrigger.create({
-//     animation: sdmoTl,
-//     trigger: sectionSdmo,
-//     start: "top center"
-//   })
-// }
 function sdmoAnim() {
-
-  const sectionSdmo = document.querySelector('.cs-section--h-sdmo');
-  if (!sectionSdmo) return;
-
+  const sectionSdmo = $('.cs-section--h-sdmo');
   const brand = sectionSdmo.querySelectorAll('.cs-brand');
   const circlesContainer = sectionSdmo.querySelector('.cs-concentric');
+  const concentricVibes = sectionSdmo.querySelector('.cs-concentric-vibes');
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
-  const sectionTitle = gsap.utils.toArray(
-    sectionSdmo.querySelectorAll('.cs-title')
-  );
+  const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
 
-  const texts = circlesContainer.querySelectorAll('.cs-concentric-txt');
+  gsap.set(sectionTitle, {opacity: 0, y: 25})
+  gsap.set(brand, {opacity: 0, x: 5})
+  gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
 
-  // -----------------------------
-  // Initial States
-  // -----------------------------
+  const setContainerSize = () => {
+    let rect = concentricVibes.getBoundingClientRect();
+    circlesContainer.style.setProperty('--cs-concentric-size',`${rect.width}px`)
+  }
+  setContainerSize();
+  window.addEventListener('resize', setContainerSize());
 
-  gsap.set(sectionTitle, { opacity: 0, y: 25 });
-  gsap.set(brand, { opacity: 0, x: 5 });
-  gsap.set([vibes, circleCenter], {
-    opacity: 0,
-    scale: 0.9,
-    transformOrigin: "50% 50%"
-  });
 
-  gsap.set(texts, { opacity: 0 });
+    // const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
+    // const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
+    // const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
 
-  // -----------------------------
-  // 1️⃣ SUBTLE FLOAT (uses yPercent so it doesn't conflict)
-  // -----------------------------
+    // ------------------------------------
+    // INITIAL SETUP
+    // ------------------------------------
 
-  texts.forEach((text, i) => {
-    gsap.to(text, {
-      yPercent: 5,
-      duration: 2.5 + (i * 0.4),
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true
-    });
-  });
+    // const circlePaths = Array.from(circles).map(circle =>
+    //   MotionPathPlugin.convertToPath(circle)[0]
+    // );
 
-  // -----------------------------
-  // 2️⃣ 200px SCROLL PARALLAX (forward + reverse)
-  // -----------------------------
+    // gsap.set(circlePaths, { transformOrigin: "50% 50%" });
+    // gsap.set(texts, { opacity: 0, });
 
-  texts.forEach((text, i) => {
 
-    gsap.fromTo(
-      text,
-      { y: 0 },
-      {
-        y: i % 2 === 0 ? -200 : 200,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionSdmo,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true
-        }
-      }
-    );
+    const center = { x: 350, y: 350 };
 
-  });
+    // Custom starting angles (YOU CONTROL POSITION)
+    const configs = [
+      { selector: ".cs-concentric-circles .cs-concentric-txt--1", radius: 267, speed: 0.01, angles: [0, 1.5] },
+      { selector: ".cs-concentric-txt--2", radius: 452, speed: -0.007, angles: [0.8, 2.4] },
+      { selector: ".cs-concentric-txt--3", radius: 604, speed: 0.004, angles: [1.2] }
+    ];
 
-  // -----------------------------
-  // 3️⃣ SUBTLE ROTATION DRIFT
-  // -----------------------------
+    // configs.forEach(cfg => {
+    //   const pills = document.querySelectorAll(cfg.selector);
 
-  texts.forEach((text, i) => {
-    gsap.to(text, {
-      rotation: i % 2 === 0 ? 4 : -4,
-      duration: 4 + (i * 0.5),
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true,
-      transformOrigin: "50% 50%"
-    });
-  });
+    //   paths.forEach((pill, i) => {
+    //     let angle = cfg.angles[i] || (i / pills.length) * Math.PI * 2;
 
-  // -----------------------------
-  // 4️⃣ INTRO ANIMATION
-  // -----------------------------
+    //     gsap.ticker.add(() => {
+    //       angle += cfg.speed;
 
-  const sdmoTl = gsap.timeline({ ease: "expo.out" });
+    //       const x = center.x + cfg.radius * Math.cos(angle);
+    //       const y = center.y + cfg.radius * Math.sin(angle);
+
+    //       gsap.set(pill, {
+    //         x: x - 40, // half width
+    //         y: y - 14, // half height
+    //         rotation: 0 // KEEP TEXT UPRIGHT
+    //       });
+    //     });
+    //   });
+    // });
+    
+
+    const tl = gsap.timeline();
+
+    // texts.forEach((text, i) => {
+    //   gsap.set(text, {
+    //     opacity: 0,
+    //     motionPath: {
+    //       path: circlePaths[i],
+    //       align: circlePaths[i],
+    //       alignOrigin: [0.5, 0.5],
+          
+    //       autoRotate: false // keeps text upright
+    //     },
+    //   });
+    // });
+
+  const sdmoTl = gsap.timeline({ease: ease.smooth})
 
   sdmoTl
-    .to(brand, { opacity: 1, x: 0, duration: 0.6 })
-    .to(vibes, {
-      opacity: 1,
-      scale: 1,
-      stagger: 0.16,
-      duration: 0.8
-    })
-    .to(circleCenter, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.8
-    }, "-=25%")
-    .to(texts, {
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.2
-    }, "-=1")
-    .to(sectionTitle, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8
-    }, "-=50%");
+    .to(brand, {opacity: 1, x: 0, duration: 0.6})
+    .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
+    .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
+    // .to(texts, {
+    //   opacity: 1,
+    //   duration: 0.8,
+    //   stagger: 0.2
+    // }, "-=1")
+    // .add(()=> {
+    //   gsap.to()
+    // }, '<')
+    // .to(circlePaths, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
+    // .to(ccircles, {opacity: 1, duration: 1, repeat: -1})
+    
+    .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')
 
   ScrollTrigger.create({
     animation: sdmoTl,
     trigger: sectionSdmo,
-    start: "top center",
-    toggleActions: "play none none none"
-  });
-
+    start: "top center"
+  })
 }
+
 function carexAnim() {
   const carexSection = $('.cs-section--h-carex');
   const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
@@ -579,7 +461,10 @@ function carexAnim() {
         gsap.to(linerLine, {opacity: 0, duration: time.normal})
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
       }
     }
   });
@@ -626,7 +511,10 @@ function novaAnim () {
         gsap.to(linerLine, {opacity: 0, duration: time.normal})
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
       }
     }
   });
@@ -660,16 +548,24 @@ function zerofyxAnim() {
     scrollTrigger: {
       trigger: zerofyxSection,
       start: "top center+=100", // start AFTER intro visually
-      end: "bottom center",
+      end: "bottom center+=100",
       scrub: 1,
+      
       onEnter: () => {
         gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        console.log('enter')
       },
       onLeave: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal});
+        console.log('leave')
       },
       onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        console.log('enterBack')
+      },
+      onLeaveBack: () => {
+        gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        console.log('leaveBack')
       }
     }
   });
