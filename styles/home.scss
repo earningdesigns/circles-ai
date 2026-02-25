@@ -124,9 +124,9 @@ svg {
       }
 
       &brand {
-        position: fixed;
-        top: 4rem;
-        right: 4%;
+        // position: fixed;
+        // top: 4rem;
+        // right: 4%;
         max-width: 12.4rem;
       }
     }
@@ -469,6 +469,21 @@ svg {
   }
   // Button: End
 
+  &show-mobile {
+    display: block !important
+  }
+  @media (min-width: $breakpoint-md) {
+              
+  }
+  @media (min-width: $breakpoint-lg) {
+    
+  }
+  @media (min-width: $breakpoint-xl) {
+  }
+  &hide-desktop {
+    display: none !important;
+  }
+
   &flex {
     --cs-flex-gap: 2rem;
 
@@ -526,6 +541,7 @@ svg {
       width: 75dvw;
       max-width: 120rem;
       margin: auto;
+      height: auto;
     }
     &-container {
     }
@@ -539,6 +555,7 @@ svg {
         width: 75dvw;
         max-width: 120rem;
         margin: auto;
+        height: auto;
       }
     }
     &-text {
@@ -581,9 +598,72 @@ svg {
       }
     }
   }
-
-
   // Concentric Circles Texts: End
+
+  &orbit {
+    &s {
+      display: none;
+      position: absolute;
+      margin-inline: auto;
+      --cs-orbit-size: 88rem;
+      --cs-orbit-rings: 3;
+
+      width: var(--cs-orbit-size);
+      height: var(--cs-orbit-size);
+    }
+
+    & {
+      --cs-orbit-radius: 1;
+      position: absolute;
+      inset: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      width: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
+      height: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
+      border: 1px solid black;
+    }
+    &-- {
+      &1 { 
+        --cs-orbit-radius: 1.24;
+      }
+      &2 { 
+        --cs-orbit-radius: 2.2;
+      }
+      &3 { 
+        --cs-orbit-radius: 3;
+      }
+    }
+
+    &__pill {
+      --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+
+      position: absolute;
+      transform-origin: center center;
+      padding: 0.8rem 1.6rem;
+      background: var(--cs-ctext-bg);
+      border-radius: 5rem;
+      font-size: 1.4rem;
+      line-height: 132%;
+
+      &-- {
+        &1 {
+          top: 21.2%;
+          left: -12%;
+        }
+        &2 {
+          top: 55%;
+          left: -14%;
+          --cs-ctext-bg: #FF8F33C7;
+        }
+
+        &3 {
+          top: 32%;
+          right: -6%;
+          --cs-ctext-bg: #00F2A1B5;
+        }
+      }
+    }
+  }
 
   &ccircle {
     &s {
@@ -724,7 +804,7 @@ svg {
       overflow: hidden;
     }
     @media (min-width: $breakpoint-lg) {
-      max-width: 65rem;
+      max-width: 68rem;
     }
     @media (min-width: $breakpoint-xl) {
     }
@@ -1281,13 +1361,13 @@ svg {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        min-height: 100dvh;
         padding-bottom: 0;
-
         @media (min-width: $breakpoint-md) {
+          min-height: 83dvh;
           --cs-section-container-width: 94%;
         }
         @media (min-width: $breakpoint-lg) {
+          min-height: 100dvh;
           --cs-section-container-width: 98rem;
         }
         @media (min-width: $breakpoint-xl) {
@@ -1357,9 +1437,12 @@ svg {
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 23.1em;
               top: 62.5%;
-              left: 2%;
+              left: -3.4%;
             }
             @media (min-width: $breakpoint-lg) {
+              --cs-liner-width: 23.1em;
+              top: 62.5%;
+              left: 2%;
             }
             @media (min-width: $breakpoint-xl) {
               --cs-liner-width: 60rem;
@@ -1426,9 +1509,23 @@ svg {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-top: 0;
+        
+        min-height: 63dvh;
+        margin-bottom: 8rem;
+
         @media (orientation: landscape) {
           height: 98dvh;
         }
+        @media (min-width: $breakpoint-md) {
+          margin-bottom: 8rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+          
+        }
+        @media (min-width: $breakpoint-xl) {
+        }
+        
         #{$app} {
           &brand {
 
@@ -1573,6 +1670,13 @@ svg {
         }
       }
       &carex {
+        @media (min-width: $breakpoint-md) {
+          padding-top: 5rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+        }
+        @media (min-width: $breakpoint-xl) {
+        }
         #{$app} {
           &bcircle {
             & {
@@ -1581,24 +1685,28 @@ svg {
               background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.2) 48.8%, rgba(97, 255, 218, 0) 100%);
             }
           }
+
           &liner {
             position: absolute;
-            top: 6.5rem;
-            right: -11.8%;
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 22em;
-              top: 0.5rem;
-              right: -2.56%;
+              top: -16.4rem;
+              left: 30rem;
+              left: 51%;
+              left: 19.8em;
             }
             @media (min-width: $breakpoint-lg) {
+              left: 16em;
             }
             @media (min-width: $breakpoint-xl) {
-              top: 8rem;
-              right: -2.4rem;
+              top: -14.8rem;
+              left: 16em;
               
             }
           }
+
+                  
           &hlt-title {
             position: absolute;
             top: -22rem;
@@ -1610,6 +1718,18 @@ svg {
             }
             @media (min-width: $breakpoint-xl) {
               top: -20.4rem;
+            }
+          }
+          &contentbox {
+            padding-left: 6.5rem;
+
+            @media (min-width: $breakpoint-md) {
+              
+            }
+            @media (min-width: $breakpoint-lg) {
+              padding-left: 0;
+            }
+            @media (min-width: $breakpoint-xl) {
             }
           }
 

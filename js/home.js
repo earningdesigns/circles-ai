@@ -323,6 +323,7 @@ function sdmoAnim() {
 
     const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
     const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
+    const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
 
     // ------------------------------------
     // INITIAL SETUP
@@ -334,6 +335,38 @@ function sdmoAnim() {
 
     gsap.set(circlePaths, { transformOrigin: "50% 50%" });
     gsap.set(texts, { opacity: 0, });
+
+
+    const center = { x: 350, y: 350 };
+
+    // Custom starting angles (YOU CONTROL POSITION)
+    const configs = [
+      { selector: ".cs-concentric-circles .cs-concentric-txt--1", radius: 267, speed: 0.01, angles: [0, 1.5] },
+      { selector: ".cs-concentric-txt--2", radius: 452, speed: -0.007, angles: [0.8, 2.4] },
+      { selector: ".cs-concentric-txt--3", radius: 604, speed: 0.004, angles: [1.2] }
+    ];
+
+    // configs.forEach(cfg => {
+    //   const pills = document.querySelectorAll(cfg.selector);
+
+    //   paths.forEach((pill, i) => {
+    //     let angle = cfg.angles[i] || (i / pills.length) * Math.PI * 2;
+
+    //     gsap.ticker.add(() => {
+    //       angle += cfg.speed;
+
+    //       const x = center.x + cfg.radius * Math.cos(angle);
+    //       const y = center.y + cfg.radius * Math.sin(angle);
+
+    //       gsap.set(pill, {
+    //         x: x - 40, // half width
+    //         y: y - 14, // half height
+    //         rotation: 0 // KEEP TEXT UPRIGHT
+    //       });
+    //     });
+    //   });
+    // });
+    
 
     const tl = gsap.timeline();
 
@@ -362,22 +395,9 @@ function sdmoAnim() {
       stagger: 0.2
     }, "-=1")
     // .add(()=> {
-    //   // Animate text along circle paths
-    //   texts.forEach((text, i) => {
-    //     gsap.to(text, {
-    //       ease: "none",
-    //       motionPath: {
-    //         path: circlePaths[i],
-    //         align: circlePaths[i],
-    //         alignOrigin: [0.5, 0.5],
-    //         autoRotate: false // keeps text upright
-    //       },
-          
-    //       direction: i % 3 === 0 ? "normal" : "reverse"
-    //     });
-    //   });
+    //   gsap.to()
     // }, '<')
-    // .to(circles, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
+    // .to(circlePaths, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
     // .to(ccircles, {opacity: 1, duration: 1, repeat: -1})
     
     .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')

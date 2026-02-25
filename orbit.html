@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>GSAP SVG Orbit Pills</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+
+  <style>
+    body {
+      background: radial-gradient(circle at center, #081b2d, #020612);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+    }
+
+    svg {
+      width: 80vmin;
+      height: 80vmin;
+    }
+
+    /* orbit animation fix */
+    .orbit {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    /* pill style */
+    .pill rect {
+      fill: rgba(0, 255, 200, 0.15);
+      stroke: rgba(0, 255, 200, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .pill text {
+      fill: white;
+      font-size: 14px;
+      font-family: Arial;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+
+<body>
+
+  <svg viewBox="-400 -400 800 800">
+
+    <!-- Concentric Circles -->
+    <circle r="120" stroke="rgba(255,255,255,.15)" fill="none" />
+    <circle r="220" stroke="rgba(255,255,255,.12)" fill="none" />
+    <circle r="320" stroke="rgba(255,255,255,.08)" fill="none" />
+
+    <!-- RING 1 -->
+    <g class="orbit ring1">
+      <g class="pill" transform="rotate(0) translate(120 0) rotate(0)">
+        <rect x="-50" y="-18" rx="18" width="100" height="36" />
+        <text y="6">AI</text>
+      </g>
+
+      <g class="pill" transform="rotate(140) translate(120 0) rotate(-140)">
+        <rect x="-50" y="-18" rx="18" width="100" height="36" />
+        <text y="6">Vision</text>
+      </g>
+
+      <g class="pill" transform="rotate(260) translate(120 0) rotate(-260)">
+        <rect x="-50" y="-18" rx="18" width="100" height="36" />
+        <text y="6">Search</text>
+      </g>
+    </g>
+
+
+    <!-- RING 2 -->
+    <g class="orbit ring2">
+      <g class="pill" transform="rotate(30) translate(220 0) rotate(-30)">
+        <rect x="-60" y="-18" rx="18" width="120" height="36" />
+        <text y="6">Chat</text>
+      </g>
+
+      <g class="pill" transform="rotate(180) translate(220 0) rotate(-180)">
+        <rect x="-60" y="-18" rx="18" width="120" height="36" />
+        <text y="6">Models</text>
+      </g>
+
+      <g class="pill" transform="rotate(310) translate(220 0) rotate(-310)">
+        <rect x="-60" y="-18" rx="18" width="120" height="36" />
+        <text y="6">Agents</text>
+      </g>
+    </g>
+
+
+    <!-- RING 3 -->
+    <g class="orbit ring3">
+      <g class="pill" transform="rotate(0) translate(320 0) rotate(0)">
+        <rect x="-70" y="-18" rx="18" width="140" height="36" />
+        <text y="6">Cloud</text>
+      </g>
+
+      <g class="pill" transform="rotate(120) translate(320 0) rotate(-120)">
+        <rect x="-70" y="-18" rx="18" width="140" height="36" />
+        <text y="6">Compute</text>
+      </g>
+
+      <g class="pill" transform="rotate(240) translate(320 0) rotate(-240)">
+        <rect x="-70" y="-18" rx="18" width="140" height="36" />
+        <text y="6">Security</text>
+      </g>
+    </g>
+
+  </svg>
+
+  <script>
+    // Smooth orbit rotations
+    gsap.to(".ring1", {
+      rotation: 360,
+      duration: 40,
+      repeat: -1,
+      ease: "none"
+    });
+
+    gsap.to(".ring2", {
+      rotation: -360,
+      duration: 60,
+      repeat: -1,
+      ease: "none"
+    });
+
+    gsap.to(".ring3", {
+      rotation: 360,
+      duration: 90,
+      repeat: -1,
+      ease: "none"
+    });
+
+    // subtle floating
+    gsap.to(".pill", {
+      y: "+=6",
+      repeat: -1,
+      yoyo: true,
+      duration: 2.5,
+      ease: "sine.inOut",
+      stagger: 0.2
+    });
+  </script>
+
+</body>
+
+</html>
