@@ -1,8 +1,9 @@
 $app: '.cs-';
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
-$breakpoint-xxl: 1400px;
+$breakpoint-sm: 576px; // Mobile
+$breakpoint-md: 768px; // Tablet
+$breakpoint-lg: 992px; // Laptop
+$breakpoint-xl: 1200px; // Desktop
+$breakpoint-xxl: 1400px; // Large Desktop
 
 *, *:before, *:after {
   margin: 0;
@@ -26,8 +27,6 @@ html {
 }
 
 body {
-  
-
   height: 100%;
   font-family: var(--cs-base-f-family);
   font-size: var(--cs-base-f-size);
@@ -95,7 +94,6 @@ svg {
     #{$app} {
       &stripes {
         border-width: 0;
-
       }
     }
 
@@ -125,9 +123,6 @@ svg {
       }
 
       &brand {
-        // position: fixed;
-        // top: 4rem;
-        // right: 4%;
         max-width: 12.4rem;
       }
     }
@@ -162,6 +157,7 @@ svg {
   }
   // Main: End
 
+  // Hand Icon
   &hand-icon {
     position: fixed;
     width: 2.4rem;
@@ -190,6 +186,7 @@ svg {
       100% { translate: 0 0; }
     }
   }
+  // Hand Icon: ENd
 
 
   &gradmotion {
@@ -223,6 +220,7 @@ svg {
       }
     }
   }
+  // Not Used: End
   
 
   &title {
@@ -495,14 +493,6 @@ svg {
   &show-mobile {
     display: block !important
   }
-  @media (min-width: $breakpoint-md) {
-              
-  }
-  @media (min-width: $breakpoint-lg) {
-    
-  }
-  @media (min-width: $breakpoint-xl) {
-  }
   &hide-desktop {
     display: none !important;
   }
@@ -551,8 +541,6 @@ svg {
     @media (min-width: $breakpoint-lg) {
       --cs-grid-cols: 12;
       --cs-grid-gap: 0;
-    }
-    @media (min-width: $breakpoint-xl) {
     }
   }
   // Grid: End
@@ -634,6 +622,7 @@ svg {
           width:0;
           height:0;
           transform:translate(-50%, -50%);
+          
           &-- {
             &1 { 
           }
@@ -706,10 +695,6 @@ svg {
     //   width: var(--cs-concentric-size);
     //   height: var(--cs-concentric-size);
     // }
-
-    
-
-    
   }
   // Concentric Circles Texts: End
 
@@ -919,8 +904,6 @@ svg {
     @media (min-width: $breakpoint-lg) {
       max-width: 68rem;
     }
-    @media (min-width: $breakpoint-xl) {
-    }
     
     &__ {
       &text {
@@ -971,8 +954,6 @@ svg {
           @media (min-width: $breakpoint-lg) {
             width: 25.4rem;
           }
-          @media (min-width: $breakpoint-xl) {
-          }
         }
         &--openai {
           width: 28.4rem;
@@ -983,8 +964,6 @@ svg {
           @media (min-width: $breakpoint-lg) {
             width: 28.4rem;
           }
-          @media (min-width: $breakpoint-xl) {
-          }
         }
       }
     }
@@ -994,21 +973,15 @@ svg {
   &article {
     &s {
       position: relative;
-      --cs-articles-grid-cols: 1;
       display: flex;
       gap: 3rem;
       justify-content: center;
-      
+      flex-direction: column;
       z-index: 5;
 
       @media (min-width: $breakpoint-md) {
-        gap: 0rem;
-        // --cs-articles-grid-cols: 4;
-      }
-      @media (min-width: $breakpoint-lg) {
-      }
-      @media (min-width: $breakpoint-xl) {
-        // --cs-articles-grid-cols: 4;
+        flex-direction: row;
+        gap: 0;
       }
     }
 
@@ -1145,8 +1118,8 @@ svg {
       height: calc(100% - 2px);
       z-index: -1;
       background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     // &::before {
@@ -1183,9 +1156,6 @@ svg {
     }
     @media (min-width: $breakpoint-lg) {
       padding: 6rem;
-    }
-    @media (min-width: $breakpoint-xl) {
-      // --cs-footer-container-width: 94%; 
     }
 
     &__ {
@@ -1245,9 +1215,6 @@ svg {
         }
         @media (min-width: $breakpoint-lg) {
           --cs-foundation-icon-size: 6.4rem;
-        }
-        @media (min-width: $breakpoint-xl) {
-          // --cs-footer-container-width: 94%; 
         }
       }
 
@@ -1402,22 +1369,13 @@ svg {
 
     }
     .swiper-button-prev {
-      // left: 30%;
       &:hover .swiper-navigation-icon {
         transform: rotate(180deg) scale(0.9);
       }
     }
     .swiper-button-next {
-      // right: 30%;
       &:hover .swiper-navigation-icon {
         transform: scale(0.9);
-      }
-    }
-    .swiper-pagination {
-      &-bullet {
-        &-active {
-
-        }
       }
     }
   }
@@ -1425,10 +1383,9 @@ svg {
 
   &section {
     $section: &;
-    --cs-section-container-width: 88%;
+    --cs-section-container-width: 90%;
 
     position: relative;
-    // min-height: 100vh;
     z-index: 10;
     padding-block: 8rem;
 
@@ -1459,8 +1416,6 @@ svg {
         width: 100%;
         max-width: var(--cs-section-container-width);
         margin-inline: auto;
-
-       
       }
 
       &backdrop + &container {
@@ -1475,16 +1430,14 @@ svg {
         flex-direction: column;
         justify-content: center;
         padding-bottom: 0;
+
         @media (min-width: $breakpoint-md) {
-          min-height: 83dvh;
           --cs-section-container-width: 94%;
+          min-height: 83dvh;
         }
         @media (min-width: $breakpoint-lg) {
-          min-height: 100dvh;
           --cs-section-container-width: 98rem;
-        }
-        @media (min-width: $breakpoint-xl) {
-          // --cs-section-container-width: 94%;
+          min-height: 100dvh;
         }
 
         #{$section}__{
@@ -1562,14 +1515,6 @@ svg {
               top: 65%;
               left: -5%;
             }
-
-
-            &__track {
-
-            }
-            &__line {
-
-            }
           }
 
           &title {
@@ -1635,16 +1580,8 @@ svg {
         @media (min-width: $breakpoint-md) {
           margin-bottom: 8rem;
         }
-        @media (min-width: $breakpoint-lg) {
-          
-        }
-        @media (min-width: $breakpoint-xl) {
-        }
         
         #{$app} {
-          &brand {
-
-          }
 
           &title {
             --cs-title-f-size: 2.4rem;
@@ -1660,8 +1597,6 @@ svg {
 
             @media (min-width: $breakpoint-md) {
               --cs-title-f-size: 2.8rem;
-            }
-            @media (min-width: $breakpoint-lg) {
             }
             @media (min-width: $breakpoint-xl) {
               --cs-title-f-size: 3.2rem;
@@ -1703,18 +1638,8 @@ svg {
             --cs-grid-cols: 1;
             --cs-grid-gap: 3.2rem;
 
-            &__ {
-              &item:first-child {
-                
-              }
-            }
             @media (min-width: $breakpoint-md) {
               --cs-grid-gap: 0;
-              &__ {
-                &item:first-child {
-                  
-                }
-              }
             }
             @media (min-width: $breakpoint-lg) {
               --cs-grid-cols: 12;
@@ -1727,9 +1652,6 @@ svg {
                 }
               }
             }
-            @media (min-width: $breakpoint-xl) {
-              
-            }
           }
         }
       }
@@ -1739,15 +1661,8 @@ svg {
         flex-direction: column;
         align-items: center;
         
-
         @media (min-width: $breakpoint-md) {
           padding-block: 12rem 19rem;
-        }
-        @media (min-width: $breakpoint-lg) {
-          // padding-bottom: 0;
-        }
-        @media (min-width: $breakpoint-xl) {
-          // --cs-grid-gap: 3rem;
         }
 
         #{$section} {
@@ -1760,42 +1675,21 @@ svg {
         #{$app} {
           &hlt-title {
             position: absolute;
-            top: -22rem;
+            top: -15.7rem;
+
             @media (min-width: $breakpoint-md) {
+              top: -22rem;
               align-items: flex-end;
-            }
-            @media (min-width: $breakpoint-lg) {
-            }
-            @media (min-width: $breakpoint-xl) {
-              // top: -31.5rem;
-              
             }
           }
           &liner {
             z-index: -1;
           }
-          &grid {
-            @media (min-width: $breakpoint-md) {
-              // --cs-grid-gap: 3rem;
-            }
-            @media (min-width: $breakpoint-lg) {
-            }
-            @media (min-width: $breakpoint-xl) {
-              // --cs-grid-gap: 3rem;
-            }
-          }
-          &contentbox {
-            @media (min-width: $breakpoint-lg) {
-              // width: 75%;
-            }
-            &__footer {
-            }
-          }
+          
+          
           &title {
             @media (min-width: $breakpoint-md) {
-
               --cs-title-f-size: 3.2rem;
-              // --cs-title-sub-f-size: 2.4rem;
               --cs-title-hlight-f-size: 5rem;
               width: 80%
             }
@@ -1823,10 +1717,6 @@ svg {
         @media (min-width: $breakpoint-md) {
           padding-block: 5rem 19rem;
         }
-        @media (min-width: $breakpoint-lg) {
-        }
-        @media (min-width: $breakpoint-xl) {
-        }
         #{$app} {
           &bcircle {
             & {
@@ -1849,21 +1739,18 @@ svg {
             }
             @media (min-width: $breakpoint-xl) {
               top: -16.3rem;
-              left: 20.8em;
-              
+              left: 20.8em; 
             }
           }
           &contentbox {
-            padding-left: 6.5rem;
+            // padding-left: 6.5rem;
 
             @media (min-width: $breakpoint-md) {
-              
+              padding-left: 6.5rem;
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
               // width: 85%
-            }
-            @media (min-width: $breakpoint-xl) {
             }
           }
 
@@ -1891,9 +1778,6 @@ svg {
                 }
               }
             }
-            @media (min-width: $breakpoint-xl) {
-              
-            }
           }
         }
       }
@@ -1904,7 +1788,6 @@ svg {
         }
          #{$section} {
           &__ {
-            
             &container {
               margin-top: 8.8rem;
             }
@@ -1920,16 +1803,14 @@ svg {
             }
           }
           &contentbox {
-            padding-left: 6.5rem;
+            // padding-left: 6.5rem;
+            
             @media (min-width: $breakpoint-md) {
               padding-left: 16.5rem;
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
               // width: 85%;
-            }
-            @media (min-width: $breakpoint-xl) {
-              
             }
           }
           &liner {
@@ -1944,10 +1825,6 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               left: -10.5em;
-            }
-            @media (min-width: $breakpoint-xl) {
-              // top: 12.3rem;
-              // left: -12rem;
             }
           }
           
@@ -1974,9 +1851,6 @@ svg {
                 }
               }
             }
-            @media (min-width: $breakpoint-xl) {
-              
-            }
           }
         }
       }
@@ -1997,6 +1871,8 @@ svg {
           }
           &liner {
             position: absolute;
+            top: -10rem;
+            left: 10.2em;
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 23em;
@@ -2007,9 +1883,6 @@ svg {
             @media (min-width: $breakpoint-lg) {
               left: 16.5em;
             }
-            @media (min-width: $breakpoint-xl) {
-              
-            }
           }
           &contentbox {
             @media (min-width: $breakpoint-md) {
@@ -2017,9 +1890,6 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               padding-left:0;
-            }
-            @media (min-width: $breakpoint-xl) {
-             
             }
           }
           
@@ -2048,20 +1918,16 @@ svg {
                   order: 0;
                   width: 100%;
                 }
-                &item:last-child {
-                }
               }
-            }
-            @media (min-width: $breakpoint-xl) {
-              
             }
           }
         }
       }
       // zerofyx: End
       &collab {
-        --cs-section-container-width: 94%;
+        
         @media (min-width: $breakpoint-md) {
+          --cs-section-container-width: 94%;
         }
         @media (min-width: $breakpoint-lg) {
           padding-top: 0;
@@ -2084,9 +1950,6 @@ svg {
             @media (min-width: $breakpoint-md) {
               width: 70%;
             }
-            @media (min-width: $breakpoint-lg) {
-              // width: 50%;
-            }
             @media (min-width: $breakpoint-xl) {
               width: 25%;
             }
@@ -2098,11 +1961,7 @@ svg {
         padding-top: 7.8rem;
 
         @media (min-width: $breakpoint-md) {
-          --cs-section-container-width: 94%;
-          
-        }
-        @media (min-width: $breakpoint-lg) {
-          
+          --cs-section-container-width: 94%; 
         }
         @media (min-width: $breakpoint-xl) {
           --cs-section-container-width: 118rem;
@@ -2126,13 +1985,12 @@ svg {
             &__mobile {
               display: block;
                @media (min-width: $breakpoint-lg) {
-                display: none
+                display: none;
               }
             }
             &__desktop {
               display: none;
-              @media (min-width: $breakpoint-md) {
-              }
+
               @media (min-width: $breakpoint-lg) {
                 display: block;
               }
@@ -2155,8 +2013,6 @@ svg {
             @media (min-width: $breakpoint-lg) {
               --cs-title-hlight-f-size: 3.6rem;
             }
-            @media (min-width: $breakpoint-xl) {
-            }
           }
         }
       }
@@ -2169,24 +2025,16 @@ svg {
         }
         #{$app} {
           &liner {
+            --cs-liner-width: 3.4em;
             position: absolute;
-            // top: 12.9rem;
-            // right: 6.2%;
-            // top: 7.8rem;
             top: -10%;
             left: 25%;
             z-index: -10;
 
             @media (min-width: $breakpoint-md) {
+              --cs-liner-width: 7em;
               top: -19rem;
               left: 35%;
-              --cs-liner-width: 7em;
-            }
-            @media (min-width: $breakpoint-lg) {
-            }
-            @media (min-width: $breakpoint-xl) {
-              // top: 5.3rem;
-              // right: 6.4rem;
             }
           }
           &brand {
@@ -2215,13 +2063,7 @@ svg {
   &footer {
     --cs-footer-container-width: 90%; 
     position: relative;
-    
-    @media (min-width: $breakpoint-md) {
-      // --cs-footer-container-width: 90%; 
 
-    }
-    @media (min-width: $breakpoint-lg) {
-    }
     @media (min-width: $breakpoint-xl) {
       --cs-footer-container-width: 94%; 
     }
@@ -2233,11 +2075,11 @@ svg {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-block: 8.4rem 5.6rem;
+        padding-block: 3.4rem 5.6rem;
 
-      }
-
-      &brand {
+        @media (min-width: $breakpoint-md) {
+          padding-block: 8.4rem 5.6rem;
+        }
 
       }
       &copyright {
