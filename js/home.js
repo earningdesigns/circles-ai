@@ -854,7 +854,7 @@ function init() {
   trustAnim(); // Trust ANimation
   joinAnim(); // Join Revolution - Last Section Animation
 
-  onPageStartEnd();
+  // onPageStartEnd();
 }
 
 const sections = document.querySelectorAll('.cs-section');

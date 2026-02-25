@@ -161,6 +161,7 @@ svg {
   }
 }
 .cs-gradmotion {
+  display: none;
   position: absolute;
   top: 65vh;
   left: 0;
