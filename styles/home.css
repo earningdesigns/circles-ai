@@ -104,9 +104,6 @@ svg {
   text-transform: uppercase;
 }
 .cs-header__brand {
-  /* position: fixed;
-  top: 4rem;
-  right: 4%; */
   max-width: 12.4rem;
 }
 .cs-main {
@@ -140,27 +137,31 @@ svg {
   right: 2.8rem;
   z-index: 20;
 }
-.cs-hand-icon {
+.cs-hand-iconhand-icon {
   cursor: pointer;
   z-index: 999;
   animation: floatHand 2s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
-
-.cs-hand-icon.down {
+.cs-hand-iconhand-icon.down {
   transform: rotate(0deg);
 }
-
-.cs-hand-icon.up {
+.cs-hand-iconhand-icon.up {
   transform: rotate(180deg);
 }
-
 @keyframes floatHand {
-  0% { translate: 0 0; }
-  50% { translate: 0 -12px; }
-  100% { translate: 0 0; }
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
 .cs-gradmotion {
+  display: none;
   position: absolute;
   top: 65vh;
   left: 0;
@@ -327,10 +328,12 @@ svg {
 }
 .cs-btn--secondary {
   color: #000;
-  background:#ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  background: #ffffff;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -363,6 +366,12 @@ svg {
 }
 .cs-btn--secondary:hover .cs-btn__icon svg {
   transform: rotate(0deg);
+}
+.cs-show-mobile {
+  display: block !important;
+}
+.cs-hide-desktop {
+  display: none !important;
 }
 .cs-flex {
   --cs-flex-gap: 2rem;
@@ -409,6 +418,8 @@ svg {
   width: 75dvw;
   max-width: 120rem;
   margin: auto;
+  height: auto;
+  z-index: -1;
 }
 .cs-concentric-circle {
   fill: none;
@@ -420,6 +431,7 @@ svg {
   width: 75dvw;
   max-width: 120rem;
   margin: auto;
+  height: auto;
 }
 .cs-concentric-texts {
   position: absolute;
@@ -451,6 +463,58 @@ svg {
 .cs-concentric-text--3 {
   top: 34%;
   right: 11%;
+  --cs-ctext-bg: #00F2A1B5;
+}
+.cs-orbits {
+  display: none;
+  position: absolute;
+  margin-inline: auto;
+  --cs-orbit-size: 88rem;
+  --cs-orbit-rings: 3;
+  width: var(--cs-orbit-size);
+  height: var(--cs-orbit-size);
+}
+.cs-orbit {
+  --cs-orbit-radius: 1;
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
+  height: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
+  border: 1px solid black;
+}
+.cs-orbit--1 {
+  --cs-orbit-radius: 1.24;
+}
+.cs-orbit--2 {
+  --cs-orbit-radius: 2.2;
+}
+.cs-orbit--3 {
+  --cs-orbit-radius: 3;
+}
+.cs-orbit__pill {
+  --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+  position: absolute;
+  transform-origin: center center;
+  padding: 0.8rem 1.6rem;
+  background: var(--cs-ctext-bg);
+  border-radius: 5rem;
+  font-size: 1.4rem;
+  line-height: 132%;
+}
+.cs-orbit__pill--1 {
+  top: 21.2%;
+  left: -12%;
+}
+.cs-orbit__pill--2 {
+  top: 55%;
+  left: -14%;
+  --cs-ctext-bg: #FF8F33C7;
+}
+.cs-orbit__pill--3 {
+  top: 32%;
+  right: -6%;
   --cs-ctext-bg: #00F2A1B5;
 }
 .cs-ccircles {
@@ -569,7 +633,7 @@ svg {
 }
 @media (min-width: 992px) {
   .cs-companies {
-    max-width: 70rem;
+    max-width: 68rem;
   }
 }
 .cs-companies__text {
@@ -943,11 +1007,9 @@ svg {
   height: 30%;
   transition: transform ease 0.24s;
 }
-
 .cs-slider .swiper-button-prev:hover .swiper-navigation-icon {
   transform: rotate(180deg) scale(0.9);
 }
-
 .cs-slider .swiper-button-next:hover .swiper-navigation-icon {
   transform: scale(0.9);
 }
@@ -997,16 +1059,17 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100dvh;
   padding-bottom: 0;
 }
 @media (min-width: 768px) {
   .cs-section--h-hero {
+    min-height: 83dvh;
     --cs-section-container-width: 94%;
   }
 }
 @media (min-width: 992px) {
   .cs-section--h-hero {
+    min-height: 100dvh;
     --cs-section-container-width: 98rem;
   }
 }
@@ -1068,6 +1131,13 @@ svg {
   .cs-section--h-hero .cs-liner {
     --cs-liner-width: 23.1em;
     top: 62.5%;
+    left: -3.4%;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-hero .cs-liner {
+    --cs-liner-width: 23.1em;
+    top: 62.5%;
     left: 2%;
   }
 }
@@ -1119,10 +1189,18 @@ svg {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 0;
+  min-height: 63dvh;
+  margin-bottom: 8rem;
 }
 @media (orientation: landscape) {
   .cs-section--h-sdmo {
     height: 98dvh;
+  }
+}
+@media (min-width: 768px) {
+  .cs-section--h-sdmo {
+    margin-bottom: 8rem;
   }
 }
 .cs-section--h-sdmo .cs-title {
@@ -1223,6 +1301,11 @@ svg {
     --cs-foundation-list-grid-cols: 4;
   }
 }
+@media (min-width: 768px) {
+  .cs-section--h-carex {
+    padding-block: 5rem 19rem;
+  }
+}
 .cs-section--h-carex .cs-bcircle {
   top: -25%;
   right: -55%;
@@ -1230,20 +1313,25 @@ svg {
 }
 .cs-section--h-carex .cs-liner {
   position: absolute;
-  top: 6.5rem;
-  right: -11.8%;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-liner {
     --cs-liner-width: 22em;
-    top: 0.5rem;
-    right: -2.56%;
+    top: -16.4rem;
+    left: 30rem;
+    left: 51%;
+    left: 19.8em;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-carex .cs-liner {
+    left: 16em;
   }
 }
 @media (min-width: 1200px) {
   .cs-section--h-carex .cs-liner {
-    top: 8rem;
-    right: -2.4rem;
+    top: -14.8rem;
+    left: 16em;
   }
 }
 .cs-section--h-carex .cs-hlt-title {
@@ -1253,6 +1341,14 @@ svg {
 @media (min-width: 1200px) {
   .cs-section--h-carex .cs-hlt-title {
     top: -20.4rem;
+  }
+}
+.cs-section--h-carex .cs-contentbox {
+  padding-left: 6.5rem;
+}
+@media (min-width: 992px) {
+  .cs-section--h-carex .cs-contentbox {
+    padding-left: 0;
   }
 }
 .cs-section--h-carex .cs-grid__item:first-child {
