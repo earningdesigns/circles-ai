@@ -126,8 +126,8 @@ svg {
   height: 200vh;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
+  /* backdrop-filter: blur(2rem);
+  -webkit-backdrop-filter: blur(2rem); */
   z-index: 5;
 }
 .cs-hand-icon {
@@ -561,8 +561,8 @@ svg {
   height: var(--cs-bcircle-size);
   border-radius: 50%;
   background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
-  filter: blur(3rem);
-  -webkit-filter: blur(3rem);
+  /* filter: blur(3rem);
+  -webkit-filter: blur(3rem); */
 }
 .cs-bcircle--1 {
   --cs-bcircle-size: 63.6rem;
@@ -1100,7 +1100,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4.6rem;
+  margin-bottom: 2.6rem;
 }
 .cs-section--h-hero .cs-brand__svg {
   display: block;
@@ -1114,12 +1114,12 @@ svg {
 }
 @media (min-width: 992px) {
   .cs-section--h-hero .cs-brand {
-    --cs-brand-width: 40vw;
+    --cs-brand-width: 36vw;
   }
 }
 @media (min-width: 1200px) {
   .cs-section--h-hero .cs-brand {
-    --cs-brand-width: 30vw;
+    --cs-brand-width: 28vw;
   }
 }
 .cs-section--h-hero .cs-liner {
