@@ -679,21 +679,21 @@ function joinAnim () {
 }
 // Join Anim: End
 
-function onPageStartEnd() {
-  window.addEventListener("scroll", () => {
-    const doc = document.documentElement;
+// function onPageStartEnd() {
+//   window.addEventListener("scroll", () => {
+//     const doc = document.documentElement;
     
-    let isBottom = doc.scrollTop + window.innerHeight >= doc.scrollHeight - 5;
-    let isTop = doc.scrollTop <= window.innerHeight;
+//     let isBottom = doc.scrollTop + window.innerHeight >= doc.scrollHeight - 5;
+//     let isTop = doc.scrollTop <= window.innerHeight;
 
-    if (isBottom) {
-      gsap.to('#handSymbol', {rotate: 180, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
-    }
-    else if (isTop) {
-      gsap.to('#handSymbol', {rotate: 0, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
-    }
-  });
-}
+//     if (isBottom) {
+//       gsap.to('#handSymbol', {rotate: 180, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
+//     }
+//     else if (isTop) {
+//       gsap.to('#handSymbol', {rotate: 0, duration: time.normal, transformOrigin: "top center", ease: ease.natural})
+//     }
+//   });
+// }
 
 // Usage
 
@@ -856,3 +856,70 @@ function init() {
 
   onPageStartEnd();
 }
+
+const sections = document.querySelectorAll('.cs-section');
+const hand = document.getElementById('handSymbol');
+
+let direction = 1; // 1 = down, -1 = up
+
+function getCurrentSectionIndex() {
+  let index = 0;
+
+  sections.forEach((section, i) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+      index = i;
+    }
+  });
+
+  return index;
+}
+
+function updateDirectionByScroll() {
+  const currentIndex = getCurrentSectionIndex();
+
+  if (currentIndex === sections.length - 1) {
+    direction = -1;
+  } else if (currentIndex === 0) {
+    direction = 1;
+  }
+
+  hand.classList.remove('up', 'down');
+  hand.classList.add(direction === -1 ? 'up' : 'down');
+}
+
+/* -------- CLICK -------- */
+
+let isScrolling = false;
+
+hand.addEventListener('click', () => {
+  if (isScrolling) return;
+  isScrolling = true;
+
+  let currentIndex = getCurrentSectionIndex();
+
+  if (currentIndex === sections.length - 1) {
+    direction = -1;
+  } else if (currentIndex === 0) {
+    direction = 1;
+  }
+
+  const nextIndex = currentIndex + direction;
+
+  sections[nextIndex].scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  hand.classList.remove('up', 'down');
+  hand.classList.add(direction === -1 ? 'up' : 'down');
+
+  setTimeout(() => {
+    isScrolling = false;
+  }, 800);
+});
+
+/* -------- SCROLL DETECTION -------- */
+
+window.addEventListener('scroll', () => {
+  updateDirectionByScroll();
+});
