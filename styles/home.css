@@ -137,25 +137,28 @@ svg {
   right: 2.8rem;
   z-index: 20;
 }
-.cs-hand-icon {
+.cs-hand-iconhand-icon {
   cursor: pointer;
   z-index: 999;
   animation: floatHand 2s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
-
-.cs-hand-icon.down {
+.cs-hand-iconhand-icon.down {
   transform: rotate(0deg);
 }
-
-.cs-hand-icon.up {
+.cs-hand-iconhand-icon.up {
   transform: rotate(180deg);
 }
-
 @keyframes floatHand {
-  0% { translate: 0 0; }
-  50% { translate: 0 -12px; }
-  100% { translate: 0 0; }
+  0% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+  100% {
+    translate: 0 0;
+  }
 }
 .cs-gradmotion {
   position: absolute;
@@ -324,10 +327,12 @@ svg {
 }
 .cs-btn--secondary {
   color: #000;
-  background:#ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  background: #ffffff;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -1001,11 +1006,9 @@ svg {
   height: 30%;
   transition: transform ease 0.24s;
 }
-
 .cs-slider .swiper-button-prev:hover .swiper-navigation-icon {
   transform: rotate(180deg) scale(0.9);
 }
-
 .cs-slider .swiper-button-next:hover .swiper-navigation-icon {
   transform: scale(0.9);
 }
@@ -1299,7 +1302,7 @@ svg {
 }
 @media (min-width: 768px) {
   .cs-section--h-carex {
-    padding-top: 5rem;
+    padding-block: 5rem 19rem;
   }
 }
 .cs-section--h-carex .cs-bcircle {

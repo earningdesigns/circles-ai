@@ -22,6 +22,7 @@ $breakpoint-xxl: 1400px;
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -167,6 +168,27 @@ svg {
     bottom: 1rem;
     right: 2.8rem;
     z-index: 20;
+
+    &hand-icon {
+      cursor: pointer;
+      z-index: 999;
+      animation: floatHand 2s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    &hand-icon.down {
+      transform: rotate(0deg);
+    }
+
+    &hand-icon.up {
+      transform: rotate(180deg);
+    }
+
+    @keyframes floatHand {
+      0% { translate: 0 0; }
+      50% { translate: 0 -12px; }
+      100% { translate: 0 0; }
+    }
   }
 
 
@@ -400,6 +422,7 @@ svg {
       
       color: #000;
       background: rgba(255, 255, 255, 0.15);
+      background:#ffffff;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       
@@ -542,6 +565,7 @@ svg {
       max-width: 120rem;
       margin: auto;
       height: auto;
+      z-index: -1;
     }
     &-container {
     }
@@ -1282,20 +1306,20 @@ svg {
 
       .swiper-navigation-icon {
         font-size: 2rem;
-        width: 50%;
-        height: 50%;
+        width: 30%;
+        height: 30%;
         transition: transform ease 0.24s;
       }
 
     }
     .swiper-button-prev {
-      left: 30%;
+      // left: 30%;
       &:hover .swiper-navigation-icon {
         transform: rotate(180deg) scale(0.9);
       }
     }
     .swiper-button-next {
-      right: 30%;
+      // right: 30%;
       &:hover .swiper-navigation-icon {
         transform: scale(0.9);
       }
@@ -1671,7 +1695,7 @@ svg {
       }
       &carex {
         @media (min-width: $breakpoint-md) {
-          padding-top: 5rem;
+          padding-block: 5rem 19rem;
         }
         @media (min-width: $breakpoint-lg) {
         }
