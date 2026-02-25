@@ -332,6 +332,7 @@ svg {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -1288,11 +1289,6 @@ svg {
 .cs-section--h-carex .cs-liner, .cs-section--h-nova .cs-liner, .cs-section--h-zerofyx .cs-liner {
   z-index: -1;
 }
-@media (min-width: 992px) {
-  .cs-section--h-carex .cs-contentbox, .cs-section--h-nova .cs-contentbox, .cs-section--h-zerofyx .cs-contentbox {
-    width: 75%;
-  }
-}
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
     --cs-title-f-size: 3.2rem;
@@ -1362,7 +1358,6 @@ svg {
 @media (min-width: 992px) {
   .cs-section--h-carex .cs-contentbox {
     padding-left: 0;
-    width: 85%;
   }
 }
 .cs-section--h-carex .cs-grid__item:first-child {
@@ -1404,7 +1399,6 @@ svg {
 @media (min-width: 992px) {
   .cs-section--h-nova .cs-contentbox {
     padding-left: 0;
-    width: 85%;
   }
 }
 .cs-section--h-nova .cs-liner {

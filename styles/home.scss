@@ -1700,7 +1700,7 @@ svg {
           }
           &contentbox {
             @media (min-width: $breakpoint-lg) {
-              width: 75%;
+              // width: 75%;
             }
             &__footer {
             }
@@ -1775,7 +1775,7 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
-              width: 85%
+              // width: 85%
             }
             @media (min-width: $breakpoint-xl) {
             }
@@ -1840,7 +1840,7 @@ svg {
             }
             @media (min-width: $breakpoint-lg) {
               padding-left: 0;
-              width: 85%;
+              // width: 85%;
             }
             @media (min-width: $breakpoint-xl) {
               
