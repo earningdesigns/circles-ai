@@ -379,6 +379,9 @@ svg {
 .cs-flex--col {
   flex-direction: column;
 }
+.cs-flex--gap-0 {
+  --cs-flex-gap: 0;
+}
 .cs-flex--items-center {
   align-items: center;
 }
@@ -658,7 +661,7 @@ svg {
   align-items: center;
   gap: 3rem;
   justify-content: center;
-  margin-bottom: 7rem;
+  margin-bottom: 2rem;
 }
 .cs-circles-collab .cs-brand--circles {
   width: 25.4rem;
@@ -1082,7 +1085,7 @@ svg {
   gap: 4rem;
 }
 .cs-section--h-hero .cs-titlesvg {
-  margin-bottom: 2.4rem;
+  margin-bottom: 0.6rem;
   max-width: 60vw;
   margin-inline: auto;
   display: flex;
@@ -1097,7 +1100,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 3.2rem;
+  margin-bottom: 4.6rem;
 }
 .cs-section--h-hero .cs-brand__svg {
   display: block;
@@ -1259,14 +1262,13 @@ svg {
   }
 }
 .cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
-  min-height: 80rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
-    padding-block: 5rem 19rem;
+    padding-block: 12rem 19rem;
   }
 }
 .cs-section--h-carex .cs-section__backdrop, .cs-section--h-nova .cs-section__backdrop, .cs-section--h-zerofyx .cs-section__backdrop {
@@ -1372,6 +1374,11 @@ svg {
     width: 100%;
   }
 }
+@media (min-width: 992px) {
+  .cs-section--h-nova {
+    padding-bottom: 24rem;
+  }
+}
 .cs-section--h-nova .cs-section__container {
   margin-top: 8.8rem;
 }
@@ -1425,6 +1432,11 @@ svg {
     grid-column: 8/13;
   }
 }
+@media (min-width: 992px) {
+  .cs-section--h-zerofyx {
+    padding-bottom: 16rem;
+  }
+}
 .cs-section--h-zerofyx .cs-bcircle {
   top: 0;
   right: -80%;
@@ -1467,6 +1479,9 @@ svg {
     width: 75%;
     margin: auto;
   }
+  .cs-section--h-zerofyx .cs-grid__item:last-child {
+    grid-column: 6/13;
+  }
 }
 @media (min-width: 992px) {
   .cs-section--h-zerofyx .cs-grid__item:first-child {
@@ -1476,6 +1491,16 @@ svg {
 }
 .cs-section--h-collab {
   --cs-section-container-width: 94%;
+}
+@media (min-width: 992px) {
+  .cs-section--h-collab {
+    padding-top: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-collab {
+    padding-top: 0;
+  }
 }
 .cs-section--h-collab .cs-title {
   --cs-title-f-size: 2.2rem;
