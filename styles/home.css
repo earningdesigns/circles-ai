@@ -435,15 +435,36 @@ svg {
   height: auto;
 }
 .cs-concentric-texts {
-  position: absolute;
+  position: relative;
   inset: 0;
   margin: auto;
   width: var(--cs-concentric-size);
   height: var(--cs-concentric-size);
-  pointer-events: none;
 }
-.cs-concentric-text {
+.cs-concentric-texts .orbit-ring {
   --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+.cs-concentric-texts .orbit-ring--2 {
+  --cs-ctext-bg: #FF8F33C7;
+}
+.cs-concentric-texts .orbit-ring--3 {
+  --cs-ctext-bg: #00F2A1B5;
+}
+.cs-concentric-texts .orbit-ring .tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+.cs-concentric-texts .tag-inner {
+  cursor: default;
+  user-select: none;
   position: absolute;
   transform-origin: center center;
   padding: 0.8rem 1.6rem;
@@ -451,20 +472,6 @@ svg {
   border-radius: 5rem;
   font-size: 1.4rem;
   line-height: 132%;
-}
-.cs-concentric-text--1 {
-  top: 21%;
-  left: 4%;
-}
-.cs-concentric-text--2 {
-  top: 53%;
-  left: 8%;
-  --cs-ctext-bg: #FF8F33C7;
-}
-.cs-concentric-text--3 {
-  top: 34%;
-  right: 11%;
-  --cs-ctext-bg: #00F2A1B5;
 }
 .cs-orbits {
   display: none;
