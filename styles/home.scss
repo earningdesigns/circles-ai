@@ -559,6 +559,39 @@ svg {
 
   &concentric {
     --cs-concentric-size: 121rem;
+    position: relative;
+    // width: var(--cs-concentric-size);
+    // height: var(--cs-concentric-size);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .scene {
+      position:absolute;
+      inset: 0;
+      top:0;
+      width:var(--cs-concentric-size);
+      height:var(--cs-concentric-size);
+      margin:auto;
+      svg {
+        position:absolute;
+        inset:0;
+      }
+
+      .tag {
+        position:absolute;
+        padding:6px 14px;
+        border-radius:20px;
+        background:#080c10;
+        border:1px solid #c8f542;
+        color:#c8f542;
+        font-size:12px;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+      }
+    }
+
 
     &-vibes {
       position: absolute;
@@ -592,6 +625,7 @@ svg {
         margin: auto;
         width: var(--cs-concentric-size);
         height: var(--cs-concentric-size);
+
         .orbit-ring {
           --cs-ctext-bg: rgba(0, 214, 242, 0.8);
           position:absolute;
@@ -630,36 +664,41 @@ svg {
           font-size: 1.4rem;
           line-height: 132%;
         }
+            svg {
+          position:absolute;
+          inset:0;
+        }
       }
-      // & {
-      //   --cs-ctext-bg: rgba(0, 214, 242, 0.8);
+      & {
+        --cs-ctext-bg: rgba(0, 214, 242, 0.8);
 
-      //   position: absolute;
-      //   transform-origin: center center;
-      //   padding: 0.8rem 1.6rem;
-      //   background: var(--cs-ctext-bg);
-      //   border-radius: 5rem;
-      //   font-size: 1.4rem;
-      //   line-height: 132%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center center;
+        padding: 0.8rem 1.6rem;
+        background: var(--cs-ctext-bg);
+        border-radius: 5rem;
+        font-size: 1.4rem;
+        line-height: 132%;
+        transform: translate(-50%, -50%);
+        will-change: transform;
 
-      //   &-- {
-      //     &1 {
-      //       top: 21%;
-      //       left: 4%;
-      //     }
-      //     &2 {
-      //       top: 53%;
-      //       left: 8%;
-      //       --cs-ctext-bg: #FF8F33C7;
-      //     }
+        &--t {
+          &1 {
+            
+          }
+          &2 {
+            
+            --cs-ctext-bg: #FF8F33C7;
+          }
 
-      //     &3 {
-      //       top: 34%;
-      //       right: 11%;
-      //       --cs-ctext-bg: #00F2A1B5;
-      //     }
-      //   }
-      // }
+          &3 {
+            
+            --cs-ctext-bg: #00F2A1B5;
+          }
+        }
+      }
     }
 
     // .scene {

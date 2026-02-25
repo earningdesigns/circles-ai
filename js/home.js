@@ -303,6 +303,100 @@ function heroAnim() {
 }
 // Hero Anim: End
 
+function concentricCircles() {
+  const scene = $("#concentricTexts");
+
+    function getRadii() {
+      const w = scene.clientWidth;
+      return [w * 0.3, w * 0.29, w * 0.36];
+    }
+
+    // function getRadii() {
+    //   const w = scene.getBoundingClientRect().width;
+    //   const max = (w / 2) - 60;
+    //   return [max * 0.5, max * 0.45, max * 0.85];
+    // }
+
+    let ORBITS = buildOrbits();
+
+    function buildOrbits() {
+      const [r1, r2, r3] = getRadii();
+      return [
+        {radius: r1, tags: ["Retention"], startAngle: 120, speed: 1},
+        {radius: r2, tags: ["Acquisition"], startAngle: 220, speed: 0.7},
+        {radius: r3, tags: ["Monetization"], startAngle: 360, speed: 0.4}
+      ];
+    }
+
+    window.addEventListener("resize", () => {
+      const [r1, r2, r3] = getRadii();
+      ORBITS[0].radius = r1;
+      ORBITS[1].radius = r2;
+      ORBITS[2].radius = r3;
+    });
+
+  // const ORBITS = [
+  //   {radius: 150,  tags: ["Monetization"], startAngle: 120, speed: 1},
+  //   {radius: 260, tags: ["Retention"], startAngle: 280, speed: 0.7},
+  //   {radius: 360, tags: ["Acquisition"], startAngle: 320, speed: 0.4}
+  // ];
+
+  const rings = ORBITS.map((orbit, i) => {
+    const ring = document.createElement("div");
+    ring.className = `orbit-ring orbit-ring--${i+1}`;
+    scene.appendChild(ring);
+
+    const tags = orbit.tags.map((text, i) => {
+      const angleStep = 360 / orbit.tags.length;
+      const baseAngle = orbit.startAngle + i * angleStep;
+
+      const tag = document.createElement("div");
+      tag.className = `tag tag--${i+1}`;
+      tag.innerHTML = `<div class="tag-inner">${text}</div>`;
+      ring.appendChild(tag);
+
+      return {el: tag, baseAngle};
+    });
+
+    return {...orbit, tags};
+  });
+
+  let scrollAngle = 0;
+  let targetAngle = 0;
+
+  function positionTags(offset) {
+    rings.forEach(orbit => {
+      orbit.tags.forEach(({el, baseAngle}) => {
+        const angleDeg = baseAngle + offset * orbit.speed;
+        const rad = angleDeg * Math.PI / 180;
+
+        const x = Math.cos(rad) * orbit.radius;
+        const y = Math.sin(rad) * orbit.radius;
+
+        el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+      });
+    });
+  }
+
+  gsap.ticker.add(() => {
+    scrollAngle += (targetAngle - scrollAngle) * 0.08;
+    positionTags(scrollAngle);
+  });
+
+  ScrollTrigger.create({
+  trigger: "#concentricTexts",
+  start: "top bottom",
+  end: "bottom top",
+  scrub: true,
+  onUpdate: self => {
+  // 200px feeling equivalent rotation amount
+  targetAngle = self.progress * 50;
+  }
+  });
+
+  positionTags(0);
+}
+
 function sdmoAnim() {
   const sectionSdmo = $('.cs-section--h-sdmo');
   const brand = sectionSdmo.querySelectorAll('.cs-brand');
@@ -410,7 +504,65 @@ function sdmoAnim() {
     trigger: sectionSdmo,
     start: "top center"
   })
+
+  // concentricCircles();
+  const circles = sectionSdmo.querySelectorAll('#concentricTexts circle');
+  const circlePaths = Array.from(circles).map(circle =>
+      MotionPathPlugin.convertToPath(circle)[0]
+    );
+  // gsap.set(circlePaths, {opacity: 0})
+  const orbital = gsap.timeline({
+    scrollTrigger: {
+      trigger: sectionSdmo,
+      start: "top top",
+      end: "+=4000", // ✅ long scroll distance = slow orbit
+      scrub: 2,       // ✅ smoothing
+    }
+  });
+  const texts = sectionSdmo.querySelectorAll('#concentricTexts .cs-concentric-text')
+  // Orbit 1
+  texts.forEach((text, i) => {
+    
+  })
+  orbital.to(texts[0], {
+    motionPath: {
+      path: circlePaths[0],
+      align: circlePaths[0],
+      autoRotate: false,
+      start: 0,
+      end: 1,
+      alignOrigin: [0.5, 0.5]
+    },
+    
+  }, 0);
+
+  // Orbit 2
+  orbital.to(texts[1], {
+    motionPath: {
+      path: circlePaths[1],
+      align: circlePaths[1],
+      autoRotate: false,
+      start: 0.3,
+      end: 1.3,
+      alignOrigin: [0.5, 0.5]
+    },
+    
+  }, 0);
+
+  // Orbit 3
+  orbital.to(texts[2], {
+    motionPath: {
+      path: circlePaths[2],
+      align: circlePaths[2],
+      autoRotate: false,
+      start: 0.6,
+      end: 1.6,
+      alignOrigin: [0.5, 0.5]
+    },
+    
+  }, 0);
 }
+
 
 function carexAnim() {
   const carexSection = $('.cs-section--h-carex');
