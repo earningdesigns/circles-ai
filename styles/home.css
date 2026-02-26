@@ -348,6 +348,7 @@ svg {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -1282,7 +1283,7 @@ svg {
 }
 @media (orientation: landscape) {
   .cs-section--h-sdmo {
-    height: 98dvh;
+    min-height: 98dvh;
   }
 }
 @media (min-width: 768px) {

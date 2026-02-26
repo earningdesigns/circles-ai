@@ -1602,7 +1602,7 @@ svg {
         margin-bottom: 8rem;
 
         @media (orientation: landscape) {
-          height: 98dvh;
+          min-height: 98dvh;
         }
         @media (min-width: $breakpoint-md) {
           margin-bottom: 8rem;

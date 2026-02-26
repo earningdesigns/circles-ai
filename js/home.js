@@ -7,7 +7,7 @@ gsap.ticker.lagSmoothing(0);
 
 ScrollTrigger.config({
   limitCallbacks: true,
-  ignoreMobileResize: true,
+  ignoreMobileResize: false,
 });
 
 ScrollTrigger.normalizeScroll(true);
@@ -415,7 +415,7 @@ function concentricCircles() {
   });
 
   positionTags(0);
-}
+} 
 
 function sdmoAnim(context) {
   const sectionSdmo = $('.cs-section--h-sdmo');
