@@ -1,6 +1,7 @@
 // Register GSAP plugins by reference (plugin objects), not by string names
 gsap.registerPlugin(SplitText, ScrollTrigger, MotionPathPlugin, DrawSVGPlugin);
 
+const mm = gsap.matchMedia();
 
 gsap.ticker.lagSmoothing(0);
 
@@ -14,6 +15,7 @@ ScrollTrigger.normalizeScroll(true);
 const ease = {smooth: 'expo.out', natural: 'power1.inOut', fluid: 'power3.inOut'};
 const time = { fast: 0.4, normal: 0.8, slow: 1.4, verySlow: 1.8};
 const fadeInUpSettings = {set: { y: 30, opacity: 0}, show: {y: 0, opacity: 1, duration: 0.8}};
+const breakpoint = 768;
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -185,7 +187,7 @@ function horizontalLoop(items, config) {
   return tl;
 }
 
-function heroAnim() {
+function heroAnim(context) {
   const sectionHero = $('.cs-section--h-hero');
   
   const sectionHeroTitle = sectionHero?.querySelector('.cs-title');
@@ -195,12 +197,14 @@ function heroAnim() {
   const sectionHeroCompanies = sectionHero?.querySelector('.cs-companies');
   const companies = sectionHeroCompanies?.querySelectorAll('.cs-company');
 
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
+
+  
   gsap.set(meetCirclesContainer, {y: -25, opacity: 0})
   gsap.set(titleSvg,{opacity: 0, y: -25});
   gsap.set(sectionHeroTitle, {opacity: 0, y: -25})
   gsap.set(members, {opacity: 0})
   gsap.set(sectionHeroCompanies, {opacity: 0})
-
 
   function liner() {
     const linerLineWidthRange = {min: 50, max: 80};
@@ -238,23 +242,6 @@ function heroAnim() {
           onEnterBack: () => {
             gsap.to(linerLine, {opacity: 1, duration: time.normal})
           }
-          // onUpdate: (self) => {
-          //   // Clamp progress to 30%-60% range (0.3 - 0.6)
-          //   const startTrigger = 0.3;
-          //   const endTrigger = 0.6;
-
-          //   // Map the 0.3-0.6 range to 0-1 (for interpolation)
-          //   let mappedProgress = gsap.utils.mapRange(startTrigger, endTrigger, 0, 1, self.progress);
-          //   // Clamp values outside 0-1
-          //   mappedProgress = gsap.utils.clamp(0, 1, mappedProgress);
-
-          //   // Calculate width (e.g., between 200px and 500px)
-          //   const minWidth = 50;
-          //   const maxWidth = 150;
-          //   const newWidth = gsap.utils.interpolate(minWidth, maxWidth, mappedProgress);
-
-          //   gsap.set(linerLine, {width: newWidth});
-          // }
 
         }
       }
@@ -263,6 +250,7 @@ function heroAnim() {
     return tl;
   }
 
+  // Animation for Mobile & Desktop
   const companiesTl = horizontalLoop(companies, {
     repeat: -1,
     speed: 0.4,
@@ -289,8 +277,7 @@ function heroAnim() {
   window.addEventListener('load', toggleCompaniesAnim)
   window.addEventListener('scroll', toggleCompaniesAnim)
 
- 
-  const heroTl = gsap.timeline({ease: ease.smooth, });
+  const heroTl = gsap.timeline({defaults: {ease: ease.smooth} });
 
   heroTl
     .to(meetCirclesContainer, {opacity: 1, y: 0, duration: 1.6})
@@ -299,7 +286,8 @@ function heroAnim() {
 
     .to(members, {duration: 0.6,opacity: 1})
     .to(sectionHeroCompanies, {opacity: 1}, '-=0.3')
-    .add(liner())
+  if(isDesktop) heroTl.add(liner())
+
 }
 // Hero Anim: End
 
@@ -397,7 +385,7 @@ function concentricCircles() {
   positionTags(0);
 }
 
-function sdmoAnim() {
+function sdmoAnim(context) {
   const sectionSdmo = $('.cs-section--h-sdmo');
   const brand = sectionSdmo.querySelectorAll('.cs-brand');
   const circlesContainer = sectionSdmo.querySelector('.cs-concentric');
@@ -405,6 +393,8 @@ function sdmoAnim() {
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
+
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
 
   gsap.set(sectionTitle, {opacity: 0, y: 25})
   gsap.set(brand, {opacity: 0, x: 5})
@@ -417,86 +407,12 @@ function sdmoAnim() {
   setContainerSize();
   window.addEventListener('resize', setContainerSize());
 
-
-    // const circles = circlesContainer.querySelectorAll('.cs-concentric-circles .cs-concentric-circle');
-    // const texts = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-    // const paths = sectionSdmo?.querySelectorAll('.cs-concentric-circles .cs-concentric-txt');
-
-    // ------------------------------------
-    // INITIAL SETUP
-    // ------------------------------------
-
-    // const circlePaths = Array.from(circles).map(circle =>
-    //   MotionPathPlugin.convertToPath(circle)[0]
-    // );
-
-    // gsap.set(circlePaths, { transformOrigin: "50% 50%" });
-    // gsap.set(texts, { opacity: 0, });
-
-
-    const center = { x: 350, y: 350 };
-
-    // Custom starting angles (YOU CONTROL POSITION)
-    const configs = [
-      { selector: ".cs-concentric-circles .cs-concentric-txt--1", radius: 267, speed: 0.01, angles: [0, 1.5] },
-      { selector: ".cs-concentric-txt--2", radius: 452, speed: -0.007, angles: [0.8, 2.4] },
-      { selector: ".cs-concentric-txt--3", radius: 604, speed: 0.004, angles: [1.2] }
-    ];
-
-    // configs.forEach(cfg => {
-    //   const pills = document.querySelectorAll(cfg.selector);
-
-    //   paths.forEach((pill, i) => {
-    //     let angle = cfg.angles[i] || (i / pills.length) * Math.PI * 2;
-
-    //     gsap.ticker.add(() => {
-    //       angle += cfg.speed;
-
-    //       const x = center.x + cfg.radius * Math.cos(angle);
-    //       const y = center.y + cfg.radius * Math.sin(angle);
-
-    //       gsap.set(pill, {
-    //         x: x - 40, // half width
-    //         y: y - 14, // half height
-    //         rotation: 0 // KEEP TEXT UPRIGHT
-    //       });
-    //     });
-    //   });
-    // });
-    
-
-    const tl = gsap.timeline();
-
-    // texts.forEach((text, i) => {
-    //   gsap.set(text, {
-    //     opacity: 0,
-    //     motionPath: {
-    //       path: circlePaths[i],
-    //       align: circlePaths[i],
-    //       alignOrigin: [0.5, 0.5],
-          
-    //       autoRotate: false // keeps text upright
-    //     },
-    //   });
-    // });
-
-  const sdmoTl = gsap.timeline({ease: ease.smooth})
-
+  const sdmoTl = gsap.timeline({defaults:{ease: ease.smooth}})
+  
   sdmoTl
     .to(brand, {opacity: 1, x: 0, duration: 0.6})
     .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
     .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
-    // .to(texts, {
-    //   opacity: 1,
-    //   duration: 0.8,
-    //   stagger: 0.2
-    // }, "-=1")
-    // .add(()=> {
-    //   gsap.to()
-    // }, '<')
-    // .to(circlePaths, {rotation: 360, duration: 60, repeat: -1, transformOrigin: "50% 50%"})
-    // .to(ccircles, {opacity: 1, duration: 1, repeat: -1})
-    
     .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')
 
   ScrollTrigger.create({
@@ -505,78 +421,26 @@ function sdmoAnim() {
     start: "top center"
   })
 
-  // concentricCircles();
-  const circles = sectionSdmo.querySelectorAll('#concentricTexts circle');
-  const circlePaths = Array.from(circles).map(circle =>
-      MotionPathPlugin.convertToPath(circle)[0]
-    );
-  // gsap.set(circlePaths, {opacity: 0})
-  const orbital = gsap.timeline({
-    scrollTrigger: {
-      trigger: sectionSdmo,
-      start: "top top",
-      end: "+=4000", // ✅ long scroll distance = slow orbit
-      scrub: 2,       // ✅ smoothing
-    }
-  });
-  const texts = sectionSdmo.querySelectorAll('#concentricTexts .cs-concentric-text')
-  // Orbit 1
-  texts.forEach((text, i) => {
-    
-  })
-  orbital.to(texts[0], {
-    motionPath: {
-      path: circlePaths[0],
-      align: circlePaths[0],
-      autoRotate: false,
-      start: 0,
-      end: 1,
-      alignOrigin: [0.5, 0.5]
-    },
-    
-  }, 0);
-
-  // Orbit 2
-  orbital.to(texts[1], {
-    motionPath: {
-      path: circlePaths[1],
-      align: circlePaths[1],
-      autoRotate: false,
-      start: 0.3,
-      end: 1.3,
-      alignOrigin: [0.5, 0.5]
-    },
-    
-  }, 0);
-
-  // Orbit 3
-  orbital.to(texts[2], {
-    motionPath: {
-      path: circlePaths[2],
-      align: circlePaths[2],
-      autoRotate: false,
-      start: 0.6,
-      end: 1.6,
-      alignOrigin: [0.5, 0.5]
-    },
-    
-  }, 0);
+  if(isDesktop) {
+    concentricCircles();
+  }
 }
 
 
-function carexAnim() {
+function carexAnim(context) {
   const carexSection = $('.cs-section--h-carex');
   const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
   const hltTitle = carexSection?.querySelector('.cs-hlt-title');
   const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
   const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
-  const carexSlider = carexSection.querySelector('.cs-slider__swiper');
   const titleSvg = carexSection.querySelectorAll('.cs-titlesvg path')
+  
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
   
   // gsap.set(titleSvg,{opacity: 0, x: -5})
   // gsap.set(carexTitle, {opacity: 0})
-  gsap.set(hltTitle, {opacity: 0})
+  // gsap.set(hltTitle, {opacity: 0})
   // gsap.set([linerTrack, linerSub], {opacity: 0, drawSVG: 0})
   const introTl = gsap.timeline({
     scrollTrigger: {
@@ -586,144 +450,119 @@ function carexAnim() {
     }
   });
 
-  introTl
-    .to(hltTitle, {opacity: 1, duration: 0.8})
-    // .to(linerTrack, { opacity: 1, drawSVG: "100%", duration: 1 })
-    // .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
+  // introTl
+  //   .to(hltTitle, {opacity: 1, duration: 0.8});
 
-  
-
-  gsap.to(linerLine, {
-    motionPath: {
-      path: linerTrack,
-      align: linerTrack,
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    },
-    ease: ease.fluid,
-    scrollTrigger: {
-      trigger: carexSection,
-      start: "top center+=100", // start AFTER intro visually
-      end: "bottom center",
-      scrub: 1,
-      onEnter: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+  if(isDesktop) {
+    gsap.to(linerLine, {
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
       },
-      onLeave: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
-      },
-      onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
-      },
-      onLeaveBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.fast})
+      ease: ease.fluid,
+      scrollTrigger: {
+        trigger: carexSection,
+        start: "top center+=100", // start AFTER intro visually
+        end: "bottom center",
+        scrub: 1,
+        onEnter: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        },
+        onLeave: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onEnterBack: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onLeaveBack: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        }
       }
-    }
-  });
+    });
+  }
 }
 
-function novaAnim () {
+function novaAnim (context) {
   const novaSection = $('.cs-section--h-nova');
   const linerTrack = novaSection?.querySelector('.cs-liner .cs-liner__track')
   const linerSub = novaSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = novaSection?.querySelector('.cs-liner .cs-liner__line')
-  const novaSlider = novaSection.querySelector('.cs-slider__swiper');
 
-  // gsap.set([linerTrack, linerSub], {drawSVG: 0})
-
-  // const introTl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: novaSection,
-  //     start: "top 80%",
-  //     once: true,
-  //   }
-  // });
-
-  // introTl
-  //   .to(linerTrack, { drawSVG: "100%", duration: 1 })
-  //   .to(linerSub, { drawSVG: "100%", duration: 1 }, "<");
-
-  gsap.to(linerLine, {
-    motionPath: {
-      path: linerTrack,
-      align: linerTrack,
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    },
-    ease: ease.fluid,
-    scrollTrigger: {
-      trigger: novaSection,
-      start: "top center+=100", // start AFTER intro visually
-      end: "bottom center",
-      scrub: 1,
-      onEnter: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
+  if(isDesktop) {
+    gsap.to(linerLine, {
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
       },
-      onLeave: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
-      },
-      onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
-      },
-      onLeaveBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.fast})
+      ease: ease.fluid,
+      scrollTrigger: {
+        trigger: novaSection,
+        start: "top center+=100", // start AFTER intro visually
+        end: "bottom center",
+        scrub: 1,
+        onEnter: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        },
+        onLeave: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onEnterBack: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onLeaveBack: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        }
       }
-    }
-  });
+    });
+  }
 }
 
-function zerofyxAnim() {
+function zerofyxAnim(context) {
   const zerofyxSection = $('.cs-section--h-zerofyx');
   const linerTrack = zerofyxSection?.querySelector('.cs-liner .cs-liner__track')
   const linerLine = zerofyxSection?.querySelector('.cs-liner .cs-liner__line')
-  const zerofyxSlider = zerofyxSection.querySelector('.cs-slider__swiper');
 
-  
-    // gsap.to(
-    //   linerTrack, { drawSVG: "100%", duration: 1,
-    //   scrollTrigger: {
-    //     trigger: zerofyxSection,
-    //     start: "top 80%",
-    //     once: true,
-    //   }
-    // });
-    gsap.set(linerLine, {opacity: 0})
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
+  if(isDesktop) {
+      gsap.set(linerLine, {opacity: 0})
 
-    gsap.to(linerLine, {
-    motionPath: {
-      path: linerTrack,
-      align: linerTrack,
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    },
-    ease: ease.fluid,
-    scrollTrigger: {
-      trigger: zerofyxSection,
-      start: "top center+=100", // start AFTER intro visually
-      end: "bottom center+=100",
-      scrub: 1,
-      
-      onEnter: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.normal})
-        console.log('enter')
+      gsap.to(linerLine, {
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
       },
-      onLeave: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal});
-        console.log('leave')
-      },
-      onEnterBack: () => {
-        gsap.to(linerLine, {opacity: 0, duration: time.normal})
-        console.log('enterBack')
-      },
-      onLeaveBack: () => {
-        gsap.to(linerLine, {opacity: 1, duration: time.fast})
-        console.log('leaveBack')
+      ease: ease.fluid,
+      scrollTrigger: {
+        trigger: zerofyxSection,
+        start: "top center+=100", // start AFTER intro visually
+        end: "bottom center+=100",
+        scrub: 1,
+        
+        onEnter: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        },
+        onLeave: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onEnterBack: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onLeaveBack: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        }
       }
-    }
-  });
+    });
+  }
 }
 
-function collabAnim() {
+function collabAnim(context) {
   const sectionCollab = $('.cs-section--h-collab');
   const title = sectionCollab?.querySelectorAll('.cs-title');
   
@@ -758,7 +597,7 @@ function collabAnim() {
   collabTl
     .add(collabConnect())
     .to(title, fadeInUpSettings.show)
-    .to(description, fadeInUpSettings.show, '-=80%')
+    .to(description, fadeInUpSettings.show, '-=0.8')
     .to(articles, {x: 0, opacity: 1, stagger: 0.14, duration: time.normal})
 
   ScrollTrigger.create({
@@ -766,109 +605,91 @@ function collabAnim() {
     animation: collabTl,
     start: "top center",
     once: true,
+    fastScrollEnd: true,
   })
 }
 // Collab: End
 
-function trustAnim() {
+function trustAnim(context) {
   const sectionJoin = $('.cs-section--h-trust');
   const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
-  const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');
-  
+  const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');  
 
   gsap.set(joinSteps, fadeInUpSettings.set);
   gsap.set(titleSvg, fadeInUpSettings.set)
 
-  const trustTl = gsap.timeline({ease: ease.smooth});
+  const trustTl = gsap.timeline({defaults: {ease: ease.smooth}});
   trustTl
     .to(titleSvg, fadeInUpSettings.show)
-    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.14}, '-=15%')
+    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.14}, '-=0.15')
 
   ScrollTrigger.create({
     trigger: sectionJoin,
     animation: trustTl,
     start: "top center",
     once: true,
+    fastScrollEnd: true
   })
 }
 // Trust Section: End
 
-function joinAnim () {
+function joinAnim (context) {
   const sectionJoin = $('.cs-section--h-join');
   const brand = sectionJoin?.querySelector('.cs-brand');
   const title = sectionJoin?.querySelector('.cs-title');
   const joinSteps = sectionJoin.querySelectorAll('.cs-join-step');
-
-  gsap.set(brand, {opacity: 0, scale: 0.5, rotation: 180})
-  gsap.set(joinSteps, fadeInUpSettings.set);
-  gsap.set(title, fadeInUpSettings.set)
-
   const linerTrack = sectionJoin?.querySelector('.cs-liner .cs-liner__track')
   const linerLine = sectionJoin?.querySelector('.cs-liner .cs-liner__line')
 
-  gsap.set(linerTrack, {drawSVG: 0})
-  gsap.set(linerLine, {
-    opacity: 0,
-    motionPath: {
-      path: linerTrack,
-      align: linerTrack,
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    }})
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
 
-  // const introTl = gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: sectionJoin,
-  //     start: "top 80%",
-  //     once: true,
-  //   }
-  // });
+  gsap.set(brand, {opacity: 0, scale: 0.5, rotation: 180})
+  gsap.set(joinSteps, fadeInUpSettings.set);
+  gsap.set(title, fadeInUpSettings.set);
 
-  // introTl
-    
+  if(isDesktop) {
+    gsap.set(linerTrack, {drawSVG: 0})
+    gsap.set(linerLine, {
+      opacity: 0,
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
+      }})
+  }
 
-  // gsap.to(linerLine, {
-  //   motionPath: {
-  //     path: linerTrack,
-  //     align: linerTrack,
-  //     autoRotate: true,
-  //     alignOrigin: [0.5, 0.5]
-  //   },
-  //   ease: "none",
-  //   scrollTrigger: {
-  //     trigger: sectionJoin,
-  //     start: "top center+=100", // start AFTER intro visually
-  //     end: "bottom center",
-  //     scrub: 1,
-  //   }
-  // });
+  const joinTl = gsap.timeline({defaults:{ease: ease.smooth}});
 
-  const joinTl = gsap.timeline({ease: ease.smooth});
+  if(isDesktop) {
+    joinTl
+      .to(linerTrack, { drawSVG: "100%", duration: time.fast })
+      .to(linerLine, {
+        opacity: 1,
+        duration: 1,
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        start: 0.15,
+        end: 1,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
+      }}, '<')
+
+      .to([linerTrack, linerLine], { opacity: 0, duration: time.fast })
+  }
 
   joinTl
-    .to(linerTrack, { drawSVG: "100%", duration: time.fast })
-    .to(linerLine, {
-      opacity: 1,
-      duration: 1,
-    motionPath: {
-      path: linerTrack,
-      align: linerTrack,
-      start: 0.15,
-      end: 1,
-      autoRotate: true,
-      alignOrigin: [0.5, 0.5]
-    }}, '<')
-
-    .to([linerTrack, linerLine], { opacity: 0, duration: time.fast })
-    .to(brand, {opacity: 1, scale: 1, rotation: 0, duration: time.slow}, '-=75%')
+    .to(brand, {opacity: 1, scale: 1, rotation: 0, duration: time.slow}, '-=0.75')
     .to(title, fadeInUpSettings.show, '-=0.6')
-    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.12}, '-=15%')
+    .to(joinSteps, {...fadeInUpSettings.show, stagger: 0.12}, '-=0.15')
 
   ScrollTrigger.create({
     trigger: sectionJoin,
     animation: joinTl,
     start: "top center",
     once: true,
+    fastScrollEnd: true
   })
 }
 // Join Anim: End
@@ -893,109 +714,22 @@ function onPageStartEnd() {
 
 
 function init() {
-  // let splitTexts = splitTextToChars();
-
-  // const gradMotion = document.getElementById('gradMotion');
-  // const gradMotionTrack = gradMotion?.querySelector('.cs-gradmotion__track');
-  // const gradMotionCircle = gradMotion?.querySelector('.cs-gradmotion__circle');
-
-  // gsap.set(gradMotionCircle, {
-  //   motionPath: {
-  //     path: gradMotionTrack,
-  //     align: gradMotionTrack,
+  // Fixed Message: Start
+  // ScrollTrigger.create({
+  //   trigger: '.cs-footer',
+  //   onEnter: () => {
+  //     gsap.to('.cs-fixed-message', {
+  //       opacity: 0,
+  //       duration: 0.4
+  //     })
+  //   },
+  //   onLeaveBack: () => {
+  //     gsap.to('.cs-fixed-message', {
+  //       opacity: 1,
+  //       duration: 1
+  //     })
   //   }
   // })
-
-  // const gradCircleSettings = [
-  //   {
-  //     size: 59.8,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%%, rgba(255, 255, 255, 0.5) 89.9%)',
-  //   },
-  //   {
-  //     size: 59.8,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0.1) 47%, rgba(255, 255, 255, 0.5) 89.9%)',
-  //   },
-  //   {
-  //     size: 135,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.1) 46%, rgba(97, 255, 218, 0) 100%)',
-  //   },
-  //   {
-  //     size: 135,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.1) 48%, rgba(0, 242, 255, 0) 100%)',
-  //   },
-  //   {
-  //     size: 135,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(255, 0, 195, 0.1) 48%, rgb(255, 0, 195, 0) 100%)'
-  //   },
-  //   {
-  //     size: 135,
-  //     gradient: 'radial-gradient(50% 50% to 50% 50%, #65FFF2 0%, rgb(43, 0, 195, 0.1) 48%, rgb(43, 0, 195, 0) 100%)'
-  //   }
-  // ]
-
-  // const sections = gsap.utils.toArray([
-  //   '.cs-section--h-hero',
-  //   '.cs-section--h-sdmo',
-  //   '.cs-section--h-carex',
-  //   '.cs-section--h-nova',
-  //   '.cs-section--h-zerofyx',
-  //   '.cs-section--h-collab'
-  // ]);
-
-  // const totalProgress = 1; // how far along the path you want to go
-
-  // gsap.to(gradMotionCircle, {
-  //   motionPath: {
-  //     path: gradMotionTrack,
-  //     align: gradMotionTrack,
-  //     alignOrigin: [0.5, 0.5],
-  //     autoRotate: false,
-  //     start: 0,
-  //     end: 1
-  //   },
-  //   ease: "power2.inOut",
-  //   scrollTrigger: {
-  //     trigger: sections[0],
-  //     start: "top top",
-  //     endTrigger: sections[sections.length - 1],
-  //     end: "bottom bottom",
-  //     scrub: true,
-  //   }
-  // });
-
-  // sections.forEach((section, index) => {
-  //   const settings = gradCircleSettings[index];
-
-  //   gsap.to(gradMotionCircle, {
-  //     width: `${settings.size}rem`,
-  //     height: `${settings.size}rem`,
-  //     background: settings.gradient,
-  //     ease: "sine.inOut",
-  //     scrollTrigger: {
-  //       trigger: section,
-  //       start: "top top",
-  //       end: "bottom center",
-  //       scrub: true
-  //     }
-  //   });
-  // });
-
-  // Fixed Message: Start
-  ScrollTrigger.create({
-    trigger: '.cs-footer',
-    onEnter: () => {
-      gsap.to('.cs-fixed-message', {
-        opacity: 0,
-        duration: 0.4
-      })
-    },
-    onLeaveBack: () => {
-      gsap.to('.cs-fixed-message', {
-        opacity: 1,
-        duration: 1
-      })
-    }
-  })
   // Fixed Message: End
 
   // All Page Swipers: Start
@@ -1037,16 +771,22 @@ function init() {
   // Attach observer
   swipers.forEach(swiper => observer.observe(swiper));
   // All Page Swipers: End
-  
-  blobsAnim(); // Hero Blob Animation
-  heroAnim(); // Hero Animation
-  sdmoAnim(); // Sdmo Second Section Animation
-  carexAnim(); // CareX Animation
-  novaAnim(); // Nova Animation
-  zerofyxAnim(); // Zerofyx Animation
-  collabAnim(); // Collab Animation
-  trustAnim(); // Trust ANimation
-  joinAnim(); // Join Revolution - Last Section Animation
+  mm.add({
+    // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+    isDesktop: `(min-width: ${breakpoint}px)`,
+    isMobile: `(max-width: ${breakpoint - 1}px)`,
+    reduceMotion: "(prefers-reduced-motion: reduce)",
+  }, (context) => {
+    blobsAnim(context); // Hero Blob Animation
+    heroAnim(context); // Hero Animation
+    sdmoAnim(context); // Sdmo Second Section Animation
+    carexAnim(context); // CareX Animation
+    novaAnim(context); // Nova Animation
+    zerofyxAnim(context); // Zerofyx Animation
+    collabAnim(context); // Collab Animation
+    trustAnim(context); // Trust ANimation
+    joinAnim(context); // Join Revolution - Last Section Animation
+  })
 
   onPageStartEnd();
 }

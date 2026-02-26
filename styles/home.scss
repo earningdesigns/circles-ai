@@ -1494,6 +1494,7 @@ svg {
           }
 
           &liner {
+            display: none;
             position: absolute;
             top: 56.5%;
             left: -16rem;
@@ -1502,6 +1503,7 @@ svg {
 
             @media (min-width: $breakpoint-md) {
               --cs-liner-width: 23.1em;
+              display: block;
               top: 62.5%;
               left: -3.4%;
             }
@@ -1683,7 +1685,11 @@ svg {
             }
           }
           &liner {
+            display: none;
             z-index: -1;
+            @media (min-width: $breakpoint-md) {
+              display: block;
+            }
           }
           
           
@@ -2025,6 +2031,7 @@ svg {
         }
         #{$app} {
           &liner {
+            display: none;
             --cs-liner-width: 3.4em;
             position: absolute;
             top: -10%;
@@ -2032,7 +2039,8 @@ svg {
             z-index: -10;
 
             @media (min-width: $breakpoint-md) {
-              --cs-liner-width: 7em;
+              display: block;
+              --cs-liner-width: 5.4em;
               top: -19rem;
               left: 35%;
             }
