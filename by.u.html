@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circles X by.U</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#cfe7e2,#8fd2c7);
+  min-height:100vh;
+}
+
+.hero{
+  padding:80px 6%;
+}
+
+.container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:70px;
+}
+
+/* ---------------- LEFT SIDE ---------------- */
+
+.left{
+  flex:1;
+}
+
+.brand{
+  margin-bottom:50px;
+}
+
+.brand h1{
+  font-size:42px;
+  font-weight:700;
+  letter-spacing:-1px;
+}
+
+.brand .x{
+  color:#00c4a7;
+}
+
+.brand .byu{
+  color:#1da1f2;
+  font-weight:600;
+}
+
+.feature-card{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  background:#ffffff;
+  padding:22px 30px;
+  border-radius:60px;
+  margin-bottom:28px;
+  box-shadow:0 15px 30px rgba(0,0,0,0.08);
+  transition:all .3s ease;
+  width: max-content;
+    max-width: 379px;
+    height: 110px;
+}
+
+/* .feature-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.12);
+} */
+/* .feature-card:hover {
+  transform: translateY(-5px) scale(1.01);
+} */
+.icon-circle{
+  min-width:50px;
+  height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00c4a7,#1da1f2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:20px;
+}
+
+.feature-card p{
+  font-size:15px;
+  color:#333;
+  line-height:1.4;
+}
+
+.feature-card strong{
+  display:block;
+  margin-top:4px;
+  font-weight:600;
+}
+/* .feature-card:hover{
+  transform:translateY(-5px);
+} */
+/* ---------------- STAGGERED WAVE EFFECT ---------------- */
+
+/* Smooth movement */
+.feature-card {
+  position: relative;
+}
+
+/* Wave positioning */
+.left .feature-card:nth-of-type(2) {
+  transform: translateX(0px);
+}
+
+.left .feature-card:nth-of-type(3) {
+  transform: translateX(60px);
+}
+
+.left .feature-card:nth-of-type(4) {
+  transform: translateX(120px);
+}
+
+.left .feature-card:nth-of-type(5) {
+  transform: translateX(60px);
+}
+
+.left .feature-card:nth-of-type(6) {
+  transform: translateX(0px);
+}
+
+/* Keep hover lift working */
+/* .left .feature-card:hover {
+  transform: translateY(-5px) scale(1.01);
+} */
+@media(max-width:992px){
+  .left .feature-card{
+    transform: translateX(0px) !important;
+  }
+}
+/* ---------------- RIGHT SIDE ---------------- */
+
+.right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+}
+
+.video-box{
+  position:relative;
+  width:100%;
+  /* max-width:600px; */
+  height:500px;
+  border-radius:25px;
+  overflow:hidden;
+  background:linear-gradient(135deg,#031017,#000000);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+/* GRID OVERLAY */
+.video-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+  linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:40px 40px;
+  opacity:.3;
+}
+
+.video-content{
+  position:relative;
+  text-align:center;
+  color:white;
+}
+
+.video-content h2{
+  font-size:30px;
+  font-weight:600;
+  margin-top:20px;
+}
+
+.video-content .blue{
+  color:#1da1f2;
+}
+
+/* GLASS PLAY BUTTON */
+.play-btn{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s ease;
+}
+
+.play-btn:hover{
+  transform:scale(1.1);
+}
+
+.play-btn::after{
+  content:"";
+  border-style:solid;
+  border-width:15px 0 15px 25px;
+  border-color:transparent transparent transparent white;
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s ease;
+}
+
+.modal.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal iframe{
+  width:80%;
+  height:60%;
+  border-radius:20px;
+}
+
+.close{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:992px){
+  .container{
+    flex-direction:column;
+  }
+
+  .video-box{
+    height:300px;
+  }
+}
+
+@media(max-width:576px){
+  .brand h1{
+    font-size:28px;
+  }
+
+  .feature-card{
+    padding:18px 22px;
+    border-radius:30px;
+  }
+
+  .video-box{
+    height:250px;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+<div class="container">
+
+<div class="left">
+
+<div class="brand">
+<h1>CIRCLES <span class="x">X</span> <span class="byu">by.U</span></h1>
+</div>
+
+<div class="feature-card">
+<div class="icon-circle">⚙</div>
+<div>
+<p>Unified Legacy BSS, Orchestration & Phygital Systems</p>
+<strong>Zero Business Disruption</strong>
+</div>
+</div>
+
+<div class="feature-card">
+<div class="icon-circle">👥</div>
+<div>
+<p>Millions Subscribers Migrated Live</p>
+<strong>Zero Customer Incidents</strong>
+</div>
+</div>
+
+<div class="feature-card">
+<div class="icon-circle">🌍</div>
+<div>
+<p>4 Month End-To-End Implementation</p>
+<strong>Zero Application Downtime</strong>
+</div>
+</div>
+
+<div class="feature-card">
+<div class="icon-circle">🔒</div>
+<div>
+<p>100% Data Reconciliation</p>
+<strong>Zero Data Loss And Integrity Gaps</strong>
+</div>
+</div>
+
+<div class="feature-card">
+<div class="icon-circle">☁</div>
+<div>
+<p>API-First Architecture</p>
+<strong>Zero Friction And Faster Launches</strong>
+</div>
+</div>
+
+</div>
+
+<div class="right">
+<div class="video-box" onclick="openModal()">
+
+<div class="video-content">
+<div class="play-btn"></div>
+<h2>CIRCLES + <span class="blue">by.U</span></h2>
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="videoModal">
+<div class="close" onclick="closeModal()">✕</div>
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+allowfullscreen></iframe>
+</div>
+
+<script>
+function openModal(){
+document.getElementById("videoModal").classList.add("active");
+}
+
+function closeModal(){
+document.getElementById("videoModal").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
