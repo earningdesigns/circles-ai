@@ -293,7 +293,7 @@ function heroAnim(context) {
 
 function concentricCircles() {
   const scene = $("#concentricTexts");
-  const tags = gsap.utils.toArray("#concentricTexts .tag")
+  const tags = gsap.utils.toArray("#concentricTexts .tag");
 
   gsap.set(tags, {opacity: 0})
 
@@ -323,12 +323,6 @@ function concentricCircles() {
   setContainerSize();
   window.addEventListener('resize', setContainerSize);
 
-  window.addEventListener("resize", () => {
-    const [r1, r2, r3] = getRadii();
-    ORBITS[0].radius = r1;
-    ORBITS[1].radius = r2;
-    ORBITS[2].radius = r3;
-  });
 
   const rings = ORBITS.map((orbit, i) => {
     const ringClassName = `.orbit-ring.orbit-ring--${i+1}`;
@@ -415,6 +409,7 @@ function concentricCircles() {
   // 200px feeling equivalent rotation amount
     // targetAngle = self.progress * 50;
     const angle = self.progress * 50; 
+    // gsap.set(concentricVibes, { rotate: angle * 0.4 }); // 20% of text rotation
     positionTags(angle);
   }
   });
@@ -430,7 +425,7 @@ function sdmoAnim(context) {
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
-  const tags = gsap.utils.toArray("#concentricTexts .tag")
+  const tags = gsap.utils.toArray("#concentricTexts .tag");
 
   const { isDesktop, isMobile, reduceMotion } = context.conditions;
 
@@ -439,6 +434,7 @@ function sdmoAnim(context) {
   gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
   gsap.set(tags, {opacity: 0})
 
+  console.log(concentricVibes, 'vibes')
  
 
   ScrollTrigger.matchMedia({[`(min-width: ${breakpoint}px)`]: function() {
@@ -462,7 +458,7 @@ function sdmoAnim(context) {
         opacity: 1,
         duration: time.normal
       }), "vibes+=0.8");
-      
+
     concentricCircles()
   }})
 }
