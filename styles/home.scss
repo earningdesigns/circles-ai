@@ -382,7 +382,7 @@ svg {
     text-decoration: none;
     
     padding-block: 0.4rem;
-    padding-inline: 2.4rem 0.4rem;
+    padding-inline: 1.8rem 0.4rem;
     // border-radius: 5.2rem;
     color: #fff;
    
@@ -390,6 +390,10 @@ svg {
     background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6.2rem;
+
+    @media (min-width: $breakpoint-md) {
+      padding-inline: 2.4rem 0.4rem;
+    }
 
     &:hover {
       #{$btn} {
@@ -407,8 +411,14 @@ svg {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 3.6rem;
-        height: 3.6rem;
+        width: 2.8rem;
+        height: 2.8rem;
+
+        @media (min-width: $breakpoint-md) {
+          width: 3.6rem;
+          height: 3.6rem;
+        }
+
         > svg {
           transform-origin: center center;
           transition: transform ease 0.24s;
@@ -804,7 +814,11 @@ svg {
     &s {
       --cs-bcircles-width: 100%;
       --cs-bcircles-height: 100%;
-      --cs-bcircle-size: 135rem;
+      --cs-bcircle-size: 135em;
+
+      @media (min-width: $breakpoint-md) {
+        --cs-bcircle-size: 135rem;
+      }
 
       position: absolute;
       top: 0;
@@ -1387,10 +1401,11 @@ svg {
 
     position: relative;
     z-index: 10;
-    padding-block: 8rem;
+    padding-block: 5rem;
 
     @media (min-width: $breakpoint-md) {
       --cs-section-container-width: 88%;
+      padding-block: 8rem;
     }
     @media (min-width: $breakpoint-lg) {
       --cs-section-container-width: 98rem;
@@ -1431,6 +1446,10 @@ svg {
         justify-content: center;
         padding-bottom: 0;
 
+        @media (max-width: $breakpoint-md - 1) {
+          padding-top: 16rem;
+
+        }
         @media (min-width: $breakpoint-md) {
           --cs-section-container-width: 94%;
           min-height: 83dvh;
@@ -1465,6 +1484,7 @@ svg {
             svg {
               display: block;
               width: 100%;
+              height: auto;
             }
           }
 
@@ -1474,7 +1494,7 @@ svg {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 4.6rem;
+            margin-bottom: 2.6rem;
             
             &__svg {
               display: block;
@@ -1483,6 +1503,7 @@ svg {
             }
 
             @media (min-width: $breakpoint-md) {
+              margin-bottom: 4.6rem;
               --cs-brand-width: 50vw;
             }
             @media (min-width: $breakpoint-lg) {

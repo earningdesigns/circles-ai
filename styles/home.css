@@ -303,11 +303,16 @@ svg {
   line-height: 150%;
   text-decoration: none;
   padding-block: 0.4rem;
-  padding-inline: 2.4rem 0.4rem;
+  padding-inline: 1.8rem 0.4rem;
   color: #fff;
   background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6.2rem;
+}
+@media (min-width: 768px) {
+  .cs-btn {
+    padding-inline: 2.4rem 0.4rem;
+  }
 }
 .cs-btn:hover .cs-btn__icon svg {
   transform: translateX(3px);
@@ -316,8 +321,14 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 2.8rem;
+  height: 2.8rem;
+}
+@media (min-width: 768px) {
+  .cs-btn__icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
 }
 .cs-btn__icon > svg {
   transform-origin: center center;
@@ -605,12 +616,17 @@ svg {
 .cs-bcircles {
   --cs-bcircles-width: 100%;
   --cs-bcircles-height: 100%;
-  --cs-bcircle-size: 135rem;
+  --cs-bcircle-size: 135em;
   position: absolute;
   top: 0;
   left: 0;
   width: var(--cs-bcircles-width);
   height: var(--cs-bcircles-height);
+}
+@media (min-width: 768px) {
+  .cs-bcircles {
+    --cs-bcircle-size: 135rem;
+  }
 }
 .cs-bcircle {
   display: block;
@@ -1075,11 +1091,12 @@ svg {
   --cs-section-container-width: 90%;
   position: relative;
   z-index: 10;
-  padding-block: 8rem;
+  padding-block: 5rem;
 }
 @media (min-width: 768px) {
   .cs-section {
     --cs-section-container-width: 88%;
+    padding-block: 8rem;
   }
 }
 @media (min-width: 992px) {
@@ -1119,6 +1136,11 @@ svg {
   justify-content: center;
   padding-bottom: 0;
 }
+@media (max-width: 767px) {
+  .cs-section--h-hero {
+    padding-top: 16rem;
+  }
+}
 @media (min-width: 768px) {
   .cs-section--h-hero {
     --cs-section-container-width: 94%;
@@ -1151,13 +1173,14 @@ svg {
 .cs-section--h-hero .cs-titlesvg svg {
   display: block;
   width: 100%;
+  height: auto;
 }
 .cs-section--h-hero .cs-brand {
   --cs-brand-width: 70vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 4.6rem;
+  margin-bottom: 2.6rem;
 }
 .cs-section--h-hero .cs-brand__svg {
   display: block;
@@ -1166,6 +1189,7 @@ svg {
 }
 @media (min-width: 768px) {
   .cs-section--h-hero .cs-brand {
+    margin-bottom: 4.6rem;
     --cs-brand-width: 50vw;
   }
 }
