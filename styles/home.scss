@@ -564,13 +564,10 @@ svg {
 
   &concentric {
     --cs-concentric-size: 121rem;
-    position: relative;
+    // position: relative;
     // width: var(--cs-concentric-size);
     // height: var(--cs-concentric-size);
     margin-inline: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     .scene {
       position:absolute;

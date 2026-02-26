@@ -428,11 +428,7 @@ svg {
 }
 .cs-concentric {
   --cs-concentric-size: 121rem;
-  position: relative;
   margin-inline: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .cs-concentric .scene {
   position: absolute;
