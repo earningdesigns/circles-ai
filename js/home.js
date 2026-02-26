@@ -293,16 +293,19 @@ function heroAnim(context) {
 
 function concentricCircles() {
   const scene = $("#concentricTexts");
+  const tags = gsap.utils.toArray("#concentricTexts .tag")
+
+  gsap.set(tags, {opacity: 0})
 
     function getRadii() {
-      const w = scene.clientWidth;
-      return [w * 0.3, w * 0.29, w * 0.36];
+      const w = scene.getBoundingClientRect().width;
+      return [w * 0.52, w * 0.4, w * 0.188];
     }
 
     // function getRadii() {
     //   const w = scene.getBoundingClientRect().width;
     //   const max = (w / 2) - 60;
-    //   return [max * 0.5, max * 0.45, max * 0.85];
+    //   return [max * 0.3, max * 0.29, max * 0.36];
     // }
 
     let ORBITS = buildOrbits();
@@ -310,9 +313,9 @@ function concentricCircles() {
     function buildOrbits() {
       const [r1, r2, r3] = getRadii();
       return [
-        {radius: r1, tags: ["Retention"], startAngle: 120, speed: 1},
-        {radius: r2, tags: ["Acquisition"], startAngle: 220, speed: 0.7},
-        {radius: r3, tags: ["Monetization"], startAngle: 360, speed: 0.4}
+        {radius: r1, tags: ["Retention"], startAngle: 120, speed: 1.1},
+        {radius: r2, tags: ["Acquisition"], startAngle: 174, speed: 0.7},
+        {radius: r3, tags: ["Monetization"], startAngle: -40, speed: 0.4}
       ];
     }
 
@@ -330,18 +333,15 @@ function concentricCircles() {
   // ];
 
   const rings = ORBITS.map((orbit, i) => {
-    const ring = document.createElement("div");
-    ring.className = `orbit-ring orbit-ring--${i+1}`;
-    scene.appendChild(ring);
+    // const ring = document.createElement("div");
+    const ringClassName = `.orbit-ring.orbit-ring--${i+1}`;
+    // scene.appendChild(ring);
 
     const tags = orbit.tags.map((text, i) => {
       const angleStep = 360 / orbit.tags.length;
       const baseAngle = orbit.startAngle + i * angleStep;
 
-      const tag = document.createElement("div");
-      tag.className = `tag tag--${i+1}`;
-      tag.innerHTML = `<div class="tag-inner">${text}</div>`;
-      ring.appendChild(tag);
+      const tag = `${ringClassName} .tag`;
 
       return {el: tag, baseAngle};
     });
@@ -349,25 +349,67 @@ function concentricCircles() {
     return {...orbit, tags};
   });
 
+  console.log(rings, 'rings')
+
   let scrollAngle = 0;
   let targetAngle = 0;
 
+  rings.forEach(orbit => {
+    orbit.tags.forEach(tag => {
+      tag.setX = gsap.quickSetter(tag.el, "x", "px");
+      tag.setY = gsap.quickSetter(tag.el, "y", "px");
+
+      gsap.set(tag.el, {
+        xPercent: -50,
+        yPercent: -50
+      });
+    });
+  });
+
+  // Old
+  // function positionTags(offset) {
+  //   rings.forEach(orbit => {
+  //     orbit.tags.forEach(({el, baseAngle}) => {
+  //       const angleDeg = baseAngle + offset * orbit.speed;
+  //       const rad = angleDeg * Math.PI / 180;
+
+  //       const x = Math.cos(rad) * orbit.radius;
+  //       const y = Math.sin(rad) * orbit.radius;
+
+  //       // el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+  //       gsap.set(el, {
+  //         x: x,
+  //         y: y,
+  //         xPercent: -50,
+  //         yPercent: -50
+  //       });
+  //     });
+  //   });
+  // }
+  // Old: End
+
   function positionTags(offset) {
     rings.forEach(orbit => {
-      orbit.tags.forEach(({el, baseAngle}) => {
-        const angleDeg = baseAngle + offset * orbit.speed;
+      orbit.tags.forEach(tag => {
+        const angleDeg = tag.baseAngle + offset * orbit.speed;
         const rad = angleDeg * Math.PI / 180;
 
         const x = Math.cos(rad) * orbit.radius;
         const y = Math.sin(rad) * orbit.radius;
 
-        el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+        tag.setX(x);
+        tag.setY(y);
       });
     });
   }
 
-  gsap.ticker.add(() => {
-    scrollAngle += (targetAngle - scrollAngle) * 0.08;
+  // gsap.ticker.add(() => {
+  //   scrollAngle += (targetAngle - scrollAngle) * 0.08;
+  //   positionTags(scrollAngle);
+  // });
+  gsap.ticker.add((time, deltaTime) => {
+    const delta = deltaTime / 16.666; // normalize to 60fps
+    scrollAngle += (targetAngle - scrollAngle) * 0.08 * delta;
     positionTags(scrollAngle);
   });
 
@@ -378,7 +420,7 @@ function concentricCircles() {
   scrub: true,
   onUpdate: self => {
   // 200px feeling equivalent rotation amount
-  targetAngle = self.progress * 50;
+    targetAngle = self.progress * 50;
   }
   });
 
@@ -393,12 +435,14 @@ function sdmoAnim(context) {
   const vibes = circlesContainer.querySelectorAll('.cs-concentric-vibe');
   const circleCenter = circlesContainer.querySelectorAll('.cs-concentric-centre');
   const sectionTitle = gsap.utils.toArray(sectionSdmo.querySelectorAll('.cs-title'))
+  const tags = gsap.utils.toArray("#concentricTexts .tag")
 
   const { isDesktop, isMobile, reduceMotion } = context.conditions;
 
   gsap.set(sectionTitle, {opacity: 0, y: 25})
   gsap.set(brand, {opacity: 0, x: 5})
   gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
+  gsap.set(tags, {opacity: 0})
 
   const setContainerSize = () => {
     let rect = concentricVibes.getBoundingClientRect();
@@ -411,9 +455,11 @@ function sdmoAnim(context) {
   
   sdmoTl
     .to(brand, {opacity: 1, x: 0, duration: 0.6})
+    .add('vibes')
     .to(vibes, {opacity: 1, scale: 1,  stagger: 0.16, duration: 0.8})
     .to(circleCenter, {opacity: 1, scale: 1, duration: 0.8}, '-=25%')
     .to(sectionTitle, {opacity: 1, y: 0, duration: 0.8}, '-=50%')
+
 
   ScrollTrigger.create({
     animation: sdmoTl,
@@ -422,7 +468,8 @@ function sdmoAnim(context) {
   })
 
   if(isDesktop) {
-    concentricCircles();
+    sdmoTl.add(gsap.to(tags, {opacity: 1, duration: time.normal}), 'vibes+=0.8')
+    sdmoTl.add(concentricCircles(), '<')
   }
 }
 
