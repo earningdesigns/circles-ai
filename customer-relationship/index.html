@@ -37,6 +37,203 @@
 </head>
 
 <body>
+<style>
+  .cs-page {
+    background-color: #f8f9fa;
+  }
+  /* Banner */
+ 
+/* =========================================
+   CAREX HERO – RESPONSIVE STABLE VERSION
+========================================= */
+ 
+#cx-hero {
+  padding: 140px 0;
+  padding-bottom: 140px;
+}
+ 
+.cx-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0px;
+  align-items: flex-start;
+}
+ 
+/* LEFT */
+.cx-left {
+    flex: 0.7;
+}
+ 
+.cx-logo {
+  width: 110px;
+}
+ 
+.cx-title {
+  font-size: 50px;
+  font-weight: 300;
+  margin: 20px 0;
+  background: linear-gradient(90deg, #00f2a1, #194ab8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+ 
+.cx-sub span {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+ 
+.cx-sub strong {
+  font-size: 20px;
+}
+ 
+.cx-video {
+  margin-top: 40px;
+}
+ 
+.cx-video img {
+  width: 100%;
+ 
+}
+ 
+/* RIGHT */
+.cx-right {
+  flex: 1.2;
+}
+ 
+/* SLIDER */
+.cx-slider {
+  position: relative;
+  min-height: 560px;
+}
+ 
+.cx-slide {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+ 
+.cx-slide.active {
+  display: block;
+}
+ 
+.cx-slide h3 {
+ font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 15px !important;
+}
+ 
+.cx-slide p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+ 
+.cx-slide img {
+  width: 100%;
+  max-width: 720px;
+}
+ 
+/* CONTROLS */
+.cx-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ 
+#cx-prev,
+#cx-next {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+ 
+.cx-dots {
+  display: flex;
+  gap: 8px;
+}
+ 
+.cx-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+ 
+.cx-dots span.active {
+  background: #41c44e;
+}
+ 
+/* Fade */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+ 
+  to {
+    opacity: 1;
+  }
+}
+ 
+/* ===============================
+   TABLET – KEEP 2 COLUMN
+   (Important Fix)
+================================ */
+ 
+/* DO NOTHING until mobile */
+@media (max-width: 1024px) {
+  .cx-container {
+    flex-direction: row;
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+    /* force 2 column */
+ 
+ 
+  .cx-video img {
+    width: 100%;
+  }
+ 
+  .cx-slider {
+    min-height: 400px;
+  }
+}
+ 
+/* ===============================
+   MOBILE ONLY
+================================ */
+ 
+@media (max-width: 768px) {
+ 
+  #cx-hero {
+    padding: 80px 0;
+  }
+ 
+  .cx-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+ 
+  .cx-title {
+    font-size: 48px;
+  }
+ 
+  .cx-video img {
+    width: 100%;
+  }
+ 
+  .cx-slider {
+    min-height: auto;
+  }
+ 
+  .cx-slide img {
+    max-width: 100%;
+  }
+}
+</style>
 
   <div class="cs-page">
     <header class="cs-header">
@@ -60,145 +257,109 @@
 
     <!-- Header: End -->
     <!-- CUSTOMER LOYALTY HERO -->
-    <section class="cs-section cs-section--loyalty-hero"
-      style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: 100% 100%;background-position: center;">
-      <!-- <div class="cs-loyalty-bg carex-bg"></div>
-      <div class="cs-blob carex-blob"></div> -->
-
-
-      <div class="cs-section__container cs-loyalty-hero__container">
-
-        <div class="cs-loyalty-hero__left">
-          <div class="cs-loyalty-product">
-            <div class="cs-loyalty-product_top">
-
-              <img src="../images/banner-logo.svg" alt="">
-
-            </div>
-
-            <h1 class="cs-loyalty-product__title">CareX</h1>
-          </div>
-
-          <h3 class="cs-loyalty-product__subtitle">
-            AI-NATIVE<br>
+     <section id="cx-hero"
+      style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: cover;background-position: center;">
+ 
+      <div class="cx-container">
+ 
+        <!-- LEFT SIDE -->
+        <div class="cx-left">
+          <img src="../images/banner-logo.svg" class="cx-logo" alt="">
+ 
+          <h1 class="cx-title">CareX</h1>
+ 
+          <div class="cx-sub">
+            <span>AI-NATIVE</span>
             <strong>CONVERSATIONAL OS</strong>
-          </h3>
-
-          <div class="cs-section cs-section--loyalty-video">
-            <div class="cs-section__container video-container">
-
-              <div class="cs-video-wrapper">
-
-                <!-- Thumbnail -->
-                <div class="cs-video-thumbnail" id="openVideo">
-                  <img src="../images/pdp-carex/yt-thumbnail-carex.png" alt="CareX Demo"
-                    class="cs-video-thumb-img">
-                  <div class="cs-video-play">
-                    <div class="cs-video-play__icon">
-                      <img src="../images/Polygon 7.svg" alt="">
+          </div>
+ 
+          <div class="cx-video">
+            <div class="cs-section cs-section--loyalty-video">
+              <div class="cs-section__container video-container">
+ 
+                <div class="cs-video-wrapper">
+ 
+                  <!-- Thumbnail -->
+                  <div class="cs-video-thumbnail" id="openVideo">
+                    <img src="../images/pdp-carex/yt-thumbnail-carex.png" alt="CareX Demo" class="cs-video-thumb-img">
+                    <div class="cs-video-play">
+                      <div class="cs-video-play__icon">
+                        <img src="../images/Polygon 7.svg" alt="">
+                      </div>
                     </div>
                   </div>
+ 
                 </div>
-
+ 
               </div>
-
             </div>
           </div>
         </div>
-
-        <div class="cs-loyalty-hero__right">
-          <div class="cs-loyalty-slider">
-
-            <div class="cs-slider-wrapper">
-
-              <!-- Slide 1 -->
-              <div class="cs-slide active">
-                <div class="cs-slide-container">
-                  <div class="cs-slide-content carex-content">
-                    <h3>Automate Support. Elevate Experience.</h3>
-                    <p>Resolve <span> <strong> up to 70% of subscribers queries instantly</strong> </span> with
-                      AI-powered self-service - and hand over to agents seamlessly with full context when it matters</p>
-                  </div>
-                  <div class="cs-slide-image">
-                    <img src="../images/pdp-carex/slider/img-1.png" alt="Shopping Cashback">
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Slide 2 -->
-              <div class="cs-slide">
-                <div class="cs-slide-container">
-                  <div class="cs-slide-content carex-content">
-                    <h3>Purpose-Built for Telco Use Cases.</h3>
-                    <p>Pre-trained AI agents for <span> <strong> billing, payments, orders, and network
-                          support,</strong> </span>deployed fast with minimal configuration</p>
-                  </div>
-                  <div class="cs-slide-image">
-                    <img src="../images/pdp-carex/slider/img-2.png" alt="Travel Rewards">
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3 -->
-              <div class="cs-slide">
-                <div class="cs-slide-container">
-
-                  <div class="cs-slide-content carex-content">
-                    <h3>Zero Code. Context Engineered.</h3>
-                    <p>Integrate securely via APIs with<span> <strong> no coding required, </strong> </span>and support
-                      customers across multiple languages from day one</p>
-                  </div>
-                  <div class="cs-slide-image">
-                    <img src="../images/pdp-carex/slider/img-3.png" alt="Dining Offers">
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- Slide 4 -->
-              <div class="cs-slide">
-
-                <div class="cs-slide-container">
-                  <div class="cs-slide-content carex-content">
-                    <h3>Enterprise-Grade Security. </h3>
-                    <p>Connect safely to your<span> <strong> CRM, BSS, and app or web channels</strong> </span> with
-                      compliant, enterprise-ready APIs built to scale</p>
-                  </div>
-                  <div class="cs-slide-image">
-                    <img src="../images/pdp-carex/slider/img-4.png" alt="Lifestyle">
-                  </div>
-                </div>
-
-              </div>
-
-
-
+ 
+        <!-- RIGHT SIDE -->
+        <div class="cx-right">
+ 
+          <div class="cx-slider">
+ 
+            <div class="cx-slide active">
+              <h3>Automate Support. Elevate Experience.</h3>
+              <p>
+                Resolve <strong>up to 70% of subscribers queries instantly</strong>
+                with AI-powered self-service – and hand over to agents seamlessly
+                with full context when it matters.
+              </p>
+              <img src="../images/pdp-carex/slider/img-1.png" alt="">
             </div>
-            <!-- Navigation -->
-            <div class="cs-slider-controls">
-              <div class="cs-prev">
-                <img src="../images/left arrow.svg" alt="">
-              </div>
-              <div class="cs-dots">
-                <span data-slide="0" class="active"></span>
-                <span data-slide="1"></span>
-                <span data-slide="2"></span>
-                <span data-slide="3"></span>
-
-              </div>
-              <div class="cs-next">
-                <img src="../images/right arrow.svg" alt="">
-              </div>
+ 
+            <div class="cx-slide">
+              <h3>Purpose-Built for Telco Use Cases.</h3>
+              <p>
+                Pre-trained AI agents for
+                <strong>billing, payments, orders, and network support</strong>,
+                deployed fast with minimal configuration.
+              </p>
+              <img src="../images/pdp-carex/slider/img-2.png" alt="">
             </div>
-
+ 
+            <div class="cx-slide">
+              <h3>Zero Code. Context Engineered.</h3>
+              <p>
+                Integrate securely via APIs with
+                <strong>no coding required</strong>, and support customers
+                across multiple languages from day one.
+              </p>
+              <img src="../images/pdp-carex/slider/img-3.png" alt="">
+            </div>
+ 
+            <div class="cx-slide">
+              <h3>Enterprise-Grade Security.</h3>
+              <p>
+                Connect safely to your
+                <strong>CRM, BSS, and app or web channels</strong>
+                with compliant APIs built to scale.
+              </p>
+              <img src="../images/pdp-carex/slider/img-4.png" alt="">
+            </div>
+ 
           </div>
-
+ 
+          <!-- CONTROLS -->
+          <div class="cx-controls">
+            <button id="cx-prev">‹</button>
+ 
+            <div class="cx-dots"></div>
+ 
+            <button id="cx-next">›</button>
+          </div>
+ 
         </div>
-
+ 
       </div>
-
+ 
     </section>
+
+ 
+ 
     <!-- EXPERIENCE SECTION -->
     <section class="cs-section cs-section--carex-experience"
       style="background: url('../images/Ellipse 55.png');background-repeat: no-repeat;background-size: cover;">
@@ -714,6 +875,55 @@ function endDrag(e) {
 
   closeBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
+
+  //////
+
+
+  const slides = document.querySelectorAll('.cx-slide');
+  const nextBtn = document.getElementById('cx-next');
+  const prevBtn = document.getElementById('cx-prev');
+  const dotsContainer = document.querySelector('.cx-dots');
+ 
+  let index = 0;
+ 
+  /* Create dots */
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+ 
+  const dots = document.querySelectorAll('.cx-dots span');
+ 
+  function showSlide(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+ 
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+ 
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+ 
+  function prevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+ 
+  function goToSlide(i) {
+    index = i;
+    showSlide(index);
+  }
+ 
+  nextBtn.addEventListener('click', nextSlide);
+  prevBtn.addEventListener('click', prevSlide);
+ 
+  /* Auto Slide */
+  setInterval(nextSlide, 5000);
 </script>
 
 </html>
