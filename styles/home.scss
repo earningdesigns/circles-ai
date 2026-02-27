@@ -1581,7 +1581,8 @@ ul {
           // min-height: 98dvh;
         }
         @media (min-width: $breakpoint-md) {
-          margin-bottom: 16rem;
+          margin-bottom: 8rem;
+          padding-top: 8rem;
         }
         
         #{$app} {

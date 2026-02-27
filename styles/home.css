@@ -1265,7 +1265,8 @@ ul {
 }
 @media (min-width: 768px) {
   .cs-section--h-sdmo {
-    margin-bottom: 16rem;
+    margin-bottom: 8rem;
+    padding-top: 8rem;
   }
 }
 .cs-section--h-sdmo .cs-title {

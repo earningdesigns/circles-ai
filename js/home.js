@@ -237,10 +237,10 @@ function heroAnim(context) {
           start: "top top",
           // end: "bottom bottom",
           onLeave: () => {
-            gsap.to(linerLine, {opacity: 0, duration: time.normal})
+            gsap.to([linerTrack, linerLine], {opacity: 0, duration: time.normal})
           },
           onEnterBack: () => {
-            gsap.to(linerLine, {opacity: 1, duration: time.normal})
+            gsap.to([linerTrack, linerLine], {opacity: 1, duration: time.normal})
           }
 
         }
@@ -405,9 +405,6 @@ function concentricCircles() {
   end: "bottom top",
   scrub: 0.3,
   invalidateOnRefresh: true,
-  onEnter: () => {
-    gsap.to(".cs-section-h--hero .cs-liner", {opacity: 0});
-  },
   onUpdate: self => {
   // 200px feeling equivalent rotation amount
     // targetAngle = self.progress * 50;
