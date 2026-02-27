@@ -37,209 +37,23 @@
 </head>
 
 <body>
-<style>
-  .cs-page {
-    background-color: #f8f9fa;
-  }
-  /* Banner */
- 
-/* =========================================
-   CAREX HERO – RESPONSIVE STABLE VERSION
-========================================= */
- 
-#cx-hero {
-  padding: 140px 0;
-  padding-bottom: 140px;
-}
- 
-.cx-container {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: flex;
-  gap: 0px;
-  align-items: flex-start;
-}
- 
-/* LEFT */
-.cx-left {
-    flex: 0.7;
-}
- 
-.cx-logo {
-  width: 127px;
-}
- 
-.cx-title {
-  font-size: 50px;
-  font-weight: 300;
-  margin: 20px 0;
-  background: linear-gradient(90deg, #00f2a1, #194ab8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
- 
-.cx-sub span {
-  display: block;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
- 
-.cx-sub strong {
-  font-size: 20px;
-}
- 
-.cx-video {
-  margin-top: 40px;
-}
- 
-.cx-video img {
-  width: 100%;
- 
-}
- 
-/* RIGHT */
-.cx-right {
-  flex: 1.2;
-}
- 
-/* SLIDER */
-.cx-slider {
-  position: relative;
-  min-height: 560px;
-}
- 
-.cx-slide {
-  display: none;
-  animation: fadeIn 0.5s ease;
-}
- 
-.cx-slide.active {
-  display: block;
-}
- 
-.cx-slide h3 {
- font-size: 24px !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 15px !important;
-}
- 
-.cx-slide p {
-  font-size: 17px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
- 
-.cx-slide img {
-  width: 100%;
-  max-width: 720px;
-}
- 
-/* CONTROLS */
-.cx-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
- 
-#cx-prev,
-#cx-next {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-}
- 
-.cx-dots {
-  display: flex;
-  gap: 8px;
-}
- 
-.cx-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-}
- 
-.cx-dots span.active {
-  background: #41c44e;
-}
- 
-/* Fade */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
- 
-  to {
-    opacity: 1;
-  }
-}
- 
-/* ===============================
-   TABLET – KEEP 2 COLUMN
-   (Important Fix)
-================================ */
- 
-/* DO NOTHING until mobile */
-@media (max-width: 1024px) {
-  .cx-container {
-    flex-direction: row;
-    margin-right: 25px;
-    margin-left: 25px;
-  }
-    /* force 2 column */
- 
- 
-  .cx-video img {
-    width: 100%;
-  }
- 
-  .cx-slider {
-    min-height: 400px;
-  }
-}
- 
-/* ===============================
-   MOBILE ONLY
-================================ */
- 
-@media (max-width: 768px) {
- 
-  #cx-hero {
-    padding: 80px 0;
-  }
- 
-  .cx-container {
-    flex-direction: column;
-    gap: 50px;
-  }
- 
-  .cx-title {
-    font-size: 48px;
-  }
- 
-  .cx-video img {
-    width: 100%;
-  }
- 
-  .cx-slider {
-    min-height: auto;
-  }
- 
-  .cx-slide img {
-    max-width: 100%;
-  }
-}
-</style>
+
 
   <div class="cs-page">
     <header class="cs-header">
+
       <div class="cs-stripes"></div>
+
       <div class="cs-header__container">
 
+        <!-- HAMBURGER -->
+        <div class="cs-hamburger" id="csHamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- DESKTOP NAV -->
         <nav class="cs-header__nav">
           <div class="cs-header__nav-line"></div>
           <a href="/customer-relationship/" class="cs-header__link" style="color: #194AB8;">Customer Relationship</a>
@@ -247,38 +61,49 @@
           <a href="/customer-loyalty/" class="cs-header__link">Customer loyalty</a>
         </nav>
 
+        <!-- LOGO -->
         <div class="cs-header__brand">
           <a href="/">
-            <img src="../images/circles-logo 2.svg" alt="Circles" class="">
+            <img src="../images/circles-logo 2.svg" alt="Circles">
           </a>
         </div>
-      </div>
-    </header>
 
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="cs-mobile-menu" id="csMobileMenu">
+        <a href="/customer-relationship/" style="color: #194AB8;">Customer Relationship</a>
+        <a href="/customer-insights/">Customer insights</a>
+        <a href="/customer-loyalty/">Customer loyalty</a>
+      </div>
+
+    </header>
+  
+   
     <!-- Header: End -->
     <!-- CUSTOMER LOYALTY HERO -->
-     <section id="cx-hero"
+    <section id="cx-hero"
       style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: 100% 100%;background-position: center;">
- 
+
       <div class="cx-container">
- 
+
         <!-- LEFT SIDE -->
         <div class="cx-left">
           <img src="../images/banner-logo.svg" class="cx-logo" alt="">
- 
+
           <h1 class="cx-title">CareX</h1>
- 
+
           <div class="cx-sub">
             <span>AI-NATIVE</span>
             <strong>CONVERSATIONAL OS</strong>
           </div>
- 
+
           <div class="cx-video">
             <div class="cs-section cs-section--loyalty-video">
               <div class="cs-section__container video-container">
- 
+
                 <div class="cs-video-wrapper">
- 
+
                   <!-- Thumbnail -->
                   <div class="cs-video-thumbnail" id="openVideo">
                     <img src="../images/pdp-carex/yt-thumbnail-carex.png" alt="CareX Demo" class="cs-video-thumb-img">
@@ -288,19 +113,19 @@
                       </div>
                     </div>
                   </div>
- 
+
                 </div>
- 
+
               </div>
             </div>
           </div>
         </div>
- 
+
         <!-- RIGHT SIDE -->
         <div class="cx-right">
- 
+
           <div class="cx-slider">
- 
+
             <div class="cx-slide active">
               <h3>Automate Support. Elevate Experience.</h3>
               <p>
@@ -310,7 +135,7 @@
               </p>
               <img src="../images/pdp-carex/slider/img-1.png" alt="">
             </div>
- 
+
             <div class="cx-slide">
               <h3>Purpose-Built for Telco Use Cases.</h3>
               <p>
@@ -320,7 +145,7 @@
               </p>
               <img src="../images/pdp-carex/slider/img-2.png" alt="">
             </div>
- 
+
             <div class="cx-slide">
               <h3>Zero Code. Context Engineered.</h3>
               <p>
@@ -330,7 +155,7 @@
               </p>
               <img src="../images/pdp-carex/slider/img-3.png" alt="">
             </div>
- 
+
             <div class="cx-slide">
               <h3>Enterprise-Grade Security.</h3>
               <p>
@@ -340,26 +165,26 @@
               </p>
               <img src="../images/pdp-carex/slider/img-4.png" alt="">
             </div>
- 
+
           </div>
- 
+
           <!-- CONTROLS -->
           <div class="cx-controls">
             <button id="cx-prev">‹</button>
- 
+
             <div class="cx-dots"></div>
- 
+
             <button id="cx-next">›</button>
           </div>
- 
+
         </div>
- 
+
       </div>
- 
+
     </section>
 
- 
- 
+
+
     <!-- EXPERIENCE SECTION -->
     <section class="cs-section cs-section--carex-experience"
       style="background: url('../images/Ellipse 55.png');background-repeat: no-repeat;background-size: cover;">
@@ -414,7 +239,8 @@
               </button>
 
             </div>
-            <a href="https://anp-aicore.prod.cxos.tech/v2/login" target="_blank" class="demo-btn">Demo <img src="../images/Group 771.png" alt=""></a>
+            <a href="https://anp-aicore.prod.cxos.tech/v2/login" target="_blank" class="demo-btn">Demo <img
+                src="../images/Group 771.png" alt=""></a>
 
           </div>
 
@@ -474,7 +300,7 @@
                   <button class="inner-btn" data-index="1">Network</button>
                   <button class="inner-btn" data-index="2">Billing</button>
                   <button class="inner-btn" data-index="3">Order tracking</button>
-                    <button class="inner-btn" data-index="4">Port-In</button>
+                  <button class="inner-btn" data-index="4">Port-In</button>
                 </div>
               </div>
 
@@ -484,8 +310,8 @@
 
             </div>
 
-            <a href="https://telco-chat-canvas.lovable.app/"
-              target="_blank" class="demo-btn">Upcoming <img src="../images/Group 771.png" alt=""></a>
+            <a href="https://telco-chat-canvas.lovable.app/" target="_blank" class="demo-btn">Upcoming <img
+                src="../images/Group 771.png" alt=""></a>
 
           </div>
 
@@ -495,10 +321,10 @@
 
         </div>
       </div>
-       <div class="cs-footer">
-      <div class="cs-footer__container">
-    
-        <!-- <div class="cs-footer__brand">
+      <div class="cs-footer">
+        <div class="cs-footer__container">
+
+          <!-- <div class="cs-footer__brand">
               <img src="./images/footer-logo.svg" loading="lazy" alt="Circles">
             </div> -->
           <p class="cs-footer__copyright" style="font-size: 12px;">Confidential Product Demonstration | Unauthorized
@@ -509,8 +335,8 @@
         <!-- <div class="cs-fixed-message" >Confidential Product Demonstration | Unauthorized Distribution Prohibited | © 2026 © Circles Global</div> -->
         <div class="cs-stripes"></div>
       </div>
-    </div>
-    </section>
+  </div>
+  </section>
 
   </div>
   <!-- Page: End -->
@@ -643,175 +469,175 @@
 
       document.querySelectorAll(".experience-block").forEach(section => {
 
-  const buttons = section.querySelectorAll(".inner-btn");
-  const screens = section.querySelectorAll(".screen-img");
-  const track = section.querySelector(".button-track");
-  const slider = section.querySelector(".button-slider");
-  const prevArrow = section.querySelector(".tab-prev");
-  const nextArrow = section.querySelector(".tab-next");
+        const buttons = section.querySelectorAll(".inner-btn");
+        const screens = section.querySelectorAll(".screen-img");
+        const track = section.querySelector(".button-track");
+        const slider = section.querySelector(".button-slider");
+        const prevArrow = section.querySelector(".tab-prev");
+        const nextArrow = section.querySelector(".tab-next");
 
-  if (!buttons.length || !track) return;
+        if (!buttons.length || !track) return;
 
-  const total = buttons.length;
-  let activeIndex = 0;
+        const total = buttons.length;
+        let activeIndex = 0;
 
-  let isDragging = false;
-  let startX = 0;
-  let prevTranslate = 0;
+        let isDragging = false;
+        let startX = 0;
+        let prevTranslate = 0;
 
-  /* ========================= */
-  /* GET SLIDES PER VIEW AUTO */
-  /* ========================= */
+        /* ========================= */
+        /* GET SLIDES PER VIEW AUTO */
+        /* ========================= */
 
-  function getSlidesPerView() {
-    const sliderWidth = slider.offsetWidth;
-    const btnWidth = buttons[0].offsetWidth;
-    return Math.floor(sliderWidth / btnWidth);
-  }
+        function getSlidesPerView() {
+          const sliderWidth = slider.offsetWidth;
+          const btnWidth = buttons[0].offsetWidth;
+          return Math.floor(sliderWidth / btnWidth);
+        }
 
-  /* ========================= */
-  /* SLIDE POSITIONING */
-  /* ========================= */
+        /* ========================= */
+        /* SLIDE POSITIONING */
+        /* ========================= */
 
-  function updateSliderPosition(index) {
+        function updateSliderPosition(index) {
 
-  const sliderRect = slider.getBoundingClientRect();
-  const activeBtn = buttons[index];
-  const btnRect = activeBtn.getBoundingClientRect();
+          const sliderRect = slider.getBoundingClientRect();
+          const activeBtn = buttons[index];
+          const btnRect = activeBtn.getBoundingClientRect();
 
-  // Distance from button center to slider center
-  const sliderCenter = sliderRect.width / 2;
-  const buttonCenter = btnRect.left - sliderRect.left + btnRect.width / 2;
+          // Distance from button center to slider center
+          const sliderCenter = sliderRect.width / 2;
+          const buttonCenter = btnRect.left - sliderRect.left + btnRect.width / 2;
 
-  let translateX = prevTranslate + (sliderCenter - buttonCenter);
+          let translateX = prevTranslate + (sliderCenter - buttonCenter);
 
-  // Limit bounds
-  const maxTranslate = 0;
-  const trackWidth = track.scrollWidth;
-  const minTranslate = sliderRect.width - trackWidth;
+          // Limit bounds
+          const maxTranslate = 0;
+          const trackWidth = track.scrollWidth;
+          const minTranslate = sliderRect.width - trackWidth;
 
-  if (translateX > maxTranslate) translateX = maxTranslate;
-  if (translateX < minTranslate) translateX = minTranslate;
+          if (translateX > maxTranslate) translateX = maxTranslate;
+          if (translateX < minTranslate) translateX = minTranslate;
 
-  prevTranslate = translateX;
+          prevTranslate = translateX;
 
-  track.style.transform = `translateX(${translateX}px)`;
-}
+          track.style.transform = `translateX(${translateX}px)`;
+        }
 
-  /* ========================= */
-  /* UPDATE ACTIVE */
-  /* ========================= */
+        /* ========================= */
+        /* UPDATE ACTIVE */
+        /* ========================= */
 
-  function showTab(index) {
+        function showTab(index) {
 
-    if (index < 0) index = 0;
-    if (index > total - 1) index = total - 1;
+          if (index < 0) index = 0;
+          if (index > total - 1) index = total - 1;
 
-    activeIndex = index;
+          activeIndex = index;
 
-    buttons.forEach(b => b.classList.remove("active"));
-    buttons[index].classList.add("active");
+          buttons.forEach(b => b.classList.remove("active"));
+          buttons[index].classList.add("active");
 
-    if (screens.length) {
-      screens.forEach(s => s.classList.remove("active"));
-      if (screens[index]) screens[index].classList.add("active");
-    }
+          if (screens.length) {
+            screens.forEach(s => s.classList.remove("active"));
+            if (screens[index]) screens[index].classList.add("active");
+          }
 
-    updateSliderPosition(index);
-    updateArrows();
-  }
+          updateSliderPosition(index);
+          updateArrows();
+        }
 
-  /* ========================= */
-  /* ARROWS */
-  /* ========================= */
+        /* ========================= */
+        /* ARROWS */
+        /* ========================= */
 
-  function updateArrows() {
-    prevArrow?.classList.toggle("disabled", activeIndex === 0);
-    nextArrow?.classList.toggle("disabled", activeIndex === total - 1);
-  }
+        function updateArrows() {
+          prevArrow?.classList.toggle("disabled", activeIndex === 0);
+          nextArrow?.classList.toggle("disabled", activeIndex === total - 1);
+        }
 
-  nextArrow?.addEventListener("click", () => {
-    showTab(activeIndex + 1);
-  });
+        nextArrow?.addEventListener("click", () => {
+          showTab(activeIndex + 1);
+        });
 
-  prevArrow?.addEventListener("click", () => {
-    showTab(activeIndex - 1);
-  });
+        prevArrow?.addEventListener("click", () => {
+          showTab(activeIndex - 1);
+        });
 
-  /* ========================= */
-  /* BUTTON CLICK */
-  /* ========================= */
+        /* ========================= */
+        /* BUTTON CLICK */
+        /* ========================= */
 
-  buttons.forEach((btn, i) => {
-    btn.addEventListener("click", () => showTab(i));
-  });
+        buttons.forEach((btn, i) => {
+          btn.addEventListener("click", () => showTab(i));
+        });
 
-  /* ========================= */
-  /* DRAG / SWIPE */
-  /* ========================= */
+        /* ========================= */
+        /* DRAG / SWIPE */
+        /* ========================= */
 
-  let moved = false;
+        let moved = false;
 
-function startDrag(e) {
-  isDragging = true;
-  moved = false;
-  startX = getX(e);
-  slider.style.cursor = "grabbing";
-  track.style.transition = "none";
-}
+        function startDrag(e) {
+          isDragging = true;
+          moved = false;
+          startX = getX(e);
+          slider.style.cursor = "grabbing";
+          track.style.transition = "none";
+        }
 
-function drag(e) {
-  if (!isDragging) return;
+        function drag(e) {
+          if (!isDragging) return;
 
-  const currentX = getX(e);
-  const diff = currentX - startX;
+          const currentX = getX(e);
+          const diff = currentX - startX;
 
-  if (Math.abs(diff) > 5) {
-    moved = true; // only mark as drag if moved enough
-  }
+          if (Math.abs(diff) > 5) {
+            moved = true; // only mark as drag if moved enough
+          }
 
-  track.style.transform = `translateX(${prevTranslate + diff}px)`;
-}
+          track.style.transform = `translateX(${prevTranslate + diff}px)`;
+        }
 
-function endDrag(e) {
-  if (!isDragging) return;
+        function endDrag(e) {
+          if (!isDragging) return;
 
-  isDragging = false;
-  slider.style.cursor = "grab";
-  track.style.transition = "transform 0.35s cubic-bezier(.25,.8,.25,1)";
+          isDragging = false;
+          slider.style.cursor = "grab";
+          track.style.transition = "transform 0.35s cubic-bezier(.25,.8,.25,1)";
 
-  if (!moved) {
-    // It was a tap, not a drag → do nothing
-    updateSliderPosition(activeIndex);
-    return;
-  }
+          if (!moved) {
+            // It was a tap, not a drag → do nothing
+            updateSliderPosition(activeIndex);
+            return;
+          }
 
-  const endX = getX(e);
-  const movedBy = endX - startX;
+          const endX = getX(e);
+          const movedBy = endX - startX;
 
-  const btnWidth = buttons[0].offsetWidth;
-  const gap = parseInt(getComputedStyle(track).gap) || 0;
-  const fullWidth = btnWidth + gap;
+          const btnWidth = buttons[0].offsetWidth;
+          const gap = parseInt(getComputedStyle(track).gap) || 0;
+          const fullWidth = btnWidth + gap;
 
-  const movedSlides = Math.round(movedBy / fullWidth);
+          const movedSlides = Math.round(movedBy / fullWidth);
 
-  showTab(activeIndex - movedSlides);
-}
-  /* ========================= */
-  /* RESIZE FIX */
-  /* ========================= */
+          showTab(activeIndex - movedSlides);
+        }
+        /* ========================= */
+        /* RESIZE FIX */
+        /* ========================= */
 
-  window.addEventListener("resize", () => {
-    updateSliderPosition(activeIndex);
-  });
+        window.addEventListener("resize", () => {
+          updateSliderPosition(activeIndex);
+        });
 
-  /* ========================= */
-  /* INIT */
-  /* ========================= */
+        /* ========================= */
+        /* INIT */
+        /* ========================= */
 
-  showTab(0);
+        showTab(0);
 
-});
+      });
 
       /* ================= BLOB ANIMATION ================= */
 
@@ -883,9 +709,9 @@ function endDrag(e) {
   const nextBtn = document.getElementById('cx-next');
   const prevBtn = document.getElementById('cx-prev');
   const dotsContainer = document.querySelector('.cx-dots');
- 
+
   let index = 0;
- 
+
   /* Create dots */
   slides.forEach((_, i) => {
     const dot = document.createElement('span');
@@ -893,37 +719,47 @@ function endDrag(e) {
     dot.addEventListener('click', () => goToSlide(i));
     dotsContainer.appendChild(dot);
   });
- 
+
   const dots = document.querySelectorAll('.cx-dots span');
- 
+
   function showSlide(i) {
     slides.forEach(s => s.classList.remove('active'));
     dots.forEach(d => d.classList.remove('active'));
- 
+
     slides[i].classList.add('active');
     dots[i].classList.add('active');
   }
- 
+
   function nextSlide() {
     index = (index + 1) % slides.length;
     showSlide(index);
   }
- 
+
   function prevSlide() {
     index = (index - 1 + slides.length) % slides.length;
     showSlide(index);
   }
- 
+
   function goToSlide(i) {
     index = i;
     showSlide(index);
   }
- 
+
   nextBtn.addEventListener('click', nextSlide);
   prevBtn.addEventListener('click', prevSlide);
- 
+
   /* Auto Slide */
   setInterval(nextSlide, 5000);
 </script>
+
+ <script>
+      const hamburger = document.getElementById('csHamburger');
+      const mobileMenu = document.getElementById('csMobileMenu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    </script>
 
 </html>
