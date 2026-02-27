@@ -647,6 +647,45 @@ function collabAnim(context) {
 }
 // Collab: End
 
+function circlesAnim (context) {
+  const circlesSection = $('.cs-section--h-circles');
+  const linerTrack = circlesSection?.querySelector('.cs-liner .cs-liner__track')
+  const linerSub = circlesSection?.querySelector('.cs-liner .cs-liner__small')
+  const linerLine = circlesSection?.querySelector('.cs-liner .cs-liner__line')
+
+  const { isDesktop, isMobile, reduceMotion } = context.conditions;
+  if(isDesktop) {
+    gsap.to(linerLine, {
+      motionPath: {
+        path: linerTrack,
+        align: linerTrack,
+        autoRotate: true,
+        alignOrigin: [0.5, 0.5]
+      },
+      ease: ease.fluid,
+      scrollTrigger: {
+        trigger: circlesSection,
+        start: "top center+=100", // start AFTER intro visually
+        end: "bottom center",
+        scrub: 1,
+        onEnter: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.normal})
+        },
+        onLeave: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onEnterBack: () => {
+          gsap.to(linerLine, {opacity: 0, duration: time.normal})
+        },
+        onLeaveBack: () => {
+          gsap.to(linerLine, {opacity: 1, duration: time.fast})
+        }
+      }
+    });
+  }
+}
+
+
 function trustAnim(context) {
   const sectionJoin = $('.cs-section--h-trust');
   const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
@@ -820,6 +859,7 @@ function init() {
     carexAnim(context); // CareX Animation
     novaAnim(context); // Nova Animation
     zerofyxAnim(context); // Zerofyx Animation
+    circlesAnim (context); // Circles Animation
     collabAnim(context); // Collab Animation
     trustAnim(context); // Trust ANimation
     joinAnim(context); // Join Revolution - Last Section Animation
