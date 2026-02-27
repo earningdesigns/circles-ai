@@ -1756,7 +1756,7 @@ ul {
             }
             @media (min-width: $breakpoint-xl) {
               // top: -16.3rem;
-              // left: 20.8em; 
+              left: 40%; 
             }
           }
           &contentbox {
@@ -1860,11 +1860,11 @@ ul {
             @media (min-width: $breakpoint-lg) {
               &__ {
                 &item:first-child {
-                  grid-column: 2 / 8;
+                  grid-column: 1 / 7;
                 }
                 &item:last-child {
                   width: 100%;
-                  grid-column: 8 / 13;
+                  grid-column: 7 / 13;
                 }
               }
             }
@@ -1914,7 +1914,7 @@ ul {
               left: 27%;
             }
             @media (min-width: $breakpoint-lg) {
-              // left: 16.5em;
+              left: 40%;
             }
           }
           &contentbox {
@@ -1964,13 +1964,30 @@ ul {
           }
         }
         #{$app} {
-          
+          &grid {
+            &__item:first-child {
+              @media (min-width: $breakpoint-md) {
+                width: 40em;
+                
+              }
+            }
+            &__item:last-child {
+              img {
+                @media (min-width: $breakpoint-md) {
+                  
+                margin-top: 30rem;
+                  
+                }
+              }
+            }
+          }
           &liner {
 
             @media (min-width: $breakpoint-md) {
               top: -10rem;
             }
             @media (min-width: $breakpoint-lg) {
+              // left: 0;
             }
           }
 

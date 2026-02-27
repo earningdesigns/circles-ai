@@ -405,6 +405,9 @@ function concentricCircles() {
   end: "bottom top",
   scrub: 0.3,
   invalidateOnRefresh: true,
+  onEnter: () => {
+    gsap.to(".cs-section-h--hero .cs-liner", {opacity: 0});
+  },
   onUpdate: self => {
   // 200px feeling equivalent rotation amount
     // targetAngle = self.progress * 50;
