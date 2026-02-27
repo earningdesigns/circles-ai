@@ -38,9 +38,19 @@
 <body>
   <div class="cs-page">
     <header class="cs-header">
+
       <div class="cs-stripes"></div>
+
       <div class="cs-header__container">
 
+        <!-- HAMBURGER -->
+        <div class="cs-hamburger" id="csHamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <!-- DESKTOP NAV -->
         <nav class="cs-header__nav">
           <div class="cs-header__nav-line"></div>
           <a href="/customer-relationship/" class="cs-header__link">Customer Relationship</a>
@@ -48,13 +58,24 @@
           <a href="/customer-loyalty/" class="cs-header__link">Customer loyalty</a>
         </nav>
 
+        <!-- LOGO -->
         <div class="cs-header__brand">
-          <a href="../index.html">
-            <img src="../images/circles-logo 2.svg" alt="Circles" class="">
+          <a href="/">
+            <img src="../images/circles-logo 2.svg" alt="Circles">
           </a>
         </div>
+
       </div>
+
+      <!-- MOBILE MENU -->
+      <div class="cs-mobile-menu" id="csMobileMenu">
+        <a href="/customer-relationship/">Customer Relationship</a>
+        <a href="/customer-insights/" style="color: #194AB8;">Customer insights</a>
+        <a href="/customer-loyalty/">Customer loyalty</a>
+      </div>
+
     </header>
+  
     <!-- Header: End -->
     <!-- CUSTOMER LOYALTY HERO -->
     <section class="cs-section cs-section--loyalty-hero">
@@ -627,5 +648,13 @@ function endDrag(e) {
   closeBtn.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
 </script>
+ <script>
+      const hamburger = document.getElementById('csHamburger');
+      const mobileMenu = document.getElementById('csMobileMenu');
 
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    </script>
 </html>
