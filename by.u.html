@@ -31,7 +31,6 @@
 
   <!-- Web App Manifest -->
   <link rel="manifest" href="images/site.webmanifest">
-  <link rel="stylesheet" href="styles/home.css">
 
 
 </head>
@@ -42,7 +41,7 @@
 
       <div class="cs-stripes"></div>
 
-      <div class="cs-header__container">
+      <div class="cs-header__container byu-header">
 
         <!-- HAMBURGER -->
         <!-- <div class="cs-hamburger" id="csHamburger">
@@ -85,18 +84,18 @@
         <div class="cs-zero__left">
 
           <div class="cs-zero__brand">
-            <img src="images/Component 277.png" alt="">
+            <img src="/images/by-u/Component 277.png" alt="">
           </div>
 
           <div class="cs-zero__list">
 
             <div class="cs-zero__item">
               <div class="cs-zero__icon">
-                <img src="images/icon1.png" alt="">
+                <img src="/images/by-u/icon1.png" alt="">
               </div>
               <div class="cs-zero__content">
-                <p>Modernized And Integrated Legacy BSS, Orchestration, And Phygital Systems</p>
-                <h3>→ Zero Business Disruption</h3>
+                <h3>Zero Business Disruption</h3>
+                <p>→ Modernized And Integrated Legacy BSS, Orchestration, And Phygital Systems</p>
               </div>
             </div>
 
@@ -104,11 +103,12 @@
 
             <div class="cs-zero__item">
               <div class="cs-zero__icon">
-                <img src="images/icon2.png" alt="">
+                <img src="/images/by-u/icon2.png" alt="">
               </div>
               <div class="cs-zero__content">
-                <p>Millions Subscribers Migrated Live</p>
-                <h3>→ Zero Customer Incidents</h3>
+                <h3> Zero Customer Incidents</h3>
+                <p>→ Millions Subscribers Migrated Live</p>
+                
               </div>
             </div>
 
@@ -116,11 +116,12 @@
 
             <div class="cs-zero__item">
               <div class="cs-zero__icon">
-                <img src="images/icon3.png" alt="">
+                <img src="/images/by-u/icon3.png" alt="">
               </div>
               <div class="cs-zero__content">
-                <p>4 Month End-To-End Implementation</p>
-                <h3>→ Zero Application Downtime</h3>
+                   <h3> Zero Application Downtime</h3>
+                <p>→ 4 Month End-To-End Implementation</p>
+             
               </div>
             </div>
 
@@ -128,11 +129,12 @@
 
             <div class="cs-zero__item">
               <div class="cs-zero__icon">
-                <img src="images/icon4.png" alt="">
+                <img src="/images/by-u/icon4.png" alt="">
               </div>
               <div class="cs-zero__content">
-                <p>100% Data Reconciliation</p>
-                <h3>→ Zero Data Loss And Integrity Gaps</h3>
+                <h3>Zero Data Loss And Integrity Gaps</h3>
+                <p>→ 100% Data Reconciliation</p>
+                
               </div>
             </div>
 
@@ -140,11 +142,12 @@
 
             <div class="cs-zero__item">
               <div class="cs-zero__icon">
-                <img src="images/icon5.png" alt="">
+                <img src="/images/by-u/icon5.png" alt="">
               </div>
               <div class="cs-zero__content">
-                <p>API-First Architecture</p>
-                <h3>→ Zero Friction And Faster Launches</h3>
+                <h3> Zero Friction And Faster Launches</h3>
+                <p>→ API-First Architecture</p>
+                
               </div>
             </div>
 
@@ -155,7 +158,7 @@
         <div class="cs-zero__right">
           <div class="cs-video-card" id="openVideo">
 
-            <img src="images/pdp-nova/nova-youtube thumbnail.png" alt="CareX Demo" class="cs-video-thumb">
+            <img src="/images/by-u/yt-bg.png" alt="CareX Demo" class="cs-video-thumb">
 
             <div class="cs-video-overlay"></div>
 
@@ -215,6 +218,17 @@
 
 </body>
 <style>
+  .byu-header{
+    justify-content: flex-end !important;
+  }
+  .cs-header {
+    --cs-header-container-width: 94%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 500;
+  }
   .cs-video-modal {
     position: fixed;
     inset: 0;
@@ -321,7 +335,7 @@
   /* SECTION */
   .cs-zero {
     background: linear-gradient(135deg, #d7ebe4 0%, #e8f4ef 100%);
-    padding: 90px 20px;
+    padding: 30px 20px;
     
   }
 
@@ -370,6 +384,7 @@
     font-size: 14px;
     color: #000;
     margin-bottom: 6px;
+    margin-top: 6px;
     font-weight: 400;
   }
 
@@ -431,7 +446,7 @@
   const iframe = document.getElementById("popupVideo");
 
 
-  const videoURL = "https://www.youtube.com/embed/jXNtGZScyFI?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+  const videoURL = "https://www.youtube.com/embed/ILynErSqNEc?autoplay=1&rel=0&modestbranding=1&playsinline=1";
 
   openBtn.addEventListener("click", () => {
     iframe.src = videoURL;
