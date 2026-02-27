@@ -1559,6 +1559,7 @@ ul {
 @media (min-width: 768px) {
   .cs-section--h-circles .cs-liner {
     top: -10rem;
+    left: -13%;
   }
 }
 .cs-section--h-circles .cs-description span {
