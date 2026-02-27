@@ -1648,17 +1648,17 @@ ul {
               --cs-grid-cols: 12;
               &__ {
                 &item:first-child {
-                  grid-column: 1 / 6;
+                  grid-column: 1 / 7;
                 }
                 &item:last-child {
-                  grid-column: 6 / 12;
+                  grid-column: 7 / 13;
                 }
               }
             }
           }
         }
       }
-      &carex, &nova, &zerofyx {
+      &carex, &nova, &zerofyx, &circles {
         // min-height: 80rem;
         display: flex;
         flex-direction: column;
@@ -1681,7 +1681,8 @@ ul {
             top: -15.7rem;
 
             @media (min-width: $breakpoint-md) {
-              top: -22rem;
+              top: -17.4rem;
+              left: -40%;
               align-items: flex-end;
             }
           }
@@ -1692,16 +1693,25 @@ ul {
               display: block;
             }
           }
+
+          &contentbox {
+            &__footer {
+              width: 90%;
+
+              .cs-flex {
+                --cs-flex-gap: 1rem;
+              }
+            }
+          }
           
           
           &title {
             @media (min-width: $breakpoint-md) {
-              --cs-title-f-size: 3.2rem;
-              --cs-title-hlight-f-size: 5rem;
-              width: 80%
+              --cs-title-f-size: 2.8rem;
+              --cs-title-hlight-f-size: 4.4rem;
+              --cs-title-sub-f-size: 2.2rem;
             }
             @media (min-width: $breakpoint-lg) {
-              width: 100%
             }
             @media (min-width: $breakpoint-xl) {
               --cs-foundation-list-grid-cols: 4;
@@ -1737,16 +1747,16 @@ ul {
             position: absolute;
 
             @media (min-width: $breakpoint-md) {
-              --cs-liner-width: 22em;
-              top: -16.4rem;
-              left: 19.8em;
+              --cs-liner-width: 38rem;
+              top: -11.8rem;
+              left: 27%;
             }
             @media (min-width: $breakpoint-lg) {
-              left: 16em;
+              // left: 14rem;
             }
             @media (min-width: $breakpoint-xl) {
-              top: -16.3rem;
-              left: 20.8em; 
+              // top: -16.3rem;
+              // left: 20.8em; 
             }
           }
           &contentbox {
@@ -1770,7 +1780,7 @@ ul {
             @media (min-width: $breakpoint-md) {
               &__ {
                 &item:first-child {
-                  width: 75%;
+                  // width: 75%;
                   margin: 0 auto;
                 }
               }
@@ -1822,16 +1832,16 @@ ul {
           }
           &liner {
             position: absolute;
-            top: 5.3rem;
-            left: -10rem;
+            // top: 5.3rem;
+            // left: -10rem;
 
             @media (min-width: $breakpoint-md) {
-              --cs-liner-width: min(19em, 87rem);
+              --cs-liner-width: 30.9rem;
               top: -15rem;
-              left: -1.3em;
+              left: -17%;
             }
             @media (min-width: $breakpoint-lg) {
-              left: -10.5em;
+              // left: -10.5em;
             }
           }
           
@@ -1861,6 +1871,15 @@ ul {
           }
         }
       }
+      &nova {
+        #{$app} {
+          &hlt-title {
+            top: -22.2rem;
+            left: 17.3%;
+
+          }  
+        }
+      }
       //  NOva: End
       &zerofyx {
         @media (min-width: $breakpoint-lg) {
@@ -1876,19 +1895,26 @@ ul {
               background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0.1) 50%, rgba(255, 0, 196, 0) 100%);
             }
           }
+          &hlt-title {
+            @media (min-width: $breakpoint-md) {
+              left: -25.2%
+            }
+          }
+          &title {
+            // width: 90%
+          }
           &liner {
             position: absolute;
             top: -10rem;
             left: 10.2em;
 
             @media (min-width: $breakpoint-md) {
-              --cs-liner-width: 23em;
-              
-              top: -16.5rem;
-              left: 20.2em;
+              --cs-liner-width: 38rem;
+              top: -11.8rem;
+              left: 27%;
             }
             @media (min-width: $breakpoint-lg) {
-              left: 16.5em;
+              // left: 16.5em;
             }
           }
           &contentbox {
@@ -1910,20 +1936,18 @@ ul {
             @media (min-width: $breakpoint-md) {
               &__ {
                 &item:first-child {
-                  width: 75%;
-                  margin: auto;
+                  // width: 75%;
+                  // margin: auto;
                   
                 }
-                &item:last-child {
-                  grid-column: 6 / 13;
-                }
+                
               }
             }
             @media (min-width: $breakpoint-lg) {
               &__ {
                 &item:first-child {
                   order: 0;
-                  width: 100%;
+                  // width: 100%;
                 }
               }
             }
@@ -1931,6 +1955,38 @@ ul {
         }
       }
       // zerofyx: End
+      &circles {
+        #{$section} {
+          &__ {
+            &container {
+              margin-top: 8.8rem;
+            }
+          }
+        }
+        #{$app} {
+          
+          &liner {
+
+            @media (min-width: $breakpoint-md) {
+              top: -10rem;
+            }
+            @media (min-width: $breakpoint-lg) {
+            }
+          }
+
+          &description {
+            span {
+              width: 3em;
+              display: inline-flex;
+              flex-shrink: 0;
+              align-items: center;
+              justify-content: center;
+
+            }
+          }
+        }
+      }
+      // Circles: End
       &collab {
         
         @media (min-width: $breakpoint-md) {

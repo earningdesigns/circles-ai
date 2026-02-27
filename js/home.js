@@ -433,8 +433,6 @@ function sdmoAnim(context) {
   gsap.set(brand, {opacity: 0, x: 5})
   gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
   gsap.set(tags, {opacity: 0})
-
-  console.log(concentricVibes, 'vibes')
  
 
   ScrollTrigger.matchMedia({[`(min-width: ${breakpoint}px)`]: function() {
@@ -467,11 +465,10 @@ function sdmoAnim(context) {
 function carexAnim(context) {
   const carexSection = $('.cs-section--h-carex');
   const carexTitle = carexSection?.querySelectorAll('.cs-title .word');
-  const hltTitle = carexSection?.querySelector('.cs-hlt-title');
   const linerTrack = carexSection?.querySelector('.cs-liner .cs-liner__track')
   const linerSub = carexSection?.querySelector('.cs-liner .cs-liner__small')
   const linerLine = carexSection?.querySelector('.cs-liner .cs-liner__line')
-  const titleSvg = carexSection.querySelectorAll('.cs-titlesvg path')
+  // const titleSvg = carexSection.querySelectorAll('.cs-titlesvg path')
   
   const { isDesktop, isMobile, reduceMotion } = context.conditions;
   
@@ -688,7 +685,7 @@ function circlesAnim (context) {
 
 function trustAnim(context) {
   const sectionJoin = $('.cs-section--h-trust');
-  const titleSvg = sectionJoin?.querySelectorAll('.cs-titlesvg');
+  const titleSvg = sectionJoin?.querySelectorAll('.cs-title');
   const joinSteps = sectionJoin.querySelectorAll('.cs-foundation .cs-foundation__item');  
 
   gsap.set(joinSteps, fadeInUpSettings.set);
