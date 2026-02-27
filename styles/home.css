@@ -1885,3 +1885,7 @@ ul {
 .cs-footer .cs-stripes {
   --cs-stripes-height: 7rem;
 }
+
+.cs-brand{
+  margin-left: -10px;
+}
