@@ -1,365 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Circles X by.U</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer insights-NOVA</title>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../circles-ai/styles/main.css">
+  <link rel="stylesheet" href="../styles/inner-page.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <!-- favicon-->
+   <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+ 
+<!-- PNG Favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+ 
+<!-- Apple Touch Icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+ 
+<!-- Android Chrome Icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
+ 
+<!-- Web App Manifest -->
+<link rel="manifest" href="../images/site.webmanifest">
+<link rel="stylesheet" href="../circles-ai/styles/home.css">
+ 
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
 
+<body>
+  <div class="cs-page">
+     <header class="cs-header">
+      <div class="cs-stripes"></div>
+      <div class="cs-header__container cs-byu-header">
+        <div class="cs-header__brand">
+          <img src="./images/circles-logo-black.svg" alt="Circles" class="">
+        </div>
+      </div>
+    </header>
+  
+    <!-- Header: End -->
+    <!-- CUSTOMER LOYALTY HERO -->
+    <section class="zero-section">
+  <div class="container">
+
+    <!-- LEFT CONTENT -->
+    <div class="left-content">
+
+      <div class="brand">
+        <img src="../images/by-logo.png" alt="by.U Logo">
+      </div>
+
+      <div class="item">
+        <p class="small">Modernized And Integrated Legacy BSS, Orchestration, And Phygital Systems</p>
+        <h3>→ Zero Business Disruption</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="item">
+        <p class="small">Millions Subscribers Migrated Live</p>
+        <h3>→ Zero Customer Incidents</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="item">
+        <p class="small">4 Month End-To-End Implementation</p>
+        <h3>→ Zero Application Downtime</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="item">
+        <p class="small">100% Data Reconciliation</p>
+        <h3>→ Zero Data Loss And Integrity Gaps</h3>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="item">
+        <p class="small">API-First Architecture</p>
+        <h3>→ Zero Friction And Faster Launches</h3>
+      </div>
+
+    </div>
+<div class="right-content">
+      <div class="video-card">
+        <div class="overlay">
+                <!-- Thumbnail -->
+                <div class="cs-video-thumbnail" id="openVideo">
+                  <img src="../images/pdp-nova/nova-youtube thumbnail.png" alt="CareX Demo"
+                    class="cs-video-thumb-img">
+                  <div class="cs-video-play">
+                    <div class="cs-video-play__icon">
+                      <img src="../images/Polygon 7.svg" alt="">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+    </div>
+</section>
+
+
+    <!-- EXPERIENCE SECTION -->
+  
+      <div class="cs-footer">
+        <div class="cs-footer__container">
+
+          <!-- <div class="cs-footer__brand">
+              <img src="./images/footer-logo.svg" loading="lazy" alt="Circles">
+            </div> -->
+          <p class="cs-footer__copyright">Confidential Product Demonstration | Unauthorized Distribution Prohibited |
+            &copy; 2026 &copy; Circles Global</p>
+        </div>
+        <!-- <div class="cs-fixed-message">Confidential Product Demonstration | Unauthorized Distribution Prohibited | © 2026
+          © Circles Global</div> -->
+        <div class="cs-stripes"></div>
+      </div>
+      <!-- Footer: End -->
+    </section>
+  </div>
+
+  <!-- Page: End -->
+  <!-- Body Scripts -->
+  <script src="../js/gsap/gsap.min.js"></script>
+  <script src="../js/gsap/ScrollTrigger.min.js"></script>
+  <script src="../js/gsap/MotionPathPlugin.min.js"></script>
+  <script src="../js/gsap/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+
+  <!-- Main Script -->
+  <script src="../js/header.js"></script>
+ 
+  <!-- Video Popup -->
+  <div class="cs-video-modal" id="videoModal">
+    <div class="cs-video-modal__overlay" id="closeVideo"></div>
+
+    <div class="cs-video-modal__content">
+      <span class="cs-video-close" id="closeBtn">&times;</span>
+
+      <iframe id="popupVideo" src="" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</body>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+  .cs-byu-header{
+    justify-content: end;
+  }
+  .zero-section {
+        margin: 0 auto;
+    max-width: 1080px;
+  padding: 80px 5%;
 }
 
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#cfe7e2,#8fd2c7);
-  min-height:100vh;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  max-width: 1400px;
+  margin: auto;
 }
 
-.hero{
-  padding:80px 6%;
+/* LEFT SIDE */
+.left-content {
+  flex: 1;
 }
 
-.container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:70px;
+.brand h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
 }
 
-/* ---------------- LEFT SIDE ---------------- */
-
-.left{
-  flex:1;
+.brand span {
+  color: #00bcd4;
 }
 
-.brand{
-  margin-bottom:50px;
+.brand .byu {
+  color: #00c2ff;
+  font-weight: 600;
 }
 
-.brand h1{
-  font-size:42px;
-  font-weight:700;
-  letter-spacing:-1px;
+.item {
+  padding: 20px 0;
 }
 
-.brand .x{
-  color:#00c4a7;
+.item .small {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
 }
 
-.brand .byu{
-  color:#1da1f2;
-  font-weight:600;
+.item h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
 }
 
-.feature-card{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  background:#ffffff;
-  padding:22px 30px;
-  border-radius:60px;
-  margin-bottom:28px;
-  box-shadow:0 15px 30px rgba(0,0,0,0.08);
-  transition:all .3s ease;
-  width: max-content;
-    max-width: 379px;
-    height: 110px;
+.divider {
+  height: 1px;
+  background: #d6d6d6;
 }
 
-/* .feature-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.12);
-} */
-/* .feature-card:hover {
-  transform: translateY(-5px) scale(1.01);
-} */
-.icon-circle{
-  min-width:50px;
-  height:50px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#00c4a7,#1da1f2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:20px;
+/* RIGHT SIDE */
+.right-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.feature-card p{
-  font-size:15px;
-  color:#333;
-  line-height:1.4;
-}
-
-.feature-card strong{
-  display:block;
-  margin-top:4px;
-  font-weight:600;
-}
-/* .feature-card:hover{
-  transform:translateY(-5px);
-} */
-/* ---------------- STAGGERED WAVE EFFECT ---------------- */
-
-/* Smooth movement */
-.feature-card {
+.video-card {
+  width: 100%;
+  max-width: 600px;
+  height: 350px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0a1f2c, #000);
   position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Wave positioning */
-.left .feature-card:nth-of-type(2) {
-  transform: translateX(0px);
+.overlay {
+  text-align: center;
+  color: white;
 }
 
-.left .feature-card:nth-of-type(3) {
-  transform: translateX(60px);
+.play-btn {
+  width: 70px;
+  height: 70px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 20px;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.left .feature-card:nth-of-type(4) {
-  transform: translateX(120px);
+.play-btn:hover {
+  background: rgba(255,255,255,0.4);
 }
 
-.left .feature-card:nth-of-type(5) {
-  transform: translateX(60px);
+.overlay h2 {
+  font-size: 26px;
+  font-weight: 600;
 }
 
-.left .feature-card:nth-of-type(6) {
-  transform: translateX(0px);
-}
-
-/* Keep hover lift working */
-/* .left .feature-card:hover {
-  transform: translateY(-5px) scale(1.01);
-} */
-@media(max-width:992px){
-  .left .feature-card{
-    transform: translateX(0px) !important;
-  }
-}
-/* ---------------- RIGHT SIDE ---------------- */
-
-.right{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
-
-.video-box{
-  position:relative;
-  width:100%;
-  /* max-width:600px; */
-  height:500px;
-  border-radius:25px;
-  overflow:hidden;
-  background:linear-gradient(135deg,#031017,#000000);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-}
-
-/* GRID OVERLAY */
-.video-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:
-  linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size:40px 40px;
-  opacity:.3;
-}
-
-.video-content{
-  position:relative;
-  text-align:center;
-  color:white;
-}
-
-.video-content h2{
-  font-size:30px;
-  font-weight:600;
-  margin-top:20px;
-}
-
-.video-content .blue{
-  color:#1da1f2;
-}
-
-/* GLASS PLAY BUTTON */
-.play-btn{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  backdrop-filter:blur(12px);
-  background:rgba(255,255,255,0.15);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.3s ease;
-}
-
-.play-btn:hover{
-  transform:scale(1.1);
-}
-
-.play-btn::after{
-  content:"";
-  border-style:solid;
-  border-width:15px 0 15px 25px;
-  border-color:transparent transparent transparent white;
-}
-
-/* ---------------- MODAL ---------------- */
-
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.8);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  visibility:hidden;
-  transition:.3s ease;
-}
-
-.modal.active{
-  opacity:1;
-  visibility:visible;
-}
-
-.modal iframe{
-  width:80%;
-  height:60%;
-  border-radius:20px;
-}
-
-.close{
-  position:absolute;
-  top:30px;
-  right:40px;
-  font-size:30px;
-  color:white;
-  cursor:pointer;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-
-@media(max-width:992px){
-  .container{
-    flex-direction:column;
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    gap: 40px;
   }
 
-  .video-box{
-    height:300px;
-  }
-}
-
-@media(max-width:576px){
-  .brand h1{
-    font-size:28px;
+  .video-card {
+    height: 280px;
   }
 
-  .feature-card{
-    padding:18px 22px;
-    border-radius:30px;
-  }
-
-  .video-box{
-    height:250px;
+  .item h3 {
+    font-size: 18px;
   }
 }
 </style>
-</head>
-<body>
-
-<section class="hero">
-<div class="container">
-
-<div class="left">
-
-<div class="brand">
-<h1>CIRCLES <span class="x">X</span> <span class="byu">by.U</span></h1>
-</div>
-
-<div class="feature-card">
-<div class="icon-circle">⚙</div>
-<div>
-<p>Unified Legacy BSS, Orchestration & Phygital Systems</p>
-<strong>Zero Business Disruption</strong>
-</div>
-</div>
-
-<div class="feature-card">
-<div class="icon-circle">👥</div>
-<div>
-<p>Millions Subscribers Migrated Live</p>
-<strong>Zero Customer Incidents</strong>
-</div>
-</div>
-
-<div class="feature-card">
-<div class="icon-circle">🌍</div>
-<div>
-<p>4 Month End-To-End Implementation</p>
-<strong>Zero Application Downtime</strong>
-</div>
-</div>
-
-<div class="feature-card">
-<div class="icon-circle">🔒</div>
-<div>
-<p>100% Data Reconciliation</p>
-<strong>Zero Data Loss And Integrity Gaps</strong>
-</div>
-</div>
-
-<div class="feature-card">
-<div class="icon-circle">☁</div>
-<div>
-<p>API-First Architecture</p>
-<strong>Zero Friction And Faster Launches</strong>
-</div>
-</div>
-
-</div>
-
-<div class="right">
-<div class="video-box" onclick="openModal()">
-
-<div class="video-content">
-<div class="play-btn"></div>
-<h2>CIRCLES + <span class="blue">by.U</span></h2>
-</div>
-
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="videoModal">
-<div class="close" onclick="closeModal()">✕</div>
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-allowfullscreen></iframe>
-</div>
-
 <script>
-function openModal(){
-document.getElementById("videoModal").classList.add("active");
-}
+  const openBtn = document.getElementById("openVideo");
+  const modal = document.getElementById("videoModal");
+  const closeBtn = document.getElementById("closeBtn");
+  const overlay = document.getElementById("closeVideo");
+  const iframe = document.getElementById("popupVideo");
 
-function closeModal(){
-document.getElementById("videoModal").classList.remove("active");
-}
+
+  const videoURL = "https://www.youtube.com/embed/jXNtGZScyFI?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+
+  openBtn.addEventListener("click", () => {
+    iframe.src = videoURL;
+    modal.classList.add("active");
+  });
+
+  function closeModal() {
+    modal.classList.remove("active");
+    iframe.src = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
 </script>
+ <script>
+      const hamburger = document.getElementById('csHamburger');
+      const mobileMenu = document.getElementById('csMobileMenu');
 
-</body>
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+      });
+    </script>
 </html>
