@@ -44,6 +44,9 @@ img {
 svg {
   shape-rendering: geometricPrecision;
 }
+ul {
+  list-style: none;
+}
 .t-center {
   text-align: center !important;
 }
@@ -563,40 +566,15 @@ svg {
   // Grid: End
 
   &concentric {
+    position: relative;
     --cs-concentric-size: 121rem;
     // position: relative;
     // width: var(--cs-concentric-size);
     // height: var(--cs-concentric-size);
     margin-inline: auto;
 
-    .scene {
-      position:absolute;
-      inset: 0;
-      top:0;
-      width:var(--cs-concentric-size);
-      // height:var(--cs-concentric-size);
-      margin:auto;
-      svg {
-        position:absolute;
-        inset:0;
-      }
-
-      .tag {
-        position:absolute;
-        padding:6px 14px;
-        border-radius:20px;
-        background:#080c10;
-        border:1px solid #c8f542;
-        color:#c8f542;
-        font-size:12px;
-        transform: translate(-50%, -50%);
-        will-change: transform;
-      }
-    }
-
-
     &-vibes {
-      position: absolute;
+      position: relative;
       inset: 0;
       display: block;
       width: 75dvw;
@@ -604,8 +582,6 @@ svg {
       margin: auto;
       height: auto;
       z-index: -1;
-    }
-    &-container {
     }
     &-circle {
       fill: none;
@@ -622,7 +598,7 @@ svg {
     }
     &-text {
       &s {
-        position: relative;
+        position: absolute;
         inset: 0;
         margin: auto;
         width: var(--cs-concentric-size);
@@ -1598,14 +1574,14 @@ svg {
         justify-content: center;
         padding-top: 0;
         
-        min-height: 63dvh;
+        // min-height: 63dvh;
         margin-bottom: 8rem;
 
         @media (orientation: landscape) {
-          min-height: 98dvh;
+          // min-height: 98dvh;
         }
         @media (min-width: $breakpoint-md) {
-          margin-bottom: 8rem;
+          margin-bottom: 16rem;
         }
         
         #{$app} {
@@ -1813,7 +1789,7 @@ svg {
         }
       }
       // CareX: End
-      &nova {
+      &nova, &circles {
         @media (min-width: $breakpoint-lg) {
           padding-bottom: 24rem;
         }

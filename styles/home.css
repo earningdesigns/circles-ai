@@ -39,6 +39,10 @@ svg {
   shape-rendering: geometricPrecision;
 }
 
+ul {
+  list-style: none;
+}
+
 .t-center {
   text-align: center !important;
 }
@@ -427,33 +431,12 @@ svg {
   }
 }
 .cs-concentric {
+  position: relative;
   --cs-concentric-size: 121rem;
   margin-inline: auto;
 }
-.cs-concentric .scene {
-  position: absolute;
-  inset: 0;
-  top: 0;
-  width: var(--cs-concentric-size);
-  margin: auto;
-}
-.cs-concentric .scene svg {
-  position: absolute;
-  inset: 0;
-}
-.cs-concentric .scene .tag {
-  position: absolute;
-  padding: 6px 14px;
-  border-radius: 20px;
-  background: #080c10;
-  border: 1px solid #c8f542;
-  color: #c8f542;
-  font-size: 12px;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-}
 .cs-concentric-vibes {
-  position: absolute;
+  position: relative;
   inset: 0;
   display: block;
   width: 75dvw;
@@ -475,7 +458,7 @@ svg {
   height: auto;
 }
 .cs-concentric-texts {
-  position: relative;
+  position: absolute;
   inset: 0;
   margin: auto;
   width: var(--cs-concentric-size);
@@ -1278,17 +1261,11 @@ svg {
   align-items: center;
   justify-content: center;
   padding-top: 0;
-  min-height: 63dvh;
   margin-bottom: 8rem;
-}
-@media (orientation: landscape) {
-  .cs-section--h-sdmo {
-    min-height: 98dvh;
-  }
 }
 @media (min-width: 768px) {
   .cs-section--h-sdmo {
-    margin-bottom: 8rem;
+    margin-bottom: 16rem;
   }
 }
 .cs-section--h-sdmo .cs-title {
@@ -1469,56 +1446,56 @@ svg {
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-nova {
+  .cs-section--h-nova, .cs-section--h-circles {
     padding-bottom: 24rem;
   }
 }
-.cs-section--h-nova .cs-section__container {
+.cs-section--h-nova .cs-section__container, .cs-section--h-circles .cs-section__container {
   margin-top: 8.8rem;
 }
-.cs-section--h-nova .cs-bcircle {
+.cs-section--h-nova .cs-bcircle, .cs-section--h-circles .cs-bcircle {
   top: -22%;
   left: -60%;
   background: radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.2) 48.8%, rgba(0, 242, 255, 0) 100%);
 }
 @media (min-width: 768px) {
-  .cs-section--h-nova .cs-contentbox {
+  .cs-section--h-nova .cs-contentbox, .cs-section--h-circles .cs-contentbox {
     padding-left: 16.5rem;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-nova .cs-contentbox {
+  .cs-section--h-nova .cs-contentbox, .cs-section--h-circles .cs-contentbox {
     padding-left: 0;
   }
 }
-.cs-section--h-nova .cs-liner {
+.cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
   position: absolute;
   top: 5.3rem;
   left: -10rem;
 }
 @media (min-width: 768px) {
-  .cs-section--h-nova .cs-liner {
+  .cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
     --cs-liner-width: min(19em, 87rem);
     top: -15rem;
     left: -1.3em;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-nova .cs-liner {
+  .cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
     left: -10.5em;
   }
 }
 @media (min-width: 768px) {
-  .cs-section--h-nova .cs-grid__item:last-child {
+  .cs-section--h-nova .cs-grid__item:last-child, .cs-section--h-circles .cs-grid__item:last-child {
     width: 75%;
     margin: auto;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-nova .cs-grid__item:first-child {
+  .cs-section--h-nova .cs-grid__item:first-child, .cs-section--h-circles .cs-grid__item:first-child {
     grid-column: 2/8;
   }
-  .cs-section--h-nova .cs-grid__item:last-child {
+  .cs-section--h-nova .cs-grid__item:last-child, .cs-section--h-circles .cs-grid__item:last-child {
     width: 100%;
     grid-column: 8/13;
   }
