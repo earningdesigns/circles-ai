@@ -352,6 +352,7 @@ ul {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -513,11 +514,14 @@ ul {
   transform: translate(-50%, -50%);
   will-change: transform;
 }
+.cs-concentric-text--t1 {
+  --cs-ctext-bg: #00F2A1B5;
+}
 .cs-concentric-text--t2 {
   --cs-ctext-bg: #FF8F33C7;
 }
 .cs-concentric-text--t3 {
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: rgba(0, 214, 242, 0.8);
 }
 .cs-orbits {
   display: none;
@@ -1884,7 +1888,4 @@ ul {
 }
 .cs-footer .cs-stripes {
   --cs-stripes-height: 7rem;
-}
-.cs-brand{
-  margin-left: -10px;
 }
