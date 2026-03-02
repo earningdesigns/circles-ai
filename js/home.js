@@ -299,7 +299,8 @@ function concentricCircles() {
 
   function getRadii() {
     const w = scene.getBoundingClientRect().width;
-    return [w * 0.52, w * 0.4, w * 0.188];
+    // return [w * 0.52, w * 0.4, w * 0.188];
+    return [w * 0.334, w * 0.4, w * 0.336];
   }
 
   let ORBITS = buildOrbits();
@@ -307,9 +308,13 @@ function concentricCircles() {
   function buildOrbits() {
     const [r1, r2, r3] = getRadii();
     return [
-      {radius: r1, tags: ["Retention"], startAngle: 120, speed: 1.1},
-      {radius: r2, tags: ["Acquisition"], startAngle: 174, speed: 0.7},
-      {radius: r3, tags: ["Monetization"], startAngle: -40, speed: 0.4}
+      // {radius: r1, tags: ["Retention"], startAngle: 120, speed: 1.1},
+      // {radius: r2, tags: ["Acquisition"], startAngle: 174, speed: 0.7},
+      // {radius: r3, tags: ["Monetization"], startAngle: -40, speed: 0.4}
+
+      {radius: r1, tags: ["Retention"], startAngle: 50, speed: 1.5},
+      {radius: r2, tags: ["Acquisition"], startAngle: 174, speed: 1.8},
+      {radius: r3, tags: ["Monetization"], startAngle: -40, speed: 1.3}
     ];
   }
   const circlesContainer = $('.cs-section--h-sdmo .cs-concentric');
@@ -403,7 +408,7 @@ function concentricCircles() {
   trigger: "#concentricTexts",
   start: "top bottom",
   end: "bottom top",
-  scrub: 0.3,
+  scrub: 0.8,
   invalidateOnRefresh: true,
   onUpdate: self => {
   // 200px feeling equivalent rotation amount
