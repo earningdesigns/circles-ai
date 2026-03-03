@@ -1880,6 +1880,7 @@ ul {
             }
             @media (min-width: $breakpoint-xl) {
               // left: -6.2%;
+              left: -18.2%;
             }
             @media (min-width: $breakpoint-2xl) {
               left: -10.2%;
@@ -1910,7 +1911,7 @@ ul {
             @media (min-width: $breakpoint-xl) {
               left: 40%;
               left: 8em;
-              left: 12.6em;
+              left: 11em;
               // left: 13.6rem;
             }
             @media (min-width: $breakpoint-2xl) {
@@ -1989,6 +1990,10 @@ ul {
               padding-left: 0;
               // width: 85%;
             }
+            @media (min-width: $breakpoint-2xl) {
+              padding-left: 4.8rem;
+              // width: 85%;
+            }
           }
           &liner {
             position: absolute;
@@ -2006,14 +2011,10 @@ ul {
               left: -3.4em;
             }
             @media (min-width: $breakpoint-xl) {
-              --cs-liner-width: 30.9rem;
-              top: -15rem;
-              left: -6.6em;
+              left: -5.4em;
             }
-            @media (min-width: $breakpoint-xl) {
-              --cs-liner-width: 30.9rem;
-              top: -15rem;
-              left: -6.6em;
+            @media (min-width: $breakpoint-2xl) {
+              left: -1.2em;
             }
           }
           &hlt-title {
@@ -2063,7 +2064,10 @@ ul {
             }
             @media (min-width: $breakpoint-xl) {
               top: -22.2rem;
-              left: 13%;
+              left: 16.9%;
+            }
+            @media (min-width: $breakpoint-2xl) {
+              left: 25.9%;
             }
           }  
         }
@@ -2114,6 +2118,9 @@ ul {
             @media (min-width: $breakpoint-lg) {
               padding-left: 2.6rem;
             }
+            @media (min-width: $breakpoint-2xl) {
+              padding-left: 4.8rem;
+            }
           }
           &liner {
 
@@ -2127,9 +2134,10 @@ ul {
             }
             @media (min-width: $breakpoint-xl) {
               top: -10rem;
-              left: -7em;
+              left: -5.4em;
             }
             @media (min-width: $breakpoint-2xl) {
+              left: -3em;
             }
             @media (min-width: $breakpoint-3xl) {
             }
@@ -2190,7 +2198,7 @@ ul {
         @media (min-width: $breakpoint-md) {
           --cs-section-container-width: 94%; 
         }
-        @media (min-width: $breakpoint-xl) {
+        @media (min-width: $breakpoint-2xl) {
           --cs-section-container-width: 118rem;
         }
 

@@ -352,6 +352,7 @@ ul {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
   position: relative;
   overflow: hidden;
 }
@@ -1531,6 +1532,11 @@ ul {
     left: -13.2%;
   }
 }
+@media (min-width: 1080px) {
+  .cs-section--h-zerofyx .cs-hlt-title {
+    left: -18.2%;
+  }
+}
 @media (min-width: 1200px) {
   .cs-section--h-zerofyx .cs-hlt-title {
     left: -10.2%;
@@ -1558,7 +1564,7 @@ ul {
   .cs-section--h-zerofyx .cs-liner {
     left: 40%;
     left: 8em;
-    left: 12.6em;
+    left: 11em;
   }
 }
 @media (min-width: 1200px) {
@@ -1607,6 +1613,11 @@ ul {
     padding-left: 0;
   }
 }
+@media (min-width: 1200px) {
+  .cs-section--h-nova .cs-contentbox, .cs-section--h-circles .cs-contentbox {
+    padding-left: 4.8rem;
+  }
+}
 .cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
   position: absolute;
 }
@@ -1626,16 +1637,12 @@ ul {
 }
 @media (min-width: 1080px) {
   .cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
-    --cs-liner-width: 30.9rem;
-    top: -15rem;
-    left: -6.6em;
+    left: -5.4em;
   }
 }
-@media (min-width: 1080px) {
+@media (min-width: 1200px) {
   .cs-section--h-nova .cs-liner, .cs-section--h-circles .cs-liner {
-    --cs-liner-width: 30.9rem;
-    top: -15rem;
-    left: -6.6em;
+    left: -1.2em;
   }
 }
 @media (min-width: 768px) {
@@ -1672,7 +1679,12 @@ ul {
 @media (min-width: 1080px) {
   .cs-section--h-nova .cs-hlt-title {
     top: -22.2rem;
-    left: 13%;
+    left: 16.9%;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-nova .cs-hlt-title {
+    left: 25.9%;
   }
 }
 @media (max-width: 991px) {
@@ -1704,6 +1716,11 @@ ul {
     padding-left: 2.6rem;
   }
 }
+@media (min-width: 1200px) {
+  .cs-section--h-circles .cs-contentbox {
+    padding-left: 4.8rem;
+  }
+}
 @media (min-width: 768px) {
   .cs-section--h-circles .cs-liner {
     top: -6rem;
@@ -1719,7 +1736,12 @@ ul {
 @media (min-width: 1080px) {
   .cs-section--h-circles .cs-liner {
     top: -10rem;
-    left: -7em;
+    left: -5.4em;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-circles .cs-liner {
+    left: -3em;
   }
 }
 .cs-section--h-circles .cs-description span {
@@ -1771,7 +1793,7 @@ ul {
     --cs-section-container-width: 94%;
   }
 }
-@media (min-width: 1080px) {
+@media (min-width: 1200px) {
   .cs-section--h-trust {
     --cs-section-container-width: 118rem;
   }
@@ -1887,7 +1909,4 @@ ul {
 }
 .cs-footer .cs-stripes {
   --cs-stripes-height: 7rem;
-}
-.cs-brand{
-  margin-left: -10px;
 }
