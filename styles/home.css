@@ -653,10 +653,12 @@ ul {
   justify-content: space-between;
   width: 96%;
   margin-left: auto;
+  flex-direction: column;
   align-items: center;
 }
 @media (min-width: 768px) {
   .cs-partners-members {
+    flex-direction: row;
     gap: 4rem;
   }
 }
@@ -666,52 +668,54 @@ ul {
     flex-direction: row;
   }
 }
-@media (min-width: 1080px) {
+@media (min-width: 1200px) {
   .cs-partners-members {
     width: 118rem;
     margin-inline: auto;
   }
 }
-.cs-members {
+.cs-partners-members .cs-members {
   display: flex;
   gap: 1.8rem;
   flex-direction: column;
   flex-shrink: 0;
 }
-.cs-member {
+.cs-partners-members .cs-member {
   width: 12rem;
 }
-.cs-companies {
+.cs-partners-members .cs-companies {
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  align-items: center;
 }
 @media (min-width: 768px) {
-  .cs-companies {
+  .cs-partners-members .cs-companies {
+    align-items: flex-start;
     max-width: 45rem;
     overflow: hidden;
   }
 }
 @media (min-width: 992px) {
-  .cs-companies {
+  .cs-partners-members .cs-companies {
     max-width: 68rem;
   }
 }
-.cs-companies__text {
+.cs-partners-members .cs-companies__text {
   flex-shrink: 0;
 }
-.cs-companies__list {
+.cs-partners-members .cs-companies__list {
   position: relative;
   white-space: nowrap;
   will-change: transform;
 }
-.cs-companies .cs-company {
+.cs-partners-members .cs-company {
   --cs-company-width: 14rem;
   max-width: var(--cs-company-width);
   display: inline-block;
   margin-right: 3.2rem;
 }
-.cs-companies .cs-company__img {
+.cs-partners-members .cs-company__img {
   max-width: 100%;
   height: 3.8rem;
   object-fit: contain;
@@ -903,6 +907,12 @@ ul {
   gap: 4.4rem;
   z-index: 5;
   grid-template-columns: repeat(var(--cs-foundation-list-grid-cols), minmax(0, 1fr));
+}
+@media (min-width: 576px) {
+  .cs-foundation__list {
+    gap: 3.8rem;
+    --cs-foundation-list-grid-cols: 2;
+  }
 }
 @media (min-width: 768px) {
   .cs-foundation__list {
@@ -1124,6 +1134,11 @@ ul {
   justify-content: center;
   padding-bottom: 0;
 }
+@media (max-width: 575px) {
+  .cs-section--h-hero {
+    min-height: 94dvh;
+  }
+}
 @media (max-width: 767px) {
   .cs-section--h-hero {
     padding-top: 16rem;
@@ -1263,13 +1278,21 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 0;
-  margin-bottom: 8rem;
+  padding-top: 8rem;
+}
+@media (max-width: 575px) {
+  .cs-section--h-sdmo {
+    min-height: 24em;
+  }
 }
 @media (min-width: 768px) {
   .cs-section--h-sdmo {
+    margin-bottom: 18rem;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-sdmo {
     margin-bottom: 8rem;
-    padding-top: 8rem;
   }
 }
 .cs-section--h-sdmo .cs-title {
@@ -1329,12 +1352,19 @@ ul {
   margin-inline: auto;
   right: 0;
 }
-.cs-section--h-carex .cs-hlt-title, .cs-section--h-nova .cs-hlt-title, .cs-section--h-zerofyx .cs-hlt-title, .cs-section--h-circles .cs-hlt-title {
-  position: absolute;
-  top: -15.7rem;
+@media (min-width: 768px) {
+  .cs-section--h-carex .cs-section__container, .cs-section--h-nova .cs-section__container, .cs-section--h-zerofyx .cs-section__container, .cs-section--h-circles .cs-section__container {
+    margin-top: 6.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .cs-section--h-carex .cs-hlt-title, .cs-section--h-nova .cs-hlt-title, .cs-section--h-zerofyx .cs-hlt-title, .cs-section--h-circles .cs-hlt-title {
+    margin-bottom: 7.6rem;
+  }
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-hlt-title, .cs-section--h-nova .cs-hlt-title, .cs-section--h-zerofyx .cs-hlt-title, .cs-section--h-circles .cs-hlt-title {
+    position: absolute;
     top: -17.4rem;
     left: 6.5rem;
     align-items: flex-start;
@@ -1366,9 +1396,15 @@ ul {
 }
 .cs-section--h-carex .cs-contentbox__footer, .cs-section--h-nova .cs-contentbox__footer, .cs-section--h-zerofyx .cs-contentbox__footer, .cs-section--h-circles .cs-contentbox__footer {
   width: 90%;
+  flex-wrap: wrap;
 }
 .cs-section--h-carex .cs-contentbox__footer .cs-flex, .cs-section--h-nova .cs-contentbox__footer .cs-flex, .cs-section--h-zerofyx .cs-contentbox__footer .cs-flex, .cs-section--h-circles .cs-contentbox__footer .cs-flex {
   --cs-flex-gap: 1rem;
+}
+.cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title, .cs-section--h-circles .cs-title {
+  --cs-title-f-size: 2.8rem;
+  --cs-title-hlight-f-size: 4.4rem;
+  --cs-title-sub-f-size: 2rem;
 }
 @media (min-width: 768px) {
   .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title, .cs-section--h-circles .cs-title {
@@ -1401,9 +1437,6 @@ ul {
   .cs-section--h-carex .cs-grid, .cs-section--h-nova .cs-grid, .cs-section--h-zerofyx .cs-grid, .cs-section--h-circles .cs-grid {
     padding-inline: 4rem;
   }
-}
-.cs-section--h-carex .cs-section__container, .cs-section--h-zerofyx .cs-section__container {
-  margin-top: 6.8rem;
 }
 .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
   --cs-grid-cols: 1;
@@ -1448,6 +1481,7 @@ ul {
 @media (min-width: 992px) {
   .cs-section--h-carex .cs-hlt-title {
     left: -13.2%;
+    left: -43.9%;
   }
 }
 @media (min-width: 1080px) {
@@ -1508,9 +1542,6 @@ ul {
     order: 0;
     width: 100%;
   }
-}
-.cs-section--h-zerofyx {
-  padding-bottom: 8rem;
 }
 @media (min-width: 992px) {
   .cs-section--h-zerofyx {
@@ -1595,9 +1626,6 @@ ul {
     order: 0;
   }
 }
-.cs-section--h-nova .cs-section__container, .cs-section--h-circles .cs-section__container {
-  margin-top: 6.8rem;
-}
 .cs-section--h-nova .cs-bcircle, .cs-section--h-circles .cs-bcircle {
   top: -22%;
   left: -60%;
@@ -1659,10 +1687,6 @@ ul {
     width: 100%;
     grid-column: 7/13;
   }
-}
-.cs-section--h-nova .cs-hlt-title {
-  top: -22.2rem;
-  left: 17.3%;
 }
 @media (min-width: 768px) {
   .cs-section--h-nova .cs-hlt-title {
@@ -1745,11 +1769,16 @@ ul {
   }
 }
 .cs-section--h-circles .cs-description span {
-  width: 3em;
+  width: 2em;
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
+}
+@media (min-width: 768px) {
+  .cs-section--h-circles .cs-description span {
+    width: 3em;
+  }
 }
 @media (min-width: 768px) {
   .cs-section--h-collab {

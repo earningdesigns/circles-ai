@@ -859,59 +859,63 @@ ul {
     justify-content: space-between;
     width: 96%;
     margin-left: auto;
-    // margin-inline: auto;
+    flex-direction: column;
     align-items: center;
     @media (min-width: $breakpoint-md) {
+      flex-direction: row;
       gap: 4rem;
     }
     @media (min-width: $breakpoint-lg) {
       align-items: flex-start;
       flex-direction: row;
     }
-    @media (min-width: $breakpoint-xl) {
+    @media (min-width: $breakpoint-2xl) {
       width: 118rem;
       margin-inline: auto;
     }
-  }
-
-  &member {
-    &s {
-      display: flex;
-      gap: 1.8rem;
-      flex-direction: column;
-      flex-shrink: 0;
-    }
-    & {
-      width: 12rem;
-    }
-  }
-  //  Members: ENd
-  &companies {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
     
+    #{$app} {
 
-    @media (min-width: $breakpoint-md) {
-      max-width: 45rem;
-      overflow: hidden;
-    }
-    @media (min-width: $breakpoint-lg) {
-      max-width: 68rem;
-    }
-    
-    &__ {
-      &text {
-        flex-shrink: 0;
+      &member {
+        &s {
+          display: flex;
+          gap: 1.8rem;
+          flex-direction: column;
+          flex-shrink: 0;
+        }
+        & {
+          width: 12rem;
+        }
       }
-      &list {
-        position: relative;
-        white-space: nowrap;
-        will-change: transform;        
-      }
-    }
+      //  Members: ENd
+      &companies {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        align-items: center;
+        
 
-    #{$app}company {
+        @media (min-width: $breakpoint-md) {
+          align-items: flex-start;
+          max-width: 45rem;
+          overflow: hidden;
+        }
+        @media (min-width: $breakpoint-lg) {
+          max-width: 68rem;
+        }
+        
+        &__ {
+          &text {
+            flex-shrink: 0;
+          }
+          &list {
+            position: relative;
+            white-space: nowrap;
+            will-change: transform;        
+          }
+        }
+      }
+      &company {
       --cs-company-width: 14rem;
       
       max-width: var(--cs-company-width);
@@ -929,7 +933,10 @@ ul {
       //   max-width
       // }
     }
+
+    }
   }
+
   // Companies: End
 
   &circles-collab {
@@ -1117,35 +1124,6 @@ ul {
       -webkit-backdrop-filter: blur(20px);
     }
 
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   right: 0;
-    //   height: 1px;
-    //   background: linear-gradient(
-    //     90deg,
-    //     transparent,
-    //     rgba(255, 255, 255, 0.8),
-    //     transparent
-    //   );
-    // }
-
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 1px;
-    //   height: 100%;
-    //   background: linear-gradient(
-    //     180deg,
-    //     rgba(255, 255, 255, 0.8),
-    //     transparent,
-    //     rgba(255, 255, 255, 0.3)
-    //   );
-    // }
     @media (min-width: $breakpoint-md) {
       padding: 4rem;
     }
@@ -1180,6 +1158,11 @@ ul {
         gap: 4.4rem;
         z-index: 5;
         grid-template-columns: repeat(var(--cs-foundation-list-grid-cols), minmax(0, 1fr));
+
+        @media (min-width: $breakpoint-sm) {
+          gap: 3.8rem; 
+          --cs-foundation-list-grid-cols: 2;
+        }
 
         @media (min-width: $breakpoint-md) {
           gap: 3.8rem; 
@@ -1426,7 +1409,10 @@ ul {
         flex-direction: column;
         justify-content: center;
         padding-bottom: 0;
+         @media (max-width: $breakpoint-sm - 1) {
+          min-height: 94dvh;
 
+        }
         @media (max-width: $breakpoint-md - 1) {
           padding-top: 16rem;
 
@@ -1573,17 +1559,26 @@ ul {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 0;
+        padding-top: 8rem;
+
+        @media (max-width: $breakpoint-sm - 1) {
+          min-height: 24em;
+
+        }
         
         // min-height: 63dvh;
-        margin-bottom: 8rem;
 
         @media (orientation: landscape) {
+        // margin-bottom: 8rem;
           // min-height: 98dvh;
         }
         @media (min-width: $breakpoint-md) {
+          margin-bottom: 18rem;
+          // padding-top: 8rem;
+        }
+        @media (min-width: $breakpoint-lg) {
           margin-bottom: 8rem;
-          padding-top: 8rem;
+          // padding-top: 8rem;
         }
         
         #{$app} {
@@ -1655,16 +1650,22 @@ ul {
             margin-inline: auto;
             right: 0;
           }
-          &container {
-
+          &__container {
+            @media (min-width: $breakpoint-md) {
+              margin-top: 6.8rem;
+              
+            }
           }
         }
         #{$app} {
           &hlt-title {
-            position: absolute;
-            top: -15.7rem;
+            // top: -15.7rem;
+            @media (max-width: $breakpoint-md - 1) {
+              margin-bottom: 7.6rem;
+            }
 
             @media (min-width: $breakpoint-md) {
+              position: absolute;
               top: -17.4rem;
               left: 6.5rem;
               align-items: flex-start;
@@ -1690,7 +1691,7 @@ ul {
             position: relative;
             &__footer {
               width: 90%;
-
+              flex-wrap: wrap;
               .cs-flex {
                 --cs-flex-gap: 1rem;
               }
@@ -1699,6 +1700,9 @@ ul {
           
           
           &title {
+            --cs-title-f-size: 2.8rem;
+            --cs-title-hlight-f-size: 4.4rem;
+            --cs-title-sub-f-size: 2rem;
             @media (min-width: $breakpoint-md) {
               --cs-title-f-size: 2.8rem;
               --cs-title-hlight-f-size: 4.4rem;
@@ -1730,11 +1734,7 @@ ul {
         }
       }
       &carex, &zerofyx {
-        #{$section} {
-          &__container {
-            margin-top: 6.8rem;
-          }
-        }
+        
         #{$app} {
           &grid {
             --cs-grid-cols: 1;
@@ -1783,6 +1783,7 @@ ul {
             }
             @media (min-width: $breakpoint-lg) {
               left: -13.2%;
+              left: -43.9%;
             }
             @media (min-width: $breakpoint-xl) {
               left: -32%;
@@ -1858,7 +1859,10 @@ ul {
       }
       // CareX: End
       &zerofyx {
-        padding-bottom: 8rem;
+        // padding-bottom: 8rem;
+        // @media (m-width: $breakpoint-lg) {
+        //   padding-bottom: 16rem
+        // }
         @media (min-width: $breakpoint-lg) {
           padding-bottom: 16rem
         }
@@ -1964,13 +1968,7 @@ ul {
         @media (min-width: $breakpoint-lg) {
           // padding-bottom: 24rem;
         }
-         #{$section} {
-          &__ {
-            &container {
-              margin-top: 6.8rem;
-            }
-          }
-        }
+         
         #{$app} {
           &bcircle {
             & {
@@ -2052,8 +2050,8 @@ ul {
       &nova {
         #{$app} {
           &hlt-title {
-            top: -22.2rem;
-            left: 17.3%;
+            // top: -22.2rem;
+            // left: 17.3%;
             @media (min-width: $breakpoint-md) {
               top: -22.2rem;
               left: 16.5rem;
@@ -2076,7 +2074,6 @@ ul {
       &circles {
         @media (max-width: $breakpoint-lg - 1) {
           padding-bottom: 0;
-          
         }
         #{$section} {
           &__ {
@@ -2107,9 +2104,6 @@ ul {
             &__item:last-child {
               img {
                 @media (min-width: $breakpoint-md) {
-                  
-                // margin-top: 30rem;
-                  
                 }
               }
             }
@@ -2145,12 +2139,14 @@ ul {
 
           &description {
             span {
-              width: 3em;
+              width: 2em;
               display: inline-flex;
               flex-shrink: 0;
               align-items: center;
               justify-content: center;
-
+              @media (min-width: $breakpoint-md) {
+                width: 3em;
+              }
             }
           }
         }

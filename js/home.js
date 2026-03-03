@@ -354,28 +354,6 @@ function concentricCircles() {
     });
   });
 
-  // Old
-  // function positionTags(offset) {
-  //   rings.forEach(orbit => {
-  //     orbit.tags.forEach(({el, baseAngle}) => {
-  //       const angleDeg = baseAngle + offset * orbit.speed;
-  //       const rad = angleDeg * Math.PI / 180;
-
-  //       const x = Math.cos(rad) * orbit.radius;
-  //       const y = Math.sin(rad) * orbit.radius;
-
-  //       // el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-  //       gsap.set(el, {
-  //         x: x,
-  //         y: y,
-  //         xPercent: -50,
-  //         yPercent: -50
-  //       });
-  //     });
-  //   });
-  // }
-  // Old: End
-
   function positionTags(offset) {
     const [r1, r2, r3] = getRadii();
     const radii = [r1, r2, r3];
@@ -393,16 +371,6 @@ function concentricCircles() {
       });
     });
   }
-
-  // gsap.ticker.add(() => {
-  //   scrollAngle += (targetAngle - scrollAngle) * 0.08;
-  //   positionTags(scrollAngle);
-  // });
-  // gsap.ticker.add((time, deltaTime) => {
-  //   const delta = deltaTime / 16.666; // normalize to 60fps
-  //   scrollAngle += (targetAngle - scrollAngle) * 0.08 * delta;
-  //   positionTags(scrollAngle);
-  // });
 
   ScrollTrigger.create({
   trigger: "#concentricTexts",
@@ -434,13 +402,13 @@ function sdmoAnim(context) {
 
   const { isDesktop, isMobile, reduceMotion } = context.conditions;
 
-  gsap.set(sectionTitle, {opacity: 0, y: 25})
-  gsap.set(brand, {opacity: 0, x: 5})
-  gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
-  gsap.set(tags, {opacity: 0})
  
 
   ScrollTrigger.matchMedia({[`(min-width: ${breakpoint}px)`]: function() {
+    gsap.set(sectionTitle, {opacity: 0, y: 25})
+    gsap.set(brand, {opacity: 0, x: 5})
+    gsap.set([vibes, circleCenter], {opacity: 0, scale: 0.9, transformOrigin: "50% 50%"})
+    gsap.set(tags, {opacity: 0})
 
     const sdmoTl = gsap.timeline({
       defaults: { ease: ease.smooth },
