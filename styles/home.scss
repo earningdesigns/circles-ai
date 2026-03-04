@@ -1423,7 +1423,10 @@ ul {
         }
         @media (min-width: $breakpoint-lg) {
           --cs-section-container-width: 98rem;
-          min-height: 100dvh;
+          min-height: 66dvh;
+        }
+        @media (min-width: $breakpoint-2xl) {
+          min-height: 94dvh;
         }
 
         #{$section}__{
@@ -1577,7 +1580,15 @@ ul {
           // padding-top: 8rem;
         }
         @media (min-width: $breakpoint-lg) {
+          margin-bottom: 16rem;
+          // padding-top: 8rem;
+        }
+         @media (min-width: $breakpoint-xl) {
           margin-bottom: 8rem;
+          // padding-top: 8rem;
+        }
+        @media (min-width: $breakpoint-2xl) {
+          margin-bottom: 12rem;
           // padding-top: 8rem;
         }
         
@@ -2087,7 +2098,7 @@ ul {
           // padding-block: 0 19rem;
         }
         @media (min-width: $breakpoint-lg) {
-          padding-block: 6rem 8rem;
+          padding-block: 6rem 18rem;
         }
         @media (min-width: $breakpoint-xl) {
           padding-block: 6rem 19rem;
