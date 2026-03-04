@@ -934,6 +934,12 @@ img {
   border-radius: 60% 40% 70% 30% / 40% 60% 40% 60%;
   z-index: -1;
 }
+.carex-blob{
+  background: radial-gradient(circle at center,
+      rgb(255 255 255) 8%,
+      rgba(189, 255, 163, 1) 16%,
+      rgb(0 242 255 / -17%) 35%);
+}
 
 .carex-bg,
 .cs-loyalty-bg {
@@ -951,7 +957,7 @@ img {
 
 .carex-bg {
   background: radial-gradient(50% 50% at 50% 50%,
-      rgb(97 255 218 / 69%) 0%,
+      rgba(189, 255, 163, 1) 0%,rgba(97, 255, 218, 0.39),
       rgba(255, 0, 196, 0) 100%);
 }
 
@@ -962,11 +968,11 @@ img {
       rgba(0, 242, 255, 0) 100%);
 }
 
+
 .cs-loyalty-hero__container {
   max-width: 1080px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  align-items: center;
 }
 
 .cs-loyalty-hero__right {
@@ -1161,11 +1167,9 @@ img {
   min-height: 0;
   padding: 0px 0 0;
   background:
-    linear-gradient(to bottom,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0.8) 15%,
-      rgba(255, 255, 255, 0) 35%),
-    radial-gradient(circle at left, #00f2ff61 0%, rgba(0, 242, 255, 0) 65%);
+  linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0.8) 15%, rgba(255, 255, 255, 0) 35%), radial-gradient(circle at left 594px, #dabdff 4%, rgba(0, 242, 255, 0) 65%), radial-gradient(circle at left, #00f2ff 25%
+0%
+, rgba(0, 242, 255, 0) 65%)
 }
 
 .cs-section--nova-experience {
@@ -1321,8 +1325,6 @@ img {
 }
 
 .experience-block {
-  max-width: 43rem;
-  max-height: 55rem;
   border: 1px solid #000;
   border-radius: 33px;
   background: #ffffff;
@@ -1408,10 +1410,6 @@ img {
   background: #7c7c7c66;
   margin: 21px auto;
   /* margin-top: -21px; */
-}
-
-.minus-margin-21 {
-  margin-top: -21px;
 }
 
 .three-dots {
@@ -1615,10 +1613,6 @@ img {
     height: 575px;
   }
 
-  .cs-loyalty-hero__left {
-    margin-top: -50px !important;
-  }
-
   .cs-loyalty-product_top {
     max-width: 30% !important;
   }
@@ -1669,10 +1663,6 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .cs-section--carex-experience {
-    padding: 50px 0;
   }
 
   .cs-section--loyalty-hero {
@@ -1988,10 +1978,6 @@ img {
 }
 
 /* Better vertical alignment */
-.cs-loyalty-hero__container {
-  align-items: center !important;
-}
-
 /* Soften background blob */
 .insight-blob {
   opacity: 0.7 !important;
@@ -2003,7 +1989,7 @@ img {
 ================================ */
 
 .cs-loyalty-hero__left {
-  margin-top: -110px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
 }
@@ -2219,7 +2205,7 @@ img {
 /* Prevent jump */
 .cs-slider-wrapper {
   width: 724px;
-  min-height: 520px;
+  min-height: 552px;
 }
 
 /* Demo Buttons */
@@ -2292,17 +2278,11 @@ img {
     width: 100%;
     min-height: 460px;
     min-width: 488px;
-    margin-left: 15px;
-    margin-top: 25px;
   }
 
   .cs-slide-image {
     width: 100%;
     height: 62%;
-  }
-
-  .cs-loyalty-hero__left {
-    margin-top: -10px;
   }
 
   .cs-slide-content h3 {

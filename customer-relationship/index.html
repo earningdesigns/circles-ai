@@ -82,104 +82,117 @@
    
     <!-- Header: End -->
     <!-- CUSTOMER LOYALTY HERO -->
-    <section id="cx-hero"
-      style="background: url('../images/ellipse.png');background-repeat: no-repeat;background-size: 100% 100%;background-position: center;">
+    <section class="cs-section cs-section--loyalty-hero">
+      <div class="cs-loyalty-bg carex-bg"></div>
+      <div class="cs-blob insight-blob carex-blob"></div>
 
-      <div class="cx-container">
+      <div class="cs-section__container cs-loyalty-hero__container">
 
-        <!-- LEFT SIDE -->
-        <div class="cx-left">
-          <img src="../images/banner-logo.svg" class="cx-logo" alt="">
+        <div class="cs-loyalty-hero__left">
+          <div class="cs-loyalty-product">
+            <div class="cs-loyalty-product_top">
 
-          <h1 class="cx-title">CareX</h1>
+              <img src="../images/Sec-Logo.svg" alt="">
 
-          <div class="cx-sub">
-            <span>AI-NATIVE</span>
-            <strong>CONVERSATIONAL OS</strong>
+            </div>
+
+            <h1 class="cs-loyalty-product__title">Care X</h1>
           </div>
 
-          <div class="cx-video">
-            <div class="cs-section cs-section--loyalty-video">
-              <div class="cs-section__container video-container">
+          <h3 class="cs-loyalty-product__subtitle">
+            AI-NATIVE<br>
+            <strong>CONVERSATIONAL OS</strong>
+          </h3>
 
-                <div class="cs-video-wrapper">
+          <div class="cs-section cs-section--loyalty-video">
+            <div class="cs-section__container video-container">
 
-                  <!-- Thumbnail -->
-                  <div class="cs-video-thumbnail" id="openVideo">
-                    <img src="../images/pdp-carex/yt-thumbnail-carex.png" alt="CareX Demo" class="cs-video-thumb-img">
-                    <div class="cs-video-play">
-                      <div class="cs-video-play__icon">
-                        <img src="../images/Polygon 7.svg" alt="">
-                      </div>
+              <div class="cs-video-wrapper">
+
+                <!-- Thumbnail -->
+                <div class="cs-video-thumbnail" id="openVideo">
+                  <img src="../images/pdp-carex/yt-thumbnail-carex.png" alt="CareX Demo"
+                    class="cs-video-thumb-img">
+                  <div class="cs-video-play">
+                    <div class="cs-video-play__icon">
+                      <img src="../images/Polygon 7.svg" alt="">
                     </div>
                   </div>
-
                 </div>
 
               </div>
+
             </div>
           </div>
         </div>
 
-        <!-- RIGHT SIDE -->
-        <div class="cx-right">
+        <div class="cs-loyalty-hero__right">
+          <div class="cs-loyalty-slider">
 
-          <div class="cx-slider">
+            <div class="cs-slider-wrapper">
 
-            <div class="cx-slide active">
-              <h3>Automate Support. Elevate Experience.</h3>
-              <p>
-                Resolve <strong>up to 70% of subscribers queries instantly</strong>
-                with AI-powered self-service – and hand over to agents seamlessly
-                with full context when it matters.
-              </p>
-              <img src="../images/pdp-carex/slider/img-1.png" alt="">
+              <!-- Slide 1 -->
+              <div class="cs-slide active">
+                <div class="cs-slide-content">
+                  <h3>Automate Support. Elevate Experience.</h3>
+                  <p>Resolve <strong>up to 70% of subscribers queries instantly </strong>  with AI-powered self-service – and hand over to agents seamlessly with full context when it matters.</p>
+                </div>
+                <img src="../images/pdp-carex/slider/img-1.png" alt="Slide 1">
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="cs-slide">
+                <div class="cs-slide-content">
+                  <h3>Purpose-Built for Telco Use Cases.</h3>
+                  <p>Pre-trained AI agents for <strong>billing, payments, orders, and network support, </strong>
+                   deployed fast with minimal configuration</p>
+                </div>
+                <img src="../images/pdp-carex/slider/img-2.png" alt="Slide 2">
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="cs-slide">
+                <div class="cs-slide-content">
+                  <h3>Zero Code. Context Engineered.</h3>
+                  <p>Integrate securely via APIs with<strong> no coding required</strong>
+                    , and support customers across multiple languages from day one</p>
+                </div>
+                <img src="../images/pdp-carex/slider/img-3.png" alt="Slide 3">
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="cs-slide">
+                <div class="cs-slide-content">
+                  <h3>Enterprise-Grade Security.</h3>
+                  <p>Connect safely to your <strong> CRM, BSS, and app or web channels</strong>
+                    with compliant, enterprise-ready APIs built to scale</p>
+                </div>
+                <img src="../images/pdp-carex/slider/img-4.png" alt="Slide 4">
+              </div>
+
             </div>
 
-            <div class="cx-slide">
-              <h3>Purpose-Built for Telco Use Cases.</h3>
-              <p>
-                Pre-trained AI agents for
-                <strong>billing, payments, orders, and network support</strong>,
-                deployed fast with minimal configuration.
-              </p>
-              <img src="../images/pdp-carex/slider/img-2.png" alt="">
-            </div>
-
-            <div class="cx-slide">
-              <h3>Zero Code. Context Engineered.</h3>
-              <p>
-                Integrate securely via APIs with
-                <strong>no coding required</strong>, and support customers
-                across multiple languages from day one.
-              </p>
-              <img src="../images/pdp-carex/slider/img-3.png" alt="">
-            </div>
-
-            <div class="cx-slide">
-              <h3>Enterprise-Grade Security.</h3>
-              <p>
-                Connect safely to your
-                <strong>CRM, BSS, and app or web channels</strong>
-                with compliant APIs built to scale.
-              </p>
-              <img src="../images/pdp-carex/slider/img-4.png" alt="">
+            <!-- Navigation -->
+            <div class="cs-slider-controls">
+              <div class="cs-prev">
+                <img src="../images/left arrow.svg" alt="">
+              </div>
+              <div class="cs-dots">
+                <span data-slide="0" class="active"></span>
+                <span data-slide="1"></span>
+                <span data-slide="2"></span>
+                <span data-slide="3"></span>
+              </div>
+              <div class="cs-next">
+                <img src="../images/right arrow.svg" alt="">
+              </div>
             </div>
 
           </div>
-
-          <!-- CONTROLS -->
-          <div class="cx-controls">
-            <button id="cx-prev">‹</button>
-
-            <div class="cx-dots"></div>
-
-            <button id="cx-next">›</button>
-          </div>
-
         </div>
 
       </div>
+
 
     </section>
 
@@ -187,7 +200,7 @@
 
     <!-- EXPERIENCE SECTION -->
     <section class="cs-section cs-section--carex-experience"
-      style="background: url('../images/Ellipse 55.png');background-repeat: no-repeat;background-size: cover;">
+      >
       <div class="cs-section__container t-center">
         <!-- <div class="cs-blob"></div> -->
 
