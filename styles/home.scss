@@ -1635,7 +1635,8 @@ ul {
         align-items: center;
         
         @media (min-width: $breakpoint-md) {
-          padding-block: 0 19rem;
+          padding-block: 5rem 19rem;
+          // padding-block: 0 19rem;
         }
         @media (min-width: $breakpoint-lg) {
           padding-block: 0 19rem;
@@ -1759,9 +1760,7 @@ ul {
       }
 
       &carex {
-        @media (min-width: $breakpoint-md) {
-          padding-block: 5rem 19rem;
-        }
+        
         #{$app} {
           &bcircle {
             & {
@@ -1965,9 +1964,7 @@ ul {
       }
       // zerofyx: End
       &nova, &circles {
-        @media (min-width: $breakpoint-lg) {
-          // padding-bottom: 24rem;
-        }
+        
          
         #{$app} {
           &bcircle {
@@ -2048,6 +2045,16 @@ ul {
         }
       }
       &nova {
+        @media (min-width: $breakpoint-md) {
+          padding-block: 12.5rem 19rem;
+          // padding-block: 0 19rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+          padding-block: 10rem 19rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+          padding-block: 10rem 19rem;
+        }
         #{$app} {
           &hlt-title {
             // top: -22.2rem;
@@ -2074,6 +2081,16 @@ ul {
       &circles {
         @media (max-width: $breakpoint-lg - 1) {
           padding-bottom: 0;
+        }
+        @media (min-width: $breakpoint-md) {
+          padding-block: 0 4rem;
+          // padding-block: 0 19rem;
+        }
+        @media (min-width: $breakpoint-lg) {
+          padding-block: 6rem 8rem;
+        }
+        @media (min-width: $breakpoint-xl) {
+          padding-block: 6rem 19rem;
         }
         #{$section} {
           &__ {

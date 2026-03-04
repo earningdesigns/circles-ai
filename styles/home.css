@@ -1334,7 +1334,7 @@ ul {
 }
 @media (min-width: 768px) {
   .cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx, .cs-section--h-circles {
-    padding-block: 0 19rem;
+    padding-block: 5rem 19rem;
   }
 }
 @media (min-width: 992px) {
@@ -1456,11 +1456,6 @@ ul {
   }
   .cs-section--h-carex .cs-grid__item:last-child, .cs-section--h-zerofyx .cs-grid__item:last-child {
     grid-column: 7/13;
-  }
-}
-@media (min-width: 768px) {
-  .cs-section--h-carex {
-    padding-block: 5rem 19rem;
   }
 }
 .cs-section--h-carex .cs-bcircle {
@@ -1689,6 +1684,21 @@ ul {
   }
 }
 @media (min-width: 768px) {
+  .cs-section--h-nova {
+    padding-block: 12.5rem 19rem;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-nova {
+    padding-block: 10rem 19rem;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-nova {
+    padding-block: 10rem 19rem;
+  }
+}
+@media (min-width: 768px) {
   .cs-section--h-nova .cs-hlt-title {
     top: -22.2rem;
     left: 16.5rem;
@@ -1714,6 +1724,21 @@ ul {
 @media (max-width: 991px) {
   .cs-section--h-circles {
     padding-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .cs-section--h-circles {
+    padding-block: 0 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .cs-section--h-circles {
+    padding-block: 6rem 8rem;
+  }
+}
+@media (min-width: 1080px) {
+  .cs-section--h-circles {
+    padding-block: 6rem 19rem;
   }
 }
 .cs-section--h-circles .cs-section__container {
