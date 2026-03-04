@@ -1153,7 +1153,12 @@ ul {
 @media (min-width: 992px) {
   .cs-section--h-hero {
     --cs-section-container-width: 98rem;
-    min-height: 100dvh;
+    min-height: 66dvh;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-hero {
+    min-height: 94dvh;
   }
 }
 .cs-section--h-hero .cs-section__backdrop {
@@ -1292,7 +1297,17 @@ ul {
 }
 @media (min-width: 992px) {
   .cs-section--h-sdmo {
+    margin-bottom: 16rem;
+  }
+}
+@media (min-width: 1080px) {
+  .cs-section--h-sdmo {
     margin-bottom: 8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .cs-section--h-sdmo {
+    margin-bottom: 12rem;
   }
 }
 .cs-section--h-sdmo .cs-title {
@@ -1733,7 +1748,7 @@ ul {
 }
 @media (min-width: 992px) {
   .cs-section--h-circles {
-    padding-block: 6rem 8rem;
+    padding-block: 6rem 18rem;
   }
 }
 @media (min-width: 1080px) {
@@ -1828,16 +1843,6 @@ ul {
 .cs-section--h-collab .cs-description {
   margin-inline: auto;
   margin-bottom: 4.8rem;
-}
-@media (min-width: 768px) {
-  .cs-section--h-collab .cs-description {
-    width: 70%;
-  }
-}
-@media (min-width: 1400px) {
-  .cs-section--h-collab .cs-description {
-    width: 25%;
-  }
 }
 .cs-section--h-trust {
   padding-top: 7.8rem;
