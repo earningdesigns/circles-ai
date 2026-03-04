@@ -30,7 +30,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="../styles/inner-page.css">
@@ -359,7 +358,6 @@
   <script src="../js/gsap/MotionPathPlugin.min.js"></script>
   <script src="../js/gsap/SplitText.min.js"></script>
   <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <script src="../js/header.js"></script>
   <!-- Main Script -->
@@ -717,52 +715,6 @@
 
   //////
 
-
-  const slides = document.querySelectorAll('.cx-slide');
-  const nextBtn = document.getElementById('cx-next');
-  const prevBtn = document.getElementById('cx-prev');
-  const dotsContainer = document.querySelector('.cx-dots');
-
-  let index = 0;
-
-  /* Create dots */
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = document.querySelectorAll('.cx-dots span');
-
-  function showSlide(i) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-
-    slides[i].classList.add('active');
-    dots[i].classList.add('active');
-  }
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  }
-
-  function prevSlide() {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  }
-
-  function goToSlide(i) {
-    index = i;
-    showSlide(index);
-  }
-
-  nextBtn.addEventListener('click', nextSlide);
-  prevBtn.addEventListener('click', prevSlide);
-
-  /* Auto Slide */
-  setInterval(nextSlide, 5000);
 </script>
 
  <script>
