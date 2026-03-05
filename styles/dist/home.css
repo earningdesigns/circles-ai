@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   margin: 0;
   border: 0;
   padding: 0;
@@ -8,10 +10,10 @@
 :root {
   --cs-base-f-size: 1.6rem;
   --cs-base-f-family: "Plus Jakarta Sans", sans-serif;
-  --cs-color-green: #00F2A1;
+  --cs-color-green: #00f2a1;
   --cs-color-black: #000;
-  --cs-color-blue: #194AB8;
-  --cs-color-orange: #FFA860;
+  --cs-color-blue: #194ab8;
+  --cs-color-orange: #ffa860;
 }
 
 html {
@@ -54,7 +56,16 @@ svg {
   border-width: 1px 0;
   border-style: solid;
   border-color: #dfdfdf;
-  background-image: linear-gradient(90deg, #dfdfdf 4.55%, transparent 4.55%, transparent 50%, #dfdfdf 50%, #dfdfdf 54.55%, transparent 54.55%, transparent 100%);
+  background-image: linear-gradient(
+    90deg,
+    #dfdfdf 4.55%,
+    transparent 4.55%,
+    transparent 50%,
+    #dfdfdf 50%,
+    #dfdfdf 54.55%,
+    transparent 54.55%,
+    transparent 100%
+  );
   background-size: 22px 22px;
   background-position: center;
 }
@@ -67,7 +78,7 @@ svg {
   font-size: 1rem;
   /* identical to box height, or 16px */
   text-align: center;
-  color: #A0A0A0;
+  color: #a0a0a0;
   z-index: 10;
 }
 .cs-header {
@@ -173,7 +184,12 @@ svg {
   --cs-gradcircle-top: 0;
   --cs-gradcircle-left: 0;
   --cs-gradcircle-size: 59.8rem;
-  --cs-gradcircle-grad-bg: radial-gradient(50% 50% at 50% 50%, #BEFFC1 0%, rgba(57, 229, 255, 0) 87.02%, rgba(255, 255, 255, 0.5) 89.9%);
+  --cs-gradcircle-grad-bg: radial-gradient(
+    50% 50% at 50% 50%,
+    #beffc1 0%,
+    rgba(57, 229, 255, 0) 87.02%,
+    rgba(255, 255, 255, 0.5) 89.9%
+  );
   position: absolute;
   width: var(--cs-gradcircle-size);
   height: var(--cs-gradcircle-size);
@@ -204,8 +220,16 @@ svg {
   line-height: var(--cs-title-hlight-line-height);
   background-color: var(--cs-color-green);
   /* fallback */
-  background-image: -webkit-linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
-  background-image: linear-gradient(272.41deg, var(--cs-color-blue) -19.32%, var(--cs-color-green) 123.66%);
+  background-image: -webkit-linear-gradient(
+    272.41deg,
+    var(--cs-color-blue) -19.32%,
+    var(--cs-color-green) 123.66%
+  );
+  background-image: linear-gradient(
+    272.41deg,
+    var(--cs-color-blue) -19.32%,
+    var(--cs-color-green) 123.66%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
@@ -305,7 +329,7 @@ svg {
   padding-block: 0.4rem;
   padding-inline: 2.4rem 0.4rem;
   color: #fff;
-  background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+  background: linear-gradient(81.75deg, #5c8dff 23.42%, #ea4f88 146.88%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6.2rem;
 }
@@ -340,7 +364,12 @@ svg {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
 }
 .cs-btn--secondary::after {
   content: "";
@@ -349,10 +378,15 @@ svg {
   left: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
 }
 .cs-btn--secondary .cs-btn__icon {
-  background: linear-gradient(81.75deg, #5C8DFF 23.42%, #EA4F88 146.88%);
+  background: linear-gradient(81.75deg, #5c8dff 23.42%, #ea4f88 146.88%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
 }
@@ -449,10 +483,10 @@ svg {
   transform: translate(-50%, -50%);
 }
 .cs-concentric-texts .orbit-ring--2 {
-  --cs-ctext-bg: #FF8F33C7;
+  --cs-ctext-bg: #ff8f33c7;
 }
 .cs-concentric-texts .orbit-ring--3 {
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: #00f2a1b5;
 }
 .cs-concentric-texts .orbit-ring .tag {
   position: absolute;
@@ -486,8 +520,12 @@ svg {
   inset: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  width: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
-  height: calc(var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings)));
+  width: calc(
+    var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings))
+  );
+  height: calc(
+    var(--cs-orbit-size) * (var(--cs-orbit-radius) / var(--cs-orbit-rings))
+  );
   border: 1px solid black;
 }
 .cs-orbit--1 {
@@ -516,12 +554,12 @@ svg {
 .cs-orbit__pill--2 {
   top: 55%;
   left: -14%;
-  --cs-ctext-bg: #FF8F33C7;
+  --cs-ctext-bg: #ff8f33c7;
 }
 .cs-orbit__pill--3 {
   top: 32%;
   right: -6%;
-  --cs-ctext-bg: #00F2A1B5;
+  --cs-ctext-bg: #00f2a1b5;
 }
 .cs-ccircles {
   position: relative;
@@ -565,31 +603,59 @@ svg {
   width: var(--cs-bcircle-size);
   height: var(--cs-bcircle-size);
   border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(189, 255, 163, 0.75) 0%,
+    rgba(97, 255, 218, 0) 100%
+  );
 }
 .cs-bcircle--1 {
   --cs-bcircle-size: 63.6rem;
-  background: radial-gradient(50% 50% at 50% 50%, #FFA3A3 0%, rgba(194, 200, 255, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #ffa3a3 0%,
+    rgba(194, 200, 255, 0) 100%
+  );
 }
 .cs-bcircle--2 {
   --cs-bcircle-size: 19.4rem;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 156, 245, 0.87) 0%, rgba(194, 200, 255, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(255, 156, 245, 0.87) 0%,
+    rgba(194, 200, 255, 0) 100%
+  );
 }
 .cs-bcircle--3 {
   --cs-bcircle-size: 57.4rem;
-  background: radial-gradient(50% 50% at 50% 50%, #00FBFF 0%, rgba(255, 198, 99, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #00fbff 0%,
+    rgba(255, 198, 99, 0) 100%
+  );
 }
 .cs-bcircle--4 {
   --cs-bcircle-size: 16.6rem;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 81, 182, 0.87) 0%, rgba(255, 194, 195, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(255, 81, 182, 0.87) 0%,
+    rgba(255, 194, 195, 0) 100%
+  );
 }
 .cs-bcircle--5 {
   --cs-bcircle-size: 25.6rem;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 237, 156, 0.6351) 0%, rgba(255, 247, 88, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(255, 237, 156, 0.6351) 0%,
+    rgba(255, 247, 88, 0) 100%
+  );
 }
 .cs-bcircle--6 {
   --cs-bcircle-size: 100rem;
-  background: radial-gradient(50% 50% at 50% 50%, #00FF99 0%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #00ff99 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 .cs-partners-members {
   margin-top: 16rem;
@@ -795,8 +861,14 @@ svg {
   inset: 0;
   border-radius: 3.2rem;
   padding: 1px;
-  background: linear-gradient(135deg, var(--cs-color-blue), var(--cs-color-green));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  background: linear-gradient(
+    135deg,
+    var(--cs-color-blue),
+    var(--cs-color-green)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: 1;
@@ -844,7 +916,10 @@ svg {
   justify-content: center;
   gap: 4.4rem;
   z-index: 5;
-  grid-template-columns: repeat(var(--cs-foundation-list-grid-cols), minmax(0, 1fr));
+  grid-template-columns: repeat(
+    var(--cs-foundation-list-grid-cols),
+    minmax(0, 1fr)
+  );
 }
 @media (min-width: 768px) {
   .cs-foundation__list {
@@ -969,7 +1044,7 @@ svg {
   position: relative;
 }
 .cs-slider__swiper {
-  --swiper-pagination-color: #41C44E;
+  --swiper-pagination-color: #41c44e;
 }
 .cs-slider__bg {
   position: absolute;
@@ -1174,8 +1249,12 @@ svg {
   }
 }
 .cs-section--h-hero .cs-title .cs-title__highlight {
-  background-image: linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
-  background-image: -webkit-linear-gradient(90deg, #07E8A6 23.9%, #4392D3 76.1%);
+  background-image: linear-gradient(90deg, #07e8a6 23.9%, #4392d3 76.1%);
+  background-image: -webkit-linear-gradient(
+    90deg,
+    #07e8a6 23.9%,
+    #4392d3 76.1%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1241,85 +1320,115 @@ svg {
   width: 100%;
   justify-content: center;
 }
-.cs-section--h-carex .cs-section__container, .cs-section--h-zerofyx .cs-section__container {
+.cs-section--h-carex .cs-section__container,
+.cs-section--h-zerofyx .cs-section__container {
   margin-top: 6.8rem;
 }
-.cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+.cs-section--h-carex .cs-grid,
+.cs-section--h-zerofyx .cs-grid {
   --cs-grid-cols: 1;
   --cs-grid-gap: 3.2rem;
 }
 @media (min-width: 768px) {
-  .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+  .cs-section--h-carex .cs-grid,
+  .cs-section--h-zerofyx .cs-grid {
     --cs-grid-gap: 0;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-carex .cs-grid, .cs-section--h-zerofyx .cs-grid {
+  .cs-section--h-carex .cs-grid,
+  .cs-section--h-zerofyx .cs-grid {
     --cs-grid-cols: 12;
   }
-  .cs-section--h-carex .cs-grid__item:first-child, .cs-section--h-zerofyx .cs-grid__item:first-child {
+  .cs-section--h-carex .cs-grid__item:first-child,
+  .cs-section--h-zerofyx .cs-grid__item:first-child {
     grid-column: 1/6;
   }
-  .cs-section--h-carex .cs-grid__item:last-child, .cs-section--h-zerofyx .cs-grid__item:last-child {
+  .cs-section--h-carex .cs-grid__item:last-child,
+  .cs-section--h-zerofyx .cs-grid__item:last-child {
     grid-column: 6/12;
   }
 }
-.cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
+.cs-section--h-carex,
+.cs-section--h-nova,
+.cs-section--h-zerofyx {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (min-width: 768px) {
-  .cs-section--h-carex, .cs-section--h-nova, .cs-section--h-zerofyx {
+  .cs-section--h-carex,
+  .cs-section--h-nova,
+  .cs-section--h-zerofyx {
     padding-block: 12rem 19rem;
   }
 }
-.cs-section--h-carex .cs-section__backdrop, .cs-section--h-nova .cs-section__backdrop, .cs-section--h-zerofyx .cs-section__backdrop {
+.cs-section--h-carex .cs-section__backdrop,
+.cs-section--h-nova .cs-section__backdrop,
+.cs-section--h-zerofyx .cs-section__backdrop {
   max-width: var(--cs-section-container-width);
   margin-inline: auto;
   right: 0;
 }
-.cs-section--h-carex .cs-hlt-title, .cs-section--h-nova .cs-hlt-title, .cs-section--h-zerofyx .cs-hlt-title {
+.cs-section--h-carex .cs-hlt-title,
+.cs-section--h-nova .cs-hlt-title,
+.cs-section--h-zerofyx .cs-hlt-title {
   position: absolute;
   top: -22rem;
 }
 @media (min-width: 768px) {
-  .cs-section--h-carex .cs-hlt-title, .cs-section--h-nova .cs-hlt-title, .cs-section--h-zerofyx .cs-hlt-title {
+  .cs-section--h-carex .cs-hlt-title,
+  .cs-section--h-nova .cs-hlt-title,
+  .cs-section--h-zerofyx .cs-hlt-title {
     align-items: flex-end;
   }
 }
-.cs-section--h-carex .cs-liner, .cs-section--h-nova .cs-liner, .cs-section--h-zerofyx .cs-liner {
+.cs-section--h-carex .cs-liner,
+.cs-section--h-nova .cs-liner,
+.cs-section--h-zerofyx .cs-liner {
   z-index: -1;
 }
 @media (min-width: 768px) {
-  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+  .cs-section--h-carex .cs-title,
+  .cs-section--h-nova .cs-title,
+  .cs-section--h-zerofyx .cs-title {
     --cs-title-f-size: 3.2rem;
     --cs-title-hlight-f-size: 5rem;
     width: 80%;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+  .cs-section--h-carex .cs-title,
+  .cs-section--h-nova .cs-title,
+  .cs-section--h-zerofyx .cs-title {
     width: 100%;
   }
 }
 @media (min-width: 1200px) {
-  .cs-section--h-carex .cs-title, .cs-section--h-nova .cs-title, .cs-section--h-zerofyx .cs-title {
+  .cs-section--h-carex .cs-title,
+  .cs-section--h-nova .cs-title,
+  .cs-section--h-zerofyx .cs-title {
     --cs-foundation-list-grid-cols: 4;
   }
 }
 @media (min-width: 768px) {
-  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+  .cs-section--h-carex .cs-description,
+  .cs-section--h-nova .cs-description,
+  .cs-section--h-zerofyx .cs-description {
     width: 70%;
   }
 }
 @media (min-width: 992px) {
-  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+  .cs-section--h-carex .cs-description,
+  .cs-section--h-nova .cs-description,
+  .cs-section--h-zerofyx .cs-description {
     width: 100%;
   }
 }
 @media (min-width: 1200px) {
-  .cs-section--h-carex .cs-description, .cs-section--h-nova .cs-description, .cs-section--h-zerofyx .cs-description {
+  .cs-section--h-carex .cs-description,
+  .cs-section--h-nova .cs-description,
+  .cs-section--h-zerofyx .cs-description {
     --cs-foundation-list-grid-cols: 4;
   }
 }
@@ -1331,7 +1440,12 @@ svg {
 .cs-section--h-carex .cs-bcircle {
   top: -25%;
   right: -55%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(189, 255, 163, 0.75) 0%, rgba(97, 255, 218, 0.2) 48.8%, rgba(97, 255, 218, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(189, 255, 163, 0.75) 0%,
+    rgba(97, 255, 218, 0.2) 48.8%,
+    rgba(97, 255, 218, 0) 100%
+  );
 }
 .cs-section--h-carex .cs-liner {
   position: absolute;
@@ -1388,7 +1502,12 @@ svg {
 .cs-section--h-nova .cs-bcircle {
   top: -22%;
   left: -60%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(218, 189, 255, 0.75) 0%, rgba(0, 242, 255, 0.2) 48.8%, rgba(0, 242, 255, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(218, 189, 255, 0.75) 0%,
+    rgba(0, 242, 255, 0.2) 48.8%,
+    rgba(0, 242, 255, 0) 100%
+  );
 }
 .cs-section--h-nova .cs-contentbox {
   padding-left: 6.5rem;
@@ -1443,7 +1562,12 @@ svg {
 .cs-section--h-zerofyx .cs-bcircle {
   top: 0;
   right: -80%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.75) 0%, rgba(255, 0, 196, 0.1) 50%, rgba(255, 0, 196, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(101, 255, 242, 0.75) 0%,
+    rgba(255, 0, 196, 0.1) 50%,
+    rgba(255, 0, 196, 0) 100%
+  );
 }
 .cs-section--h-zerofyx .cs-liner {
   position: absolute;
@@ -1536,7 +1660,12 @@ svg {
 .cs-section--h-trust .cs-bcircle {
   top: -50%;
   left: -40%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(101, 255, 242, 0.5) 0%, rgba(43, 0, 255, 0.2) 45%, rgba(43, 0, 255, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(101, 255, 242, 0.5) 0%,
+    rgba(43, 0, 255, 0.2) 45%,
+    rgba(43, 0, 255, 0) 100%
+  );
 }
 .cs-section--h-trust .cs-titlesvg {
   display: flex;

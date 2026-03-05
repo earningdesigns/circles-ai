@@ -760,23 +760,7 @@ function onPageStartEnd() {
 
 
 function init() {
-  // Fixed Message: Start
-  // ScrollTrigger.create({
-  //   trigger: '.cs-footer',
-  //   onEnter: () => {
-  //     gsap.to('.cs-fixed-message', {
-  //       opacity: 0,
-  //       duration: 0.4
-  //     })
-  //   },
-  //   onLeaveBack: () => {
-  //     gsap.to('.cs-fixed-message', {
-  //       opacity: 1,
-  //       duration: 1
-  //     })
-  //   }
-  // })
-  // Fixed Message: End
+  
 
   // All Page Swipers: Start
   const swipers = $$(".swiper");
